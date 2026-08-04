@@ -394,7 +394,20 @@
       if (!day) return;
       const nowInfo = computeNowInfo(day);
       boardsEl.appendChild(renderBoard(day, nowInfo));
+      postHeightToParent();
     }
+
+    // STUDIO埋め込み用: iframeの外側に実際のコンテンツ高さを伝えて、
+    // 埋め込み側でiframeの高さを合わせてもらう(二重スクロール防止)
+    function postHeightToParent() {
+      if (window.parent === window) return;
+      requestAnimationFrame(() => {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'mif-timetable-resize', height: height }, '*');
+      });
+    }
+
+    window.addEventListener('resize', postHeightToParent);
 
     fetch('../data/timetable.json')
       .then(res => res.json())
