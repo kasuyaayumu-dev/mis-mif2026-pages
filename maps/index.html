@@ -83,11 +83,9 @@
 
     const map = L.map('map', {
       crs: CustomCRS,
-      minZoom: -1,
-      maxZoom: 3,
       attributionControl: false,
       center: [500, 500],
-      zoom: 1,
+      zoom: 0,
       maxBoundsViscosity: 0.8
     });
 
@@ -134,10 +132,23 @@
       updateSwitcherUI();
     }
 
-    map.setView([527, 1050], 2);
-    map.fitBounds(mapBounds);
-    const boundsPadding = 500;
-    map.setMaxBounds([[-boundsPadding, -boundsPadding], [imageHeight + boundsPadding, imageWidth + boundsPadding]]);
+    // マップ全体がちょうど収まるズームを「最大ズームアウト」として固定し、
+    // それより奥(ズームイン)は迷子になりすぎない範囲までに制限する
+    function fitToWholeMap() {
+      map.invalidateSize();
+      map.fitBounds(mapBounds, { padding: [10, 10] });
+      const fitZoom = map.getZoom();
+      map.setMinZoom(fitZoom);
+      map.setMaxZoom(fitZoom + 3);
+
+      const boundsPadding = 500;
+      map.setMaxBounds([[-boundsPadding, -boundsPadding], [imageHeight + boundsPadding, imageWidth + boundsPadding]]);
+    }
+
+    // iframe埋め込み直後はコンテナのサイズがまだ確定していないことがあるため
+    // レイアウト確定後に実行する
+    requestAnimationFrame(fitToWholeMap);
+    window.addEventListener('resize', function () { map.invalidateSize(); });
 
     const toArray = function (v) {
       if (v == null) return [];
