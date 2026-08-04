@@ -68,6 +68,20 @@
       color: #fff;
     }
     .floor-switcher button.active:hover { background: #1a73e8; }
+
+    .reset-view-control a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      font-size: 16px;
+      line-height: 1;
+      color: #333;
+      text-decoration: none;
+      background: #fff;
+    }
+    .reset-view-control a:hover { background: #f2f2f2; }
   </style>
 </head>
 <body>
@@ -132,22 +146,43 @@
       updateSwitcherUI();
     }
 
-    // マップ全体がちょうど収まるズームを「最大ズームアウト」として固定し、
-    // それより奥(ズームイン)は迷子になりすぎない範囲までに制限する
+    let initialZoom = null;
+    let initialCenter = null;
+
+    // マップ全体が収まるズームを基準に、そこからもう1段階ズームアウトでき、
+    // ズームインは迷子になりすぎない範囲(基準+2)までに制限する
     function fitToWholeMap() {
       map.invalidateSize();
       map.fitBounds(mapBounds, { padding: [10, 10] });
       const fitZoom = map.getZoom();
-      map.setMinZoom(fitZoom);
-      map.setMaxZoom(fitZoom + 3);
+      map.setMinZoom(fitZoom - 1);
+      map.setMaxZoom(fitZoom + 2);
+
+      initialZoom = fitZoom;
+      initialCenter = map.getCenter();
 
       const boundsPadding = 500;
       map.setMaxBounds([[-boundsPadding, -boundsPadding], [imageHeight + boundsPadding, imageWidth + boundsPadding]]);
     }
 
-    // iframe埋め込み直後はコンテナのサイズがまだ確定していないことがあるため
-    // レイアウト確定後に実行する
-    requestAnimationFrame(fitToWholeMap);
+    function resetView() {
+      if (initialZoom == null) return;
+      map.setView(initialCenter, initialZoom, { animate: false });
+    }
+
+    // iframe埋め込み直後はコンテナのサイズや画像読み込みがまだ確定していないことがあるため、
+    // window の load 完了後(画像込みで読み込み終わったタイミング)に実行する。
+    // それでもレイアウトが確定しきっていないことが稀にあるため、少し遅れてもう一度
+    // 補正する(基準位置がずれたまま「初期表示に戻す」ボタンの基準になるのを防ぐ)。
+    function runInitialFit() {
+      fitToWholeMap();
+      setTimeout(fitToWholeMap, 200);
+    }
+    if (document.readyState === 'complete') {
+      runInitialFit();
+    } else {
+      window.addEventListener('load', runInitialFit);
+    }
     window.addEventListener('resize', function () { map.invalidateSize(); });
 
     const toArray = function (v) {
@@ -315,6 +350,32 @@
 
     const switcherControl = new FloorSwitcherControl();
     map.addControl(switcherControl);
+
+    // ズームを初期表示(マップ全体表示)に戻すボタン。ズームボタンの下に並べる
+    const ResetViewControl = L.Control.extend({
+      options: { position: 'topleft' },
+      onAdd: function () {
+        const container = L.DomUtil.create('div', 'leaflet-bar reset-view-control');
+        L.DomEvent.disableClickPropagation(container);
+
+        const btn = L.DomUtil.create('a', '', container);
+        btn.href = '#';
+        btn.title = '初期表示に戻す';
+        btn.setAttribute('role', 'button');
+        btn.setAttribute('aria-label', '初期表示に戻す');
+        btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+          '<path d="M4 11.5L12 4l8 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '<path d="M6 10v9a1 1 0 0 0 1 1h3v-6h4v6h3a1 1 0 0 0 1-1v-9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+          '</svg>';
+        L.DomEvent.on(btn, 'click', function (e) {
+          L.DomEvent.preventDefault(e);
+          resetView();
+        });
+
+        return container;
+      }
+    });
+    map.addControl(new ResetViewControl());
 
     function updateSwitcherUI() {
       if (!switcherControl._container) return;
