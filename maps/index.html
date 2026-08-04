@@ -290,9 +290,11 @@
         });
     });
 
-    // Googleマップ風のフロア切り替えスライダー（右下に配置）
+    // Googleマップ風のフロア切り替えスライダー（右上に配置）
+    // ※STUDIO埋め込み時、ボックスの高さが実際のマップより低いと右下は
+    //   見切れてクリックできなくなることがあるため、常に見える右上にしている
     const FloorSwitcherControl = L.Control.extend({
-      options: { position: 'bottomright' },
+      options: { position: 'topright' },
       onAdd: function () {
         const container = L.DomUtil.create('div', 'floor-switcher');
         L.DomEvent.disableClickPropagation(container);
