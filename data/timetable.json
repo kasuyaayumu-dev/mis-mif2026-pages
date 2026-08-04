@@ -1,0 +1,83 @@
+{
+  "days": [
+    {
+      "id": "day1",
+      "date": "2026-09-05",
+      "title": "Day 1",
+      "subtitle": "9:00-16:00　最終受付 15:00",
+      "theme": "purple",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "columns": [
+        { "key": "av", "label": ["1F", "視聴覚室"] },
+        { "key": "hall", "label": "ホール", "children": [
+            { "key": "hall_main", "label": "メイン" },
+            { "key": "hall_sub", "label": "サブ" }
+          ]
+        },
+        { "key": "ground", "label": "グラウンド" }
+      ],
+      "events": [
+        { "columns": ["av"], "start": "09:10", "end": "09:50", "title": "英語部", "category": "pink" },
+        { "columns": ["av"], "start": "10:00", "end": "10:30", "title": "ミニ中学説明会", "category": "cyan" },
+        { "columns": ["av"], "start": "10:40", "end": "11:20", "title": "MST代表プレゼンテーション", "category": "cyan" },
+        { "columns": ["av"], "start": "11:40", "end": "12:10", "title": "ミニ中学説明会", "category": "cyan" },
+        { "columns": ["av"], "start": "12:30", "end": "13:20", "title": "キャリアプレゼンテーション（中学・高校）", "category": "cyan" },
+        { "columns": ["av"], "start": "13:30", "end": "14:10", "title": "コーラス部", "category": "pink" },
+        { "columns": ["av"], "start": "14:30", "end": "15:00", "title": "メディアクリエイションゼミ", "category": "pink" },
+        { "columns": ["av"], "start": "15:20", "end": "16:00", "title": "箏曲部", "category": "pink" },
+
+        { "columns": ["hall_main"], "start": "09:20", "end": "10:20", "title": "ポップダンス部", "category": "pink" },
+        { "columns": ["hall_main"], "start": "11:20", "end": "12:20", "title": "中3身体表現", "category": "pink" },
+        { "columns": ["hall_main"], "start": "13:20", "end": "14:20", "title": "演劇部", "category": "pink" },
+        { "columns": ["hall_main"], "start": "15:00", "end": "15:40", "title": "吹奏楽部", "category": "pink" },
+
+        { "columns": ["hall_sub"], "start": "11:20", "end": "12:20", "title": "卓球部", "category": "purple" },
+        { "columns": ["hall_sub"], "start": "12:50", "end": "13:50", "title": "新体操部", "category": "purple" },
+        { "columns": ["hall_sub"], "start": "15:00", "end": "16:00", "title": "バレーボール部", "category": "purple" },
+
+        { "columns": ["ground"], "start": "09:30", "end": "10:30", "title": "陸上競技部", "category": "purple" },
+        { "columns": ["ground"], "start": "12:00", "end": "14:00", "title": "テニス部（テニスコート）", "category": "purple" }
+      ]
+    },
+    {
+      "id": "day2",
+      "date": "2026-09-06",
+      "title": "Day 2",
+      "subtitle": "9:00-15:00　最終受付 14:00",
+      "theme": "cyan",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "columns": [
+        { "key": "av", "label": ["1F", "視聴覚室"] },
+        { "key": "hall", "label": "ホール", "children": [
+            { "key": "hall_main", "label": "メイン" },
+            { "key": "hall_sub", "label": "サブ" }
+          ]
+        },
+        { "key": "ground", "label": "グラウンド" }
+      ],
+      "events": [
+        { "columns": ["av"], "start": "09:10", "end": "09:50", "title": "コーラス部", "category": "pink" },
+        { "columns": ["av"], "start": "10:10", "end": "10:40", "title": "ミニ中学説明会", "category": "cyan" },
+        { "columns": ["av"], "start": "11:00", "end": "11:50", "title": "キャリアプレゼンテーション（中学・高校）", "category": "cyan" },
+        { "columns": ["av"], "start": "12:10", "end": "12:40", "title": "ミニ中学説明会", "category": "cyan" },
+        { "columns": ["av"], "start": "12:50", "end": "13:50", "title": "英語レシテーション・スピーチ", "category": "cyan" },
+        { "columns": ["av"], "start": "14:10", "end": "14:50", "title": "英語部", "category": "pink" },
+
+        { "columns": ["hall_main"], "start": "09:20", "end": "10:00", "title": "吹奏楽部", "category": "pink" },
+        { "columns": ["hall_main"], "start": "10:40", "end": "11:40", "title": "中3身体表現", "category": "pink" },
+        { "columns": ["hall_main"], "start": "12:40", "end": "13:20", "title": "新体操部", "category": "pink" },
+        { "columns": ["hall_main"], "start": "14:00", "end": "15:00", "title": "ポップダンス部", "category": "pink" },
+
+        { "columns": ["hall_sub"], "start": "10:00", "end": "11:00", "title": "バレーボール部", "category": "purple" },
+        { "columns": ["hall_sub"], "start": "12:10", "end": "13:10", "title": "卓球部", "category": "purple" },
+
+        { "columns": ["ground"], "start": "09:30", "end": "10:30", "title": "陸上競技部", "category": "purple" },
+        { "columns": ["ground"], "start": "12:00", "end": "14:00", "title": "テニス部（テニスコート）", "category": "purple" },
+
+        { "columns": ["av", "hall_main", "hall_sub"], "start": "15:00", "end": "16:00", "title": "閉園\n完全退園", "category": "closed" }
+      ]
+    }
+  ]
+}
