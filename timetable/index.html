@@ -119,6 +119,33 @@
   .event-cell.clickable { cursor: pointer; }
   .event-cell.clickable:hover { filter: brightness(0.96); }
 
+  /* 幅が狭くなるほど文字サイズと行の高さを段階的に縮める */
+  @media (max-width: 640px) {
+    :root { --row-h: 17px; }
+    #app { padding: 10px 6px 30px; }
+    .board-title { font-size: 22px; padding: 10px 0 6px; }
+    .board-subtitle { font-size: 11px; }
+    .grid { font-size: 10px; }
+    .grid thead th { font-size: 10.5px; padding: 6px 2px; }
+    .grid td.hour-cell { font-size: 15px; }
+    .grid td.min-cell { font-size: 8px; }
+    .event-cell { font-size: 9px; line-height: 1.25; }
+    .event-cell .time-range { font-size: 8px; }
+    .popup-card { max-width: 300px; padding: 16px; }
+  }
+
+  @media (max-width: 420px) {
+    :root { --row-h: 13px; }
+    .board-title { font-size: 18px; }
+    .board-subtitle { font-size: 9.5px; }
+    .grid { font-size: 8px; }
+    .grid thead th { font-size: 9px; padding: 4px 2px; }
+    .grid td.hour-cell { font-size: 12px; }
+    .grid td.min-cell { font-size: 6.5px; }
+    .event-cell { font-size: 7px; line-height: 1.15; }
+    .event-cell .time-range { font-size: 6px; }
+  }
+
   .now-line {
     position: absolute;
     left: 0; right: 0;
@@ -218,7 +245,12 @@
 
   <script>
     const ROW_MIN = 10; // 1行あたりの分数
-    const ROW_H = 22;   // --row-h と合わせる(px)
+
+    // --row-h はメディアクエリで幅に応じて変わるため、都度CSS変数から実際の値を読む
+    function getRowH() {
+      const v = getComputedStyle(document.documentElement).getPropertyValue('--row-h');
+      return parseFloat(v) || 22;
+    }
 
     function toMinutes(t) {
       const [h, m] = t.split(':').map(Number);
@@ -426,7 +458,7 @@
         requestAnimationFrame(() => {
           const theadH = thead.getBoundingClientRect().height;
           const offsetMin = nowInfo.nowMin - startMin;
-          const top = theadH + (offsetMin / ROW_MIN) * ROW_H;
+          const top = theadH + (offsetMin / ROW_MIN) * getRowH();
           line.style.top = top + 'px';
         });
       }
@@ -580,7 +612,13 @@
       });
     }
 
-    window.addEventListener('resize', postHeightToParent);
+    // 幅が変わるとメディアクエリで行の高さ・文字サイズが変わるため、
+    // 現在時刻ラインの位置とiframeの高さを再計算する(頻発しすぎないようdebounce)
+    let resizeTimer = null;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(render, 150);
+    });
 
     fetch('../data/timetable.json')
       .then(res => res.json())
