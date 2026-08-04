@@ -167,27 +167,41 @@
     border-radius: 3px;
   }
 
-  .popup-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    z-index: 1000;
-  }
-  .popup-overlay.hidden { display: none; }
   .popup-card {
-    position: relative;
-    width: 100%;
-    max-width: 340px;
-    background: rgba(255,255,255,.96);
+    position: absolute;
+    width: calc(100% - 24px);
+    max-width: 320px;
+    background: rgba(255,255,255,.97);
     border-radius: 14px;
     box-shadow: 0 10px 30px rgba(0,0,0,.25);
     border: 1px solid rgba(255,255,255,.3);
     backdrop-filter: blur(10px);
-    padding: 20px;
+    padding: 18px;
+    z-index: 1000;
+  }
+  .popup-card.hidden { display: none; }
+  .popup-card::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: inherit;
+    border: inherit;
+    left: var(--arrow-left, 24px);
+  }
+  .popup-card.arrow-bottom::after {
+    bottom: -8px;
+    transform: rotate(45deg);
+    border-top: none;
+    border-left: none;
+    box-shadow: 3px 3px 3px -2px rgba(0,0,0,.08);
+  }
+  .popup-card.arrow-top::after {
+    top: -8px;
+    transform: rotate(45deg);
+    border-bottom: none;
+    border-right: none;
+    box-shadow: -3px -3px 3px -2px rgba(0,0,0,.06);
   }
   .popup-close {
     position: absolute;
@@ -239,9 +253,7 @@
     <div id="boards"></div>
   </div>
 
-  <div class="popup-overlay hidden" id="popupOverlay">
-    <div class="popup-card" id="popupCard"></div>
-  </div>
+  <div class="popup-card hidden" id="popupCard"></div>
 
   <script>
     const ROW_MIN = 10; // 1行あたりの分数
@@ -429,7 +441,10 @@
               td.appendChild(timeEl);
 
               td.classList.add('clickable');
-              td.addEventListener('click', () => openPopup(cell.event, leaf.venueLabel));
+              td.addEventListener('click', e => {
+                e.stopPropagation();
+                openPopup(cell.event, leaf.venueLabel, td);
+              });
             }
             tr.appendChild(td);
           } else {
@@ -468,7 +483,7 @@
 
     let iconBase = '';
 
-    function openPopup(event, venueLabel) {
+    function openPopup(event, venueLabel, anchorEl) {
       const card = document.getElementById('popupCard');
       card.innerHTML = '';
 
@@ -544,19 +559,62 @@
         card.appendChild(link);
       }
 
-      document.getElementById('popupOverlay').classList.remove('hidden');
+      card.classList.remove('hidden');
+      positionPopup(card, anchorEl);
+    }
+
+    // クリックしたセルの近くにポップアップを表示する(画面中央固定にしない)
+    function positionPopup(card, anchorEl) {
+      const rect = anchorEl.getBoundingClientRect();
+      const scrollX = window.scrollX;
+      const scrollY = window.scrollY;
+      const viewportW = document.documentElement.clientWidth;
+      const viewportH = window.innerHeight;
+
+      const cardW = Math.min(320, viewportW - 24);
+      card.style.width = cardW + 'px';
+
+      // 横位置: セルの左端基準、画面外に出ないようclamp
+      let left = rect.left + scrollX;
+      left = Math.max(scrollX + 8, Math.min(left, scrollX + viewportW - cardW - 8));
+
+      const cardH = card.offsetHeight || 200;
+      const spaceBelow = (scrollY + viewportH) - (rect.bottom + scrollY);
+      const showBelow = spaceBelow > cardH + 16 || rect.top < cardH + 16;
+
+      let top;
+      if (showBelow) {
+        top = rect.bottom + scrollY + 10;
+        card.classList.remove('arrow-top');
+        card.classList.add('arrow-bottom');
+      } else {
+        top = rect.top + scrollY - cardH - 10;
+        card.classList.remove('arrow-bottom');
+        card.classList.add('arrow-top');
+      }
+
+      const arrowLeft = Math.max(16, Math.min(rect.left + scrollX - left + rect.width / 2 - 7, cardW - 28));
+
+      card.style.left = left + 'px';
+      card.style.top = top + 'px';
+      card.style.setProperty('--arrow-left', arrowLeft + 'px');
     }
 
     function closePopup() {
-      document.getElementById('popupOverlay').classList.add('hidden');
+      document.getElementById('popupCard').classList.add('hidden');
     }
 
-    document.getElementById('popupOverlay').addEventListener('click', e => {
-      if (e.target.id === 'popupOverlay') closePopup();
+    document.addEventListener('click', e => {
+      const card = document.getElementById('popupCard');
+      if (card.classList.contains('hidden')) return;
+      if (card.contains(e.target) || e.target.closest('.event-cell.clickable')) return;
+      closePopup();
     });
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closePopup();
     });
+    window.addEventListener('scroll', closePopup, { passive: true });
+    window.addEventListener('resize', closePopup);
 
     function todayString(d) {
       const y = d.getFullYear();
