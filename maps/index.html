@@ -111,6 +111,17 @@
       markerLayers[floor] = L.layerGroup();
     });
 
+    // ?floor=2 や ?floor=2階 のようなクエリで初期表示フロアを指定できるようにする
+    function getInitialFloor() {
+      const params = new URLSearchParams(location.search);
+      let f = params.get('floor');
+      if (!f) return '1階';
+      f = decodeURIComponent(f).trim();
+      if (floorConfig[f]) return f;
+      if (/^[1-3]$/.test(f)) return f + '階';
+      return '1階';
+    }
+
     function setFloor(floor) {
       if (!floorConfig[floor]) return;
       floorOrder.forEach(function (f) {
@@ -299,7 +310,7 @@
       });
     }
 
-    setFloor('1階');
+    setFloor(getInitialFloor());
 
     document.addEventListener('click', function (e) {
       const a = e.target.closest('a.popup-link');
