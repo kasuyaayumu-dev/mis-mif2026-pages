@@ -1,0 +1,200 @@
+[
+    {
+      "latlng": [588, 1034],
+      "floor": "1階",
+      "badges" : [ { "n": 30, "color": "#1C85FB"} ],
+      "iconUrl": ["https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png","https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Zemi.png"],
+      "groupName": ["高校MST","学習部"],
+      "eventName": ["MST研究発表","基礎ゼミ＋基礎研究α"],
+      "description": ["高校MSTの基礎研究βでは生徒一人一人がテーマを持って研究しています。この研究の成果をプレゼンテーションします。","J2・3で実施する基礎ゼミの成果発表です。各ゼミの特徴に応じた展示・ワークショップ等を実施するので、ぜひお越しください！"],
+      "pageUrl": ["https://mif-2025.studio.site/detail/2-30","https://mif-2025.studio.site/detail/1-30"],
+      "popupDirection": "bottom"
+    },
+    {
+        "latlng": [414, 157.5],
+        "floor": "1階",
+        "badges" : [ { "n": 1, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1A.png",
+        "groupName": "高1A",
+        "eventName": "ｼﾞｭﾗｼﾞｭﾗｼﾞｭﾗｼｯｸｻﾊﾞｲﾊﾞﾙ",
+        "description": "恐竜の襲撃から脱出！複数のゾーンで防災クイズに挑み、得点を集めて恐竜を撃退しよう。",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-1",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [458, 222],
+        "floor": "1階",
+        "badges" : [ { "n": 2, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1B1.png",
+        "groupName": "高1B1",
+        "eventName": "GATE3",
+        "description": "ここはとある国の地下通路。ある国に装飾された通路の違和感を全て見抜いて脱出する新感覚ゲーム！",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-2",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [484, 313],
+        "floor": "1階",
+        "badges" : [ { "n": 3, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1C.png",
+        "groupName": "高1C",
+        "eventName": "USJ (Utopia S1C Journey)",
+        "description": "ゲームの世界に迷い込む！？〜3つのアトラクションを越えて現実に戻る旅が今始まる〜",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-3",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [505, 409],
+        "floor": "1階",
+        "badges" : [ { "n": 4, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1D.png",
+        "groupName": "高1D",
+        "eventName": "片道切符〜偽楽園行き〜",
+        "description": "「本当の幸せとは何か」「現実をどう生きるか」を体感的に考えさせられる構成になっているエンタメと学習が融合した新しい形のお化け屋敷です。",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-4",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [507.5, 524],
+        "floor": "1階",
+        "badges" : [ { "n": 5, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Irenic.png",
+        "groupName": "Irenic",
+        "eventName": "Escape the Poverty Cycle",
+        "description": "人生すごろくを通して、日本の隠れた貧困を疑似体験。選択を重ね、格差や社会の壁をリアルに実感しよう！",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-5",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [493.5, 616.5],
+        "floor": "1階",
+        "badges" : [ { "n": 6, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EEng.png",
+        "groupName": "Enjoy English!!",
+        "eventName": "Royal Mystery Line：ロンドン地下鉄事件薄「消えた王家の秘宝と地下に潜む影」",
+        "description": "【探偵募集中】英国王家の秘宝をめぐる盗難事件。その謎解きが今日、このMIFで、ロンドンの地下鉄駅を舞台に繰り広げられる。",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-6",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [454, 714.5],
+        "floor": "1階",
+        "badges" : [ { "n": 7, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Kalon.png",
+        "groupName": "Kalon",
+        "eventName": "Reclaim Utopia – DIYポジティブトートバッグ",
+        "description": "不要布をアップサイクルし、ポジティブな言葉で彩るDIYトート制作ワークショップ",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-7",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [416.5, 779],
+        "floor": "1階",
+        "badges" : [ { "n": 8, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Happiness.png",
+        "groupName": "Happiness charge",
+        "eventName": "「わたしの“ハート”をつくる時間」〜モールドールで見つける、わたしの大事なもの〜",
+        "description": "ふわふわのモールドール作りを通して、大切なものを見つめ直し、癒しと幸福感を体験できるワークショップ。",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-8",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [561.5, 215],
+        "floor": "1階",
+        "badges" : [ { "n": 9, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1E.png",
+        "groupName": "S1E",
+        "eventName": "Fortune Telling in a Utopia",
+        "description": "他ではできない、特別な占い。カードもイベントも空間も、すべて私たちの手作り。没入感あふれる占いの世界で起きる様々なイベントを楽しめます！",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-9",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [598.5, 278],
+        "floor": "1階",
+        "badges" : [ { "n": 10, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1F.png",
+        "groupName": "S1F",
+        "eventName": "Royal Senses〜Find the utopia〜",
+        "description": "高級品か安物か、難問クイズに正解し、トロフィーゲットを目指そう！格付けチェックで、一流か三流か、あなたのセンスが試される！",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-10",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [628.5, 340],
+        "floor": "1階",
+        "badges" : [ { "n": 11, "color": "#645DBB"}, { "n": 12, "color": "#645DBB"} ],
+        "iconUrl": ["https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TeaClub.png","https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Bordgame.png"],
+        "groupName": ["茶道部","囲碁・将棋・チェス部"],
+        "eventName": ["茶道部お茶会","囲碁・将棋・チェス部体験"],
+        "description": ["部員による美しいお点前の披露と、点てたての抹茶をご提供します！茶道の魅力に、ふれてみませんか？","囲碁・将棋・チェス部での活動を実際の対局を通して味わってもらえる体験型の部活紹介です。"],
+        "pageUrl": ["https://mif-2025.studio.site/detail/2-11","https://mif-2025.studio.site/detail/2-12"],
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [353.5, 926],
+        "floor": "1階",
+        "badges" : [ { "n": 14, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Science.png",
+        "groupName": "サイエンス部",
+        "eventName": "楽しくサイエンス",
+        "description": "科学の不思議を体験しよう！",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-14",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [548.5, 745],
+        "floor": "1階",
+        "badges" : [ { "n": 13, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Computer.png",
+        "groupName": "コンピュータ部",
+        "eventName": "昆布理想島(Computopia)",
+        "description": "コンピュータ部では、VRやVTuber、ボカロ制作などの部員が考えた5種類の体験で「理想郷」を表現します。どうぞ昆布理想島をお楽しみください！",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-13",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [281.5, 804.5],
+        "floor": "1階",
+        "badges" : [ { "n": 15, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Railway.png",
+        "groupName": "鉄道研究部",
+        "eventName": "Utopia Railway 2025",
+        "description": "鉄道研究部の成果をNゲージ展示や映像上映で発表。留学生による海外鉄道紹介もあり、三田国際らしい多彩で国際的な鉄道空間を創出します。",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-15",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [243.5, 739],
+        "floor": "1階",
+        "badges" : [ { "n": 16, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2A.png",
+        "groupName": "高2A",
+        "eventName": "冥土喫鎖",
+        "description": "おかえりなさいませ、ご主人様...人形にされ凄惨に散ったあなたを待つのは、冥土の入口で蠢く執念深きメイドとの死闘。帰還できる者はごく僅か",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-16",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [200, 676.5],
+        "floor": "1階",
+        "badges" : [ { "n": 17, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
+        "groupName": "高2B",
+        "eventName": "ゲームセンター〜竜宮城〜",
+        "description": "この企画は海の中のゲームセンター！「貝殻通貨（Shell）」を使っていろんなミニゲームに挑戦しよう！他にもプリクラ風フォトブースもあるよ♪",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-17",
+        "popupDirection": "bottom"
+    },
+    {
+        "latlng": [157, 615.5],
+        "floor": "1階",
+        "badges" : [ { "n": 18, "color": "#645DBB"} ],
+        "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2C.png",
+        "groupName": "高2C",
+        "eventName": "お菓子な家",
+        "description": "森に一歩足を踏み入れた瞬間、甘い誘惑があなたを導く──戻れない冒険と、隠された秘密の世界が始まる。",
+        "pageUrl": "https://mif-2025.studio.site/detail/2-18",
+        "popupDirection": "bottom"
+    }
+]

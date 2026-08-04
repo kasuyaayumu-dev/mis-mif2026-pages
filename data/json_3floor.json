@@ -1,0 +1,123 @@
+[
+  {
+      "latlng": [536, 994],
+      "floor": "1階",
+      "badges" : [ { "n": 30, "color": "#1C85FB"} ],
+      "iconUrl": ["https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png","https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Zemi.png"],
+      "groupName": ["高校MST","学習部"],
+      "eventName": ["MST研究発表","基礎ゼミ＋基礎研究α"],
+      "description": ["高校MSTの基礎研究βでは生徒一人一人がテーマを持って研究しています。この研究の成果をプレゼンテーションします。","J2・3で実施する基礎ゼミの成果発表です。各ゼミの特徴に応じた展示・ワークショップ等を実施するので、ぜひお越しください！"],
+      "pageUrl": ["https://mif-2025.studio.site/detail/2-30","https://mif-2025.studio.site/detail/1-30"],
+      "popupDirection": "bottom"
+  },
+  {
+    "latlng": [279, 763],
+    "floor": "1階",
+    "badges": [{ "n": 4, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Cafeteria.png",
+    "groupName": "レパスト",
+    "eventName": "学校カフェテリア　食品販売",
+    "description": "3階カフェテリアではMITA丼とカレーを販売します。テントでは、ポテト・唐揚げ・チュロスを販売します。",
+    "pageUrl": "https://mif-2025.studio.site/detail/1-35",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [410, 154],
+    "floor": "1階",
+    "badges": [{ "n": 1, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J10.png",
+    "groupName": "中1学年企画",
+    "eventName": "個人プレゼンテーション",
+    "description": "中学1年生のテーマは「自己理解」です。ひとりひとりがプレゼンテーションを行います。中学1年生の等身大を感じてください。",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-1",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [447, 214],
+    "floor": "1階",
+    "badges": [{ "n": 1, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J10.png",
+    "groupName": "中1学年企画",
+    "eventName": "個人プレゼンテーション",
+    "description": "中学1年生のテーマは「自己理解」です。ひとりひとりがプレゼンテーションを行います。中学1年生の等身大を感じてください。",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-1",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [479, 308],
+    "floor": "1階",
+    "badges": [{ "n": 1, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J10.png",
+    "groupName": "中1学年企画",
+    "eventName": "個人プレゼンテーション",
+    "description": "中学1年生のテーマは「自己理解」です。ひとりひとりがプレゼンテーションを行います。中学1年生の等身大を感じてください。",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-1",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [493, 396],
+    "floor": "1階",
+    "badges": [{ "n": 1, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J10.png",
+    "groupName": "中1学年企画",
+    "eventName": "個人プレゼンテーション",
+    "description": "中学1年生のテーマは「自己理解」です。ひとりひとりがプレゼンテーションを行います。中学1年生の等身大を感じてください。",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-1",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [497, 507],
+    "floor": "1階",
+    "badges": [{ "n": 1, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J10.png",
+    "groupName": "中1学年企画",
+    "eventName": "個人プレゼンテーション",
+    "description": "中学1年生のテーマは「自己理解」です。ひとりひとりがプレゼンテーションを行います。中学1年生の等身大を感じてください。",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-1",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [482, 598],
+    "floor": "1階",
+    "badges": [{ "n": 1, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J10.png",
+    "groupName": "中1学年企画",
+    "eventName": "個人プレゼンテーション",
+    "description": "中学1年生のテーマは「自己理解」です。ひとりひとりがプレゼンテーションを行います。中学1年生の等身大を感じてください。",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-1",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [448, 690],
+    "floor": "1階",
+    "badges": [{ "n": 1, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J10.png",
+    "groupName": "中1学年企画",
+    "eventName": "個人プレゼンテーション",
+    "description": "中学1年生のテーマは「自己理解」です。ひとりひとりがプレゼンテーションを行います。中学1年生の等身大を感じてください。",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-1",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [317, 945],
+    "floor": "1階",
+    "badges": [{ "n": 3, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Shakespare.png",
+    "groupName": "Shakespeare Project",
+    "eventName": "Booktopia: Blind date with books",
+    "description": "本とブラインドデート！作者と題名は秘密。選んだ本を読んでマッチしたらフォトブースで写真を撮ろう！本を読みながらヨギボーでリラックスできる！",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-3",
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [411, 750],
+    "floor": "1階",
+    "badges": [{ "n": 2, "color": "#36BDDB" }],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/LHC.png",
+    "groupName": "図書委員会",
+    "eventName": "古本市〜どうぞのいす〜",
+    "description": "図委員会／MIS古本まつり　様々な古本を販売しています♪　「どうぞのいす」をテーマに、新たな世界を見せてくれる本と最高の出逢いをしませんか？",
+    "pageUrl": "https://mif-2025.studio.site/detail/3-2",
+    "popupDirection": "bottom"
+  }
+]

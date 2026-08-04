@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>文化祭マップ</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+            html, body { background: transparent; }
+#map { background: transparent; }
+.leaflet-container { background: transparent !important; }
+    #map { height: 800px; width: 100%; }
+
+    .leaflet-popup-bottom { transform: translateY(100%); }
+    .leaflet-popup-bottom .leaflet-popup-tip { transform: rotate(180deg); bottom: auto; top: 0; }
+
+    .custom-popup .leaflet-popup-content-wrapper {
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(10px);
+    }
+    .custom-popup .leaflet-popup-tip {
+      background: white; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .custom-popup .leaflet-popup-close-button {
+      color: #999; font-size: 18px; padding: 8px;
+    }
+    .custom-popup .leaflet-popup-close-button:hover {
+      color: #333; background-color: rgba(0,0,0,0.05); border-radius: 50%;
+    }
+
+    /* 丸い番号バッジ用 */
+    .badge-grid { display: grid; align-items: center; justify-items: center; }
+    .badge { border-radius: 50%; color:#fff; font-weight:700; text-align:center;
+             display:inline-flex; align-items:center; justify-content:center;
+             border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,.28); }
+    .badge.sm { width:22px; height:22px; font-size:12px; line-height:22px; }
+    .badge.lg { width:28px; height:28px; font-size:14px; line-height:28px; }
+  </style>
+</head>
+<body>
+  <div id="map"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const Domain = 'https://mis-mif2025.studio.site/detail/';
+    const IconP  = 'https://mis-mif2025.studio.site/Icon/';
+    const MapP   = 'https://mis-mif2025.studio.site/Map/';
+
+    L.Icon.Default.imagePath = 'https://unpkg.com/leaflet@1.9.4/dist/images/';
+
+    const CustomCRS = L.extend({}, L.CRS.Simple, {
+      transformation: new L.Transformation(1, 0, -1, 1000)
+    });
+
+    const map = L.map('map', {
+      crs: CustomCRS,
+      minZoom: -1,
+      maxZoom: 3,
+      attributionControl: false,
+      center: [500, 500],
+      zoom: 1,
+      maxBoundsViscosity: 0.8
+    });
+
+    const imageWidth = 1320, imageHeight = 920;
+    const mapBounds = [[0, 0], [imageHeight, imageWidth]];
+
+    const floors = {
+      "1階": L.imageOverlay(
+        '../image/map/floor1_2.png',
+        mapBounds
+      )
+    };
+
+    const markerLayers = { "1階": L.layerGroup() };
+
+    floors["1階"].addTo(map);
+    markerLayers["1階"].addTo(map);
+
+    map.setView([527, 1050], 2);
+    map.fitBounds(mapBounds);
+    const boundsPadding = 500;
+    map.setMaxBounds([[-boundsPadding, -boundsPadding], [imageHeight + boundsPadding, imageWidth + boundsPadding]]);
+
+    map.on('baselayerchange', function (e) {
+      for (const key in markerLayers) map.removeLayer(markerLayers[key]);
+      map.addLayer(markerLayers[e.name]);
+    });
+
+    const toArray = function(v) {
+      if (v == null) return [];
+      return Array.isArray(v) ? v : [v];
+    };
+
+    function buildPopupHTML(data) {
+      const iconUrls = toArray(data.iconUrl);
+      const groups   = toArray(data.groupName);
+      const events   = toArray(data.eventName);
+      const descs    = toArray(data.description);
+      const pages    = toArray(data.pageUrl);
+
+      const count = Math.max(iconUrls.length, groups.length, events.length, descs.length, pages.length);
+      const items = [];
+
+      for (var i = 0; i < count; i++) {
+        const icon = iconUrls[i] || '';
+        const grp  = groups[i]   || '';
+        const evt  = events[i]   || '';
+        const dsc  = descs[i]    || '';
+        const url  = pages[i]    || '';
+
+        var itemHtml = '<div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #ddd;">';
+
+        if (icon) {
+          itemHtml += '<img src="' + icon + '" alt="' + grp + '" style="width:50px; height:50px; border-radius:50%;">';
+        } else {
+          itemHtml += '<div style="width:50px; height:50px; border-radius:50%; background:#eee;"></div>';
+        }
+
+        itemHtml += '<div style="flex:1; min-width:0;">';
+        itemHtml += '<div style="font-weight:700; font-size:1.05em; line-height:1.3">' + evt + '</div>';
+        itemHtml += '<div style="font-size:0.85em; color:#555; margin-bottom:6px;">' + grp + '</div>';
+
+        if (dsc) {
+          itemHtml += '<p style="font-size:13px; margin:0 0 8px 0;">' + dsc + '</p>';
+        }
+        if (url) {
+          itemHtml += '<a href="#" class="popup-link" data-url="' + url + '" ' +
+              'style="display:inline-block; padding:8px 10px; background:#007bff; color:#fff; ' +
+              'text-decoration:none; border-radius:6px; font-size:13px; cursor:pointer;">詳しく見る</a>';
+              }
+
+        itemHtml += '</div></div>';
+        items.push(itemHtml);
+      }
+
+      return '<div style="max-height:340px; overflow-y:auto; width:300px;">' + items.join('') + '</div>';
+    }
+
+    // JSONから「表示用バッジ配列」を作る（どの記法でもOKにする）
+    function badgesFromData(d){
+      if (Array.isArray(d.badges)) return d.badges.map(b => ({ n: String(b.n ?? b.num ?? ''), color: b.color || '#6C5CE7' }));
+      const nums   = (Array.isArray(d.badgeNumbers) ? d.badgeNumbers : (Array.isArray(d.number) ? d.number : (d.number != null ? [d.number] : []))).map(String);
+      const colors = (Array.isArray(d.badgeColors)  ? d.badgeColors  : (Array.isArray(d.color)  ? d.color  : (d.color  != null ? [d.color]  : [])));
+      const len = Math.max(nums.length, colors.length);
+      const DEF = '#6C5CE7';
+      const out = [];
+      for (let i=0; i<len; i++) out.push({ n: String(nums[i] ?? ''), color: colors[i] || DEF });
+      // 単発で旧来の「iconUrlだけ」のデータでも最低1つは描画する
+      return out.length ? out : [{ n: '', color: DEF }];
+    }
+
+    // バッジHTMLを作成（2列で横並び。1件は大きめ）
+    function makeBadgeHTML(badges){
+      const many = badges.length > 1;
+      const sizeClass = many ? 'sm' : 'lg';
+      const cols = many ? 2 : 1;
+      const gap = many ? 4 : 0;
+      const rows = Math.ceil(badges.length / cols);
+      const unit = many ? 22 : 28;
+      const width  = cols * unit + (cols-1) * gap;
+      const height = rows * unit + (rows-1) * gap;
+
+      const items = badges.map(b =>
+        `<span class="badge ${sizeClass}" style="background:${b.color}">${b.n}</span>`
+      ).join('');
+
+      const gridStyle =
+        `grid-template-columns: repeat(${cols}, ${unit}px);`+
+        `gap:${gap}px;width:${width}px;height:${height}px`;
+
+      return { html: `<div class="badge-grid" style="${gridStyle}">${items}</div>`,
+               size: [width, height] };
+    }
+
+    // DivIcon でバッジマーカーを作る
+    function buildBadgeIcon(badges){
+      const { html, size } = makeBadgeHTML(badges);
+      return L.divIcon({
+        className: 'badge-marker',
+        html,
+        iconSize: size,
+        iconAnchor: [ size[0] / 2, size[1] / 2 ] // 中央基準
+      });
+    }
+
+    function addMarkerFromJson(data) {
+      const layer = markerLayers[data.floor];
+      if (!layer) return;
+
+      const badges = badgesFromData(data);
+      const icon = buildBadgeIcon(badges);
+
+      const marker = L.marker(data.latlng, { icon })
+        .addTo(layer)
+        .bindPopup(buildPopupHTML(data), {
+          maxWidth: 320, autoPan:false,
+          offset: data.popupDirection === 'top' ? [0, -50] : [0, 10],
+          className: 'custom-popup'
+        });
+
+      // 視認性のためのホバー効果（任意）
+      marker.on('mouseover', function(){
+        const el = this._icon;
+        if (el) el.style.filter = 'drop-shadow(0 4px 10px rgba(0,0,0,.35))';
+      });
+      marker.on('mouseout', function(){
+        const el = this._icon;
+        if (el) el.style.filter = '';
+      });
+    }
+
+    function loadMarkerData(data) {
+      console.log('Loading marker data...');
+
+      if (!Array.isArray(data)) {
+        throw new Error('JSONのトップレベルが配列ではありません');
+      }
+
+      console.log('Loaded markers:', data.length);
+
+      for (var i = 0; i < data.length; i++) {
+        addMarkerFromJson(data[i]);
+      }
+
+      console.log('Markers added successfully');
+    }
+
+    fetch('../data/json_1floor.json')
+      .then(function(res) { return res.json(); })
+      .then(function(data) { loadMarkerData(data); })
+      .catch(function(err) {
+        console.error('Error loading markers:', err);
+        alert('マーカーデータの読み込みに失敗しました: ' + err.message);
+      });
+
+    document.addEventListener('click', function(e){
+      const a = e.target.closest('a.popup-link');
+      if (!a) return;
+      e.preventDefault();
+      const url = a.getAttribute('data-url');
+      try {
+        // 埋め込みなら親(トップ)を同じタブで遷移
+        if (window.top && window.top !== window) {
+          window.top.location.href = url;
+        } else {
+          window.location.href = url; // 単独表示なら自分を遷移
+        }
+      } catch {
+        // 何かでブロックされた場合のフォールバック
+        window.location.href = url;
+      }
+    }, { passive:false });
+  </script>
+</body>
+</html>
