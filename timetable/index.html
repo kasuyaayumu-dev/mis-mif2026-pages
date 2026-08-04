@@ -180,29 +180,6 @@
     z-index: 1000;
   }
   .popup-card.hidden { display: none; }
-  .popup-card::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 14px;
-    background: inherit;
-    border: inherit;
-    left: var(--arrow-left, 24px);
-  }
-  .popup-card.arrow-bottom::after {
-    bottom: -8px;
-    transform: rotate(45deg);
-    border-top: none;
-    border-left: none;
-    box-shadow: 3px 3px 3px -2px rgba(0,0,0,.08);
-  }
-  .popup-card.arrow-top::after {
-    top: -8px;
-    transform: rotate(45deg);
-    border-bottom: none;
-    border-right: none;
-    box-shadow: -3px -3px 3px -2px rgba(0,0,0,.06);
-  }
   .popup-close {
     position: absolute;
     top: 8px;
@@ -585,19 +562,12 @@
       let top;
       if (showBelow) {
         top = rect.bottom + scrollY + 10;
-        card.classList.remove('arrow-top');
-        card.classList.add('arrow-bottom');
       } else {
         top = rect.top + scrollY - cardH - 10;
-        card.classList.remove('arrow-bottom');
-        card.classList.add('arrow-top');
       }
-
-      const arrowLeft = Math.max(16, Math.min(rect.left + scrollX - left + rect.width / 2 - 7, cardW - 28));
 
       card.style.left = left + 'px';
       card.style.top = top + 'px';
-      card.style.setProperty('--arrow-left', arrowLeft + 'px');
     }
 
     function closePopup() {
