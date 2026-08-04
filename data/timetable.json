@@ -1,4 +1,5 @@
 {
+  "iconBase": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/",
   "days": [
     {
       "id": "day1",
@@ -18,26 +19,43 @@
         { "key": "ground", "label": "グラウンド" }
       ],
       "events": [
-        { "columns": ["av"], "start": "09:10", "end": "09:50", "title": "英語部", "category": "pink" },
-        { "columns": ["av"], "start": "10:00", "end": "10:30", "title": "ミニ中学説明会", "category": "cyan" },
-        { "columns": ["av"], "start": "10:40", "end": "11:20", "title": "MST代表プレゼンテーション", "category": "cyan" },
-        { "columns": ["av"], "start": "11:40", "end": "12:10", "title": "ミニ中学説明会", "category": "cyan" },
-        { "columns": ["av"], "start": "12:30", "end": "13:20", "title": "キャリアプレゼンテーション（中学・高校）", "category": "cyan" },
-        { "columns": ["av"], "start": "13:30", "end": "14:10", "title": "コーラス部", "category": "pink" },
-        { "columns": ["av"], "start": "14:30", "end": "15:00", "title": "メディアクリエイションゼミ", "category": "pink" },
-        { "columns": ["av"], "start": "15:20", "end": "16:00", "title": "箏曲部", "category": "pink" },
+        { "columns": ["av"], "start": "09:10", "end": "09:50", "title": "英語部", "category": "pink",
+          "groupName": "英語部", "icon": "EEng.png", "description": "英語部による発表企画。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "10:00", "end": "10:30", "title": "ミニ中学説明会", "category": "cyan",
+          "groupName": "学校広報", "icon": "Description.png", "description": "受験生・保護者向けのミニ説明会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "10:40", "end": "11:20", "title": "MST代表プレゼンテーション", "category": "cyan",
+          "groupName": "高校MST・学習部", "icon": "MST.png", "description": "MST代表生徒による研究発表。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "11:40", "end": "12:10", "title": "ミニ中学説明会", "category": "cyan",
+          "groupName": "学校広報", "icon": "Description.png", "description": "受験生・保護者向けのミニ説明会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "12:30", "end": "13:20", "title": "キャリアプレゼンテーション（中学・高校）", "category": "cyan",
+          "groupName": "学校企画", "icon": "Presentation.png", "description": "在校生によるキャリアプレゼンテーション。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "13:30", "end": "14:10", "title": "コーラス部", "category": "pink",
+          "groupName": "コーラス部", "icon": "Chorus.png", "description": "コーラス部によるステージ公演。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "14:30", "end": "15:00", "title": "メディアクリエイションゼミ", "category": "pink",
+          "groupName": "メディア・クリエイション・ゼミ", "icon": "Media.png", "description": "作品上映会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "15:20", "end": "16:00", "title": "箏曲部", "category": "pink",
+          "groupName": "箏曲部", "icon": "KotoClub.png", "description": "箏曲部による演奏会。", "pageUrl": "../maps/#1階" },
 
-        { "columns": ["hall_main"], "start": "09:20", "end": "10:20", "title": "ポップダンス部", "category": "pink" },
-        { "columns": ["hall_main"], "start": "11:20", "end": "12:20", "title": "中3身体表現", "category": "pink" },
-        { "columns": ["hall_main"], "start": "13:20", "end": "14:20", "title": "演劇部", "category": "pink" },
-        { "columns": ["hall_main"], "start": "15:00", "end": "15:40", "title": "吹奏楽部", "category": "pink" },
+        { "columns": ["hall_main"], "start": "09:20", "end": "10:20", "title": "ポップダンス部", "category": "pink",
+          "groupName": "ポップダンス部", "icon": "Dance.png", "description": "ポップダンス部によるステージパフォーマンス。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_main"], "start": "11:20", "end": "12:20", "title": "中3身体表現", "category": "pink",
+          "groupName": "中3学年企画", "icon": "Presentation.png", "description": "学校生活×青春をテーマにした身体表現。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_main"], "start": "13:20", "end": "14:20", "title": "演劇部", "category": "pink",
+          "groupName": "演劇部", "icon": "Presentation.png", "description": "演劇部による舞台発表。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_main"], "start": "15:00", "end": "15:40", "title": "吹奏楽部", "category": "pink",
+          "groupName": "吹奏楽部", "icon": "Orchestra.png", "description": "吹奏楽部による演奏会。", "pageUrl": "../maps/#1階" },
 
-        { "columns": ["hall_sub"], "start": "11:20", "end": "12:20", "title": "卓球部", "category": "purple" },
-        { "columns": ["hall_sub"], "start": "12:50", "end": "13:50", "title": "新体操部", "category": "purple" },
-        { "columns": ["hall_sub"], "start": "15:00", "end": "16:00", "title": "バレーボール部", "category": "purple" },
+        { "columns": ["hall_sub"], "start": "11:20", "end": "12:20", "title": "卓球部", "category": "purple",
+          "groupName": "卓球部", "icon": "TableTenis.png", "description": "卓球部体験企画「卓トピア」。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_sub"], "start": "12:50", "end": "13:50", "title": "新体操部", "category": "purple",
+          "groupName": "新体操部", "icon": "Dance.png", "description": "新体操部による演技発表会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_sub"], "start": "15:00", "end": "16:00", "title": "バレーボール部", "category": "purple",
+          "groupName": "バレーボール部", "icon": "Volley.png", "description": "バレーボール部体験企画。", "pageUrl": "../maps/#1階" },
 
-        { "columns": ["ground"], "start": "09:30", "end": "10:30", "title": "陸上競技部", "category": "purple" },
-        { "columns": ["ground"], "start": "12:00", "end": "14:00", "title": "テニス部（テニスコート）", "category": "purple" }
+        { "columns": ["ground"], "start": "09:30", "end": "10:30", "title": "陸上競技部", "category": "purple",
+          "groupName": "陸上競技部", "icon": "TFClub.png", "description": "陸上競技部「Let's 陸上‼︎‼︎」。", "pageUrl": "../maps/#1階" },
+        { "columns": ["ground"], "start": "12:00", "end": "14:00", "title": "テニス部（テニスコート）", "category": "purple",
+          "groupName": "テニス部", "icon": "Tennis.png", "description": "テニス部による指導体験企画。", "pageUrl": "../maps/#1階" }
       ]
     },
     {
@@ -58,23 +76,37 @@
         { "key": "ground", "label": "グラウンド" }
       ],
       "events": [
-        { "columns": ["av"], "start": "09:10", "end": "09:50", "title": "コーラス部", "category": "pink" },
-        { "columns": ["av"], "start": "10:10", "end": "10:40", "title": "ミニ中学説明会", "category": "cyan" },
-        { "columns": ["av"], "start": "11:00", "end": "11:50", "title": "キャリアプレゼンテーション（中学・高校）", "category": "cyan" },
-        { "columns": ["av"], "start": "12:10", "end": "12:40", "title": "ミニ中学説明会", "category": "cyan" },
-        { "columns": ["av"], "start": "12:50", "end": "13:50", "title": "英語レシテーション・スピーチ", "category": "cyan" },
-        { "columns": ["av"], "start": "14:10", "end": "14:50", "title": "英語部", "category": "pink" },
+        { "columns": ["av"], "start": "09:10", "end": "09:50", "title": "コーラス部", "category": "pink",
+          "groupName": "コーラス部", "icon": "Chorus.png", "description": "コーラス部によるステージ公演。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "10:10", "end": "10:40", "title": "ミニ中学説明会", "category": "cyan",
+          "groupName": "学校広報", "icon": "Description.png", "description": "受験生・保護者向けのミニ説明会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "11:00", "end": "11:50", "title": "キャリアプレゼンテーション（中学・高校）", "category": "cyan",
+          "groupName": "学校企画", "icon": "Presentation.png", "description": "在校生によるキャリアプレゼンテーション。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "12:10", "end": "12:40", "title": "ミニ中学説明会", "category": "cyan",
+          "groupName": "学校広報", "icon": "Description.png", "description": "受験生・保護者向けのミニ説明会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "12:50", "end": "13:50", "title": "英語レシテーション・スピーチ", "category": "cyan",
+          "groupName": "English Club", "icon": "EEng.png", "description": "英語スピーチ・レシテーション発表。", "pageUrl": "../maps/#1階" },
+        { "columns": ["av"], "start": "14:10", "end": "14:50", "title": "英語部", "category": "pink",
+          "groupName": "英語部", "icon": "EEng.png", "description": "英語部による発表企画。", "pageUrl": "../maps/#1階" },
 
-        { "columns": ["hall_main"], "start": "09:20", "end": "10:00", "title": "吹奏楽部", "category": "pink" },
-        { "columns": ["hall_main"], "start": "10:40", "end": "11:40", "title": "中3身体表現", "category": "pink" },
-        { "columns": ["hall_main"], "start": "12:40", "end": "13:20", "title": "新体操部", "category": "pink" },
-        { "columns": ["hall_main"], "start": "14:00", "end": "15:00", "title": "ポップダンス部", "category": "pink" },
+        { "columns": ["hall_main"], "start": "09:20", "end": "10:00", "title": "吹奏楽部", "category": "pink",
+          "groupName": "吹奏楽部", "icon": "Orchestra.png", "description": "吹奏楽部による演奏会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_main"], "start": "10:40", "end": "11:40", "title": "中3身体表現", "category": "pink",
+          "groupName": "中3学年企画", "icon": "Presentation.png", "description": "学校生活×青春をテーマにした身体表現。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_main"], "start": "12:40", "end": "13:20", "title": "新体操部", "category": "pink",
+          "groupName": "新体操部", "icon": "Dance.png", "description": "新体操部による演技発表会。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_main"], "start": "14:00", "end": "15:00", "title": "ポップダンス部", "category": "pink",
+          "groupName": "ポップダンス部", "icon": "Dance.png", "description": "ポップダンス部によるステージパフォーマンス。", "pageUrl": "../maps/#1階" },
 
-        { "columns": ["hall_sub"], "start": "10:00", "end": "11:00", "title": "バレーボール部", "category": "purple" },
-        { "columns": ["hall_sub"], "start": "12:10", "end": "13:10", "title": "卓球部", "category": "purple" },
+        { "columns": ["hall_sub"], "start": "10:00", "end": "11:00", "title": "バレーボール部", "category": "purple",
+          "groupName": "バレーボール部", "icon": "Volley.png", "description": "バレーボール部体験企画。", "pageUrl": "../maps/#1階" },
+        { "columns": ["hall_sub"], "start": "12:10", "end": "13:10", "title": "卓球部", "category": "purple",
+          "groupName": "卓球部", "icon": "TableTenis.png", "description": "卓球部体験企画「卓トピア」。", "pageUrl": "../maps/#1階" },
 
-        { "columns": ["ground"], "start": "09:30", "end": "10:30", "title": "陸上競技部", "category": "purple" },
-        { "columns": ["ground"], "start": "12:00", "end": "14:00", "title": "テニス部（テニスコート）", "category": "purple" },
+        { "columns": ["ground"], "start": "09:30", "end": "10:30", "title": "陸上競技部", "category": "purple",
+          "groupName": "陸上競技部", "icon": "TFClub.png", "description": "陸上競技部「Let's 陸上‼︎‼︎」。", "pageUrl": "../maps/#1階" },
+        { "columns": ["ground"], "start": "12:00", "end": "14:00", "title": "テニス部（テニスコート）", "category": "purple",
+          "groupName": "テニス部", "icon": "Tennis.png", "description": "テニス部による指導体験企画。", "pageUrl": "../maps/#1階" },
 
         { "columns": ["av", "hall_main", "hall_sub"], "start": "15:00", "end": "16:00", "title": "閉園\n完全退園", "category": "closed" }
       ]

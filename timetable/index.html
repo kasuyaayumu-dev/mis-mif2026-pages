@@ -116,6 +116,8 @@
   .event-cell.cat-purple { background: var(--cat-purple-bg); color: var(--cat-purple-fg); }
   .event-cell.cat-closed { background: var(--cat-closed-bg); color: var(--cat-closed-fg); font-size: 13px; }
   .event-cell.is-past { filter: grayscale(1) opacity(.5); }
+  .event-cell.clickable { cursor: pointer; }
+  .event-cell.clickable:hover { filter: brightness(0.96); }
 
   .now-line {
     position: absolute;
@@ -137,12 +139,81 @@
     padding: 1px 5px;
     border-radius: 3px;
   }
+
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 1000;
+  }
+  .popup-overlay.hidden { display: none; }
+  .popup-card {
+    position: relative;
+    width: 100%;
+    max-width: 340px;
+    background: rgba(255,255,255,.96);
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    border: 1px solid rgba(255,255,255,.3);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+  }
+  .popup-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background: transparent;
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    padding: 6px;
+  }
+  .popup-close:hover { color: #333; }
+  .popup-head { display: flex; gap: 12px; align-items: flex-start; }
+  .popup-head img {
+    width: 54px; height: 54px; border-radius: 50%; flex-shrink: 0; object-fit: cover; background: #eee;
+  }
+  .popup-venue {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: #888;
+    border-radius: 999px;
+    padding: 2px 9px;
+    margin-bottom: 6px;
+  }
+  .popup-title { font-weight: 800; font-size: 1.1em; line-height: 1.35; margin: 0 0 2px; }
+  .popup-group { font-size: 12px; color: #555; }
+  .popup-time { font-size: 12px; color: #777; margin-top: 2px; }
+  .popup-desc { font-size: 13px; color: #333; margin: 12px 0 0; line-height: 1.6; }
+  .popup-link {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 9px 14px;
+    background: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+  }
 </style>
 </head>
 <body>
   <div id="app">
     <div class="tabs" id="dayTabs"></div>
     <div id="boards"></div>
+  </div>
+
+  <div class="popup-overlay hidden" id="popupOverlay">
+    <div class="popup-card" id="popupCard"></div>
   </div>
 
   <script>
@@ -163,13 +234,20 @@
       return { now, day };
     }
 
+    function labelText(label) {
+      return Array.isArray(label) ? label.join(' ') : label;
+    }
+
     function leafColumns(columns) {
       const leaves = [];
       columns.forEach(col => {
         if (col.children) {
-          col.children.forEach(c => leaves.push(Object.assign({}, c, { parentKey: col.key })));
+          col.children.forEach(c => leaves.push(Object.assign({}, c, {
+            parentKey: col.key,
+            venueLabel: labelText(col.label) + ' ' + labelText(c.label)
+          })));
         } else {
-          leaves.push(col);
+          leaves.push(Object.assign({}, col, { venueLabel: labelText(col.label) }));
         }
       });
       return leaves;
@@ -317,6 +395,9 @@
               timeEl.className = 'time-range';
               timeEl.textContent = cell.event.start + '-' + cell.event.end;
               td.appendChild(timeEl);
+
+              td.classList.add('clickable');
+              td.addEventListener('click', () => openPopup(cell.event, leaf.venueLabel));
             }
             tr.appendChild(td);
           } else {
@@ -352,6 +433,98 @@
 
       return board;
     }
+
+    let iconBase = '';
+
+    function openPopup(event, venueLabel) {
+      const card = document.getElementById('popupCard');
+      card.innerHTML = '';
+
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'popup-close';
+      closeBtn.setAttribute('aria-label', '閉じる');
+      closeBtn.textContent = '×';
+      closeBtn.addEventListener('click', closePopup);
+      card.appendChild(closeBtn);
+
+      const head = document.createElement('div');
+      head.className = 'popup-head';
+
+      const img = document.createElement('img');
+      img.src = event.icon ? iconBase + event.icon : '';
+      img.alt = event.groupName || '';
+      head.appendChild(img);
+
+      const body = document.createElement('div');
+      body.style.minWidth = '0';
+      body.style.flex = '1';
+
+      const venue = document.createElement('span');
+      venue.className = 'popup-venue';
+      venue.textContent = venueLabel;
+      body.appendChild(venue);
+
+      const title = document.createElement('div');
+      title.className = 'popup-title';
+      title.textContent = event.title;
+      body.appendChild(title);
+
+      if (event.groupName) {
+        const group = document.createElement('div');
+        group.className = 'popup-group';
+        group.textContent = event.groupName;
+        body.appendChild(group);
+      }
+
+      const time = document.createElement('div');
+      time.className = 'popup-time';
+      time.textContent = event.start + ' - ' + event.end;
+      body.appendChild(time);
+
+      head.appendChild(body);
+      card.appendChild(head);
+
+      if (event.description) {
+        const desc = document.createElement('p');
+        desc.className = 'popup-desc';
+        desc.textContent = event.description;
+        card.appendChild(desc);
+      }
+
+      if (event.pageUrl) {
+        const link = document.createElement('a');
+        link.className = 'popup-link';
+        link.href = event.pageUrl;
+        link.textContent = '詳しく見る';
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const url = event.pageUrl;
+          try {
+            if (window.top && window.top !== window) {
+              window.top.location.href = url;
+            } else {
+              window.location.href = url;
+            }
+          } catch {
+            window.location.href = url;
+          }
+        });
+        card.appendChild(link);
+      }
+
+      document.getElementById('popupOverlay').classList.remove('hidden');
+    }
+
+    function closePopup() {
+      document.getElementById('popupOverlay').classList.add('hidden');
+    }
+
+    document.getElementById('popupOverlay').addEventListener('click', e => {
+      if (e.target.id === 'popupOverlay') closePopup();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closePopup();
+    });
 
     function todayString(d) {
       const y = d.getFullYear();
@@ -412,6 +585,7 @@
     fetch('../data/timetable.json')
       .then(res => res.json())
       .then(data => {
+        iconBase = data.iconBase || '';
         allDays = data.days || [];
         currentDayId = allDays.length ? allDays[0].id : null;
         render();
