@@ -111,6 +111,7 @@
     white-space: pre-line;
   }
   .event-cell .time-range { font-size: 10px; font-weight: 400; opacity: .85; }
+  .event-cell .room-tag { font-size: 10px; font-weight: 600; opacity: .8; }
   .event-cell.cat-pink   { background: var(--cat-pink-bg);   color: var(--cat-pink-fg); }
   .event-cell.cat-cyan   { background: var(--cat-cyan-bg);   color: var(--cat-cyan-fg); }
   .event-cell.cat-purple { background: var(--cat-purple-bg); color: var(--cat-purple-fg); }
@@ -131,6 +132,7 @@
     .grid td.min-cell { font-size: 8px; }
     .event-cell { font-size: 9px; line-height: 1.25; }
     .event-cell .time-range { font-size: 8px; }
+    .event-cell .room-tag { font-size: 8px; }
     .popup-card { max-width: 300px; padding: 16px; }
   }
 
@@ -144,6 +146,7 @@
     .grid td.min-cell { font-size: 6.5px; }
     .event-cell { font-size: 7px; line-height: 1.15; }
     .event-cell .time-range { font-size: 6px; }
+    .event-cell .room-tag { font-size: 6px; }
   }
 
   .now-line {
@@ -412,6 +415,12 @@
             titleEl.textContent = cell.event.title;
             td.appendChild(titleEl);
             if (cell.event.category !== 'closed') {
+              if (cell.event.room) {
+                const roomEl = document.createElement('div');
+                roomEl.className = 'room-tag';
+                roomEl.textContent = cell.event.room;
+                td.appendChild(roomEl);
+              }
               const timeEl = document.createElement('div');
               timeEl.className = 'time-range';
               timeEl.textContent = cell.event.start + '-' + cell.event.end;
@@ -420,7 +429,7 @@
               td.classList.add('clickable');
               td.addEventListener('click', e => {
                 e.stopPropagation();
-                openPopup(cell.event, leaf.venueLabel, td);
+                openPopup(cell.event, cell.event.room || leaf.venueLabel, td);
               });
             }
             tr.appendChild(td);

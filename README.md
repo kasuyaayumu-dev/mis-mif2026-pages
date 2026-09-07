@@ -3,7 +3,7 @@
 文化祭マップ・タイムテーブルの静的ホスティング用リポジトリ(GitHub Pages)。
 
 - `floor1/`, `floor2/`, `floor3/` — (互換維持用)各階を個別に表示するマップページ。既存のSTUDIO埋め込み(iframe src)がこれらを参照しているため残置。
-- `maps/` — 全フロア統合マップ。Googleマップの屋内フロア切り替えのような右下スライダー(1F/2F/3F)でフロアを切り替えられる。マーカーデータは各フロアの `../data/json_*floor.json` をまとめて読み込む。
+- `maps/` — 全フロア統合マップ。座標データが未確定のため、現在は "Coming Soon" 表示のプレースホルダーになっている(元のフロア切り替えマップの実装はgit履歴に残っている)。
 - `timetable/` — イベントタイムテーブル。`../data/timetable.json` を読み込み、駅の時刻表のようなグリッド形式で表示する。日程(Day1/Day2)タブ切り替え、現在時刻の赤ライン表示、終了済みイベントの自動グレーアウトに対応。
 - `data/` — マーカー・タイムテーブルデータ(JSON、手動更新)
 - `image/icon/`, `image/map/` — アイコン・フロア画像アセット
@@ -29,16 +29,17 @@ STUDIO側の埋め込み(iframe src)は用途に応じて以下を指定する�
       "startTime": "09:00",
       "endTime": "16:00",
       "columns": [
-        { "key": "av", "label": ["1F", "視聴覚室"] },
-        { "key": "hall", "label": "ホール", "children": [
-            { "key": "hall_main", "label": "メイン" },
-            { "key": "hall_sub", "label": "サブ" }
+        { "key": "av", "label": ["教室棟", "視聴覚"] },
+        { "key": "hall", "label": "ホール棟", "children": [
+            { "key": "hall_main", "label": "メインホール" },
+            { "key": "hall_sub", "label": "サブホール" }
           ] },
-        { "key": "ground", "label": "グラウンド" }
+        { "key": "ground", "label": "屋外" }
       ],
       "events": [
         { "columns": ["av"], "start": "10:00", "end": "10:40", "title": "キャリアプレゼンテーション", "category": "cyan" },
-        { "columns": ["av", "hall_main", "hall_sub"], "start": "15:00", "end": "16:00", "title": "閉園\n完全退園", "category": "closed" }
+        { "columns": ["ground"], "start": "09:30", "end": "10:30", "title": "LET'S 陸上！", "category": "purple", "room": "グラウンド" },
+        { "columns": ["av", "hall_main", "hall_sub", "ground"], "start": "15:00", "end": "16:00", "title": "閉園\n完全退園", "category": "closed" }
       ]
     }
   ]
@@ -50,6 +51,7 @@ STUDIO側の埋め込み(iframe src)は用途に応じて以下を指定する�
 - `columns` — グリッドの列構成。`children` を持つ列は見出しがグループ化される(例: 「ホール」→「メイン」「サブ」)。
 - `events.columns` — 複数指定すると列をまたいで結合表示される(閉園ブロックなど)。
 - `events.category` — `pink` / `cyan` / `purple` / `closed` のいずれか(色分け)。
+- `events.room` — 同じ列を複数の実会場が共有する場合(例: 「屋外」列の中の「グラウンド」「テニスコート」)に、セル表示・ポップアップで列名の代わりに表示する会場名。
 
 `timetable/?now=13:15&day=day1` のようにクエリを付けると、任意の時刻を「現在時刻」として動作確認できる(デバッグ用、本番では不要)。
 
