@@ -6,12 +6,15 @@
 <style>
   :root {
     --row-h: 22px;
-    --cat-pink-bg: #dba9b3;
-    --cat-pink-fg: #5b2430;
-    --cat-cyan-bg: #b8e6ec;
-    --cat-cyan-fg: #0b4a52;
-    --cat-purple-bg: #cdc7ee;
-    --cat-purple-fg: #362a70;
+    /* 公演・発表系 = オレンジ */
+    --cat-pink-bg: #FF9E77;
+    --cat-pink-fg: #072859;
+    /* 説明会・プレゼン系 = イエロー */
+    --cat-cyan-bg: #FFF06D;
+    --cat-cyan-fg: #072859;
+    /* 体験・スポーツ系 = ネイビー */
+    --cat-purple-bg: #193C70;
+    --cat-purple-fg: #FFF38C;
     --cat-closed-bg: #9a9a9a;
     --cat-closed-fg: #fff;
   }
@@ -37,8 +40,8 @@
     cursor: pointer;
     color: #555;
   }
-  .tab-btn.active.theme-purple { background: #7266c2; border-color: #7266c2; color: #fff; }
-  .tab-btn.active.theme-cyan { background: #1fb8d4; border-color: #1fb8d4; color: #fff; }
+  .tab-btn.active.theme-orange { background: #FF530F; border-color: #FF530F; color: #fff; }
+  .tab-btn.active.theme-navy { background: #072859; border-color: #072859; color: #fff; }
 
   .board {
     border-radius: 14px;
@@ -62,15 +65,15 @@
     padding: 6px 0;
     color: #fff;
   }
-  .theme-purple .board-title { background: linear-gradient(#8a7fc9, #7266c2); }
-  .theme-purple .board-subtitle { background: #a79ce0; }
-  .theme-purple .grid-wrap thead th { background: #d9d4f2; }
-  .theme-purple td.hour-cell, .theme-purple td.min-cell { background: rgba(217,212,242,.55); }
+  .theme-orange .board-title { background: linear-gradient(#FF804E, #FF6021); }
+  .theme-orange .board-subtitle { background: #FF530F; }
+  .theme-orange .grid-wrap thead th { background: rgba(255,158,119,.35); }
+  .theme-orange td.hour-cell, .theme-orange td.min-cell { background: rgba(255,158,119,.5); }
 
-  .theme-cyan .board-title { background: linear-gradient(#29c4dd, #1fb8d4); }
-  .theme-cyan .board-subtitle { background: #5cd3e8; }
-  .theme-cyan .grid-wrap thead th { background: #c9f0f6; }
-  .theme-cyan td.hour-cell, .theme-cyan td.min-cell { background: rgba(201,240,246,.55); }
+  .theme-navy .board-title { background: linear-gradient(#193C70, #072859); }
+  .theme-navy .board-subtitle { background: #072859; }
+  .theme-navy .grid-wrap thead th { background: rgba(25,60,112,.15); }
+  .theme-navy td.hour-cell, .theme-navy td.min-cell { background: rgba(25,60,112,.25); }
 
   .grid-wrap { position: relative; }
   table.grid {

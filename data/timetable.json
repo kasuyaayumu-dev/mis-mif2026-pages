@@ -6,7 +6,7 @@
       "date": "2026-10-31",
       "title": "Day 1",
       "subtitle": "9:00-16:00　最終受付 15:00",
-      "theme": "purple",
+      "theme": "orange",
       "startTime": "09:00",
       "endTime": "16:00",
       "columns": [
@@ -86,7 +86,7 @@
       "date": "2026-11-01",
       "title": "Day 2",
       "subtitle": "9:00-15:00　最終受付 14:00",
-      "theme": "cyan",
+      "theme": "navy",
       "startTime": "09:00",
       "endTime": "16:00",
       "columns": [
