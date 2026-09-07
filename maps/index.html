@@ -4,47 +4,131 @@
   <meta charset="utf-8">
   <title>文化祭マップ</title>
   <style>
+    * { box-sizing: border-box; }
     html, body {
       margin: 0;
       background: transparent;
       height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
     }
-    .coming-soon {
+
+    .wrap {
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 320px;
-      padding: 40px 20px;
+      padding: 32px 16px;
+    }
+
+    .card {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #FFE70B 0%, #FF9E77 45%, #FF530F 100%);
+      box-shadow: 0 16px 40px rgba(255, 83, 15, .3);
+      padding: 44px 28px 36px;
       text-align: center;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-      color: #333;
+      isolation: isolate;
     }
-    .coming-soon .icon {
-      font-size: 40px;
-      margin-bottom: 4px;
+
+    .card::before,
+    .card::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      z-index: -1;
     }
-    .coming-soon h1 {
-      margin: 0;
-      font-size: 26px;
+    .card::before {
+      width: 180px;
+      height: 180px;
+      background: rgba(25, 60, 112, .18);
+      top: -70px;
+      right: -60px;
+    }
+    .card::after {
+      width: 140px;
+      height: 140px;
+      background: rgba(255, 255, 255, .28);
+      bottom: -60px;
+      left: -50px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #072859;
+      color: #FFF38C;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: .04em;
-      color: #333;
+      letter-spacing: .12em;
+      padding: 7px 16px;
+      border-radius: 999px;
+      margin-bottom: 22px;
     }
-    .coming-soon p {
+    .badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #FFF38C;
+      animation: pulse 1.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .35; transform: scale(.7); }
+    }
+
+    .title {
+      margin: 0;
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: .02em;
+      color: #072859;
+      line-height: 1.05;
+      text-shadow: 0 2px 0 rgba(255,255,255,.35);
+    }
+    .title span {
+      display: block;
+      font-size: 40px;
+    }
+
+    .divider {
+      width: 46px;
+      height: 4px;
+      border-radius: 999px;
+      background: #072859;
+      margin: 18px auto 18px;
+      opacity: .5;
+    }
+
+    .desc {
       margin: 0;
       font-size: 14px;
-      color: #666;
-      line-height: 1.6;
+      font-weight: 600;
+      color: #4a2200;
+      line-height: 1.8;
+    }
+
+    .footnote {
+      margin: 22px 0 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      color: #072859;
+      opacity: .65;
     }
   </style>
 </head>
 <body>
-  <div class="coming-soon">
-    <div class="icon">🗺️</div>
-    <h1>Coming Soon</h1>
-    <p>会場マップは公開準備中です。<br>もうしばらくお待ちください。</p>
+  <div class="wrap">
+    <div class="card">
+      <span class="badge"><span class="dot"></span>MAP PREPARING</span>
+      <h1 class="title"><span>COMING</span><span>SOON</span></h1>
+      <div class="divider"></div>
+      <p class="desc">会場マップは只今準備中です。<br>公開までもうしばらくお待ちください。</p>
+      <p class="footnote">MIS MIF 2026</p>
+    </div>
   </div>
 </body>
 </html>
