@@ -16,7 +16,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 32px 16px;
+      padding: clamp(16px, 6vw, 32px) 16px;
     }
 
     .card {
@@ -27,7 +27,7 @@
       overflow: hidden;
       background: linear-gradient(135deg, #FFE70B 0%, #FF9E77 45%, #FF530F 100%);
       box-shadow: 0 16px 40px rgba(255, 83, 15, .3);
-      padding: 44px 28px 36px;
+      padding: clamp(28px, 8vw, 44px) clamp(18px, 6vw, 28px) clamp(24px, 6vw, 36px);
       text-align: center;
       isolation: isolate;
     }
@@ -81,7 +81,7 @@
 
     .title {
       margin: 0;
-      font-size: 40px;
+      font-size: clamp(28px, 9vw, 40px);
       font-weight: 900;
       letter-spacing: .02em;
       color: #072859;
@@ -90,7 +90,7 @@
     }
     .title span {
       display: block;
-      font-size: 40px;
+      font-size: clamp(28px, 9vw, 40px);
     }
 
     .divider {
@@ -130,5 +130,20 @@
       <p class="footnote">MIS MIF 2026</p>
     </div>
   </div>
+
+  <script>
+    // STUDIO埋め込み用: iframeの外側に実際のコンテンツ高さを伝えて、
+    // 埋め込み側でiframeの高さを合わせてもらう(固定アスペクト比だと
+    // スマホ幅で縦に入りきらず見切れることがあるための対策)
+    function postHeightToParent() {
+      if (window.parent === window) return;
+      requestAnimationFrame(() => {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({ type: 'mif-maps-resize', height: height }, '*');
+      });
+    }
+    window.addEventListener('load', postHeightToParent);
+    window.addEventListener('resize', postHeightToParent);
+  </script>
 </body>
 </html>
