@@ -410,7 +410,9 @@ const I18N = window.TT_I18N || {};
       if (window.parent === window) return;
       requestAnimationFrame(() => {
         const height = document.documentElement.scrollHeight;
-        window.parent.postMessage({ type: 'mif-timetable-resize', height: height }, '*');
+        // 埋め込み先(STUDIOの各公開ドメイン)を事前に特定できないため target origin は '*' を使用。
+        // 送信内容はページの高さ(数値)のみで機密情報は含まない。
+        window.parent.postMessage({ type: 'mif-timetable-resize', height: height }, '*'); // NOSONAR
       });
     }
 
