@@ -3,122 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>MIF Venue Map</title>
-  <style>
-    * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      background: transparent;
-      height: 100%;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-    }
-
-    .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(16px, 6vw, 32px) 16px;
-    }
-
-    .card {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 24px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #FFE70B 0%, #FF9E77 45%, #FF530F 100%);
-      box-shadow: 0 16px 40px rgba(255, 83, 15, .3);
-      padding: clamp(28px, 8vw, 44px) clamp(18px, 6vw, 28px) clamp(24px, 6vw, 36px);
-      text-align: center;
-      isolation: isolate;
-    }
-
-    .card::before,
-    .card::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      z-index: -1;
-    }
-    .card::before {
-      width: 180px;
-      height: 180px;
-      background: rgba(25, 60, 112, .18);
-      top: -70px;
-      right: -60px;
-    }
-    .card::after {
-      width: 140px;
-      height: 140px;
-      background: rgba(255, 255, 255, .28);
-      bottom: -60px;
-      left: -50px;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: #072859;
-      color: #FFF38C;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      padding: 7px 16px;
-      border-radius: 999px;
-      margin-bottom: 22px;
-    }
-    .badge .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #FFF38C;
-      animation: pulse 1.4s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .35; transform: scale(.7); }
-    }
-
-    .title {
-      margin: 0;
-      font-size: clamp(28px, 9vw, 40px);
-      font-weight: 900;
-      letter-spacing: .02em;
-      color: #072859;
-      line-height: 1.05;
-      text-shadow: 0 2px 0 rgba(255,255,255,.35);
-    }
-    .title span {
-      display: block;
-      font-size: clamp(28px, 9vw, 40px);
-    }
-
-    .divider {
-      width: 46px;
-      height: 4px;
-      border-radius: 999px;
-      background: #072859;
-      margin: 18px auto 18px;
-      opacity: .5;
-    }
-
-    .desc {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 600;
-      color: #4a2200;
-      line-height: 1.8;
-    }
-
-    .footnote {
-      margin: 22px 0 0;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      color: #072859;
-      opacity: .65;
-    }
-  </style>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
   <div class="wrap">
@@ -131,19 +16,6 @@
     </div>
   </div>
 
-  <script>
-    // STUDIO埋め込み用: iframeの外側に実際のコンテンツ高さを伝えて、
-    // 埋め込み側でiframeの高さを合わせてもらう(固定アスペクト比だと
-    // スマホ幅で縦に入りきらず見切れることがあるための対策)
-    function postHeightToParent() {
-      if (window.parent === window) return;
-      requestAnimationFrame(() => {
-        const height = document.documentElement.scrollHeight;
-        window.parent.postMessage({ type: 'mif-maps-resize', height: height }, '*');
-      });
-    }
-    window.addEventListener('load', postHeightToParent);
-    window.addEventListener('resize', postHeightToParent);
-  </script>
+  <script src="../app.js"></script>
 </body>
 </html>
