@@ -72,9 +72,6 @@
           "description": "実際に陸上競技の5種目（50m走・走幅跳・走高跳・ジャベリックボール・ハードル）を計測して、楽しく体験しよう！" },
         { "columns": ["ground"], "start": "11:30", "end": "12:30", "title": "テニス部体験", "category": "purple",
           "groupName": "中学テニス部", "room": "テニスコート", "icon": "Tennis.png",
-          "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！普段どのように練習しているかもわかります。" },
-        { "columns": ["ground"], "start": "13:00", "end": "14:00", "title": "テニス部体験", "category": "purple",
-          "groupName": "中学テニス部", "room": "テニスコート", "icon": "Tennis.png",
           "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！普段どのように練習しているかもわかります。" }
       ]
     },
@@ -111,7 +108,7 @@
         { "columns": ["av"], "start": "12:20", "end": "13:20", "title": "英語レシテーション・スピーチ", "category": "cyan",
           "groupName": "英語レシテーション・スピーチ", "icon": "Speach.png",
           "description": "学内の英語レシテーション・スピーチコンテストで優秀な成績を修めた中1〜高2の発表と、長期留学帰国生によるプレゼン。" },
-        { "columns": ["av"], "start": "13:40", "end": "14:10", "title": "ミニ中学説明会", "category": "cyan",
+        { "columns": ["av"], "start": "13:30", "end": "14:00", "title": "ミニ中学説明会", "category": "cyan",
           "groupName": "学校広報部", "icon": "Description.png",
           "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。" },
         { "columns": ["av"], "start": "14:10", "end": "15:00", "title": "英語部 英語ディベート", "category": "pink",
