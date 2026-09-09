@@ -1,0 +1,494 @@
+{
+  "iconBase": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/",
+  "days": [
+    {
+      "id": "day1",
+      "date": "2026-10-31",
+      "title": "Day 1",
+      "subtitle": "9:00 AM–4:00 PM   Last Entry 3:00 PM",
+      "theme": "orange",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "columns": [
+        {
+          "key": "av",
+          "label": [
+            "Classroom Bldg.",
+            "AV Room"
+          ]
+        },
+        {
+          "key": "hall",
+          "label": "Hall Building",
+          "children": [
+            {
+              "key": "hall_main",
+              "label": "Main Hall"
+            },
+            {
+              "key": "hall_sub",
+              "label": "Sub Hall"
+            }
+          ]
+        },
+        {
+          "key": "ground",
+          "label": "Outdoor"
+        }
+      ],
+      "events": [
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "09:20",
+          "end": "10:00",
+          "title": "Career Presentation (Junior High)",
+          "category": "cyan",
+          "groupName": "Junior High Year 1 Student Representatives",
+          "icon": "Presentation.png",
+          "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "10:10",
+          "end": "10:40",
+          "title": "Mini Junior High School Information Session",
+          "category": "cyan",
+          "groupName": "School PR Committee",
+          "icon": "Description.png",
+          "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "10:50",
+          "end": "11:30",
+          "title": "Media Creation Seminar Film Screening",
+          "category": "pink",
+          "groupName": "Media Creation Seminar",
+          "icon": "Media.png",
+          "description": "Welcome to a world of video created by junior high students! Expressive music videos and two dramas will captivate you. Please visit the AV Room."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "11:50",
+          "end": "12:30",
+          "title": "Chorus Club MIF Performance 2026",
+          "category": "pink",
+          "groupName": "Chorus Club",
+          "icon": "Chorus.png",
+          "description": "Enjoy beautiful choral singing! We'll perform a wide range of genres, from choral pieces to J-POP. Please come to the AV Room!"
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "12:40",
+          "end": "13:30",
+          "title": "English Club: Model UN (MUN)",
+          "category": "pink",
+          "groupName": "English Club",
+          "icon": "EEng.png",
+          "description": "Club members representing different countries demonstrate real-time negotiation and decision making on global issues. Visitors can also participate by voting on draft resolutions."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "13:30",
+          "end": "14:00",
+          "title": "Mini Junior High School Information Session",
+          "category": "cyan",
+          "groupName": "School PR Committee",
+          "icon": "Description.png",
+          "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "14:20",
+          "end": "15:00",
+          "title": "Career Presentation (High School)",
+          "category": "cyan",
+          "groupName": "High School Year 1 Student Representatives",
+          "icon": "Presentation.png",
+          "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "15:20",
+          "end": "16:00",
+          "title": "Kotonohana",
+          "category": "pink",
+          "groupName": "Koto Club",
+          "icon": "KotoClub.png",
+          "description": "Enjoy the beautiful sounds of the koto, a traditional Japanese instrument, performed by the Koto Club. Each member will put their heart into the performance."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "09:10",
+          "end": "10:00",
+          "title": "Pop Dance Club 2026 -Epilogue-",
+          "category": "pink",
+          "groupName": "Pop Dance Club",
+          "icon": "Dance.png",
+          "description": "The culmination of 5 months of work by around 140 members. With the theme “Epilogue,” a special dance performance closing one chapter of the club's story."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "10:40",
+          "end": "11:30",
+          "title": "「Mata, Tonari de」",
+          "category": "pink",
+          "groupName": "Drama Club",
+          "icon": "Presentation.png",
+          "description": "A heartwarming story about young game creators who clash over their project, confront the feelings they have kept inside, and find their way back to the bonds they once shared."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "12:20",
+          "end": "13:00",
+          "title": "Rhythmic Gymnastics Club Performance",
+          "category": "pink",
+          "groupName": "Rhythmic Gymnastics Club",
+          "icon": "Dance.png",
+          "description": "A performance themed on Studio Ghibli's masterpiece “Princess Mononoke.” The Rhythmic Gymnastics Club brings the world of Mononoke to life with their signature skills and apparatus."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "13:50",
+          "end": "14:40",
+          "title": "Physical Expression: A Trip Through World History",
+          "category": "pink",
+          "groupName": "Grade 9 Class Project",
+          "icon": "Presentation.png",
+          "description": "Through plays, dances, and other forms of performance, each class will express the interesting aspects and changes of different periods in different countries."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "15:20",
+          "end": "16:00",
+          "title": "Harmony in the Sky",
+          "category": "pink",
+          "groupName": "Wind Orchestra Club",
+          "icon": "Orchestra.png",
+          "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—join us on an unforgettable journey!"
+        },
+        {
+          "columns": [
+            "hall_sub"
+          ],
+          "start": "12:00",
+          "end": "13:00",
+          "title": "Volleyball Club Experience",
+          "category": "purple",
+          "groupName": "Volleyball Club",
+          "icon": "Volley.png",
+          "description": "Try playing volleyball with our volleyball club members using soft volleyballs! No prior experience necessary!"
+        },
+        {
+          "columns": [
+            "hall_sub"
+          ],
+          "start": "15:00",
+          "end": "16:00",
+          "title": "Takuripusu",
+          "category": "purple",
+          "groupName": "Table Tennis Club",
+          "icon": "TableTenis.png",
+          "description": "Join our interactive event! After learning table tennis basics, test your skills against club members using fun items like serving trays as rackets."
+        },
+        {
+          "columns": [
+            "ground"
+          ],
+          "start": "09:30",
+          "end": "10:30",
+          "title": "LET'S Track and Field!!",
+          "category": "purple",
+          "groupName": "Track and Field Club",
+          "room": "Ground",
+          "icon": "TFClub.png",
+          "description": "Try five track and field events—the 50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!"
+        },
+        {
+          "columns": [
+            "ground"
+          ],
+          "start": "11:30",
+          "end": "12:30",
+          "title": "Tennis Club Experience",
+          "category": "purple",
+          "groupName": "Junior High Tennis Club",
+          "room": "Tennis Court",
+          "icon": "Tennis.png",
+          "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
+        },
+        {
+          "columns": [
+            "ground"
+          ],
+          "start": "13:00",
+          "end": "14:00",
+          "title": "Tennis Club Experience",
+          "category": "purple",
+          "groupName": "Junior High Tennis Club",
+          "room": "Tennis Court",
+          "icon": "Tennis.png",
+          "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
+        }
+      ]
+    },
+    {
+      "id": "day2",
+      "date": "2026-11-01",
+      "title": "Day 2",
+      "subtitle": "9:00 AM–3:00 PM   Last Entry 2:00 PM",
+      "theme": "navy",
+      "startTime": "09:00",
+      "endTime": "16:00",
+      "columns": [
+        {
+          "key": "av",
+          "label": [
+            "Classroom Bldg.",
+            "AV Room"
+          ]
+        },
+        {
+          "key": "hall",
+          "label": "Hall Building",
+          "children": [
+            {
+              "key": "hall_main",
+              "label": "Main Hall"
+            },
+            {
+              "key": "hall_sub",
+              "label": "Sub Hall"
+            }
+          ]
+        },
+        {
+          "key": "ground",
+          "label": "Outdoor"
+        }
+      ],
+      "events": [
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "09:10",
+          "end": "09:50",
+          "title": "Chorus Club MIF Performance 2026",
+          "category": "pink",
+          "groupName": "Chorus Club",
+          "icon": "Chorus.png",
+          "description": "Enjoy beautiful choral singing! We'll perform a wide range of genres, from choral pieces to J-POP. Please come to the AV Room!"
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "10:00",
+          "end": "10:30",
+          "title": "Mini Junior High School Information Session",
+          "category": "cyan",
+          "groupName": "School PR Committee",
+          "icon": "Description.png",
+          "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "10:40",
+          "end": "11:20",
+          "title": "MST Student Research Presentations",
+          "category": "cyan",
+          "groupName": "MST",
+          "icon": "MST.png",
+          "description": "MST representatives (one team each from S1 and S2) present their research results."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "11:30",
+          "end": "12:10",
+          "title": "Career Presentation (Junior High)",
+          "category": "cyan",
+          "groupName": "Junior High Year 1 Student Representatives",
+          "icon": "Presentation.png",
+          "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "12:20",
+          "end": "13:20",
+          "title": "English Recitation and Speech",
+          "category": "cyan",
+          "groupName": "English Recitation and Speech",
+          "icon": "Speach.png",
+          "description": "This event features presentations by students in J1 through S2 who achieved outstanding results in the English Speech and Recitation Contest, as well as presentations by students returning from long-term study abroad!"
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "13:40",
+          "end": "14:10",
+          "title": "Mini Junior High School Information Session",
+          "category": "cyan",
+          "groupName": "School PR Committee",
+          "icon": "Description.png",
+          "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
+        },
+        {
+          "columns": [
+            "av"
+          ],
+          "start": "14:10",
+          "end": "15:00",
+          "title": "English Club: English Debate",
+          "category": "pink",
+          "groupName": "English Club",
+          "icon": "EEng.png",
+          "description": "Members engage in an impromptu English debate on an assigned topic. With interactive audience segments and Japanese summary support, non-native speakers can enjoy the debate too."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "09:10",
+          "end": "09:50",
+          "title": "Harmony in the Sky",
+          "category": "pink",
+          "groupName": "Wind Orchestra Club",
+          "icon": "Orchestra.png",
+          "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—join us on an unforgettable journey!"
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "10:40",
+          "end": "11:30",
+          "title": "Physical Expression: A Trip Through World History",
+          "category": "pink",
+          "groupName": "Grade 9 Class Project",
+          "icon": "Presentation.png",
+          "description": "Through plays, dances, and other forms of performance, each class will express the interesting aspects and changes of different periods in different countries."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "12:20",
+          "end": "13:00",
+          "title": "Rhythmic Gymnastics Club Performance",
+          "category": "pink",
+          "groupName": "Rhythmic Gymnastics Club",
+          "icon": "Dance.png",
+          "description": "A performance themed on Studio Ghibli's masterpiece “Princess Mononoke.” The Rhythmic Gymnastics Club brings the world of Mononoke to life with their signature skills and apparatus."
+        },
+        {
+          "columns": [
+            "hall_main"
+          ],
+          "start": "14:00",
+          "end": "15:00",
+          "title": "Pop Dance Club 2026 -Epilogue-",
+          "category": "pink",
+          "groupName": "Pop Dance Club",
+          "icon": "Dance.png",
+          "description": "The culmination of 5 months of work by around 140 members. With the theme “Epilogue,” a special dance performance closing one chapter of the club's story."
+        },
+        {
+          "columns": [
+            "hall_sub"
+          ],
+          "start": "09:10",
+          "end": "10:10",
+          "title": "Volleyball Club Experience",
+          "category": "purple",
+          "groupName": "Volleyball Club",
+          "icon": "Volley.png",
+          "description": "Try playing volleyball with our volleyball club members using soft volleyballs! No prior experience necessary!"
+        },
+        {
+          "columns": [
+            "hall_sub"
+          ],
+          "start": "12:10",
+          "end": "13:10",
+          "title": "Takuripusu",
+          "category": "purple",
+          "groupName": "Table Tennis Club",
+          "icon": "TableTenis.png",
+          "description": "Join our interactive event! After learning table tennis basics, test your skills against club members using fun items like serving trays as rackets."
+        },
+        {
+          "columns": [
+            "ground"
+          ],
+          "start": "09:30",
+          "end": "10:30",
+          "title": "LET'S Track and Field!!",
+          "category": "purple",
+          "groupName": "Track and Field Club",
+          "room": "Ground",
+          "icon": "TFClub.png",
+          "description": "Try five track and field events—the 50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!"
+        },
+        {
+          "columns": [
+            "ground"
+          ],
+          "start": "13:00",
+          "end": "14:00",
+          "title": "Tennis Club Experience",
+          "category": "purple",
+          "groupName": "Junior High Tennis Club",
+          "room": "Tennis Court",
+          "icon": "Tennis.png",
+          "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
+        },
+        {
+          "columns": [
+            "av",
+            "hall_main",
+            "hall_sub",
+            "ground"
+          ],
+          "start": "15:00",
+          "end": "16:00",
+          "title": "Closing Time\nPlease Exit the Venue",
+          "category": "closed"
+        }
+      ]
+    }
+  ]
+}

@@ -3,16 +3,19 @@
 文化祭マップ・タイムテーブルの静的ホスティング用リポジトリ(GitHub Pages)。
 
 - `floor1/`, `floor2/`, `floor3/` — (互換維持用)各階を個別に表示するマップページ。既存のSTUDIO埋め込み(iframe src)がこれらを参照しているため残置。
-- `maps/` — 全フロア統合マップ。座標データが未確定のため、現在は "Coming Soon" 表示のプレースホルダーになっている(元のフロア切り替えマップの実装はgit履歴に残っている)。
-- `timetable/` — イベントタイムテーブル。`../data/timetable.json` を読み込み、駅の時刻表のようなグリッド形式で表示する。日程(Day1/Day2)タブ切り替え、現在時刻の赤ライン表示、終了済みイベントの自動グレーアウトに対応。
+- `maps/` — 全フロア統合マップ(日本語)。座標データが未確定のため、現在は "Coming Soon" 表示のプレースホルダーになっている(元のフロア切り替えマップの実装はgit履歴に残っている)。
+  - `maps/en/` — 英語版。表示文言のみ英語化した同一構成のページ。
+- `timetable/` — イベントタイムテーブル(日本語)。`../data/timetable.json` を読み込み、駅の時刻表のようなグリッド形式で表示する。日程(Day1/Day2)タブ切り替え、現在時刻の赤ライン表示、終了済みイベントの自動グレーアウトに対応。
+  - `timetable/en/` — 英語版。`../../data/timetable.en.json` を読み込む同一構成のページ。
 - `data/` — マーカー・タイムテーブルデータ(JSON、手動更新)
   - `groups.json` — 2026 MIFデザイン部情報フォームの回答を元にした企画・団体情報一覧(63件)。企画名・団体名・概要(短/長、日英)・カテゴリ・形式など。`floor`/`room`/`latlng`はマップ座標未確定のため`null`のプレースホルダーで、確定次第そのまま埋めればマップ用データとしても使える。
+  - `timetable.json` / `timetable.en.json` — タイムテーブルの日本語版/英語版データ。構造(時刻・カテゴリ・列構成)は共通で、表示文言のみ翻訳している。片方を編集したらもう片方にも同じ変更(時刻・追加/削除)を反映すること。
 - `image/icon/`, `image/map/` — アイコン・フロア画像アセット
 
-STUDIO側の埋め込み(iframe src)は用途に応じて以下を指定する。
+STUDIO側の埋め込み(iframe src)は用途に応じて以下を指定する。日英の切り替えはembedコードのURLを出し分けることで行う。
 - 1階のみ等、個別フロア: `https://<user>.github.io/mis-mif2026-pages/floor{N}/`
-- 統合マップ(フロア切り替え付き): `https://<user>.github.io/mis-mif2026-pages/maps/`
-- タイムテーブル: `https://<user>.github.io/mis-mif2026-pages/timetable/`
+- 統合マップ(フロア切り替え付き): `https://<user>.github.io/mis-mif2026-pages/maps/`(英語版は`/maps/en/`)
+- タイムテーブル: `https://<user>.github.io/mis-mif2026-pages/timetable/`(英語版は`/timetable/en/`)
 
 ## data/timetable.json のフォーマット
 
