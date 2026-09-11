@@ -43,6 +43,7 @@ html, body {
 
 .chat-log {
   flex: 1;
+  min-height: 0; /* flexアイテムのデフォルトmin-height:autoのままだとoverflow-y:autoが効かないための対策 */
   overflow-y: auto;
   padding: 14px;
   display: flex;
@@ -52,6 +53,7 @@ html, body {
 
 .msg {
   max-width: 82%;
+  flex-shrink: 0; /* 縮小されると内容が見切れるため、自然な高さを保ってchat-log側でスクロールさせる */
   padding: 10px 13px;
   border-radius: 14px;
   font-size: 13px;
