@@ -1,0 +1,47 @@
+{
+  "note": "Festival-wide (not per-project) visitor guide data referenced by the chatbot assistant. Unconfirmed items are left as \"Not available yet\" — update this file once confirmed, no code change or redeploy needed.",
+  "officialSiteUrl": "https://preview.studio.site/live/4yqBzNEbqj/",
+  "days": [
+    {
+      "label": "Day 1",
+      "date": "Sat, Oct 31, 2026",
+      "hours": "9:00-16:00",
+      "visitorLastEntry": "15:00",
+      "projectLastEntry": "15:30"
+    },
+    {
+      "label": "Day 2",
+      "date": "Sun, Nov 1, 2026",
+      "hours": "9:00-15:00",
+      "visitorLastEntry": "14:00",
+      "projectLastEntry": "14:30"
+    }
+  ],
+  "food": {
+    "saleLocations": "Not available yet",
+    "eatableRestAreas": "Not available yet",
+    "nonEatableRestAreas": "Not available yet"
+  },
+  "restrooms": "Not available yet",
+  "infoDesk": "Not available yet",
+  "nurseOffice": "Please direct anyone who is injured or feeling unwell to the nurse's office on the 1st floor. If it seems urgent, also alert a nearby teacher or staff member.",
+  "access": {
+    "nearestStation": "Youga Station",
+    "walkTime": "About a 5-minute walk from Youga Station's east exit to the school.",
+    "note": "Please do not drop off or pick up by car near the school, and please do not park or leave bicycles at nearby shops.",
+    "entryExit": "Not available yet"
+  },
+  "lostAndFound": "Not available yet",
+  "notices": [
+    "Information on this site is updated regularly. Please check for the latest details before visiting.",
+    "Event details may change or be cancelled without notice.",
+    "If you are injured or feel unwell, please go to the nurse's office on the 1st floor.",
+    "Please bring athletic shoes if you plan to join a sports club experience activity.",
+    "Outdoor experience activities will be cancelled in case of rain.",
+    "Please refrain from visiting if you have a fever, cough, or other symptoms.",
+    "Photography on campus is limited to our students, their guardians, teachers, and contracted photographers.",
+    "Even those listed above should refrain from photography except at designated photo spots.",
+    "Please do not drop off or pick up by car near the school.",
+    "Please do not park or leave bicycles at nearby shops."
+  ]
+}
