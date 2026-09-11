@@ -147,8 +147,9 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
       body: JSON.stringify({
         model: OPENAI_MODEL,
         messages,
-        temperature: 0.4,
-        max_tokens: 600
+        // gpt-5.6-luna等の新しいモデルはtemperatureをdefault(1)以外受け付けず、
+        // max_tokensではなくmax_completion_tokensを使う仕様のため合わせている
+        max_completion_tokens: 600
       })
     });
 
