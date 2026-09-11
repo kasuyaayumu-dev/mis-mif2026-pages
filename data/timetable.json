@@ -101,8 +101,8 @@
           "columns": [
             "av"
           ],
-          "start": "13:30",
-          "end": "14:00",
+          "start": "13:40",
+          "end": "14:10",
           "title": "ミニ中学説明会",
           "category": "cyan",
           "groupName": "学校広報部",
@@ -242,19 +242,6 @@
           "room": "テニスコート",
           "icon": "JuniorHighTennisClub.png",
           "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！普段どのように練習しているかもわかります。"
-        },
-        {
-          "columns": [
-            "ground"
-          ],
-          "start": "13:00",
-          "end": "14:00",
-          "title": "テニス部体験",
-          "category": "purple",
-          "groupName": "中学テニス部",
-          "room": "テニスコート",
-          "icon": "JuniorHighTennisClub.png",
-          "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！普段どのように練習しているかもわかります。"
         }
       ]
     },
@@ -358,8 +345,8 @@
           "columns": [
             "av"
           ],
-          "start": "13:40",
-          "end": "14:10",
+          "start": "13:30",
+          "end": "14:00",
           "title": "ミニ中学説明会",
           "category": "cyan",
           "groupName": "学校広報部",

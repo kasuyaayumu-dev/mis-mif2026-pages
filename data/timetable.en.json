@@ -101,8 +101,8 @@
           "columns": [
             "av"
           ],
-          "start": "13:30",
-          "end": "14:00",
+          "start": "13:40",
+          "end": "14:10",
           "title": "Mini Junior High School Information Session",
           "category": "cyan",
           "groupName": "School PR Committee",
@@ -242,19 +242,6 @@
           "room": "Tennis Court",
           "icon": "JuniorHighTennisClub.png",
           "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
-        },
-        {
-          "columns": [
-            "ground"
-          ],
-          "start": "13:00",
-          "end": "14:00",
-          "title": "Tennis Club Experience",
-          "category": "purple",
-          "groupName": "Junior High Tennis Club",
-          "room": "Tennis Court",
-          "icon": "JuniorHighTennisClub.png",
-          "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
         }
       ]
     },
@@ -358,8 +345,8 @@
           "columns": [
             "av"
           ],
-          "start": "13:40",
-          "end": "14:10",
+          "start": "13:30",
+          "end": "14:00",
           "title": "Mini Junior High School Information Session",
           "category": "cyan",
           "groupName": "School PR Committee",
