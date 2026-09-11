@@ -424,6 +424,21 @@ const I18N = window.TT_I18N || {};
       resizeTimer = setTimeout(render, 150);
     });
 
+    // タイムテーブルの初回表示が終わってから、カードを開いた時にアイコンが
+    // 遅れて出るのを防ぐため、バックグラウンドで全アイコンを先読みしておく
+    function preloadIcons() {
+      const urls = new Set();
+      allDays.forEach(day => {
+        day.events.forEach(e => {
+          if (e.icon) urls.add(iconBase + e.icon);
+        });
+      });
+      urls.forEach(url => {
+        const img = new Image();
+        img.src = url;
+      });
+    }
+
     fetch(I18N.dataUrl)
       .then(res => res.json())
       .then(data => {
@@ -432,6 +447,13 @@ const I18N = window.TT_I18N || {};
         currentDayId = allDays.length ? allDays[0].id : null;
         render();
         setInterval(render, 60000);
+
+        // 初回描画・操作を妨げないよう、少し遅らせてアイコンを先読みする
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(preloadIcons, { timeout: 3000 });
+        } else {
+          setTimeout(preloadIcons, 500);
+        }
       })
       .catch(err => {
         console.error('Error loading timetable:', err);
