@@ -946,7 +946,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "J3.png"
     }
   ]
 }
