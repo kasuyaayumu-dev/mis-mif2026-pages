@@ -46,7 +46,7 @@
           "title": "Career Presentation (Junior High)",
           "category": "cyan",
           "groupName": "Junior High Year 1 Student Representatives",
-          "icon": "Presentation.png",
+          "icon": "JuniorHighY1Presentation.png",
           "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves."
         },
         {
@@ -58,7 +58,7 @@
           "title": "Mini Junior High School Information Session",
           "category": "cyan",
           "groupName": "School PR Committee",
-          "icon": "Description.png",
+          "icon": "MiniJuniorHighInfo.png",
           "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
         },
         {
@@ -70,7 +70,7 @@
           "title": "Media Creation Seminar Film Screening",
           "category": "pink",
           "groupName": "Media Creation Seminar",
-          "icon": "Media.png",
+          "icon": "MediaCreationSeminar.png",
           "description": "Welcome to a world of video created by junior high students! Expressive music videos and two dramas will captivate you. Please visit the AV Room."
         },
         {
@@ -82,7 +82,7 @@
           "title": "Chorus Club MIF Performance 2026",
           "category": "pink",
           "groupName": "Chorus Club",
-          "icon": "Chorus.png",
+          "icon": "ChorusClub.png",
           "description": "Enjoy beautiful choral singing! We'll perform a wide range of genres, from choral pieces to J-POP. Please come to the AV Room!"
         },
         {
@@ -94,7 +94,7 @@
           "title": "English Club: Model UN (MUN)",
           "category": "pink",
           "groupName": "English Club",
-          "icon": "EEng.png",
+          "icon": "EnglishClub.png",
           "description": "Club members representing different countries demonstrate real-time negotiation and decision making on global issues. Visitors can also participate by voting on draft resolutions."
         },
         {
@@ -106,7 +106,7 @@
           "title": "Mini Junior High School Information Session",
           "category": "cyan",
           "groupName": "School PR Committee",
-          "icon": "Description.png",
+          "icon": "MiniJuniorHighInfo.png",
           "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
         },
         {
@@ -118,7 +118,7 @@
           "title": "Career Presentation (High School)",
           "category": "cyan",
           "groupName": "High School Year 1 Student Representatives",
-          "icon": "Presentation.png",
+          "icon": "HighSchoolY1Presentation.png",
           "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future."
         },
         {
@@ -130,7 +130,7 @@
           "title": "Kotonohana",
           "category": "pink",
           "groupName": "Koto Club",
-          "icon": "KotoClub.png",
+          "icon": "KotoMusicClub.png",
           "description": "Enjoy the beautiful sounds of the koto, a traditional Japanese instrument, performed by the Koto Club. Each member will put their heart into the performance."
         },
         {
@@ -142,7 +142,7 @@
           "title": "Pop Dance Club 2026 -Epilogue-",
           "category": "pink",
           "groupName": "Pop Dance Club",
-          "icon": "Dance.png",
+          "icon": "PopDanceClub.png",
           "description": "The culmination of 5 months of work by around 140 members. With the theme “Epilogue,” a special dance performance closing one chapter of the club's story."
         },
         {
@@ -154,7 +154,7 @@
           "title": "「Mata, Tonari de」",
           "category": "pink",
           "groupName": "Drama Club",
-          "icon": "Presentation.png",
+          "icon": "DramaClub.png",
           "description": "A heartwarming story about young game creators who clash over their project, confront the feelings they have kept inside, and find their way back to the bonds they once shared."
         },
         {
@@ -166,7 +166,7 @@
           "title": "Rhythmic Gymnastics Club Performance",
           "category": "pink",
           "groupName": "Rhythmic Gymnastics Club",
-          "icon": "Dance.png",
+          "icon": "RhythmicGymnasticsClub.png",
           "description": "A performance themed on Studio Ghibli's masterpiece “Princess Mononoke.” The Rhythmic Gymnastics Club brings the world of Mononoke to life with their signature skills and apparatus."
         },
         {
@@ -190,7 +190,7 @@
           "title": "Harmony in the Sky",
           "category": "pink",
           "groupName": "Wind Orchestra Club",
-          "icon": "Orchestra.png",
+          "icon": "WindOrchestraClub.png",
           "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—join us on an unforgettable journey!"
         },
         {
@@ -202,7 +202,7 @@
           "title": "Volleyball Club Experience",
           "category": "purple",
           "groupName": "Volleyball Club",
-          "icon": "Volley.png",
+          "icon": "VolleyballClub.png",
           "description": "Try playing volleyball with our volleyball club members using soft volleyballs! No prior experience necessary!"
         },
         {
@@ -214,7 +214,7 @@
           "title": "Takuripusu",
           "category": "purple",
           "groupName": "Table Tennis Club",
-          "icon": "TableTenis.png",
+          "icon": "TableTennisClub.png",
           "description": "Join our interactive event! After learning table tennis basics, test your skills against club members using fun items like serving trays as rackets."
         },
         {
@@ -227,7 +227,7 @@
           "category": "purple",
           "groupName": "Track and Field Club",
           "room": "Ground",
-          "icon": "TFClub.png",
+          "icon": "TrackAndFieldClub.png",
           "description": "Try five track and field events—the 50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!"
         },
         {
@@ -240,7 +240,7 @@
           "category": "purple",
           "groupName": "Junior High Tennis Club",
           "room": "Tennis Court",
-          "icon": "Tennis.png",
+          "icon": "JuniorHighTennisClub.png",
           "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
         },
         {
@@ -253,7 +253,7 @@
           "category": "purple",
           "groupName": "Junior High Tennis Club",
           "room": "Tennis Court",
-          "icon": "Tennis.png",
+          "icon": "JuniorHighTennisClub.png",
           "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
         }
       ]
@@ -303,7 +303,7 @@
           "title": "Chorus Club MIF Performance 2026",
           "category": "pink",
           "groupName": "Chorus Club",
-          "icon": "Chorus.png",
+          "icon": "ChorusClub.png",
           "description": "Enjoy beautiful choral singing! We'll perform a wide range of genres, from choral pieces to J-POP. Please come to the AV Room!"
         },
         {
@@ -315,7 +315,7 @@
           "title": "Mini Junior High School Information Session",
           "category": "cyan",
           "groupName": "School PR Committee",
-          "icon": "Description.png",
+          "icon": "MiniJuniorHighInfo.png",
           "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
         },
         {
@@ -339,7 +339,7 @@
           "title": "Career Presentation (Junior High)",
           "category": "cyan",
           "groupName": "Junior High Year 1 Student Representatives",
-          "icon": "Presentation.png",
+          "icon": "JuniorHighY1Presentation.png",
           "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves."
         },
         {
@@ -351,7 +351,7 @@
           "title": "English Recitation and Speech",
           "category": "cyan",
           "groupName": "English Recitation and Speech",
-          "icon": "Speach.png",
+          "icon": "EnglishRecitationSpeech.png",
           "description": "This event features presentations by students in J1 through S2 who achieved outstanding results in the English Speech and Recitation Contest, as well as presentations by students returning from long-term study abroad!"
         },
         {
@@ -363,7 +363,7 @@
           "title": "Mini Junior High School Information Session",
           "category": "cyan",
           "groupName": "School PR Committee",
-          "icon": "Description.png",
+          "icon": "MiniJuniorHighInfo.png",
           "description": "Discover the unique educational approach and student life at Mita International Science Academy Junior High School, where we strive to nurture creative thinkers, in this 30-minute information session."
         },
         {
@@ -375,7 +375,7 @@
           "title": "English Club: English Debate",
           "category": "pink",
           "groupName": "English Club",
-          "icon": "EEng.png",
+          "icon": "EnglishClub.png",
           "description": "Members engage in an impromptu English debate on an assigned topic. With interactive audience segments and Japanese summary support, non-native speakers can enjoy the debate too."
         },
         {
@@ -387,7 +387,7 @@
           "title": "Harmony in the Sky",
           "category": "pink",
           "groupName": "Wind Orchestra Club",
-          "icon": "Orchestra.png",
+          "icon": "WindOrchestraClub.png",
           "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—join us on an unforgettable journey!"
         },
         {
@@ -411,7 +411,7 @@
           "title": "Rhythmic Gymnastics Club Performance",
           "category": "pink",
           "groupName": "Rhythmic Gymnastics Club",
-          "icon": "Dance.png",
+          "icon": "RhythmicGymnasticsClub.png",
           "description": "A performance themed on Studio Ghibli's masterpiece “Princess Mononoke.” The Rhythmic Gymnastics Club brings the world of Mononoke to life with their signature skills and apparatus."
         },
         {
@@ -423,7 +423,7 @@
           "title": "Pop Dance Club 2026 -Epilogue-",
           "category": "pink",
           "groupName": "Pop Dance Club",
-          "icon": "Dance.png",
+          "icon": "PopDanceClub.png",
           "description": "The culmination of 5 months of work by around 140 members. With the theme “Epilogue,” a special dance performance closing one chapter of the club's story."
         },
         {
@@ -435,7 +435,7 @@
           "title": "Volleyball Club Experience",
           "category": "purple",
           "groupName": "Volleyball Club",
-          "icon": "Volley.png",
+          "icon": "VolleyballClub.png",
           "description": "Try playing volleyball with our volleyball club members using soft volleyballs! No prior experience necessary!"
         },
         {
@@ -447,7 +447,7 @@
           "title": "Takuripusu",
           "category": "purple",
           "groupName": "Table Tennis Club",
-          "icon": "TableTenis.png",
+          "icon": "TableTennisClub.png",
           "description": "Join our interactive event! After learning table tennis basics, test your skills against club members using fun items like serving trays as rackets."
         },
         {
@@ -460,7 +460,7 @@
           "category": "purple",
           "groupName": "Track and Field Club",
           "room": "Ground",
-          "icon": "TFClub.png",
+          "icon": "TrackAndFieldClub.png",
           "description": "Try five track and field events—the 50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!"
         },
         {
@@ -473,7 +473,7 @@
           "category": "purple",
           "groupName": "Junior High Tennis Club",
           "room": "Tennis Court",
-          "icon": "Tennis.png",
+          "icon": "JuniorHighTennisClub.png",
           "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis."
         },
         {
