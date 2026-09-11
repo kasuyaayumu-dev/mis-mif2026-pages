@@ -28,6 +28,7 @@ if (!OPENAI_API_KEY) {
 }
 
 const app = express();
+app.disable('x-powered-by');
 app.use(express.json({ limit: '32kb' }));
 
 // CORS: STUDIOの公開ドメインのみ許可(ALLOWED_ORIGINSが空の場合は開発用に全許可)
@@ -152,8 +153,8 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     });
 
     if (!openaiRes.ok) {
-      const errText = await openaiRes.text();
-      console.error('OpenAI API error:', openaiRes.status, errText);
+      // レスポンス本文はユーザー入力に由来しうるため、ログにはステータスコードのみ出力する
+      console.error('OpenAI API error: status =', openaiRes.status);
       return res.status(502).json({ error: 'AIサーバーへの問い合わせに失敗しました。' });
     }
 

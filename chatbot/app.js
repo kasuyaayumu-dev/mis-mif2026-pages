@@ -52,12 +52,14 @@ async function sendMessage(text) {
     loadingEl.remove();
 
     if (!res.ok || !data.reply) {
-      appendMessage('error', (data && data.error) || I18N.errorMsg);
+      appendMessage('error', data?.error || I18N.errorMsg);
     } else {
       appendMessage('bot', data.reply);
       history.push({ role: 'assistant', content: data.reply });
     }
   } catch (err) {
+    // ネットワークエラーやJSON解析失敗など。詳細はコンソールに残し、UIには汎用メッセージのみ表示する。
+    console.error('sendMessage failed:', err);
     loadingEl.remove();
     appendMessage('error', I18N.errorMsg);
   } finally {
