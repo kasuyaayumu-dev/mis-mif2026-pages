@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MIF Project Assistant</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="chat-card">
+    <div class="chat-header">
+      MIF Project Assistant
+      <div class="sub">Ask about any project or booth by keyword</div>
+    </div>
+    <div class="chat-log" id="chatLog"></div>
+    <form class="chat-input-row" id="chatForm">
+      <input class="chat-input" id="chatInput" type="text" placeholder="e.g. Any dance projects?" autocomplete="off">
+      <button class="chat-send" id="chatSend" type="submit">Send</button>
+    </form>
+  </div>
+
+  <script>
+    window.CHAT_I18N = {
+      // Replace with the real endpoint once the Raspberry Pi server is set up
+      apiUrl: 'https://mif-chat.ayu-tech.jp/api/chat',
+      lang: 'en',
+      greeting: 'Hi! Ask me anything about MIF projects, e.g. "Any dance projects?" or "What food is sold?"',
+      errorMsg: 'Failed to get a response. Please try again.'
+    };
+  </script>
+  <script src="../app.js"></script>
+</body>
+</html>

@@ -11,11 +11,14 @@
   - `groups.json` / `groups.en.json` — 2026 MIFデザイン部情報フォームの回答を元にした企画・団体情報一覧(各63件)。日本語版/英語版で完全に分離したファイルで、`groups.en.json`側には日本語テキストを含めていない(団体名・カテゴリ・形式・企画名なども英訳済み。公式回答に英語版がない項目は独自に翻訳)。企画名・団体名・短い概要・カテゴリ・形式・`icon`(image/icon/内のファイル名、63件全て設定済み)など。Map等では短い概要のみ使用するため、長い説明文(企画説明)は含めていない。`floor`/`room`/`latlng`はマップ座標未確定のため`null`のプレースホルダーで、確定次第そのまま埋めればマップ用データとしても使える。
   - `timetable.json` / `timetable.en.json` — タイムテーブルの日本語版/英語版データ。構造(時刻・カテゴリ・列構成)は共通で、表示文言のみ翻訳している。片方を編集したらもう片方にも同じ変更(時刻・追加/削除)を反映すること。
 - `image/icon/`, `image/map/` — アイコン・フロア画像アセット
+- `chatbot/` — 企画アシスタントチャットボットの埋め込みウィジェット(フロントのみ、静的)。`chatbot/en/`が英語版。`data/groups.json`を元にした質問応答を`chatbot-server/`のAPIに問い合わせる。**`CHAT_I18N.apiUrl`は現状プレースホルダーのため、サーバーをデプロイしたら実URLに差し替えること。**
+- `chatbot-server/` — チャットボットの中継サーバー(Node.js/Express)。OpenAI APIキーを保持しGitHub Pagesでは動かない別プロセス。ラズパイ等の常時稼働サーバーに別途デプロイする想定(手順は`chatbot-server/README.md`参照、未デプロイ)。GitHub Pagesのビルド対象には含めない。
 
 STUDIO側の埋め込み(iframe src)は用途に応じて以下を指定する。日英の切り替えはembedコードのURLを出し分けることで行う。
 - 1階のみ等、個別フロア: `https://<user>.github.io/mis-mif2026-pages/floor{N}/`
 - 統合マップ(フロア切り替え付き): `https://<user>.github.io/mis-mif2026-pages/maps/`(英語版は`/maps/en/`)
 - タイムテーブル: `https://<user>.github.io/mis-mif2026-pages/timetable/`(英語版は`/timetable/en/`)
+- 企画アシスタント: `https://<user>.github.io/mis-mif2026-pages/chatbot/`(英語版は`/chatbot/en/`)※サーバー未デプロイのため現状は動作しない
 
 ## data/timetable.json のフォーマット
 

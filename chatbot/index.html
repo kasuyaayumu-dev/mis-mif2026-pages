@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>MIF 企画アシスタント</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-card">
+    <div class="chat-header">
+      MIF 企画アシスタント
+      <div class="sub">気になる企画をキーワードで聞いてみよう</div>
+    </div>
+    <div class="chat-log" id="chatLog"></div>
+    <form class="chat-input-row" id="chatForm">
+      <input class="chat-input" id="chatInput" type="text" placeholder="例: ダンス系の企画ある？" autocomplete="off">
+      <button class="chat-send" id="chatSend" type="submit">送信</button>
+    </form>
+  </div>
+
+  <script>
+    window.CHAT_I18N = {
+      // ラズパイ側のサーバー構築後、実際のエンドポイントに差し替える
+      apiUrl: 'https://mif-chat.ayu-tech.jp/api/chat',
+      lang: 'ja',
+      greeting: 'こんにちは！MIFの企画について気軽に質問してください。例:「ダンス系の企画ある？」「食べ物を売ってる企画は？」',
+      errorMsg: '応答の取得に失敗しました。もう一度お試しください。'
+    };
+  </script>
+  <script src="app.js"></script>
+</body>
+</html>
