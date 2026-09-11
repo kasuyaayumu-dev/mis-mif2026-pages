@@ -92,15 +92,23 @@ function buildSystemPrompt(groupsData, lang) {
       '"Project name | Group/Club | Category | Format | Short description".',
       'If nothing matches, say so honestly. Do not invent projects that are not in the list.',
       '',
-      'When the visitor asks something that could match MULTIPLE projects (e.g. "any dance projects?",',
-      '"what food is sold?"), call the suggest_projects tool with a short search query instead of listing',
-      'them yourself. The matching projects will be shown to the user as cards automatically, so your text',
-      'reply should just be ONE short friendly sentence (e.g. "Here are some projects you might like!") and',
-      'must NOT repeat the project names/details in text.',
+      'Interpret the visitor\'s intent broadly and generously: handle typos, casual wording, synonyms,',
+      'and category-level requests (e.g. "any dance projects?", "what food is sold?", or even a typo like',
+      '"tasty projecs") by reading through the ENTIRE project list above yourself and judging which',
+      'projects plausibly match, using your own understanding of meaning (not literal keyword matching).',
+      '',
+      'Whenever ONE OR MORE projects match, you MUST call the suggest_projects tool — this is an absolute',
+      'rule, never skip it. Pass the "names" argument as an array of the EXACT project names, copied',
+      'character-for-character from the list above (not paraphrased), for every project you judged as a',
+      'match — include ALL of them, not just one. The matching projects are shown to the user as cards',
+      'automatically, so your text reply must be ONLY one short friendly sentence (e.g. "Here are some',
+      'projects you might like!") and must NOT repeat the project names or details in text.',
+      'Only skip the tool call if truly nothing in the list matches, in which case say so honestly.',
       '',
       'When the visitor shows interest in ONE specific project and wants to know more or go to its page,',
-      'call the find_project_link tool with that project name to look up its page link, then share the',
-      'result naturally (if a link is found, guide them to it; if not available yet, say so honestly).',
+      'call the find_project_link tool with that project\'s exact name (copied from the list) to look up',
+      'its page link, then share the result naturally (if found, guide them to it; if not ready yet, say',
+      'so honestly).',
       'Keep answers reasonably short and in English.',
       '',
       '## Project list',
@@ -114,16 +122,23 @@ function buildSystemPrompt(groupsData, lang) {
     '「企画名 | 団体名 | カテゴリ | 形式 | 短い説明」です。',
     '該当がなければ正直にその旨を伝えてください。リストにない企画を創作しないでください。',
     '',
-    '「ダンス系の企画ある？」「食べ物を売ってる企画は？」のように複数の企画が当てはまりそうな',
-    '質問には、必ず suggest_projects ツールを短い検索キーワードで呼び出してください。これは',
-    '絶対的なルールです。ツールを呼ばずにあなたが文章中で企画名を列挙して答えることは禁止します。',
-    '該当企画はカード形式でユーザーに自動的に表示されるので、あなたの文章での返答は',
-    '「おすすめの企画はこちらです」のような一言だけにし、企画名や説明を文章中で繰り返さないで',
-    'ください。',
+    '来場者の意図は誤字・言い換え・カジュアルな表現も含めて広く柔軟に解釈してください',
+    '(例:「おいちいたんな企画」→「美味しい企画」の誤字と解釈する、「ダンス系」→ダンスに関連する',
+    '企画全般、など)。単純なキーワードの文字列一致ではなく、上の企画リストを実際に読んで、',
+    'あなた自身の意味理解で「当てはまりそうな企画」を判断してください。',
+    '',
+    '1件でも当てはまる企画があれば、必ず suggest_projects ツールを呼び出してください。これは',
+    '絶対的なルールで、例外はありません。names引数には、あなたが当てはまると判断した企画の',
+    '「企画名」を、上のリストに書かれている表記のまま一字一句コピーして、該当する分すべて配列で',
+    '渡してください(1件だけに絞らず、当てはまる企画は全部含める)。該当企画はカード形式で',
+    'ユーザーに自動的に表示されるので、あなたの文章での返答は「おすすめの企画はこちらです」の',
+    'ような一言だけにし、企画名や説明を文章中で繰り返さないでください。',
+    'ツールを呼ばずに「見つかりませんでした」と答えて良いのは、リストを見ても本当に何も',
+    '当てはまらない場合のみです。',
     '',
     '来場者が特定の1つの企画に興味を示し、詳しく知りたい・そのページに行きたいと言った場合は、',
-    'find_project_link ツールをその企画名で呼び出してリンクを調べ、見つかればそのリンクへ誘導し、',
-    'まだ用意されていない場合は正直にその旨を伝えてください。',
+    'find_project_link ツールを、その企画のリスト表記そのままの企画名で呼び出してリンクを調べ、',
+    '見つかればそのリンクへ誘導し、まだ用意されていない場合は正直にその旨を伝えてください。',
     '回答は日本語で、なるべく簡潔にしてください。',
     '',
     '## 企画リスト',
@@ -142,17 +157,17 @@ const chatTools = [
     function: {
       name: 'find_project_link',
       description:
-        '来場者が興味を持った特定の企画・団体のページリンクを検索する。企画名や団体名(部分一致)で検索できる。' +
+        '来場者が興味を持った特定の企画・団体のページリンクを検索する。' +
         'ユーザーが特定の企画についてもっと知りたい・そのページに行きたいと言った時に使う。',
       parameters: {
         type: 'object',
         properties: {
-          query: {
+          name: {
             type: 'string',
-            description: '検索したい企画名または団体名(部分一致可)'
+            description: '企画リストに書かれている表記そのままの企画名(一字一句コピー)'
           }
         },
-        required: ['query']
+        required: ['name']
       }
     }
   },
@@ -161,36 +176,56 @@ const chatTools = [
     function: {
       name: 'suggest_projects',
       description:
-        '来場者の質問に合いそうな企画を複数検索し、カード形式で提示するためのもの。' +
-        '「ダンス系の企画ある？」のような、複数の企画が当てはまりうる質問に答える時はこれを使い、' +
-        '文章中で企画名を列挙しないこと(カードが自動表示されるため)。',
+        'あなたが企画リストを読んで「来場者の質問に当てはまる」と判断した企画を、カード形式で' +
+        '提示するためのもの。検索はしない(あなたが既に選んだ企画名をそのまま渡すだけ)。' +
+        '複数の企画が当てはまりうる質問に答える時はこれを使い、文章中で企画名を列挙しないこと' +
+        '(カードが自動表示されるため)。',
       parameters: {
         type: 'object',
         properties: {
-          query: {
-            type: 'string',
-            description: '検索キーワード(企画名・団体名・カテゴリ・形式・説明文から部分一致で検索)'
-          },
-          limit: {
-            type: 'integer',
-            description: '返す企画数の上限(デフォルト5、最大8)'
+          names: {
+            type: 'array',
+            items: { type: 'string' },
+            description:
+              '当てはまると判断した企画の名前を、企画リストに書かれている表記のまま一字一句' +
+              'コピーして配列で渡す(該当するもの全部。最大8件まで)'
           }
         },
-        required: ['query']
+        required: ['names']
       }
     }
   }
 ];
 
-function findProjectLink(groupsData, query) {
-  const items = groupsData.items || [];
-  const q = (query || '').trim().toLowerCase();
-  if (!q) return { found: false, reason: 'empty_query' };
+// 完全一致 → 前方一致/部分一致 → ゆるい正規化一致、の順で1件だけ探す
+function findItemByName(items, rawName) {
+  const name = (rawName || '').trim();
+  if (!name) return null;
 
-  const match = items.find(it =>
-    (it.name && it.name.toLowerCase().includes(q)) ||
-    (it.group && it.group.toLowerCase().includes(q))
-  );
+  let match = items.find(it => it.name === name);
+  if (match) return match;
+
+  const lower = name.toLowerCase();
+  match = items.find(it => it.name && it.name.toLowerCase() === lower);
+  if (match) return match;
+
+  match = items.find(it => it.name && it.name.toLowerCase().includes(lower));
+  if (match) return match;
+
+  // 空白・記号を除いたゆるい一致(モデルが微妙に表記を変えてしまった場合の保険)
+  const normalize = s => (s || '').toLowerCase().replace(/[\s　・()（）\-~〜!！?？.,、。]/g, '');
+  const normName = normalize(name);
+  if (normName) {
+    match = items.find(it => normalize(it.name).includes(normName) || normName.includes(normalize(it.name)));
+    if (match) return match;
+  }
+
+  return null;
+}
+
+function findProjectLink(groupsData, name) {
+  const items = groupsData.items || [];
+  const match = findItemByName(items, name);
 
   if (!match) return { found: false, reason: 'not_found' };
   if (!match.url) {
@@ -209,24 +244,21 @@ function toCard(it) {
   };
 }
 
-function suggestProjects(groupsData, query, limit) {
+function suggestProjects(groupsData, names) {
   const items = groupsData.items || [];
-  const q = (query || '').trim().toLowerCase();
-  const max = Math.min(Math.max(parseInt(limit, 10) || 5, 1), 8);
+  const list = Array.isArray(names) ? names : [];
 
-  if (!q) {
-    return { count: 0, items: [] };
+  const matched = [];
+  const seenIds = new Set();
+  for (const n of list.slice(0, 8)) {
+    const item = findItemByName(items, n);
+    if (item && !seenIds.has(item.id)) {
+      seenIds.add(item.id);
+      matched.push(item);
+    }
   }
 
-  const matches = items.filter(it => {
-    const haystack = [it.name, it.group, it.category, it.format, it.description]
-      .filter(Boolean)
-      .join(' ')
-      .toLowerCase();
-    return haystack.includes(q);
-  }).slice(0, max);
-
-  return { count: matches.length, items: matches.map(toCard) };
+  return { count: matched.length, items: matched.map(toCard) };
 }
 
 async function callOpenAI(messages) {
@@ -310,9 +342,9 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
 
           let toolResult;
           if (toolCall.function?.name === 'find_project_link') {
-            toolResult = findProjectLink(groupsData, args.query);
+            toolResult = findProjectLink(groupsData, args.name);
           } else if (toolCall.function?.name === 'suggest_projects') {
-            toolResult = suggestProjects(groupsData, args.query, args.limit);
+            toolResult = suggestProjects(groupsData, args.names);
             if (toolResult.items.length > 0) suggestions = toolResult.items;
           } else {
             toolResult = { error: 'unknown_tool' };
