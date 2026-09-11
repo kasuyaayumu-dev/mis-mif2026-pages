@@ -88,6 +88,9 @@ function buildSystemPrompt(groupsData, lang) {
       'If asked things like "any dance projects?" or "what food is sold?", search the list and reply',
       'concisely in a friendly tone, listing matching project names and a one-line reason for each.',
       'If nothing matches, say so honestly. Do not invent projects that are not in the list.',
+      'When the visitor shows interest in ONE specific project and wants to know more or go to its page,',
+      'call the find_project_link tool with that project name to look up its page link, then share the',
+      'result naturally (if a link is found, guide them to it; if not available yet, say so honestly).',
       'Keep answers reasonably short and in English.',
       '',
       '## Project list',
@@ -102,11 +105,90 @@ function buildSystemPrompt(groupsData, lang) {
     '「ダンス系の企画ある？」「食べ物を売ってる企画は？」のような質問には、リストの中から',
     '当てはまりそうな企画を探し、企画名と一言理由を添えて親しみやすい口調で簡潔に答えてください。',
     '該当がなければ正直にその旨を伝えてください。リストにない企画を創作しないでください。',
+    '来場者が特定の1つの企画に興味を示し、詳しく知りたい・そのページに行きたいと言った場合は、',
+    'find_project_link ツールをその企画名で呼び出してリンクを調べ、見つかればそのリンクへ誘導し、',
+    'まだ用意されていない場合は正直にその旨を伝えてください。',
     '回答は日本語で、なるべく簡潔にしてください。',
     '',
     '## 企画リスト',
     ...lines
   ].join('\n');
+}
+
+// ---- ツール(Function Calling)定義 ----
+// 「この企画についてもっと知りたい/ページに行きたい」と言われた時に、
+// 該当企画の詳細ページリンクを検索してモデルに返すためのツール。
+// data/groups.json の各アイテムに url フィールド(現状は未設定のためnull)を
+// 用意してあり、URLが整い次第このツールがそのまま使えるようになる。
+const chatTools = [
+  {
+    type: 'function',
+    function: {
+      name: 'find_project_link',
+      description:
+        '来場者が興味を持った特定の企画・団体のページリンクを検索する。企画名や団体名(部分一致)で検索できる。' +
+        'ユーザーが特定の企画についてもっと知りたい・そのページに行きたいと言った時に使う。',
+      parameters: {
+        type: 'object',
+        properties: {
+          query: {
+            type: 'string',
+            description: '検索したい企画名または団体名(部分一致可)'
+          }
+        },
+        required: ['query']
+      }
+    }
+  }
+];
+
+function findProjectLink(groupsData, query) {
+  const items = groupsData.items || [];
+  const q = (query || '').trim().toLowerCase();
+  if (!q) return { found: false, reason: 'empty_query' };
+
+  const match = items.find(it =>
+    (it.name && it.name.toLowerCase().includes(q)) ||
+    (it.group && it.group.toLowerCase().includes(q))
+  );
+
+  if (!match) return { found: false, reason: 'not_found' };
+  if (!match.url) {
+    return { found: true, name: match.name, group: match.group, url: null, reason: 'link_not_ready' };
+  }
+  return { found: true, name: match.name, group: match.group, url: match.url };
+}
+
+async function callOpenAI(messages) {
+  const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${OPENAI_API_KEY}`
+    },
+    body: JSON.stringify({
+      model: OPENAI_MODEL,
+      messages,
+      tools: chatTools,
+      tool_choice: 'auto',
+      // gpt-5.6-luna等の新しいモデルはtemperatureをdefault(1)以外受け付けず、
+      // max_tokensではなくmax_completion_tokensを使う仕様のため合わせている。
+      // またFunction ToolsはChat Completions APIではreasoning_effort:'none'を
+      // 指定しないと使えない仕様(それ以外だと/v1/responsesの利用が必須)。
+      reasoning_effort: 'none',
+      max_completion_tokens: 600
+    })
+  });
+
+  if (!openaiRes.ok) {
+    // レスポンス本文はユーザー入力に由来しうるため、ログにはステータスコードのみ出力する
+    console.error('OpenAI API error: status =', openaiRes.status);
+    const err = new Error('openai_error');
+    err.isOpenAIError = true;
+    throw err;
+  }
+
+  return openaiRes.json();
 }
 
 app.get('/health', (req, res) => {
@@ -138,29 +220,40 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
       { role: 'user', content: message }
     ];
 
-    const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${OPENAI_API_KEY}`
-      },
-      body: JSON.stringify({
-        model: OPENAI_MODEL,
-        messages,
-        // gpt-5.6-luna等の新しいモデルはtemperatureをdefault(1)以外受け付けず、
-        // max_tokensではなくmax_completion_tokensを使う仕様のため合わせている
-        max_completion_tokens: 600
-      })
-    });
+    let reply = null;
+    const MAX_TOOL_ROUNDS = 3;
 
-    if (!openaiRes.ok) {
-      // レスポンス本文はユーザー入力に由来しうるため、ログにはステータスコードのみ出力する
-      console.error('OpenAI API error: status =', openaiRes.status);
-      return res.status(502).json({ error: 'AIサーバーへの問い合わせに失敗しました。' });
+    for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
+      const openaiJson = await callOpenAI(messages);
+      const assistantMsg = openaiJson.choices?.[0]?.message;
+
+      if (!assistantMsg) break;
+
+      if (Array.isArray(assistantMsg.tool_calls) && assistantMsg.tool_calls.length > 0) {
+        // モデルがツール呼び出しを要求してきた場合、サーバー側で実行して結果を返し、
+        // もう一度モデルに問い合わせて自然な文章の最終回答を得る
+        messages.push(assistantMsg);
+        for (const toolCall of assistantMsg.tool_calls) {
+          let toolResult;
+          if (toolCall.function?.name === 'find_project_link') {
+            let args = {};
+            try { args = JSON.parse(toolCall.function.arguments || '{}'); } catch { /* 不正なJSONは空引数扱い */ }
+            toolResult = findProjectLink(groupsData, args.query);
+          } else {
+            toolResult = { error: 'unknown_tool' };
+          }
+          messages.push({
+            role: 'tool',
+            tool_call_id: toolCall.id,
+            content: JSON.stringify(toolResult)
+          });
+        }
+        continue;
+      }
+
+      reply = assistantMsg.content?.trim();
+      break;
     }
-
-    const openaiJson = await openaiRes.json();
-    const reply = openaiJson.choices?.[0]?.message?.content?.trim();
 
     if (!reply) {
       return res.status(502).json({ error: 'AIから有効な回答が得られませんでした。' });
@@ -168,6 +261,9 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
 
     res.json({ reply });
   } catch (err) {
+    if (err && err.isOpenAIError) {
+      return res.status(502).json({ error: 'AIサーバーへの問い合わせに失敗しました。' });
+    }
     console.error('chat handler error:', err);
     res.status(500).json({ error: 'サーバー内部エラーが発生しました。' });
   }
