@@ -1,5 +1,6 @@
 {
   "generatedFrom": "2026 MIFデザイン部情報フォーム（回答）",
+  "iconBase": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/",
   "note": "Coordinates are not yet finalized (floor/room/latlng are null placeholders).",
   "count": 63,
   "items": [
@@ -15,7 +16,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "RailwayResearchClub.png"
     },
     {
       "id": "g002",
@@ -29,7 +31,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "MiniJuniorHighInfo.png"
     },
     {
       "id": "g003",
@@ -43,7 +46,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "JuniorHighY1Presentation.png"
     },
     {
       "id": "g004",
@@ -57,7 +61,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "HighSchoolY1Presentation.png"
     },
     {
       "id": "g005-let-s",
@@ -71,7 +76,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "FlowerArrangementClub.png"
     },
     {
       "id": "g006",
@@ -85,7 +91,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "JuniorHighTennisClub.png"
     },
     {
       "id": "g007",
@@ -113,7 +120,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "EnglishRecitationSpeech.png"
     },
     {
       "id": "g009",
@@ -127,7 +135,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "TeaCeremonyClub.png"
     },
     {
       "id": "g010-mission-tsunagari-palace",
@@ -141,7 +150,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "Tsunagari.png"
     },
     {
       "id": "g011-2026-sla",
@@ -155,7 +165,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "SLA.png"
     },
     {
       "id": "g012-3days",
@@ -169,7 +180,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "BATON.png"
     },
     {
       "id": "g013",
@@ -183,7 +195,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "School.png"
     },
     {
       "id": "g014",
@@ -197,7 +210,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "Chigusakai.png"
     },
     {
       "id": "g015-2026",
@@ -211,7 +225,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "ScienceClub.png"
     },
     {
       "id": "g016",
@@ -225,7 +240,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "EnglishClub.png"
     },
     {
       "id": "g017-book-loop",
@@ -239,7 +255,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "LibraryCommittee.png"
     },
     {
       "id": "g018-harmony-in-the-sky-2026-wind-orchestra-concer",
@@ -253,7 +270,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "WindOrchestraClub.png"
     },
     {
       "id": "g019",
@@ -267,7 +285,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "VolleyballClub.png"
     },
     {
       "id": "g020-let-s",
@@ -281,7 +300,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "TrackAndFieldClub.png"
     },
     {
       "id": "g021-mita",
@@ -295,7 +315,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "Ikimonogakari.png"
     },
     {
       "id": "g022",
@@ -309,7 +330,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "DramaClub.png"
     },
     {
       "id": "g023-base-camp-s2f",
@@ -323,7 +345,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S2F.png"
     },
     {
       "id": "g024-wagamama",
@@ -337,7 +360,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "BusinessSeminar.png"
     },
     {
       "id": "g025-art-club",
@@ -351,7 +375,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "ArtClub.png"
     },
     {
       "id": "g026-prismatic-baseball",
@@ -365,7 +390,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "SoftballAG.png"
     },
     {
       "id": "g027-mission-power-restore",
@@ -379,7 +405,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "Striders.png"
     },
     {
       "id": "g028",
@@ -393,7 +420,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S1F.png"
     },
     {
       "id": "g029-2-b",
@@ -407,7 +435,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S2B.png"
     },
     {
       "id": "g030",
@@ -421,7 +450,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "TableTennisClub.png"
     },
     {
       "id": "g031-s2e",
@@ -435,7 +465,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S2E.png"
     },
     {
       "id": "g032",
@@ -449,7 +480,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S2A.png"
     },
     {
       "id": "g033-escape",
@@ -463,7 +495,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S1E.png"
     },
     {
       "id": "g034",
@@ -477,7 +510,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S1C.png"
     },
     {
       "id": "g035-fiesta",
@@ -491,7 +525,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "FIESTA.png"
     },
     {
       "id": "g036",
@@ -505,7 +540,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "BasicSeminarResearch.png"
     },
     {
       "id": "g037",
@@ -519,7 +555,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "KotoMusicClub.png"
     },
     {
       "id": "g038",
@@ -533,7 +570,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "RhythmicGymnasticsClub.png"
     },
     {
       "id": "g039",
@@ -547,7 +585,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "SmiCaca.png"
     },
     {
       "id": "g040",
@@ -561,7 +600,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S1A.png"
     },
     {
       "id": "g041-s1d",
@@ -575,7 +615,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S1D.png"
     },
     {
       "id": "g042-mif-2026",
@@ -589,7 +630,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "ChorusClub.png"
     },
     {
       "id": "g043",
@@ -603,7 +645,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "StudentCouncil.png"
     },
     {
       "id": "g044",
@@ -617,7 +660,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S2D.png"
     },
     {
       "id": "g045",
@@ -631,7 +675,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "StudentCouncil.png"
     },
     {
       "id": "g046-2026-epilogue",
@@ -645,7 +690,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "PopDanceClub.png"
     },
     {
       "id": "g047",
@@ -659,7 +705,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S1B.png"
     },
     {
       "id": "g048",
@@ -673,7 +720,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "StudentCouncil.png"
     },
     {
       "id": "g049",
@@ -687,7 +735,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "ShogiChessClub.png"
     },
     {
       "id": "g050-mif",
@@ -701,7 +750,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "MIFInternationalRoom.png"
     },
     {
       "id": "g051",
@@ -715,7 +765,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "J1J2ICFusion.png"
     },
     {
       "id": "g052",
@@ -729,7 +780,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "MediaCreationSeminar.png"
     },
     {
       "id": "g053-edutainment",
@@ -743,7 +795,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "J2.png"
     },
     {
       "id": "g054",
@@ -757,7 +810,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "ComputerClub.png"
     },
     {
       "id": "g055",
@@ -771,7 +825,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "Himmeli.png"
     },
     {
       "id": "g056",
@@ -785,7 +840,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S1.png"
     },
     {
       "id": "g057-mst",
@@ -799,7 +855,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "MST.png"
     },
     {
       "id": "g058-mst",
@@ -813,7 +870,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "MST.png"
     },
     {
       "id": "g059",
@@ -827,7 +885,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "MitaKouenkai.png"
     },
     {
       "id": "g060-pta",
@@ -841,7 +900,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "PTA.png"
     },
     {
       "id": "g061-team-papa-mita-dog",
@@ -855,7 +915,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "TeamPaPa.png"
     },
     {
       "id": "g062",
