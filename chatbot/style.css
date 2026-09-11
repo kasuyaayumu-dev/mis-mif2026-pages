@@ -77,6 +77,62 @@ html, body {
   color: #a11;
   border-bottom-left-radius: 4px;
 }
+.msg.suggestions {
+  align-self: stretch;
+  max-width: 100%;
+  padding: 0;
+  background: var(--bot-bg);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 13px;
+  border-bottom: 1px solid rgba(0,0,0,.08);
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+.suggestion-item:last-child { border-bottom: none; }
+.suggestion-item:hover { background: rgba(0,0,0,.04); }
+.suggestion-item.no-link { cursor: default; }
+.suggestion-item.no-link:hover { background: transparent; }
+
+.suggestion-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #FF9E77;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.suggestion-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.suggestion-body { min-width: 0; padding-top: 2px; }
+.suggestion-name {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.suggestion-desc {
+  font-size: 11px;
+  color: #666;
+  line-height: 1.4;
+  margin-top: 2px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .msg.loading {
   align-self: flex-start;
   background: var(--bot-bg);

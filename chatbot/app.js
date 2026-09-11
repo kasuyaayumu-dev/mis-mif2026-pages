@@ -14,6 +14,57 @@ function appendMessage(role, text) {
   return el;
 }
 
+// 複数企画をカード一覧(添付ファイル風)で表示する
+function appendSuggestions(items) {
+  const log = document.getElementById('chatLog');
+  const el = document.createElement('div');
+  el.className = 'msg suggestions';
+
+  items.forEach(item => {
+    const row = document.createElement(item.url ? 'a' : 'div');
+    row.className = 'suggestion-item';
+    if (item.url) {
+      row.href = item.url;
+      row.target = '_top';
+      row.rel = 'noopener';
+    } else {
+      row.classList.add('no-link');
+    }
+
+    const icon = document.createElement('div');
+    icon.className = 'suggestion-icon';
+    if (item.icon) {
+      const img = document.createElement('img');
+      img.src = item.icon;
+      img.alt = '';
+      icon.appendChild(img);
+    }
+    row.appendChild(icon);
+
+    const body = document.createElement('div');
+    body.className = 'suggestion-body';
+
+    const name = document.createElement('div');
+    name.className = 'suggestion-name';
+    name.textContent = item.name || '';
+    body.appendChild(name);
+
+    if (item.description) {
+      const desc = document.createElement('div');
+      desc.className = 'suggestion-desc';
+      desc.textContent = item.description;
+      body.appendChild(desc);
+    }
+
+    row.appendChild(body);
+    el.appendChild(row);
+  });
+
+  log.appendChild(el);
+  log.scrollTop = log.scrollHeight;
+  return el;
+}
+
 function appendLoading() {
   const log = document.getElementById('chatLog');
   const el = document.createElement('div');
@@ -56,6 +107,9 @@ async function sendMessage(text) {
     } else {
       appendMessage('bot', data.reply);
       history.push({ role: 'assistant', content: data.reply });
+      if (Array.isArray(data.suggestions) && data.suggestions.length > 0) {
+        appendSuggestions(data.suggestions);
+      }
     }
   } catch (err) {
     // ネットワークエラーやJSON解析失敗など。詳細はコンソールに残し、UIには汎用メッセージのみ表示する。

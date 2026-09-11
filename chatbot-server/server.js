@@ -17,6 +17,7 @@ const PORT = process.env.PORT || 9877;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const OPENAI_MODEL = process.env.OPENAI_MODEL || 'gpt-5.6-luna';
 const DATA_BASE_URL = process.env.DATA_BASE_URL || 'https://kasuyaayumu-dev.github.io/mis-mif2026-pages/data';
+const ICON_BASE_URL = process.env.ICON_BASE_URL || 'https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/';
 const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || '')
   .split(',')
   .map(s => s.trim())
@@ -85,9 +86,14 @@ function buildSystemPrompt(groupsData, lang) {
       'You are a friendly assistant for MIF (Mita International Science Academy school festival) 2026.',
       'Answer visitor questions about projects/booths using ONLY the list below. Each line is:',
       '"Project name | Group/Club | Category | Format | Short description".',
-      'If asked things like "any dance projects?" or "what food is sold?", search the list and reply',
-      'concisely in a friendly tone, listing matching project names and a one-line reason for each.',
       'If nothing matches, say so honestly. Do not invent projects that are not in the list.',
+      '',
+      'When the visitor asks something that could match MULTIPLE projects (e.g. "any dance projects?",',
+      '"what food is sold?"), call the suggest_projects tool with a short search query instead of listing',
+      'them yourself. The matching projects will be shown to the user as cards automatically, so your text',
+      'reply should just be ONE short friendly sentence (e.g. "Here are some projects you might like!") and',
+      'must NOT repeat the project names/details in text.',
+      '',
       'When the visitor shows interest in ONE specific project and wants to know more or go to its page,',
       'call the find_project_link tool with that project name to look up its page link, then share the',
       'result naturally (if a link is found, guide them to it; if not available yet, say so honestly).',
@@ -102,9 +108,14 @@ function buildSystemPrompt(groupsData, lang) {
     'あなたはMIF(三田国際科学学園 文化祭)2026のイベントページに設置された案内アシスタントです。',
     '以下の企画リストの情報「のみ」を使って、来場者からの質問に答えてください。各行の形式は',
     '「企画名 | 団体名 | カテゴリ | 形式 | 短い説明」です。',
-    '「ダンス系の企画ある？」「食べ物を売ってる企画は？」のような質問には、リストの中から',
-    '当てはまりそうな企画を探し、企画名と一言理由を添えて親しみやすい口調で簡潔に答えてください。',
     '該当がなければ正直にその旨を伝えてください。リストにない企画を創作しないでください。',
+    '',
+    '「ダンス系の企画ある？」「食べ物を売ってる企画は？」のように複数の企画が当てはまりそうな',
+    '質問には、あなたが文章で企画名を列挙するのではなく、suggest_projects ツールを短い検索',
+    'キーワードで呼び出してください。該当企画はカード形式でユーザーに自動的に表示されるので、',
+    'あなたの文章での返答は「おすすめの企画はこちらです」のような一言だけにし、企画名や説明を',
+    '文章中で繰り返さないでください。',
+    '',
     '来場者が特定の1つの企画に興味を示し、詳しく知りたい・そのページに行きたいと言った場合は、',
     'find_project_link ツールをその企画名で呼び出してリンクを調べ、見つかればそのリンクへ誘導し、',
     'まだ用意されていない場合は正直にその旨を伝えてください。',
@@ -139,6 +150,30 @@ const chatTools = [
         required: ['query']
       }
     }
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'suggest_projects',
+      description:
+        '来場者の質問に合いそうな企画を複数検索し、カード形式で提示するためのもの。' +
+        '「ダンス系の企画ある？」のような、複数の企画が当てはまりうる質問に答える時はこれを使い、' +
+        '文章中で企画名を列挙しないこと(カードが自動表示されるため)。',
+      parameters: {
+        type: 'object',
+        properties: {
+          query: {
+            type: 'string',
+            description: '検索キーワード(企画名・団体名・カテゴリ・形式・説明文から部分一致で検索)'
+          },
+          limit: {
+            type: 'integer',
+            description: '返す企画数の上限(デフォルト5、最大8)'
+          }
+        },
+        required: ['query']
+      }
+    }
   }
 ];
 
@@ -157,6 +192,36 @@ function findProjectLink(groupsData, query) {
     return { found: true, name: match.name, group: match.group, url: null, reason: 'link_not_ready' };
   }
   return { found: true, name: match.name, group: match.group, url: match.url };
+}
+
+function toCard(it) {
+  return {
+    name: it.name || '',
+    group: it.group || '',
+    description: it.description || '',
+    icon: it.icon ? ICON_BASE_URL + it.icon : null,
+    url: it.url || null
+  };
+}
+
+function suggestProjects(groupsData, query, limit) {
+  const items = groupsData.items || [];
+  const q = (query || '').trim().toLowerCase();
+  const max = Math.min(Math.max(parseInt(limit, 10) || 5, 1), 8);
+
+  if (!q) {
+    return { count: 0, items: [] };
+  }
+
+  const matches = items.filter(it => {
+    const haystack = [it.name, it.group, it.category, it.format, it.description]
+      .filter(Boolean)
+      .join(' ')
+      .toLowerCase();
+    return haystack.includes(q);
+  }).slice(0, max);
+
+  return { count: matches.length, items: matches.map(toCard) };
 }
 
 async function callOpenAI(messages) {
@@ -221,6 +286,7 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     ];
 
     let reply = null;
+    let suggestions = null; // suggest_projects が呼ばれた場合、カード表示用データをここに保持する
     const MAX_TOOL_ROUNDS = 3;
 
     for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
@@ -234,11 +300,15 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
         // もう一度モデルに問い合わせて自然な文章の最終回答を得る
         messages.push(assistantMsg);
         for (const toolCall of assistantMsg.tool_calls) {
+          let args = {};
+          try { args = JSON.parse(toolCall.function?.arguments || '{}'); } catch { /* 不正なJSONは空引数扱い */ }
+
           let toolResult;
           if (toolCall.function?.name === 'find_project_link') {
-            let args = {};
-            try { args = JSON.parse(toolCall.function.arguments || '{}'); } catch { /* 不正なJSONは空引数扱い */ }
             toolResult = findProjectLink(groupsData, args.query);
+          } else if (toolCall.function?.name === 'suggest_projects') {
+            toolResult = suggestProjects(groupsData, args.query, args.limit);
+            if (toolResult.items.length > 0) suggestions = toolResult.items;
           } else {
             toolResult = { error: 'unknown_tool' };
           }
@@ -259,7 +329,9 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
       return res.status(502).json({ error: 'AIから有効な回答が得られませんでした。' });
     }
 
-    res.json({ reply });
+    const responseBody = { reply };
+    if (suggestions) responseBody.suggestions = suggestions;
+    res.json(responseBody);
   } catch (err) {
     if (err && err.isOpenAIError) {
       return res.status(502).json({ error: 'AIサーバーへの問い合わせに失敗しました。' });
