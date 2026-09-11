@@ -106,7 +106,8 @@
       "prVideoRequested": true,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "S2C.png"
     },
     {
       "id": "g008",
@@ -930,7 +931,8 @@
       "prVideoRequested": false,
       "floor": null,
       "room": null,
-      "latlng": null
+      "latlng": null,
+      "icon": "CampusTour.png"
     },
     {
       "id": "g063",
