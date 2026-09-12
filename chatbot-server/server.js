@@ -114,6 +114,39 @@ async function fetchTimetable(lang) {
   return json;
 }
 
+// マップの企画ピン(data/map-pins-floor{1,2,3}.json)。企画ごとの正確な教室番号は
+// まだ確定していないが、どのフロアにあるかは会場図を元に一通り反映済みのため、
+// 企画の icon をキーに「フロア」だけ突き合わせて案内に使う(教室番号・待機場所・
+// チケットはまだ未定のため、フロアの前後表示のみに留める)。
+const mapPinsCache = { data: null, fetchedAt: 0 };
+async function fetchMapPins() {
+  const now = Date.now();
+  if (mapPinsCache.data && now - mapPinsCache.fetchedAt < CACHE_TTL_MS) {
+    return mapPinsCache.data;
+  }
+  const floors = ['floor1', 'floor2', 'floor3'];
+  const lists = await Promise.all(
+    floors.map(f => fetchJson(`${DATA_BASE_URL}/map-pins-${f}.json`, 'マップピンデータ').catch(() => []))
+  );
+  mapPinsCache.data = lists.flat();
+  mapPinsCache.fetchedAt = now;
+  return mapPinsCache.data;
+}
+
+// iconのファイル名(例: "S2F.png")をキーに、そのアイコンが載っているピンのフロアを引けるようにする
+function buildFloorIndex(mapPins) {
+  const index = new Map();
+  for (const pin of mapPins) {
+    const icons = Array.isArray(pin.iconUrl) ? pin.iconUrl : [pin.iconUrl];
+    for (const url of icons) {
+      if (!url) continue;
+      const filename = url.split('/').pop();
+      if (!index.has(filename)) index.set(filename, pin.floor);
+    }
+  }
+  return index;
+}
+
 // タイムテーブルのイベントを、企画の icon をキーにした「開催時間の一覧」に変換する。
 // 同じ企画が複数日/複数回開催されている場合は、そのぶんの行がすべて集まる。
 function buildScheduleIndex(timetableData) {
@@ -253,9 +286,12 @@ const ROOM_SHIFT_SCHEDULE = {
   }
 };
 
-function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
+const FLOOR_UNKNOWN_LABEL = { ja: '情報なし', en: 'not available yet' };
+
+function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lang) {
   const items = groupsData.items || [];
   const notOnTimetableLabel = NOT_ON_TIMETABLE_LABEL[lang] || NOT_ON_TIMETABLE_LABEL.ja;
+  const floorUnknownLabel = FLOOR_UNKNOWN_LABEL[lang] || FLOOR_UNKNOWN_LABEL.ja;
   const lines = items.map(it => {
     const name = it.name || '';
     const group = it.group || '';
@@ -271,7 +307,9 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
     } else {
       schedule = notOnTimetableLabel;
     }
-    return `- ${name} | ${group} | ${category} | ${format} | ${desc} | ${schedule}`;
+    const rawFloor = it.icon && floorIndex.get(it.icon);
+    const floor = rawFloor ? (lang === 'en' ? rawFloor.replace('階', 'F') : rawFloor) : floorUnknownLabel;
+    return `- ${name} | ${group} | ${category} | ${format} | ${desc} | ${schedule} | ${floor}`;
   });
 
   if (lang === 'en') {
@@ -295,16 +333,17 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
       '   politely say it is outside what this assistant can help with.',
       '',
       'Each line of the project list below is: "Project name | Group/Club | Category | Format | Short',
-      'description | Schedule". The Schedule field already tells you everything you need about timing —',
-      'projects on the festival timetable list every date/time slot; projects not on the timetable already',
-      'say in that field that they have no fixed showtime (food/exhibit booths you can visit anytime), or,',
-      'for the room-rotation projects (Himmeli / Edutainment), give the exact room-by-room time-slot',
-      'breakdown. Just relay that text naturally, do not add your own guesses about timing. Location,',
-      'waiting area, and ticket/numbered-ticket info',
-      'are NOT included in this list yet. If asked about those for a specific project, say that info is',
-      'not yet available in the current listing and suggest checking with festival staff or the',
-      'information desk on the day (once such fields are added to the list in the future, use them',
-      'instead of this fallback).',
+      'description | Schedule | Floor". The Schedule field already tells you everything you need about',
+      'timing — projects on the festival timetable list every date/time slot; projects not on the',
+      'timetable already say in that field that they have no fixed showtime (food/exhibit booths you can',
+      'visit anytime), or, for the room-rotation projects (Himmeli / Edutainment), give the exact',
+      'room-by-room time-slot breakdown. Just relay that text naturally, do not add your own guesses about',
+      'timing. The Floor field says which floor (1F/2F/3F) the project is on when known; if it reads "not',
+      'available yet", say the floor is not confirmed yet rather than guessing. The exact room number,',
+      'waiting area, and ticket/numbered-ticket info are NOT included in this list yet — if asked about',
+      'those specifically, say that info is not yet available in the current listing and suggest checking',
+      'with festival staff or the information desk on the day (once such fields are added to the list in',
+      'the future, use them instead of this fallback).',
       '',
       '## Handling a project-search question',
       'When a visitor is looking for projects by interest, genre, food, exhibit content, etc., search the',
@@ -354,16 +393,17 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
     '7. 文化祭に関係のない質問(雑談、無関係な話題、個人情報の要求など)には、案内アシスタントとして',
     '   お答えできる範囲外である旨を丁寧に伝えてください。',
     '',
-    '企画リストの各行は「企画名 | 団体名 | カテゴリ | 形式 | 短い説明 | 開催時間」の形式です。',
+    '企画リストの各行は「企画名 | 団体名 | カテゴリ | 形式 | 短い説明 | 開催時間 | 階」の形式です。',
     '「開催時間」欄はタイミングについて必要な情報がすでにそのまま書かれています。タイムテーブルに',
     '掲載されている企画はその日時がすべて列挙され、載っていない企画(多くの飲食・展示ブースなど)は',
     '「公演形式ではないため決まった開催時間はない(会期中いつでも利用可)」、ヒンメリ・Edutainmentの',
     'ような教室を時間帯で入れ替える交代制の企画には教室ごとの詳しい交代表が、すでに文言として',
     '入っています。これをそのまま自然に伝えればよく、自分で開催時間を推測して付け加えないでください。',
-    '場所・待機場所・チケット/整理券情報は、',
-    '現時点のリストにはまだ含まれていません。これらを聞かれた場合は「現在の企画リストにはその情報がまだ登録されて',
-    'いません。当日は企画スタッフまたは案内所でご確認ください」のように正直に伝えてください',
-    '(将来リストに追加された場合は、そちらの情報を優先して使ってください)。',
+    '「階」欄には、判明している範囲で企画が何階にあるか(1階/2階/3階)が入っています。「情報なし」の',
+    '場合は階もまだ確定していないと正直に伝え、階を推測しないでください。教室番号・待機場所・',
+    'チケット/整理券情報は、現時点のリストにはまだ含まれていません。これらを聞かれた場合は「現在の',
+    '企画リストにはその情報がまだ登録されていません。当日は企画スタッフまたは案内所でご確認ください」',
+    'のように正直に伝えてください(将来リストに追加された場合は、そちらの情報を優先して使ってください)。',
     '',
     '## 企画を探す質問への対応',
     '来場者が興味・ジャンル・食べ物・展示内容などの条件から企画を探している場合は、企画リストから',
@@ -563,9 +603,10 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     const safeLang = lang === 'en' ? 'en' : 'ja';
     const safeHistory = Array.isArray(history) ? history.slice(-10) : [];
 
-    const [groupsData, venueData, timetableData] = await Promise.all([
+    const [groupsData, venueData, timetableData, mapPins] = await Promise.all([
       fetchGroups(safeLang),
-      // 来場案内データ・タイムテーブルは補助情報のため、取得に失敗しても企画Q&A自体は継続できるようにする
+      // 来場案内データ・タイムテーブル・マップピンは補助情報のため、取得に失敗しても
+      // 企画Q&A自体は継続できるようにする
       fetchVenueInfo(safeLang).catch(() => {
         console.error('venue info fetch failed');
         return null;
@@ -573,10 +614,15 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
       fetchTimetable(safeLang).catch(() => {
         console.error('timetable fetch failed');
         return null;
+      }),
+      fetchMapPins().catch(() => {
+        console.error('map pins fetch failed');
+        return [];
       })
     ]);
     const scheduleIndex = buildScheduleIndex(timetableData);
-    const systemPrompt = buildSystemPrompt(groupsData, venueData, scheduleIndex, safeLang);
+    const floorIndex = buildFloorIndex(mapPins);
+    const systemPrompt = buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, safeLang);
 
     const messages = [
       { role: 'system', content: systemPrompt },
