@@ -217,31 +217,57 @@ function renderVenueSection(venue, lang) {
 }
 
 // タイムテーブルに載っていない企画は「公演」ではなく随時営業のブース等のため、決まった開催時間が
-// 無いこと自体を案内する。ただしJ2(中学2年)の企画は生徒が交代制で運営しているため専用の文言にする。
+// 無いこと自体を案内する。
 const NOT_ON_TIMETABLE_LABEL = {
   ja: '公演形式ではないため決まった開催時間はありません(会期中いつでもご利用いただけます)',
   en: 'Not a scheduled stage performance, so there is no fixed showtime (available anytime during festival hours)'
 };
-const J2_SHIFT_LABEL = {
-  ja: '決まった開催時間はなく、生徒が交代制で運営しています(会期中いつでもご利用いただけます)',
-  en: 'No fixed showtime — students run it in rotating shifts (available anytime during festival hours)'
+
+// J1「ヒンメリ」とJ2「Edutainment」(A〜G、7クラス)は102〜105教室を時間帯で入れ替えながら
+// 使う交代制のため、タイムテーブルには載らない。教室ごとの交代表をそのまま案内できるよう
+// 項目ごとに専用の文言を用意する(id指定。今後クラス数や教室が変わったらここを更新する)。
+const ROOM_SHIFT_SCHEDULE = {
+  g055: {
+    ja: '102教室で開催。Day1(10/31)午前・Day2(11/1)午後の時間帯のみで、それ以外の時間帯は同じ' +
+      '102教室でJ2B「スペースミタゴラトーク」に入れ替わります(会期中いつでもという意味ではないので注意)。',
+    en: 'Held in Room 102, only during Day1 (10/31) morning and Day2 (11/1) afternoon. Outside that time, ' +
+      'Room 102 switches to J2B "Space Mitagoro Talk" (not available all day).'
+  },
+  'g053-edutainment': {
+    ja: 'Edutainmentは複数のクラス(A〜G)が102〜105教室で時間帯によって入れ替わる交代制です。' +
+      '102教室: Day1午前/Day2午後は「J1:ヒンメリ」、Day1午後/Day2午前は「J2B:スペースミタゴラトーク」。' +
+      '103教室: Day1午前/Day2午後は「J2A:怪盗M(Moon)から太陽を取り戻せ！」、Day1午後/Day2午前は' +
+      '「J2D:あなたの本当の注意力とは！？〜間違い探し〜」。' +
+      '104教室: Day1午前/Day2午後は「J2E:怨念の残る教室」、Day1午後/Day2午前は' +
+      '「J2F:WORLD MARKET CHALLENGE 〜世界を巡る買い物体験〜」。' +
+      '105教室: Day1午前/Day2午後は「J2C:あなたはどんな人生を選ぶ？」、Day1午後/Day2午前は' +
+      '「J2G:Midnight at Whisker Manor」。訪れる教室・時間帯によって体験できる内容が変わります。',
+    en: 'Edutainment is run by multiple classes (A-G) that rotate through Rooms 102-105 by time slot. ' +
+      'Room 102: Day1 AM/Day2 PM is "J1: Himmeli", Day1 PM/Day2 AM is "J2B: Space Mitagoro Talk". ' +
+      'Room 103: Day1 AM/Day2 PM is "J2A: Steal the Sun Back from Moon the Thief!", Day1 PM/Day2 AM is ' +
+      '"J2D: What Is Your True Attention Span? - Spot the Difference". ' +
+      'Room 104: Day1 AM/Day2 PM is "J2E: The Haunted Classroom", Day1 PM/Day2 AM is ' +
+      '"J2F: WORLD MARKET CHALLENGE - A Shopping Experience Around the World". ' +
+      'Room 105: Day1 AM/Day2 PM is "J2C: What Kind of Life Will You Choose?", Day1 PM/Day2 AM is ' +
+      '"J2G: Midnight at Whisker Manor". The experience differs by which room and time slot you visit.'
+  }
 };
 
 function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
   const items = groupsData.items || [];
   const notOnTimetableLabel = NOT_ON_TIMETABLE_LABEL[lang] || NOT_ON_TIMETABLE_LABEL.ja;
-  const j2ShiftLabel = J2_SHIFT_LABEL[lang] || J2_SHIFT_LABEL.ja;
   const lines = items.map(it => {
     const name = it.name || '';
     const group = it.group || '';
     const category = it.category || '';
     const format = it.format || '';
     const desc = it.description || '';
+    const roomShift = ROOM_SHIFT_SCHEDULE[it.id];
     let schedule;
     if (it.icon && scheduleIndex.has(it.icon)) {
       schedule = scheduleIndex.get(it.icon).join(', ');
-    } else if (category === 'J2') {
-      schedule = j2ShiftLabel;
+    } else if (roomShift) {
+      schedule = roomShift[lang] || roomShift.ja;
     } else {
       schedule = notOnTimetableLabel;
     }
@@ -271,9 +297,10 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
       'Each line of the project list below is: "Project name | Group/Club | Category | Format | Short',
       'description | Schedule". The Schedule field already tells you everything you need about timing —',
       'projects on the festival timetable list every date/time slot; projects not on the timetable already',
-      'say in that field that they have no fixed showtime (food/exhibit booths you can visit anytime) or,',
-      'for J2-grade projects, that students run it in rotating shifts. Just relay that text naturally,',
-      'do not add your own guesses about timing. Location, waiting area, and ticket/numbered-ticket info',
+      'say in that field that they have no fixed showtime (food/exhibit booths you can visit anytime), or,',
+      'for the room-rotation projects (Himmeli / Edutainment), give the exact room-by-room time-slot',
+      'breakdown. Just relay that text naturally, do not add your own guesses about timing. Location,',
+      'waiting area, and ticket/numbered-ticket info',
       'are NOT included in this list yet. If asked about those for a specific project, say that info is',
       'not yet available in the current listing and suggest checking with festival staff or the',
       'information desk on the day (once such fields are added to the list in the future, use them',
@@ -330,9 +357,10 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
     '企画リストの各行は「企画名 | 団体名 | カテゴリ | 形式 | 短い説明 | 開催時間」の形式です。',
     '「開催時間」欄はタイミングについて必要な情報がすでにそのまま書かれています。タイムテーブルに',
     '掲載されている企画はその日時がすべて列挙され、載っていない企画(多くの飲食・展示ブースなど)は',
-    '「公演形式ではないため決まった開催時間はない(会期中いつでも利用可)」、J2(中学2年)の企画は',
-    '「生徒が交代制で運営している」という文言がすでに入っています。これをそのまま自然に伝えれば',
-    'よく、自分で開催時間を推測して付け加えないでください。場所・待機場所・チケット/整理券情報は、',
+    '「公演形式ではないため決まった開催時間はない(会期中いつでも利用可)」、ヒンメリ・Edutainmentの',
+    'ような教室を時間帯で入れ替える交代制の企画には教室ごとの詳しい交代表が、すでに文言として',
+    '入っています。これをそのまま自然に伝えればよく、自分で開催時間を推測して付け加えないでください。',
+    '場所・待機場所・チケット/整理券情報は、',
     '現時点のリストにはまだ含まれていません。これらを聞かれた場合は「現在の企画リストにはその情報がまだ登録されて',
     'いません。当日は企画スタッフまたは案内所でご確認ください」のように正直に伝えてください',
     '(将来リストに追加された場合は、そちらの情報を優先して使ってください)。',
