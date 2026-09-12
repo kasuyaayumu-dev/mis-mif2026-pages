@@ -83,19 +83,6 @@
       1111.8
     ],
     "floor": "3階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/JuniorHighY1Presentation.png",
-    "groupName": "中学1年代表プレゼンテーション",
-    "eventName": "キャリアプレゼンテーション（中学1年）",
-    "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
-    "pageUrl": null,
-    "popupDirection": "bottom"
-  },
-  {
-    "latlng": [
-      618.7,
-      1208.5
-    ],
-    "floor": "3階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/LibraryCommittee.png",
     "groupName": "図書委員会",
     "eventName": "Book&Loop 〜本とつながる、未来へ繋ぐ〜",
@@ -105,8 +92,8 @@
   },
   {
     "latlng": [
-      572.1,
-      1128.0
+      618.7,
+      1208.5
     ],
     "floor": "3階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/FlowerArrangementClub.png",
@@ -131,8 +118,8 @@
   },
   {
     "latlng": [
-      526.9,
-      1522.7
+      442, 
+      1392
     ],
     "floor": "3階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/FIESTA.png",
@@ -144,8 +131,8 @@
   },
   {
     "latlng": [
-      376.4,
-      1128.0
+      302, 
+      1288
     ],
     "floor": "3階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MIFInternationalRoom.png",
