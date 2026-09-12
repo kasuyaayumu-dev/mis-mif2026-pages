@@ -62,7 +62,12 @@ const venueCache = { ja: { data: null, fetchedAt: 0 }, en: { data: null, fetched
 
 async function fetchJson(url, label) {
   const res = await fetch(url);
-  if (!res.ok) throw new Error(`${label}の取得に失敗しました (${res.status})`);
+  if (!res.ok) {
+    // レスポンス本文は外部サーバー由来のため、エラーメッセージには含めずステータスコードのみ保持する
+    const err = new Error(`${label}の取得に失敗しました`);
+    err.status = res.status;
+    throw err;
+  }
   return res.json();
 }
 
@@ -95,79 +100,87 @@ async function fetchVenueInfo(lang) {
   return json;
 }
 
-function renderVenueSectionJa(venue) {
-  if (!venue) return '';
-  const lines = ['## 来場案内データ(文化祭全体の情報。企画個別の情報は上の企画リストを使うこと)'];
+// 来場案内データ(venue-info.json)を言語別ラベルに沿ってプロンプト用テキストに整形する。
+// JA/EN で構造は同一なのでラベル辞書だけ切り替える一つの関数にまとめている。
+const VENUE_SECTION_LABELS = {
+  ja: {
+    heading: '## 来場案内データ(文化祭全体の情報。企画個別の情報は上の企画リストを使うこと)',
+    daysHeading: '### 開催日',
+    dayLine: d =>
+      `- ${d.label}: ${d.date} / 開催時間 ${d.hours} / 来場者の最終受付 ${d.visitorLastEntry} / ` +
+      `各企画の最終受付 ${d.projectLastEntry}`,
+    foodHeading: '### 飲食・休憩',
+    saleLocations: '飲食物の販売場所',
+    eatableRestAreas: '飲食できる休憩スペース',
+    nonEatableRestAreas: '飲食できない休憩場所',
+    restroomsHeading: '### トイレ',
+    infoDeskHeading: '### 案内所',
+    nurseOfficeHeading: '### 保健室',
+    accessHeading: '### アクセス・入退場',
+    nearestStation: '最寄り駅',
+    walkTime: '徒歩',
+    accessNote: '注意',
+    entryExit: '入退場方法',
+    lostAndFoundHeading: '### 落とし物',
+    officialSiteHeading: '### 公式特設サイト',
+    noticesHeading: '### 注意事項(質問に関係するものだけ答える。毎回全部は不要)'
+  },
+  en: {
+    heading: '## Venue guide data (festival-wide info; use the project list above for per-project info)',
+    daysHeading: '### Dates',
+    dayLine: d =>
+      `- ${d.label}: ${d.date} / hours ${d.hours} / visitor last entry ${d.visitorLastEntry} / ` +
+      `project last entry ${d.projectLastEntry}`,
+    foodHeading: '### Food & rest areas',
+    saleLocations: 'Food/drink sale locations',
+    eatableRestAreas: 'Rest areas where eating is allowed',
+    nonEatableRestAreas: 'Rest areas where eating is NOT allowed',
+    restroomsHeading: '### Restrooms',
+    infoDeskHeading: '### Information desk',
+    nurseOfficeHeading: "### Nurse's office",
+    accessHeading: '### Access & entry/exit',
+    nearestStation: 'Nearest station',
+    walkTime: 'Walk',
+    accessNote: 'Note',
+    entryExit: 'Entry/exit procedure',
+    lostAndFoundHeading: '### Lost and found',
+    officialSiteHeading: '### Official site',
+    noticesHeading: '### Notices (answer only what is relevant to the question, not the full list every time)'
+  }
+};
 
-  if (Array.isArray(venue.days)) {
-    lines.push('### 開催日');
-    venue.days.forEach(d => {
-      lines.push(
-        `- ${d.label}: ${d.date} / 開催時間 ${d.hours} / 来場者の最終受付 ${d.visitorLastEntry} / ` +
-        `各企画の最終受付 ${d.projectLastEntry}`
-      );
-    });
+function renderVenueSection(venue, lang) {
+  if (!venue) return '';
+  const L = VENUE_SECTION_LABELS[lang] || VENUE_SECTION_LABELS.ja;
+  const lines = [L.heading];
+
+  if (Array.isArray(venue.days) && venue.days.length > 0) {
+    lines.push(L.daysHeading, ...venue.days.map(L.dayLine));
   }
   if (venue.food) {
-    lines.push('### 飲食・休憩');
-    lines.push(`- 飲食物の販売場所: ${venue.food.saleLocations}`);
-    lines.push(`- 飲食できる休憩スペース: ${venue.food.eatableRestAreas}`);
-    lines.push(`- 飲食できない休憩場所: ${venue.food.nonEatableRestAreas}`);
+    lines.push(
+      L.foodHeading,
+      `- ${L.saleLocations}: ${venue.food.saleLocations}`,
+      `- ${L.eatableRestAreas}: ${venue.food.eatableRestAreas}`,
+      `- ${L.nonEatableRestAreas}: ${venue.food.nonEatableRestAreas}`
+    );
   }
-  if (venue.restrooms) lines.push(`### トイレ\n- ${venue.restrooms}`);
-  if (venue.infoDesk) lines.push(`### 案内所\n- ${venue.infoDesk}`);
-  if (venue.nurseOffice) lines.push(`### 保健室\n- ${venue.nurseOffice}`);
+  if (venue.restrooms) lines.push(L.restroomsHeading, `- ${venue.restrooms}`);
+  if (venue.infoDesk) lines.push(L.infoDeskHeading, `- ${venue.infoDesk}`);
+  if (venue.nurseOffice) lines.push(L.nurseOfficeHeading, `- ${venue.nurseOffice}`);
   if (venue.access) {
-    lines.push('### アクセス・入退場');
-    lines.push(`- 最寄り駅: ${venue.access.nearestStation}`);
-    lines.push(`- 徒歩: ${venue.access.walkTime}`);
-    lines.push(`- 注意: ${venue.access.note}`);
-    lines.push(`- 入退場方法: ${venue.access.entryExit}`);
+    lines.push(
+      L.accessHeading,
+      `- ${L.nearestStation}: ${venue.access.nearestStation}`,
+      `- ${L.walkTime}: ${venue.access.walkTime}`,
+      `- ${L.accessNote}: ${venue.access.note}`,
+      `- ${L.entryExit}: ${venue.access.entryExit}`
+    );
   }
-  if (venue.lostAndFound) lines.push(`### 落とし物\n- ${venue.lostAndFound}`);
-  if (venue.officialSiteUrl) lines.push(`### 公式特設サイト\n- ${venue.officialSiteUrl}`);
+  if (venue.lostAndFound) lines.push(L.lostAndFoundHeading, `- ${venue.lostAndFound}`);
+  if (venue.officialSiteUrl) lines.push(L.officialSiteHeading, `- ${venue.officialSiteUrl}`);
   if (Array.isArray(venue.notices) && venue.notices.length > 0) {
-    lines.push('### 注意事項(質問に関係するものだけ答える。毎回全部は不要)');
-    venue.notices.forEach(n => lines.push(`- ${n}`));
-  }
-
-  return lines.join('\n');
-}
-
-function renderVenueSectionEn(venue) {
-  if (!venue) return '';
-  const lines = ['## Venue guide data (festival-wide info; use the project list above for per-project info)'];
-
-  if (Array.isArray(venue.days)) {
-    lines.push('### Dates');
-    venue.days.forEach(d => {
-      lines.push(
-        `- ${d.label}: ${d.date} / hours ${d.hours} / visitor last entry ${d.visitorLastEntry} / ` +
-        `project last entry ${d.projectLastEntry}`
-      );
-    });
-  }
-  if (venue.food) {
-    lines.push('### Food & rest areas');
-    lines.push(`- Food/drink sale locations: ${venue.food.saleLocations}`);
-    lines.push(`- Rest areas where eating is allowed: ${venue.food.eatableRestAreas}`);
-    lines.push(`- Rest areas where eating is NOT allowed: ${venue.food.nonEatableRestAreas}`);
-  }
-  if (venue.restrooms) lines.push(`### Restrooms\n- ${venue.restrooms}`);
-  if (venue.infoDesk) lines.push(`### Information desk\n- ${venue.infoDesk}`);
-  if (venue.nurseOffice) lines.push(`### Nurse's office\n- ${venue.nurseOffice}`);
-  if (venue.access) {
-    lines.push('### Access & entry/exit');
-    lines.push(`- Nearest station: ${venue.access.nearestStation}`);
-    lines.push(`- Walk: ${venue.access.walkTime}`);
-    lines.push(`- Note: ${venue.access.note}`);
-    lines.push(`- Entry/exit procedure: ${venue.access.entryExit}`);
-  }
-  if (venue.lostAndFound) lines.push(`### Lost and found\n- ${venue.lostAndFound}`);
-  if (venue.officialSiteUrl) lines.push(`### Official site\n- ${venue.officialSiteUrl}`);
-  if (Array.isArray(venue.notices) && venue.notices.length > 0) {
-    lines.push('### Notices (answer only what is relevant to the question, not the full list every time)');
-    venue.notices.forEach(n => lines.push(`- ${n}`));
+    lines.push(L.noticesHeading, ...venue.notices.map(n => `- ${n}`));
   }
 
   return lines.join('\n');
@@ -235,7 +248,7 @@ function buildSystemPrompt(groupsData, venueData, lang) {
       'If neither the project list nor the venue guide data answers the question, say so honestly and,',
       'if available, point to the information desk — never present a guess as confirmed fact.',
       '',
-      renderVenueSectionEn(venueData),
+      renderVenueSection(venueData, 'en'),
       '',
       '## Project list',
       ...lines
@@ -291,7 +304,7 @@ function buildSystemPrompt(groupsData, venueData, lang) {
     '企画リストと来場案内データの両方を確認しても答えが見つからない場合は、情報を作らず正直に伝え、',
     '案内所の情報があればそちらも伝えてください。',
     '',
-    renderVenueSectionJa(venueData),
+    renderVenueSection(venueData, 'ja'),
     '',
     '## 企画リスト',
     ...lines
@@ -467,7 +480,7 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
       fetchGroups(safeLang),
       // 来場案内データは補助情報のため、取得に失敗しても企画Q&A自体は継続できるようにする
       fetchVenueInfo(safeLang).catch(err => {
-        console.error('venue info fetch failed:', err.message);
+        console.error('venue info fetch failed: status =', err.status);
         return null;
       })
     ]);
