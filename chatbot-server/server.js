@@ -55,19 +55,17 @@ const chatLimiter = rateLimit({
   message: { error: 'リクエストが多すぎます。しばらくしてから再度お試しください。' }
 });
 
-// ---- 企画データ・来場案内データのキャッシュ ----
+// ---- 企画データ・来場案内データ・タイムテーブルのキャッシュ ----
 const CACHE_TTL_MS = 10 * 60 * 1000; // 10分
 const cache = { ja: { data: null, fetchedAt: 0 }, en: { data: null, fetchedAt: 0 } };
 const venueCache = { ja: { data: null, fetchedAt: 0 }, en: { data: null, fetchedAt: 0 } };
+const timetableCache = { ja: { data: null, fetchedAt: 0 }, en: { data: null, fetchedAt: 0 } };
 
 async function fetchJson(url, label) {
   const res = await fetch(url);
-  if (!res.ok) {
-    // レスポンス本文は外部サーバー由来のため、エラーメッセージには含めずステータスコードのみ保持する
-    const err = new Error(`${label}の取得に失敗しました`);
-    err.status = res.status;
-    throw err;
-  }
+  // レスポンスの内容(ステータスコード含む)は外部サーバー由来のため、ログ注入を避けるべく
+  // エラーオブジェクトには一切乗せず、呼び出し元では固定文言だけを出力する。
+  if (!res.ok) throw new Error(`${label}の取得に失敗しました`);
   return res.json();
 }
 
@@ -98,6 +96,38 @@ async function fetchVenueInfo(lang) {
   entry.data = json;
   entry.fetchedAt = now;
   return json;
+}
+
+// タイムテーブル(data/timetable.json / timetable.en.json)。企画個別の開催時間は、
+// groups.json側に専用フィールドを持たせず、こちらのタイムテーブルを正としてicon(アイコン
+// ファイル名)をキーに突き合わせる(場所/待機場所/チケットはまだ未定のためここでは扱わない)。
+async function fetchTimetable(lang) {
+  const entry = timetableCache[lang];
+  const now = Date.now();
+  if (entry.data && now - entry.fetchedAt < CACHE_TTL_MS) {
+    return entry.data;
+  }
+  const url = lang === 'en' ? `${DATA_BASE_URL}/timetable.en.json` : `${DATA_BASE_URL}/timetable.json`;
+  const json = await fetchJson(url, 'タイムテーブルデータ');
+  entry.data = json;
+  entry.fetchedAt = now;
+  return json;
+}
+
+// タイムテーブルのイベントを、企画の icon をキーにした「開催時間の一覧」に変換する。
+// 同じ企画が複数日/複数回開催されている場合は、そのぶんの行がすべて集まる。
+function buildScheduleIndex(timetableData) {
+  const index = new Map();
+  const days = timetableData?.days || [];
+  for (const day of days) {
+    for (const ev of day.events || []) {
+      if (!ev.icon) continue;
+      const label = `${day.title || day.id}(${day.date || ''}) ${ev.start}-${ev.end}`;
+      if (!index.has(ev.icon)) index.set(ev.icon, []);
+      index.get(ev.icon).push(label);
+    }
+  }
+  return index;
 }
 
 // 来場案内データ(venue-info.json)を言語別ラベルに沿ってプロンプト用テキストに整形する。
@@ -186,15 +216,19 @@ function renderVenueSection(venue, lang) {
   return lines.join('\n');
 }
 
-function buildSystemPrompt(groupsData, venueData, lang) {
+function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
   const items = groupsData.items || [];
+  const noScheduleLabel = lang === 'en' ? 'not available yet' : '情報なし';
   const lines = items.map(it => {
     const name = it.name || '';
     const group = it.group || '';
     const category = it.category || '';
     const format = it.format || '';
     const desc = it.description || '';
-    return `- ${name} | ${group} | ${category} | ${format} | ${desc}`;
+    const schedule = it.icon && scheduleIndex.has(it.icon)
+      ? scheduleIndex.get(it.icon).join(', ')
+      : noScheduleLabel;
+    return `- ${name} | ${group} | ${category} | ${format} | ${desc} | ${schedule}`;
   });
 
   if (lang === 'en') {
@@ -218,11 +252,14 @@ function buildSystemPrompt(groupsData, venueData, lang) {
       '   politely say it is outside what this assistant can help with.',
       '',
       'Each line of the project list below is: "Project name | Group/Club | Category | Format | Short',
-      'description". Per-project fields such as exact schedule, location, waiting area, or ticket/',
-      'numbered-ticket info are NOT yet included in this list. If asked about those for a specific',
-      'project, say that information is not yet available in the current listing and suggest checking',
-      'with festival staff or the information desk on the day (once such fields are added to the list',
-      'in the future, use them instead of this fallback).',
+      'description | Schedule". The Schedule field (from the festival timetable) lists every date/time',
+      'slot for projects that appear on the timetable; it reads "not available yet" for projects that are',
+      'not on the timetable (e.g. many food/exhibit booths) — that only means no fixed showtime exists,',
+      'not that the project itself is unavailable. Location, waiting area, and ticket/numbered-ticket info',
+      'are NOT included in this list yet. If asked about those for a specific project, say that info is',
+      'not yet available in the current listing and suggest checking with festival staff or the',
+      'information desk on the day (once such fields are added to the list in the future, use them',
+      'instead of this fallback).',
       '',
       '## Handling a project-search question',
       'When a visitor is looking for projects by interest, genre, food, exhibit content, etc., search the',
@@ -272,11 +309,14 @@ function buildSystemPrompt(groupsData, venueData, lang) {
     '7. 文化祭に関係のない質問(雑談、無関係な話題、個人情報の要求など)には、案内アシスタントとして',
     '   お答えできる範囲外である旨を丁寧に伝えてください。',
     '',
-    '企画リストの各行は「企画名 | 団体名 | カテゴリ | 形式 | 短い説明」の形式です。個別の企画ごとの',
-    '正確な開催時間・場所・待機場所・チケット/整理券情報は、現時点のリストにはまだ含まれていません。',
-    'これらを聞かれた場合は「現在の企画リストにはその情報がまだ登録されていません。当日は企画スタッフ',
-    'または案内所でご確認ください」のように正直に伝えてください(将来リストに追加された場合は、そちら',
-    'の情報を優先して使ってください)。',
+    '企画リストの各行は「企画名 | 団体名 | カテゴリ | 形式 | 短い説明 | 開催時間」の形式です。',
+    '「開催時間」はタイムテーブルに掲載されている企画についてはその日時がすべて入っており、',
+    'タイムテーブルに載っていない企画(多くの飲食・展示ブースなど)は「情報なし」になります。',
+    '「情報なし」は決まった上演時刻がないだけで、その企画自体が存在しない/開催されないという',
+    '意味ではないので注意してください。場所・待機場所・チケット/整理券情報は、現時点のリストには',
+    'まだ含まれていません。これらを聞かれた場合は「現在の企画リストにはその情報がまだ登録されて',
+    'いません。当日は企画スタッフまたは案内所でご確認ください」のように正直に伝えてください',
+    '(将来リストに追加された場合は、そちらの情報を優先して使ってください)。',
     '',
     '## 企画を探す質問への対応',
     '来場者が興味・ジャンル・食べ物・展示内容などの条件から企画を探している場合は、企画リストから',
@@ -476,15 +516,20 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     const safeLang = lang === 'en' ? 'en' : 'ja';
     const safeHistory = Array.isArray(history) ? history.slice(-10) : [];
 
-    const [groupsData, venueData] = await Promise.all([
+    const [groupsData, venueData, timetableData] = await Promise.all([
       fetchGroups(safeLang),
-      // 来場案内データは補助情報のため、取得に失敗しても企画Q&A自体は継続できるようにする
-      fetchVenueInfo(safeLang).catch(err => {
-        console.error('venue info fetch failed: status =', err.status);
+      // 来場案内データ・タイムテーブルは補助情報のため、取得に失敗しても企画Q&A自体は継続できるようにする
+      fetchVenueInfo(safeLang).catch(() => {
+        console.error('venue info fetch failed');
+        return null;
+      }),
+      fetchTimetable(safeLang).catch(() => {
+        console.error('timetable fetch failed');
         return null;
       })
     ]);
-    const systemPrompt = buildSystemPrompt(groupsData, venueData, safeLang);
+    const scheduleIndex = buildScheduleIndex(timetableData);
+    const systemPrompt = buildSystemPrompt(groupsData, venueData, scheduleIndex, safeLang);
 
     const messages = [
       { role: 'system', content: systemPrompt },
