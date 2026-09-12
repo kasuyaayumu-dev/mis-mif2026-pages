@@ -102,17 +102,3 @@ html, body {
   background: #fff;
 }
 .reset-view-control a:hover { background: #f2f2f2; }
-
-/* デバッグ用座標表示(preview限定)。地図をクリックした位置の座標(そのままdata/map-pins-*.json
-   に書ける値)を表示する。 */
-.debug-coord-box {
-  max-width: 260px;
-  padding: 6px 10px;
-  background: rgba(0, 0, 0, 0.75);
-  color: #FFF38C;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 12px;
-  line-height: 1.5;
-  border-radius: 6px;
-  white-space: pre-wrap;
-}

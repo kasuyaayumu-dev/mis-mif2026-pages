@@ -89,11 +89,50 @@ function fitToWholeMap() {
   initialCenter = bounds.getCenter();
   map.setView(initialCenter, initialZoom, { animate: false });
 
-  // パン可能範囲。広すぎるとズームイン時に画像の外側の余白まで延々とドラッグできてしまうため、
-  // 画像からはみ出す余白は少しだけ(1割程度)に絞る。
-  const boundsPadding = cfg.width * 0.1;
-  map.setMaxBounds([[-boundsPadding, -boundsPadding], [cfg.height + boundsPadding, cfg.width + boundsPadding]]);
+  applyTightBounds();
 }
+
+// パン可能範囲。普段は広すぎるとズームイン時に画像の外側の余白まで延々とドラッグできて
+// しまうため狭め(1割程度)に絞っているが、この狭さのままだとポップアップを開いた時に
+// autoPanが画面内へパンしきれず、ポップアップ自体が画面端で見切れることがある。
+// そのため、ポップアップの開閉に合わせて一時的に範囲を広げ/戻す(setTightBounds参照)。
+function tightBoundsFor(cfg) {
+  const p = cfg.width * 0.1;
+  return [[-p, -p], [cfg.height + p, cfg.width + p]];
+}
+function looseBoundsFor(cfg) {
+  const p = cfg.width * 0.6;
+  return [[-p, -p], [cfg.height + p, cfg.width + p]];
+}
+function applyTightBounds() {
+  map.setMaxBounds(tightBoundsFor(floorConfig[currentFloor]));
+}
+function applyLooseBounds() {
+  map.setMaxBounds(looseBoundsFor(floorConfig[currentFloor]));
+}
+
+// ポップアップ表示中だけパン範囲を広げ、autoPanが画面内へきちんとパンできるようにする。
+// 閉じたら通常のパン範囲に戻す。
+// LeafletのbindPopup側のautoPanは、狭いmaxBoundsの内側で計算されてしまい
+// (かつ二重に呼ぶと今度は行き過ぎる)、はみ出したポップアップをうまく画面内に
+// 収めきれないことがあるため、autoPanは切って自前でパン量を計算する。
+map.on('popupopen', function (e) {
+  applyLooseBounds();
+  requestAnimationFrame(function () {
+    const popupEl = e.popup._container;
+    if (!popupEl) return;
+    const popupRect = popupEl.getBoundingClientRect();
+    const mapRect = map.getContainer().getBoundingClientRect();
+    const pad = 12;
+    let dx = 0, dy = 0;
+    if (popupRect.left < mapRect.left + pad) dx = popupRect.left - (mapRect.left + pad);
+    else if (popupRect.right > mapRect.right - pad) dx = popupRect.right - (mapRect.right - pad);
+    if (popupRect.top < mapRect.top + pad) dy = popupRect.top - (mapRect.top + pad);
+    else if (popupRect.bottom > mapRect.bottom - pad) dy = popupRect.bottom - (mapRect.bottom - pad);
+    if (dx !== 0 || dy !== 0) map.panBy([dx, dy], { animate: false });
+  });
+});
+map.on('popupclose', applyTightBounds);
 
 function resetView() {
   if (initialZoom == null) return;
@@ -162,7 +201,9 @@ function buildPopupHTML(data) {
     items.push(itemHtml);
   }
 
-  return `<div style="max-height:340px; overflow-y:auto; width:300px;">${items.join('')}</div>`;
+  // 高さの制限はLeafletのbindPopup側のmaxHeightオプションに任せる(そちらは
+  // 地図コンテナ自体の高さも考慮してスクロール可否を判定してくれるため)。
+  return `<div style="width:300px;">${items.join('')}</div>`;
 }
 
 // JSONから「表示用バッジ配列」を作る(どの記法でもOKにする)
@@ -221,10 +262,15 @@ function addMarkerFromJson(data, floor) {
   const marker = L.marker(data.latlng, { icon })
     .addTo(layer)
     .bindPopup(buildPopupHTML(data), {
-      // autoPan: falseだとポップアップが画面(コンテナ)外にはみ出したまま表示されて
-      // 見切れることがあるため、はみ出す場合は自動でパンして画面内に収める。
-      maxWidth: 320, autoPan: true, autoPanPadding: [16, 16],
-      offset: data.popupDirection === 'top' ? [0, -50] : [0, 10],
+      // Leaflet標準のautoPanは狭いmaxBoundsの内側で計算されて画面内に収めきれない
+      // ことがあるため無効にし、代わりに下のpopupopenハンドラで自前にパンする。
+      // 複数企画をまとめたポップアップは中身が長くなり、地図コンテナ自体より
+      // 高くなるとどれだけパンしても収まりきらないため、maxHeightで上限を決め打ちし、
+      // はみ出す分はポップアップ内スクロールにする(STUDIO埋め込み時の小さい高さでも
+      // 収まるよう、あえて控えめな値にしている)。
+      maxWidth: 320, maxHeight: 200,
+      autoPan: false,
+      offset: data.popupDirection === 'top' ? [0, -20] : [0, 10],
       className: 'custom-popup'
     });
 
@@ -321,36 +367,6 @@ function updateSwitcherUI() {
 }
 
 setFloor(getInitialFloor());
-
-// ---- デバッグ用: クリックした位置の座標を表示する(このpreview版のみの開発support機能) ----
-// data/map-pins-floorX.json に書く latlng は、ここに表示される値をそのまま使えばよい
-// (このファイルが読み込んでいる実寸画像上の座標系と完全に一致するため)。
-const DebugCoordControl = L.Control.extend({
-  options: { position: 'bottomleft' },
-  onAdd: function () {
-    const box = L.DomUtil.create('div', 'debug-coord-box');
-    box.textContent = '地図をクリックすると座標がここに表示されます(preview限定のデバッグ機能)';
-    L.DomEvent.disableClickPropagation(box);
-    this._box = box;
-    return box;
-  }
-});
-const debugCoordControl = new DebugCoordControl();
-map.addControl(debugCoordControl);
-
-let debugClickMarker = null;
-map.on('click', function (e) {
-  const lat = Math.round(e.latlng.lat * 10) / 10;
-  const lng = Math.round(e.latlng.lng * 10) / 10;
-  const text = `${currentFloor} latlng: [${lat}, ${lng}]`;
-  if (debugCoordControl._box) debugCoordControl._box.textContent = text;
-  console.log(text);
-
-  if (debugClickMarker) map.removeLayer(debugClickMarker);
-  debugClickMarker = L.circleMarker([lat, lng], {
-    radius: 5, color: '#e53935', weight: 2, fillColor: '#e53935', fillOpacity: 0.8
-  }).addTo(map);
-});
 
 document.addEventListener('click', function (e) {
   const a = e.target.closest('a.popup-link');
