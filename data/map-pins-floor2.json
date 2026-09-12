@@ -1,8 +1,8 @@
 [
   {
     "latlng": [
-      600,
-      350
+      1233.0,
+      492.3
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1A.png",
@@ -14,8 +14,8 @@
   },
   {
     "latlng": [
-      650,
-      600
+      1364.0,
+      693.9
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1B.png",
@@ -27,8 +27,8 @@
   },
   {
     "latlng": [
-      700,
-      850
+      1441.5,
+      978.4
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1C.png",
@@ -40,8 +40,8 @@
   },
   {
     "latlng": [
-      750,
-      1050
+      1504.0,
+      1278.4
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1D.png",
@@ -53,8 +53,8 @@
   },
   {
     "latlng": [
-      550,
-      1750
+      1672.3,
+      672.0
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1E.png",
@@ -66,8 +66,8 @@
   },
   {
     "latlng": [
-      550,
-      1950
+      1782.5,
+      869.0
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1F.png",
@@ -79,8 +79,8 @@
   },
   {
     "latlng": [
-      450,
-      2000
+      1871.8,
+      1062.8
     ],
     "floor": "2階",
     "iconUrl": [
@@ -107,47 +107,34 @@
   },
   {
     "latlng": [
-      2150,
-      1400
+      1052.8,
+      2894.5
     ],
     "floor": "2階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2C.png",
-    "groupName": "S2C",
-    "eventName": "カルテを狩る手",
-    "description": "舞台は医療ミスが隠蔽された廃病院。あなたは調査員となり、心電図の刻む制限時間内に隠されたカルテを解き明かし脱出を目指せ！",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ScienceClub.png",
+    "groupName": "サイエンス部",
+    "eventName": "サイエンス部2026 〜発光する宇宙スライム〜",
+    "description": "今年の実験テーマは暗闇で光る宇宙スライム！サイエンス部がお届けする三田国際科学学園らしい自由な実験を体験してみませんか？",
     "pageUrl": null,
     "popupDirection": "bottom"
   },
   {
     "latlng": [
-      2150,
-      1700
+      1633.6,
+      2328.7
     ],
     "floor": "2階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
-    "groupName": "S2B",
-    "eventName": "2年B組 たこ焼き本舗",
-    "description": "秋の夏祭り！たこ焼きやベビーカステラ、レモネードやホットレモンを準備しました。S2B一同心よりお待ちしています！",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ComputerClub.png",
+    "groupName": "コンピュータ部",
+    "eventName": "昆布観測島 〜電子のゆりかご〜",
+    "description": "「昆布観測島」では、部員たちがMIFのために制作した作品を展示・体験することができます。電子のゆりかごの世界をお楽しみください！",
     "pageUrl": null,
     "popupDirection": "bottom"
   },
   {
     "latlng": [
-      2150,
-      2000
-    ],
-    "floor": "2階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2A.png",
-    "groupName": "S2A",
-    "eventName": "入居者募集中(ぎせいしゃぼしゅうちゅう)",
-    "description": "案内人と事故物件の調査に挑む体験型お化け屋敷。手元にある間取り図の違和感に気づいた時、逃げ場のない恐怖が襲いかかる。",
-    "pageUrl": null,
-    "popupDirection": "bottom"
-  },
-  {
-    "latlng": [
-      2150,
-      2300
+      838.4,
+      2514.7
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/RailwayResearchClub.png",
@@ -159,15 +146,69 @@
   },
   {
     "latlng": [
-      2150,
-      2700
+      725.2,
+      2309.9
     ],
     "floor": "2階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ScienceClub.png",
-    "groupName": "サイエンス部",
-    "eventName": "サイエンス部2026 〜発光する宇宙スライム〜",
-    "description": "今年の実験テーマは暗闇で光る宇宙スライム！サイエンス部がお届けする三田国際科学学園らしい自由な実験を体験してみませんか？",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2A.png",
+    "groupName": "S2A",
+    "eventName": "入居者募集中(ぎせいしゃぼしゅうちゅう)",
+    "description": "案内人と事故物件の調査に挑む体験型お化け屋敷。手元にある間取り図の違和感に気づいた時、逃げ場のない恐怖が襲いかかる。",
     "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      595.7,
+      2114.6
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
+    "groupName": "S2B",
+    "eventName": "2年B組 たこ焼き本舗",
+    "description": "秋の夏祭り！たこ焼きやベビーカステラ、レモネードやホットレモンを準備しました。S2B一同心よりお待ちしています！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      467.6,
+      1923.9
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2C.png",
+    "groupName": "S2C",
+    "eventName": "カルテを狩る手",
+    "description": "舞台は医療ミスが隠蔽された廃病院。あなたは調査員となり、心電図の刻む制限時間内に隠されたカルテを解き明かし脱出を目指せ！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      1751.2,
+      3232.0
+    ],
+    "floor": "2階",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BasicSeminarResearch.png"
+    ],
+    "groupName": [
+      "MST",
+      "MIF実行委員会企画管轄部基礎ゼミ基礎研究班"
+    ],
+    "eventName": [
+      "MST研究発表",
+      "基礎ゼミ・基礎研究発表"
+    ],
+    "description": [
+      "MST生徒が日頃から行っている研究についてポスター発表と口頭発表をします。",
+      "学校生活の中で生徒が主体となって行っている基礎研究、基礎ゼミについての成果発表です。短時間だけでもぜひお立ち寄りください！"
+    ],
+    "pageUrl": [
+      null,
+      null
+    ],
     "popupDirection": "bottom"
   }
 ]
