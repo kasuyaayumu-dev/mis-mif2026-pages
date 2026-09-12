@@ -53,6 +53,19 @@
   },
   {
     "latlng": [
+      1504.0,
+      1062.8
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Striders.png",
+    "groupName": "Striders",
+    "eventName": "MISSION: POWER RESTORE",
+    "description": "停電した学校を床発電で復旧せよ！発電した電力でLEDを灯し、クイズに挑戦しながら再生可能エネルギーを楽しく学ぶ体験型ミッション。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
       1672.3,
       672.0
     ],
@@ -107,6 +120,32 @@
   },
   {
     "latlng": [
+      1233.0,
+      375.1
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BATON.png",
+    "groupName": "BATON",
+    "eventName": "避難所3days〜脱出せよ食から学ぶ防災〜",
+    "description": "ある日、突然地震が起きた――。あなたは避難所で何を思い、どう行動する？ 3日間の避難生活を体験しよう！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      1364.0,
+      593.9
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/SmiCaca.png",
+    "groupName": "スマカカ",
+    "eventName": "チョコクラ",
+    "description": "カカオの実を収穫し、ガーナの楽器を作ろう！遊びや工作を楽しみながら、チョコレートの秘密や世界のことを学べる体験型企画です。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
       1052.8,
       2894.5
     ],
@@ -146,6 +185,19 @@
   },
   {
     "latlng": [
+      1787.0,
+      2188.0
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/SoftballAG.png",
+    "groupName": "軟式野球部",
+    "eventName": "Prismatic Baseball",
+    "description": "物理・経営・心理学など多角的な視点から「野球」をみる体験型アトラクションです。あなたの知らない「野球」の世界をみに来ませんか？",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
       725.2,
       2309.9
     ],
@@ -176,10 +228,10 @@
       1923.9
     ],
     "floor": "2階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2C.png",
-    "groupName": "S2C",
-    "eventName": "カルテを狩る手",
-    "description": "舞台は医療ミスが隠蔽された廃病院。あなたは調査員となり、心電図の刻む制限時間内に隠されたカルテを解き明かし脱出を目指せ！",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Ikimonogakari.png",
+    "groupName": "有志団体いきものがかり",
+    "eventName": "MITA自然史研究館",
+    "description": "この企画では身近な植物や生き物をより知ってもらうため、校内で見られる自然の調査結果や生き物に関わる標本の展示、クイズなどを行います",
     "pageUrl": null,
     "popupDirection": "bottom"
   },

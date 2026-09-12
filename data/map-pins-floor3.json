@@ -105,6 +105,58 @@
   },
   {
     "latlng": [
+      572.1,
+      1128.0
+    ],
+    "floor": "3階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/FlowerArrangementClub.png",
+    "groupName": "華道部",
+    "eventName": "Let’s 生け花体験!",
+    "description": "ご来場者がお好みの花を選んで生け花を体験できるほか、華道部員が心を込めて制作した作品の鑑賞もお楽しみいただける企画です。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      477.2,
+      1522.7
+    ],
+    "floor": "3階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Tsunagari.png",
+    "groupName": "学生団体Tsunagari",
+    "eventName": "Mission : Tsunagari Palace",
+    "description": "英語が苦手でも大丈夫！レベルに合わせて挑戦できる、ワクワクのツアーガイド体験！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      526.9,
+      1522.7
+    ],
+    "floor": "3階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/FIESTA.png",
+    "groupName": "FIESTA",
+    "eventName": "FIESTA 世界の屋台",
+    "description": "こんにちはFIESTA です！世界各国の屋台グルメや文化を楽しみながら、友達や家族と気軽に過ごせる国際色豊かなナイトマーケットを開催します。カフェテリアでは、FIESTAの企画を楽しむだけでなく、持ち込んだ飲食物を食べたり、休憩したり、おしゃべりしたりする場としてもご利用いただけます。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      376.4,
+      1128.0
+    ],
+    "floor": "3階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MIFInternationalRoom.png",
+    "groupName": "MIF International Room",
+    "eventName": "MIF インタナショナルルーム",
+    "description": "三田の「国際」性格を楽しみましょう！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
       806.9,
       1601.7
     ],

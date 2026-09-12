@@ -1,16 +1,22 @@
 [
   {
     "latlng": [
-      1529.2,
-      3395.6
+      1180.7,
+      3277.8
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BusinessSeminar.png",
-    "groupName": "経営ゼミ",
-    "eventName": "WAGAMAMA",
-    "description": "ワッフル・チュロス・ドリンクを販売！組み合わせは無限大∞好きなものを詰め込んで、あなただけのNew 美味しいを作ろう😋🎶",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2D.png",
+    "groupName": "S2D",
+    "eventName": "万福中華",
+    "description": "食べると福がやってくる中華料理屋！チャーハン・小籠包・胡麻団子と求籤風おみくじを楽しみながら食文化の学びと幸運を届けます。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 2,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -33,25 +39,6 @@
   },
   {
     "latlng": [
-      1180.7,
-      3277.8
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2D.png",
-    "groupName": "S2D",
-    "eventName": "万福中華",
-    "description": "食べると福がやってくる中華料理屋！チャーハン・小籠包・胡麻団子と求籤風おみくじを楽しみながら食文化の学びと幸運を届けます。",
-    "pageUrl": null,
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 4,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
       1062.6,
       3016.3
     ],
@@ -64,7 +51,26 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 2,
+        "n": 4,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      1142.6,
+      2874.5
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
+    "groupName": "S2B",
+    "eventName": "2年B組 たこ焼き本舗",
+    "description": "秋の夏祭り！たこ焼きやベビーカステラ、レモネードやホットレモンを準備しました。S2B一同心よりお待ちしています！",
+    "pageUrl": null,
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 5,
         "color": "#FF530F"
       }
     ]
@@ -90,19 +96,19 @@
   },
   {
     "latlng": [
-      1424.5,
-      3784.8
+      1475.9,
+      1994.2
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TeamPaPa.png",
-    "groupName": "Team PaPa",
-    "eventName": "Team PaPa MITA DOG",
-    "description": "パパたちの作る、MIF名物「MITA DOG」！ 今年も米粉ドックに加え世界各国のトッピングを乞うご期待！",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
+    "groupName": "PTA",
+    "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
+    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
     "pageUrl": null,
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 8,
+        "n": 7,
         "color": "#FF530F"
       }
     ]
@@ -121,7 +127,45 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
+        "n": 8,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      1424.5,
+      3784.8
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TeamPaPa.png",
+    "groupName": "Team PaPa",
+    "eventName": "Team PaPa MITA DOG",
+    "description": "パパたちの作る、MIF名物「MITA DOG」！ 今年も米粉ドックに加え世界各国のトッピングを乞うご期待！",
+    "pageUrl": null,
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 9,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      1529.2,
+      3395.6
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BusinessSeminar.png",
+    "groupName": "経営ゼミ",
+    "eventName": "WAGAMAMA",
+    "description": "ワッフル・チュロス・ドリンクを販売！組み合わせは無限大∞好きなものを詰め込んで、あなただけのNew 美味しいを作ろう😋🎶",
+    "pageUrl": null,
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 10,
         "color": "#FF530F"
       }
     ]
@@ -255,10 +299,10 @@
       2958.4
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MIFInternationalRoom.png",
-    "groupName": "MIF International Room",
-    "eventName": "MIF インタナショナルルーム",
-    "description": "三田の「国際」性格を楽しみましょう！",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J1J2ICFusion.png",
+    "groupName": "中１・中２ICフュージョン",
+    "eventName": "中１・中２ICフュージョンのプロジェクト",
+    "description": "三田生徒たちが学校とコミュニティをより良くしようと取り組んでいる様子をご覧ください。",
     "pageUrl": null,
     "popupDirection": "bottom"
   },
@@ -281,38 +325,10 @@
       3768.8
     ],
     "floor": "1階",
-    "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CampusTour.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J1J2ICFusion.png"
-    ],
-    "groupName": [
-      "キャンパスツアー運営",
-      "中１・中２ICフュージョン"
-    ],
-    "eventName": [
-      "キャンパスツアー",
-      "中１・中２ICフュージョンのプロジェクト"
-    ],
-    "description": [
-      "三田国際生が、生徒ならではの視点で校舎をご案内するキャンパスツアーです。ここでしか聞けない『三田国際のリアル』を覗いてみませんか？",
-      "三田生徒たちが学校とコミュニティをより良くしようと取り組んでいる様子をご覧ください。"
-    ],
-    "pageUrl": [
-      null,
-      null
-    ],
-    "popupDirection": "bottom"
-  },
-  {
-    "latlng": [
-      1599.7,
-      3730.9
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/FlowerArrangementClub.png",
-    "groupName": "華道部",
-    "eventName": "Let’s 生け花体験!",
-    "description": "ご来場者がお好みの花を選んで生け花を体験できるほか、華道部員が心を込めて制作した作品の鑑賞もお楽しみいただける企画です。",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CampusTour.png",
+    "groupName": "キャンパスツアー運営",
+    "eventName": "キャンパスツアー",
+    "description": "三田国際生が、生徒ならではの視点で校舎をご案内するキャンパスツアーです。ここでしか聞けない『三田国際のリアル』を覗いてみませんか？",
     "pageUrl": null,
     "popupDirection": "bottom"
   },
