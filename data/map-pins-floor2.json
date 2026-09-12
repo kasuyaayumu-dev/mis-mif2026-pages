@@ -120,6 +120,18 @@
   },
   {
     "latlng": [
+      1244, 2428
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/StudentCouncil.png",
+    "groupName": "生徒会",
+    "eventName": "制服体験",
+    "description": "本校の制服を試着して記念撮影ができる特別企画！生徒会メンバーとの交流の場もあり、一足先に三田国際生を体験できます。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
       1233.0,
       375.1
     ],
