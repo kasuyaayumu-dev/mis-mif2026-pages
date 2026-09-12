@@ -13,7 +13,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 1,
+        "n": 2,
         "color": "#FF530F"
       }
     ]
@@ -32,7 +32,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 2,
+        "n": 3,
         "color": "#FF530F"
       }
     ]
@@ -51,7 +51,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 3,
+        "n": 4,
         "color": "#FF530F"
       }
     ]
@@ -70,15 +70,15 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 4,
+        "n": 5,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      1365.4,
-      3669.0
+      1308.3,
+      3539.3
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
@@ -89,7 +89,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 5,
+        "n": 6,
         "color": "#FF530F"
       }
     ]
@@ -108,7 +108,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 5,
+        "n": 12,
         "color": "#FF530F"
       }
     ]
@@ -127,15 +127,15 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 5,
+        "n": 11,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      1308.3,
-      3539.3
+      1365.4,
+      3669.0
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MitaKouenkai.png",
@@ -146,7 +146,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 6,
+        "n": 8,
         "color": "#FF530F"
       }
     ]
@@ -165,7 +165,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
+        "n": 9,
         "color": "#FF530F"
       }
     ]
@@ -184,7 +184,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 8,
+        "n": 10,
         "color": "#FF530F"
       }
     ]
@@ -248,36 +248,36 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 9,
-        "color": "#FF530F"
+        "n": 1,
+        "color": "#6C5CE7"
       },
       {
-        "n": 10,
-        "color": "#FF530F"
+        "n": 2,
+        "color": "#6C5CE7"
       },
       {
-        "n": 11,
-        "color": "#FF530F"
+        "n": 3,
+        "color": "#6C5CE7"
       },
       {
-        "n": 12,
-        "color": "#FF530F"
+        "n": 4,
+        "color": "#6C5CE7"
       },
       {
-        "n": 13,
-        "color": "#FF530F"
+        "n": 5,
+        "color": "#6C5CE7"
       },
       {
-        "n": 14,
-        "color": "#FF530F"
+        "n": 6,
+        "color": "#6C5CE7"
       },
       {
-        "n": 15,
-        "color": "#FF530F"
+        "n": 7,
+        "color": "#6C5CE7"
       },
       {
-        "n": 16,
-        "color": "#FF530F"
+        "n": 8,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -295,8 +295,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 17,
-        "color": "#FF530F"
+        "n": 9,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -314,8 +314,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 18,
-        "color": "#FF530F"
+        "n": 10,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -333,8 +333,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 18,
-        "color": "#FF530F"
+        "n": 10,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -352,8 +352,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 18,
-        "color": "#FF530F"
+        "n": 10,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -371,8 +371,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 19,
-        "color": "#FF530F"
+        "n": 11,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -390,8 +390,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 20,
-        "color": "#FF530F"
+        "n": 12,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -409,8 +409,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 21,
-        "color": "#FF530F"
+        "n": 13,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -428,8 +428,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 22,
-        "color": "#FF530F"
+        "n": 14,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -462,12 +462,12 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 23,
-        "color": "#FF530F"
+        "n": 15,
+        "color": "#6C5CE7"
       },
       {
-        "n": 24,
-        "color": "#FF530F"
+        "n": 16,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -515,24 +515,24 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 25,
-        "color": "#FF530F"
+        "n": 17,
+        "color": "#6C5CE7"
       },
       {
-        "n": 26,
-        "color": "#FF530F"
+        "n": 18,
+        "color": "#6C5CE7"
       },
       {
-        "n": 27,
-        "color": "#FF530F"
+        "n": 19,
+        "color": "#6C5CE7"
       },
       {
-        "n": 28,
-        "color": "#FF530F"
+        "n": 20,
+        "color": "#6C5CE7"
       },
       {
-        "n": 29,
-        "color": "#FF530F"
+        "n": 21,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -565,12 +565,12 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 14,
-        "color": "#FF530F"
+        "n": 6,
+        "color": "#6C5CE7"
       },
       {
-        "n": 30,
-        "color": "#FF530F"
+        "n": 22,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -588,8 +588,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 31,
-        "color": "#FF530F"
+        "n": 23,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -607,8 +607,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 32,
-        "color": "#FF530F"
+        "n": 24,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -626,8 +626,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 33,
-        "color": "#FF530F"
+        "n": 25,
+        "color": "#6C5CE7"
       }
     ]
   }

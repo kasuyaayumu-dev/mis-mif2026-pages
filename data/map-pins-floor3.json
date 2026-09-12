@@ -13,8 +13,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 15,
-        "color": "#FF530F"
+        "n": 7,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -32,8 +32,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 15,
-        "color": "#FF530F"
+        "n": 7,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -51,8 +51,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 15,
-        "color": "#FF530F"
+        "n": 7,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -70,8 +70,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 15,
-        "color": "#FF530F"
+        "n": 7,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -89,8 +89,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 15,
-        "color": "#FF530F"
+        "n": 7,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -108,8 +108,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 15,
-        "color": "#FF530F"
+        "n": 7,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -127,8 +127,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 53,
-        "color": "#FF530F"
+        "n": 45,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -146,8 +146,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 54,
-        "color": "#FF530F"
+        "n": 46,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -165,8 +165,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 55,
-        "color": "#FF530F"
+        "n": 47,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -184,8 +184,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 56,
-        "color": "#FF530F"
+        "n": 48,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -203,8 +203,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 57,
-        "color": "#FF530F"
+        "n": 49,
+        "color": "#6C5CE7"
       }
     ]
   },
@@ -237,12 +237,12 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 14,
-        "color": "#FF530F"
+        "n": 6,
+        "color": "#6C5CE7"
       },
       {
-        "n": 30,
-        "color": "#FF530F"
+        "n": 22,
+        "color": "#6C5CE7"
       }
     ]
   }
