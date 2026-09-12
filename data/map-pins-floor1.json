@@ -58,7 +58,8 @@
   },
   {
     "latlng": [
-    1241, 3399
+      1241,
+      3399
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
@@ -114,7 +115,8 @@
   },
   {
     "latlng": [
-      1430, 2080
+      1430,
+      2080
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
@@ -260,7 +262,8 @@
   },
   {
     "latlng": [
-      1802, 2590
+      1802,
+      2590
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2.png",
