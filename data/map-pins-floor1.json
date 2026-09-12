@@ -13,7 +13,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 2,
+        "n": 1,
         "color": "#FF530F"
       }
     ]
@@ -32,7 +32,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 3,
+        "n": 2,
         "color": "#FF530F"
       }
     ]
@@ -51,7 +51,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 4,
+        "n": 3,
         "color": "#FF530F"
       }
     ]
@@ -70,7 +70,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 5,
+        "n": 4,
         "color": "#FF530F"
       }
     ]
@@ -89,7 +89,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 6,
+        "n": 5,
         "color": "#FF530F"
       }
     ]
@@ -108,7 +108,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 12,
+        "n": 5,
         "color": "#FF530F"
       }
     ]
@@ -127,7 +127,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 11,
+        "n": 5,
         "color": "#FF530F"
       }
     ]
@@ -146,7 +146,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 8,
+        "n": 6,
         "color": "#FF530F"
       }
     ]
@@ -165,7 +165,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 9,
+        "n": 7,
         "color": "#FF530F"
       }
     ]
@@ -184,7 +184,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 10,
+        "n": 8,
         "color": "#FF530F"
       }
     ]
@@ -245,7 +245,41 @@
       null,
       null
     ],
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 9,
+        "color": "#FF530F"
+      },
+      {
+        "n": 10,
+        "color": "#FF530F"
+      },
+      {
+        "n": 11,
+        "color": "#FF530F"
+      },
+      {
+        "n": 12,
+        "color": "#FF530F"
+      },
+      {
+        "n": 13,
+        "color": "#FF530F"
+      },
+      {
+        "n": 14,
+        "color": "#FF530F"
+      },
+      {
+        "n": 15,
+        "color": "#FF530F"
+      },
+      {
+        "n": 16,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -258,7 +292,13 @@
     "eventName": "千草会の部屋",
     "description": "卒業生同士が交流を深める部屋です。卒業アルバムも展示しています。お気軽にお立ち寄りください。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 17,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -271,7 +311,13 @@
     "eventName": "Edutainment",
     "description": "知る、考える、体験する。その楽しさから、学びはもっと身近に、もっと面白くなる。学びと楽しさを融合した、中学2年生発のEdutainment企画です。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 18,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -284,7 +330,13 @@
     "eventName": "Edutainment",
     "description": "知る、考える、体験する。その楽しさから、学びはもっと身近に、もっと面白くなる。学びと楽しさを融合した、中学2年生発のEdutainment企画です。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 18,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -297,7 +349,13 @@
     "eventName": "Edutainment",
     "description": "知る、考える、体験する。その楽しさから、学びはもっと身近に、もっと面白くなる。学びと楽しさを融合した、中学2年生発のEdutainment企画です。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 18,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -310,7 +368,13 @@
     "eventName": "中１・中２ICフュージョンのプロジェクト",
     "description": "三田生徒たちが学校とコミュニティをより良くしようと取り組んでいる様子をご覧ください。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 19,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -323,7 +387,13 @@
     "eventName": "2026 SLA そうだ、北陸行こう。",
     "description": "中学3年生が9月に行った福井、富山でのプロジェクトの成果発表です。ワークショップや販売も行うので、気軽にお立ち寄りください！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 20,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -336,7 +406,13 @@
     "eventName": "キャンパスツアー",
     "description": "三田国際生が、生徒ならではの視点で校舎をご案内するキャンパスツアーです。ここでしか聞けない『三田国際のリアル』を覗いてみませんか？",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 21,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -349,7 +425,13 @@
     "eventName": "Art Club",
     "description": "今年度のMIFテーマであるeclipseをイメージした階段アート、オブジェ、部員の作品の展示やMIF限定グッズ販売を行っています。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 22,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -377,7 +459,17 @@
       null,
       null
     ],
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 23,
+        "color": "#FF530F"
+      },
+      {
+        "n": 24,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -420,7 +512,29 @@
       null,
       null
     ],
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 25,
+        "color": "#FF530F"
+      },
+      {
+        "n": 26,
+        "color": "#FF530F"
+      },
+      {
+        "n": 27,
+        "color": "#FF530F"
+      },
+      {
+        "n": 28,
+        "color": "#FF530F"
+      },
+      {
+        "n": 29,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -448,7 +562,17 @@
       null,
       null
     ],
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 14,
+        "color": "#FF530F"
+      },
+      {
+        "n": 30,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -461,7 +585,13 @@
     "eventName": "LET’S 陸上！",
     "description": "実際に陸上競技の5種目（50m走・走幅跳・走高跳・ジャベリックボール・ハードル）を計測して、楽しく体験しよう！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 31,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -474,7 +604,13 @@
     "eventName": "三田国際テニス部体験",
     "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！また、普段どのように練習し、仲間と協力して励まし合って活動しているかがわかります。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 32,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -487,6 +623,12 @@
     "eventName": "入試相談ルーム",
     "description": "入試やクラス・コースこと何でもご相談いただけます。お気軽にどうぞ！ 土曜日 10:30～15:00、日曜日 10:30～14:00",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 33,
+        "color": "#FF530F"
+      }
+    ]
   }
 ]

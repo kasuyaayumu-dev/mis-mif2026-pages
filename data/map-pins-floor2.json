@@ -10,7 +10,13 @@
     "eventName": "海底冒険譚",
     "description": "海底の旅へようこそ！潜水艦に乗り込み、海底の的を狙ったり、謎を解いたりしながら大冒険！あなたの腕とひらめきで、最高得点を目指そう！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 34,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -23,7 +29,13 @@
     "eventName": "亡霊の花嫁",
     "description": "結婚式を挙げられず、呪われた洋館を彷徨う花嫁の亡霊。館に散らばった品々を全てを見つけ出せるのか。恐怖の先に待つ、結婚式とは――。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 35,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -36,7 +48,13 @@
     "eventName": "海底からの生還",
     "description": "あなたは日本一の漁師。魚を求め海へ出たその時、突然の嵐で船が沈没！海底に散らばるアイテムを集め、仲間と協力して生還を目指せ！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 36,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -49,7 +67,13 @@
     "eventName": "S1D特命任務～宇宙ステーション潜 入奪還作戦～",
     "description": "ライバル企業に奪われた新型宇宙船の設計図を取り戻すためいくつかのミッションを達成する、臨場感あふれる体験型アトラクションです！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 37,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -62,7 +86,13 @@
     "eventName": "MISSION: POWER RESTORE",
     "description": "停電した学校を床発電で復旧せよ！発電した電力でLEDを灯し、クイズに挑戦しながら再生可能エネルギーを楽しく学ぶ体験型ミッション。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 38,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -75,7 +105,13 @@
     "eventName": "Escape ブラック企業",
     "description": "参加者はブラック企業に閉じ込められた社員となり、数々のミッションや試練を乗り越えながら退職を目指す。教室全体を使った謎解きやミニゲームを通して、仲間と協力しながら脱出に挑戦する体験型企画である。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 39,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -88,7 +124,13 @@
     "eventName": "月食の日の事件簿",
     "description": "月食の夜に起きた殺人事件。その犯人は32人の中に潜んでいる。あなたは鑑識官になりきり、真相を暴くことができるのか？",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 40,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -116,7 +158,17 @@
       null,
       null
     ],
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 41,
+        "color": "#FF530F"
+      },
+      {
+        "n": 42,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -129,7 +181,13 @@
     "eventName": "制服体験",
     "description": "本校の制服を試着して記念撮影ができる特別企画！生徒会メンバーとの交流の場もあり、一足先に三田国際生を体験できます。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 43,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -142,7 +200,13 @@
     "eventName": "避難所3days〜脱出せよ食から学ぶ防災〜",
     "description": "ある日、突然地震が起きた――。あなたは避難所で何を思い、どう行動する？ 3日間の避難生活を体験しよう！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 44,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -155,7 +219,13 @@
     "eventName": "チョコクラ",
     "description": "カカオの実を収穫し、ガーナの楽器を作ろう！遊びや工作を楽しみながら、チョコレートの秘密や世界のことを学べる体験型企画です。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 45,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -168,7 +238,13 @@
     "eventName": "サイエンス部2026 〜発光する宇宙スライム〜",
     "description": "今年の実験テーマは暗闇で光る宇宙スライム！サイエンス部がお届けする三田国際科学学園らしい自由な実験を体験してみませんか？",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 46,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -181,7 +257,13 @@
     "eventName": "昆布観測島 〜電子のゆりかご〜",
     "description": "「昆布観測島」では、部員たちがMIFのために制作した作品を展示・体験することができます。電子のゆりかごの世界をお楽しみください！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 47,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -194,7 +276,13 @@
     "eventName": "Polaris",
     "description": "今年のMIFテーマに関連して、天体の名前が付けられている寝台列車をテーマにポスター展示、部品展示、Nゲージ運転体験を行います。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 48,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -207,7 +295,13 @@
     "eventName": "Prismatic Baseball",
     "description": "物理・経営・心理学など多角的な視点から「野球」をみる体験型アトラクションです。あなたの知らない「野球」の世界をみに来ませんか？",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 49,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -220,7 +314,13 @@
     "eventName": "入居者募集中(ぎせいしゃぼしゅうちゅう)",
     "description": "案内人と事故物件の調査に挑む体験型お化け屋敷。手元にある間取り図の違和感に気づいた時、逃げ場のない恐怖が襲いかかる。",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 50,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -233,7 +333,13 @@
     "eventName": "カルテを狩る手",
     "description": "舞台は医療ミスが隠蔽された廃病院。あなたは調査員となり、心電図の刻む制限時間内に隠されたカルテを解き明かし脱出を目指せ！",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 51,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -246,7 +352,13 @@
     "eventName": "MITA自然史研究館",
     "description": "この企画では身近な植物や生き物をより知ってもらうため、校内で見られる自然の調査結果や生き物に関わる標本の展示、クイズなどを行います",
     "pageUrl": null,
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 52,
+        "color": "#FF530F"
+      }
+    ]
   },
   {
     "latlng": [
@@ -274,6 +386,16 @@
       null,
       null
     ],
-    "popupDirection": "bottom"
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 14,
+        "color": "#FF530F"
+      },
+      {
+        "n": 30,
+        "color": "#FF530F"
+      }
+    ]
   }
 ]
