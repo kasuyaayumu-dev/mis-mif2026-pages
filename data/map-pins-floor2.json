@@ -1,1 +1,173 @@
-[]
+[
+  {
+    "latlng": [
+      600,
+      350
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1A.png",
+    "groupName": "S1A 学年企画実行委員",
+    "eventName": "海底冒険譚",
+    "description": "海底の旅へようこそ！潜水艦に乗り込み、海底の的を狙ったり、謎を解いたりしながら大冒険！あなたの腕とひらめきで、最高得点を目指そう！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      650,
+      600
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1B.png",
+    "groupName": "S1B",
+    "eventName": "亡霊の花嫁",
+    "description": "結婚式を挙げられず、呪われた洋館を彷徨う花嫁の亡霊。館に散らばった品々を全てを見つけ出せるのか。恐怖の先に待つ、結婚式とは――。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      700,
+      850
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1C.png",
+    "groupName": "S1C",
+    "eventName": "海底からの生還",
+    "description": "あなたは日本一の漁師。魚を求め海へ出たその時、突然の嵐で船が沈没！海底に散らばるアイテムを集め、仲間と協力して生還を目指せ！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      750,
+      1050
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1D.png",
+    "groupName": "S1D",
+    "eventName": "S1D特命任務～宇宙ステーション潜 入奪還作戦～",
+    "description": "ライバル企業に奪われた新型宇宙船の設計図を取り戻すためいくつかのミッションを達成する、臨場感あふれる体験型アトラクションです！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      550,
+      1750
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1E.png",
+    "groupName": "S1E",
+    "eventName": "Escape ブラック企業",
+    "description": "参加者はブラック企業に閉じ込められた社員となり、数々のミッションや試練を乗り越えながら退職を目指す。教室全体を使った謎解きやミニゲームを通して、仲間と協力しながら脱出に挑戦する体験型企画である。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      550,
+      1950
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1F.png",
+    "groupName": "S1F",
+    "eventName": "月食の日の事件簿",
+    "description": "月食の夜に起きた殺人事件。その犯人は32人の中に潜んでいる。あなたは鑑識官になりきり、真相を暴くことができるのか？",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      450,
+      2000
+    ],
+    "floor": "2階",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TeaCeremonyClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ShogiChessClub.png"
+    ],
+    "groupName": [
+      "茶道部",
+      "囲碁将棋チェス部"
+    ],
+    "eventName": [
+      "茶道部お茶会",
+      "将棋・チェス体験"
+    ],
+    "description": [
+      "茶道のお点前をご覧になりながら、抹茶とお茶菓子を召し上がってみませんか？毎年大好評の茶道部によるお茶会を、今年も開催いたします！",
+      "チェスや将棋の対局を体験いただけます。入場時に実力を確認させて頂くため、経験の有無に関わらずお楽しみいただけます。"
+    ],
+    "pageUrl": [
+      null,
+      null
+    ],
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      2150,
+      1400
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2C.png",
+    "groupName": "S2C",
+    "eventName": "カルテを狩る手",
+    "description": "舞台は医療ミスが隠蔽された廃病院。あなたは調査員となり、心電図の刻む制限時間内に隠されたカルテを解き明かし脱出を目指せ！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      2150,
+      1700
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
+    "groupName": "S2B",
+    "eventName": "2年B組 たこ焼き本舗",
+    "description": "秋の夏祭り！たこ焼きやベビーカステラ、レモネードやホットレモンを準備しました。S2B一同心よりお待ちしています！",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      2150,
+      2000
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2A.png",
+    "groupName": "S2A",
+    "eventName": "入居者募集中(ぎせいしゃぼしゅうちゅう)",
+    "description": "案内人と事故物件の調査に挑む体験型お化け屋敷。手元にある間取り図の違和感に気づいた時、逃げ場のない恐怖が襲いかかる。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      2150,
+      2300
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/RailwayResearchClub.png",
+    "groupName": "鉄道研究部",
+    "eventName": "Polaris",
+    "description": "今年のMIFテーマに関連して、天体の名前が付けられている寝台列車をテーマにポスター展示、部品展示、Nゲージ運転体験を行います。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      2150,
+      2700
+    ],
+    "floor": "2階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ScienceClub.png",
+    "groupName": "サイエンス部",
+    "eventName": "サイエンス部2026 〜発光する宇宙スライム〜",
+    "description": "今年の実験テーマは暗闇で光る宇宙スライム！サイエンス部がお届けする三田国際科学学園らしい自由な実験を体験してみませんか？",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  }
+]

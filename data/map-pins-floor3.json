@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "latlng": [
+      350,
+      700
+    ],
+    "floor": "3階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/JuniorHighY1Presentation.png",
+    "groupName": "中学1年代表プレゼンテーション",
+    "eventName": "キャリアプレゼンテーション（中学1年）",
+    "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  },
+  {
+    "latlng": [
+      900,
+      1600
+    ],
+    "floor": "3階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/LibraryCommittee.png",
+    "groupName": "図書委員会",
+    "eventName": "Book&Loop 〜本とつながる、未来へ繋ぐ〜",
+    "description": "本と環境をテーマに、古着やペットボトル、松ぼっくりをアップサイクル。読書の楽しさと、ものを大切にすることを体験できる企画です。",
+    "pageUrl": null,
+    "popupDirection": "bottom"
+  }
+]

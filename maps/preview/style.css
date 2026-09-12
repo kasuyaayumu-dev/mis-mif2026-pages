@@ -25,7 +25,9 @@ html, body {
   background: #E8A400;
 }
 
-#map { height: 640px; width: 100%; background: transparent; }
+/* 固定pxではなく比率で高さを決める。フロア画像の縦横比(だいたい3:2)に合わせておくことで、
+   STUDIO埋め込みの狭い幅でも画像が変な位置に小さく表示されず、幅いっぱいに収まる。 */
+#map { aspect-ratio: 3 / 2; width: 100%; min-height: 320px; background: transparent; }
 .leaflet-container { background: transparent !important; }
 
 .leaflet-popup-bottom { transform: translateY(100%); }
