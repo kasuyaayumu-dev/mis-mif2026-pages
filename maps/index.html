@@ -3,19 +3,24 @@
 <head>
   <meta charset="utf-8">
   <title>文化祭マップ</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <span class="badge"><span class="dot"></span>MAP PREPARING</span>
-      <h1 class="title"><span>COMING</span><span>SOON</span></h1>
-      <div class="divider"></div>
-      <p class="desc">会場マップは只今準備中です。<br>公開までもうしばらくお待ちください。</p>
-      <p class="footnote">MIS MIF 2026</p>
-    </div>
+  <div class="provisional-banner">
+    <span class="dot"></span>
+    <span>会場写真は昨年のものを仮に使用しています。企画の配置(ピン)は準備中です。</span>
   </div>
+  <div id="map"></div>
 
+  <script>
+    window.MAPS_CONFIG = { imageBase: '../image/map/', dataBase: '../data/' };
+    window.MAPS_I18N = {
+      resetTitle: '初期表示に戻す',
+      popupLinkLabel: '詳しく見る'
+    };
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

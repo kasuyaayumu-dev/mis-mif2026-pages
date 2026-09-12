@@ -1,114 +1,102 @@
-  * { box-sizing: border-box; }
-    html, body {
-      margin: 0;
-      background: transparent;
-      height: 100%;
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
-    }
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: transparent;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+}
 
-    .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(16px, 6vw, 32px) 16px;
-    }
+.provisional-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF3CD;
+  color: #6b4c00;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  padding: 8px 14px;
+}
+.provisional-banner .dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #E8A400;
+}
 
-    .card {
-      position: relative;
-      width: 100%;
-      max-width: 420px;
-      border-radius: 24px;
-      overflow: hidden;
-      background: linear-gradient(135deg, #FFE70B 0%, #FF9E77 45%, #FF530F 100%);
-      box-shadow: 0 16px 40px rgba(255, 83, 15, .3);
-      padding: clamp(28px, 8vw, 44px) clamp(18px, 6vw, 28px) clamp(24px, 6vw, 36px);
-      text-align: center;
-      isolation: isolate;
-    }
+#map { height: 640px; width: 100%; background: transparent; }
+.leaflet-container { background: transparent !important; }
 
-    .card::before,
-    .card::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      z-index: -1;
-    }
-    .card::before {
-      width: 180px;
-      height: 180px;
-      background: rgba(25, 60, 112, .18);
-      top: -70px;
-      right: -60px;
-    }
-    .card::after {
-      width: 140px;
-      height: 140px;
-      background: rgba(255, 255, 255, .28);
-      bottom: -60px;
-      left: -50px;
-    }
+.leaflet-popup-bottom { transform: translateY(100%); }
+.leaflet-popup-bottom .leaflet-popup-tip { transform: rotate(180deg); bottom: auto; top: 0; }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: #072859;
-      color: #FFF38C;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .12em;
-      padding: 7px 16px;
-      border-radius: 999px;
-      margin-bottom: 22px;
-    }
-    .badge .dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #FFF38C;
-      animation: pulse 1.4s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: .35; transform: scale(.7); }
-    }
+.custom-popup .leaflet-popup-content-wrapper {
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(10px);
+}
+.custom-popup .leaflet-popup-tip {
+  background: white; border: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.custom-popup .leaflet-popup-close-button {
+  color: #999; font-size: 18px; padding: 8px;
+}
+.custom-popup .leaflet-popup-close-button:hover {
+  color: #333; background-color: rgba(0,0,0,0.05); border-radius: 50%;
+}
 
-    .title {
-      margin: 0;
-      font-size: clamp(28px, 9vw, 40px);
-      font-weight: 900;
-      letter-spacing: .02em;
-      color: #072859;
-      line-height: 1.05;
-      text-shadow: 0 2px 0 rgba(255,255,255,.35);
-    }
-    .title span {
-      display: block;
-      font-size: clamp(28px, 9vw, 40px);
-    }
+/* 丸い番号バッジ用 */
+.badge-grid { display: grid; align-items: center; justify-items: center; }
+.badge { border-radius: 50%; color:#fff; font-weight:700; text-align:center;
+         display:inline-flex; align-items:center; justify-content:center;
+         border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,.28); }
+.badge.sm { width:22px; height:22px; font-size:12px; line-height:22px; }
+.badge.lg { width:28px; height:28px; font-size:14px; line-height:28px; }
 
-    .divider {
-      width: 46px;
-      height: 4px;
-      border-radius: 999px;
-      background: #072859;
-      margin: 18px auto 18px;
-      opacity: .5;
-    }
+/* Googleマップ風フロア切り替えスライダー */
+.floor-switcher {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+  user-select: none;
+}
+.floor-switcher button {
+  appearance: none;
+  border: none;
+  background: #fff;
+  color: #333;
+  width: 40px;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color .15s ease, color .15s ease;
+}
+.floor-switcher button:last-child { border-bottom: none; }
+.floor-switcher button:hover { background: #f2f2f2; }
+.floor-switcher button.active {
+  background: #1a73e8;
+  color: #fff;
+}
+.floor-switcher button.active:hover { background: #1a73e8; }
 
-    .desc {
-      margin: 0;
-      font-size: 14px;
-      font-weight: 600;
-      color: #4a2200;
-      line-height: 1.8;
-    }
-
-    .footnote {
-      margin: 22px 0 0;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      color: #072859;
-      opacity: .65;
-    }
+.reset-view-control a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  font-size: 16px;
+  line-height: 1;
+  color: #333;
+  text-decoration: none;
+  background: #fff;
+}
+.reset-view-control a:hover { background: #f2f2f2; }

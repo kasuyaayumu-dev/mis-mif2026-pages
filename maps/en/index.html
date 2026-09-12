@@ -3,19 +3,24 @@
 <head>
   <meta charset="utf-8">
   <title>MIF Venue Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <span class="badge"><span class="dot"></span>MAP PREPARING</span>
-      <h1 class="title"><span>COMING</span><span>SOON</span></h1>
-      <div class="divider"></div>
-      <p class="desc">The venue map is currently being prepared.<br>Please check back soon.</p>
-      <p class="footnote">MIS MIF 2026</p>
-    </div>
+  <div class="provisional-banner">
+    <span class="dot"></span>
+    <span>This floor photo is temporarily reused from last year's festival. Project pin locations are still being prepared.</span>
   </div>
+  <div id="map"></div>
 
+  <script>
+    window.MAPS_CONFIG = { imageBase: '../../image/map/', dataBase: '../../data/' };
+    window.MAPS_I18N = {
+      resetTitle: 'Reset view',
+      popupLinkLabel: 'View details'
+    };
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="../app.js"></script>
 </body>
 </html>
