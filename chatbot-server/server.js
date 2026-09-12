@@ -216,18 +216,35 @@ function renderVenueSection(venue, lang) {
   return lines.join('\n');
 }
 
+// タイムテーブルに載っていない企画は「公演」ではなく随時営業のブース等のため、決まった開催時間が
+// 無いこと自体を案内する。ただしJ2(中学2年)の企画は生徒が交代制で運営しているため専用の文言にする。
+const NOT_ON_TIMETABLE_LABEL = {
+  ja: '公演形式ではないため決まった開催時間はありません(会期中いつでもご利用いただけます)',
+  en: 'Not a scheduled stage performance, so there is no fixed showtime (available anytime during festival hours)'
+};
+const J2_SHIFT_LABEL = {
+  ja: '決まった開催時間はなく、生徒が交代制で運営しています(会期中いつでもご利用いただけます)',
+  en: 'No fixed showtime — students run it in rotating shifts (available anytime during festival hours)'
+};
+
 function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
   const items = groupsData.items || [];
-  const noScheduleLabel = lang === 'en' ? 'not available yet' : '情報なし';
+  const notOnTimetableLabel = NOT_ON_TIMETABLE_LABEL[lang] || NOT_ON_TIMETABLE_LABEL.ja;
+  const j2ShiftLabel = J2_SHIFT_LABEL[lang] || J2_SHIFT_LABEL.ja;
   const lines = items.map(it => {
     const name = it.name || '';
     const group = it.group || '';
     const category = it.category || '';
     const format = it.format || '';
     const desc = it.description || '';
-    const schedule = it.icon && scheduleIndex.has(it.icon)
-      ? scheduleIndex.get(it.icon).join(', ')
-      : noScheduleLabel;
+    let schedule;
+    if (it.icon && scheduleIndex.has(it.icon)) {
+      schedule = scheduleIndex.get(it.icon).join(', ');
+    } else if (category === 'J2') {
+      schedule = j2ShiftLabel;
+    } else {
+      schedule = notOnTimetableLabel;
+    }
     return `- ${name} | ${group} | ${category} | ${format} | ${desc} | ${schedule}`;
   });
 
@@ -252,10 +269,11 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
       '   politely say it is outside what this assistant can help with.',
       '',
       'Each line of the project list below is: "Project name | Group/Club | Category | Format | Short',
-      'description | Schedule". The Schedule field (from the festival timetable) lists every date/time',
-      'slot for projects that appear on the timetable; it reads "not available yet" for projects that are',
-      'not on the timetable (e.g. many food/exhibit booths) — that only means no fixed showtime exists,',
-      'not that the project itself is unavailable. Location, waiting area, and ticket/numbered-ticket info',
+      'description | Schedule". The Schedule field already tells you everything you need about timing —',
+      'projects on the festival timetable list every date/time slot; projects not on the timetable already',
+      'say in that field that they have no fixed showtime (food/exhibit booths you can visit anytime) or,',
+      'for J2-grade projects, that students run it in rotating shifts. Just relay that text naturally,',
+      'do not add your own guesses about timing. Location, waiting area, and ticket/numbered-ticket info',
       'are NOT included in this list yet. If asked about those for a specific project, say that info is',
       'not yet available in the current listing and suggest checking with festival staff or the',
       'information desk on the day (once such fields are added to the list in the future, use them',
@@ -310,11 +328,12 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, lang) {
     '   お答えできる範囲外である旨を丁寧に伝えてください。',
     '',
     '企画リストの各行は「企画名 | 団体名 | カテゴリ | 形式 | 短い説明 | 開催時間」の形式です。',
-    '「開催時間」はタイムテーブルに掲載されている企画についてはその日時がすべて入っており、',
-    'タイムテーブルに載っていない企画(多くの飲食・展示ブースなど)は「情報なし」になります。',
-    '「情報なし」は決まった上演時刻がないだけで、その企画自体が存在しない/開催されないという',
-    '意味ではないので注意してください。場所・待機場所・チケット/整理券情報は、現時点のリストには',
-    'まだ含まれていません。これらを聞かれた場合は「現在の企画リストにはその情報がまだ登録されて',
+    '「開催時間」欄はタイミングについて必要な情報がすでにそのまま書かれています。タイムテーブルに',
+    '掲載されている企画はその日時がすべて列挙され、載っていない企画(多くの飲食・展示ブースなど)は',
+    '「公演形式ではないため決まった開催時間はない(会期中いつでも利用可)」、J2(中学2年)の企画は',
+    '「生徒が交代制で運営している」という文言がすでに入っています。これをそのまま自然に伝えれば',
+    'よく、自分で開催時間を推測して付け加えないでください。場所・待機場所・チケット/整理券情報は、',
+    '現時点のリストにはまだ含まれていません。これらを聞かれた場合は「現在の企画リストにはその情報がまだ登録されて',
     'いません。当日は企画スタッフまたは案内所でご確認ください」のように正直に伝えてください',
     '(将来リストに追加された場合は、そちらの情報を優先して使ってください)。',
     '',
