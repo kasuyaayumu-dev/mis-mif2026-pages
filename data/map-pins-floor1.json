@@ -107,7 +107,25 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
+        "n": 12,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      1430, 2080
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
+    "groupName": "PTA",
+    "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
+    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
+    "pageUrl": null,
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 11,
         "color": "#FF530F"
       }
     ]
@@ -168,19 +186,6 @@
         "color": "#FF530F"
       }
     ]
-  },
-  {
-    "latlng": [
-      982.6,
-      3148.0
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/StudentCouncil.png",
-    "groupName": "生徒会",
-    "eventName": "制服体験",
-    "description": "本校の制服を試着して記念撮影ができる特別企画！生徒会メンバーとの交流の場もあり、一足先に三田国際生を体験できます。",
-    "pageUrl": null,
-    "popupDirection": "bottom"
   },
   {
     "latlng": [
@@ -255,8 +260,7 @@
   },
   {
     "latlng": [
-      1574.9,
-      1798.6
+      1802, 2590
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2.png",
