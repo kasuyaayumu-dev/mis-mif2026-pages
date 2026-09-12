@@ -71,21 +71,27 @@ function setFloor(floor) {
 let initialZoom = null;
 let initialCenter = null;
 
-// 表示中のフロアの画像全体が収まるズームを基準に、そこからもう1段階ズームアウトでき、
-// ズームインは迷子になりすぎない範囲(基準+2)までに制限する
+// 表示中のフロアの画像全体が収まるズームを基準(fitZoom)に、
+// ズームアウトはfitZoomまで(それ以上引くと画像より外側の余白しか見えなくなるため)、
+// ホーム位置(初期表示・リセット時)はfitZoomより1段階ズームインした位置にする
 function fitToWholeMap() {
   map.invalidateSize();
   const cfg = floorConfig[currentFloor];
-  const bounds = [[0, 0], [cfg.height, cfg.width]];
-  map.fitBounds(bounds, { padding: [10, 10] });
-  const fitZoom = map.getZoom();
-  map.setMinZoom(fitZoom - 1);
+  const bounds = L.latLngBounds([[0, 0], [cfg.height, cfg.width]]);
+  // fitBounds()の直後にsetZoom()すると、fitBounds自体のズームアニメーションと
+  // 競合して表示が乱れることがあるため、getBoundsZoom()で目標ズームだけ算出し、
+  // 中心・ズームをsetView()で一度に確定させる(アニメーションなし)。
+  const fitZoom = map.getBoundsZoom(bounds, false, [10, 10]);
+  map.setMinZoom(fitZoom);
   map.setMaxZoom(fitZoom + 2);
 
-  initialZoom = fitZoom;
-  initialCenter = map.getCenter();
+  initialZoom = fitZoom + 1;
+  initialCenter = bounds.getCenter();
+  map.setView(initialCenter, initialZoom, { animate: false });
 
-  const boundsPadding = cfg.width * 0.4;
+  // パン可能範囲。広すぎるとズームイン時に画像の外側の余白まで延々とドラッグできてしまうため、
+  // 画像からはみ出す余白は少しだけ(1割程度)に絞る。
+  const boundsPadding = cfg.width * 0.1;
   map.setMaxBounds([[-boundsPadding, -boundsPadding], [cfg.height + boundsPadding, cfg.width + boundsPadding]]);
 }
 
