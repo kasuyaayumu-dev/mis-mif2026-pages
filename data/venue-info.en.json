@@ -18,11 +18,11 @@
     }
   ],
   "food": {
-    "saleLocations": "Not available yet",
-    "eatableRestAreas": "Not available yet",
+    "saleLocations": "There is no single food court — food and drinks are sold individually by each project/booth that offers them, at that project's own location.",
+    "eatableRestAreas": "There are eating areas on the 1st floor (near CS/Room 125, just past the middle gate) and on the 3rd floor (next to the library).",
     "nonEatableRestAreas": "Not available yet"
   },
-  "restrooms": "Not available yet",
+  "restrooms": "1st floor: near the stage (by the girls' changing room) and near the nurse's office (below Room 110 Art Room / Room 111 IC Fusion). 2nd floor: girls' restroom near stairway A (by Room 207), boys' restroom near stairway B (below Room 214 PC Club). 3rd floor: girls' restroom near stairway A, boys' restroom near stairway B — same layout as the 2nd floor.",
   "infoDesk": "Not available yet",
   "nurseOffice": "Please direct anyone who is injured or feeling unwell to the nurse's office on the 1st floor. If it seems urgent, also alert a nearby teacher or staff member.",
   "access": {
