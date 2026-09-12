@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MIF Venue Map (Preview)</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="provisional-banner">
+    <span class="dot"></span>
+    <span>This floor photo is temporarily reused from last year's festival. Project pin locations are still being prepared.</span>
+  </div>
+  <div id="map"></div>
+
+  <script>
+    window.MAPS_CONFIG = { imageBase: '../../../image/map/', dataBase: '../../../data/' };
+    window.MAPS_I18N = {
+      resetTitle: 'Reset view',
+      popupLinkLabel: 'View details'
+    };
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"
+    crossorigin="anonymous"></script>
+  <script src="../app.js"></script>
+</body>
+</html>

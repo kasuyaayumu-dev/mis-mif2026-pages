@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>文化祭マップ(開発中プレビュー)</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="provisional-banner">
+    <span class="dot"></span>
+    <span>会場写真は昨年のものを仮に使用しています。企画の配置(ピン)は準備中です。</span>
+  </div>
+  <div id="map"></div>
+
+  <script>
+    window.MAPS_CONFIG = { imageBase: '../../image/map/', dataBase: '../../data/' };
+    window.MAPS_I18N = {
+      resetTitle: '初期表示に戻す',
+      popupLinkLabel: '詳しく見る'
+    };
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+</html>
