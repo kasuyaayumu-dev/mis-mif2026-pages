@@ -221,7 +221,9 @@ function addMarkerFromJson(data, floor) {
   const marker = L.marker(data.latlng, { icon })
     .addTo(layer)
     .bindPopup(buildPopupHTML(data), {
-      maxWidth: 320, autoPan: false,
+      // autoPan: falseだとポップアップが画面(コンテナ)外にはみ出したまま表示されて
+      // 見切れることがあるため、はみ出す場合は自動でパンして画面内に収める。
+      maxWidth: 320, autoPan: true, autoPanPadding: [16, 16],
       offset: data.popupDirection === 'top' ? [0, -50] : [0, 10],
       className: 'custom-popup'
     });
@@ -319,6 +321,36 @@ function updateSwitcherUI() {
 }
 
 setFloor(getInitialFloor());
+
+// ---- デバッグ用: クリックした位置の座標を表示する(このpreview版のみの開発support機能) ----
+// data/map-pins-floorX.json に書く latlng は、ここに表示される値をそのまま使えばよい
+// (このファイルが読み込んでいる実寸画像上の座標系と完全に一致するため)。
+const DebugCoordControl = L.Control.extend({
+  options: { position: 'bottomleft' },
+  onAdd: function () {
+    const box = L.DomUtil.create('div', 'debug-coord-box');
+    box.textContent = '地図をクリックすると座標がここに表示されます(preview限定のデバッグ機能)';
+    L.DomEvent.disableClickPropagation(box);
+    this._box = box;
+    return box;
+  }
+});
+const debugCoordControl = new DebugCoordControl();
+map.addControl(debugCoordControl);
+
+let debugClickMarker = null;
+map.on('click', function (e) {
+  const lat = Math.round(e.latlng.lat * 10) / 10;
+  const lng = Math.round(e.latlng.lng * 10) / 10;
+  const text = `${currentFloor} latlng: [${lat}, ${lng}]`;
+  if (debugCoordControl._box) debugCoordControl._box.textContent = text;
+  console.log(text);
+
+  if (debugClickMarker) map.removeLayer(debugClickMarker);
+  debugClickMarker = L.circleMarker([lat, lng], {
+    radius: 5, color: '#e53935', weight: 2, fillColor: '#e53935', fillOpacity: 0.8
+  }).addTo(map);
+});
 
 document.addEventListener('click', function (e) {
   const a = e.target.closest('a.popup-link');
