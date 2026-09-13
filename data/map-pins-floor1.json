@@ -203,7 +203,6 @@
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EnglishRecitationSpeech.png",
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png",
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CareerPresentation.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CareerPresentation.png"
     ],
     "groupName": [
       "学校広報部",
@@ -212,8 +211,7 @@
       "メディア・クリエイション・ゼミ",
       "英語レシテーション・スピーチ",
       "MST",
-      "中学1年代表プレゼンテーション",
-      "高校1年代表プレゼンテーション"
+      "中学・高校1年代表プレゼンテーション",
     ],
     "eventName": [
       "ミニ中学説明会",
@@ -222,7 +220,6 @@
       "メディアゼミ作品上映会",
       "英語レシテーション・スピーチ",
       "MST代表者プレゼンテーション",
-      "キャリアプレゼンテーション（中学・高校）",
       "キャリアプレゼンテーション（中学・高校）"
     ],
     "description": [
@@ -232,11 +229,9 @@
       "中学生が手掛けた渾身の映像世界へようこそ！表現力あふれるMVと2本のドラマがあなたを魅了します。ぜひ視聴覚室へお越しください！",
       "学内で行われた英語レシテーション・スピーチコンテストで優秀な成績を修めた中1～高2の生徒たちの発表と、長期留学帰国生によるプレゼンです！",
       "MSTの代表者（S1,S2それぞれ1組ずつ）が研究成果を発表します",
-      "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
-      "「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自らのキャリアや未来への思いをプレゼンテーションします。"
+      "「自己理解」「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びや自らのキャリアや未来への思いをプレゼンテーションします。"
     ],
     "pageUrl": [
-      null,
       null,
       null,
       null,
@@ -273,10 +268,6 @@
       },
       {
         "n": 7,
-        "color": "#6C5CE7"
-      },
-      {
-        "n": 8,
         "color": "#6C5CE7"
       }
     ]
