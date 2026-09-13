@@ -38,7 +38,7 @@
     },
     {
       "id": "g003",
-      "name": "キャリアプレゼンテーション（中学1年）",
+      "name": "キャリアプレゼンテーション（中学・高校）",
       "group": "中学1年代表プレゼンテーション",
       "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
       "url": null,
@@ -50,11 +50,11 @@
       "floor": null,
       "room": null,
       "latlng": null,
-      "icon": "JuniorHighY1Presentation.png"
+      "icon": "CareerPresentation.png"
     },
     {
       "id": "g004",
-      "name": "キャリアプレゼンテーション（高校1年）",
+      "name": "キャリアプレゼンテーション（中学・高校）",
       "group": "高校1年代表プレゼンテーション",
       "description": "「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自らのキャリアや未来への思いをプレゼンテーションします。",
       "url": null,
@@ -66,7 +66,7 @@
       "floor": null,
       "room": null,
       "latlng": null,
-      "icon": "HighSchoolY1Presentation.png"
+      "icon": "CareerPresentation.png"
     },
     {
       "id": "g005-let-s",

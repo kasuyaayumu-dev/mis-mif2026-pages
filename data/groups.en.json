@@ -38,7 +38,7 @@
     },
     {
       "id": "g003",
-      "name": "Career Presentation (Junior High School Year 1)",
+      "name": "Career Presentation (Junior High & High School)",
       "group": "Junior High Year 1 Student Representatives",
       "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves.",
       "url": null,
@@ -50,11 +50,11 @@
       "floor": null,
       "room": null,
       "latlng": null,
-      "icon": "JuniorHighY1Presentation.png"
+      "icon": "CareerPresentation.png"
     },
     {
       "id": "g004",
-      "name": "Career Presentation (High School Year 1)",
+      "name": "Career Presentation (Junior High & High School)",
       "group": "High School Year 1 Student Representatives",
       "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future.",
       "url": null,
@@ -66,7 +66,7 @@
       "floor": null,
       "room": null,
       "latlng": null,
-      "icon": "HighSchoolY1Presentation.png"
+      "icon": "CareerPresentation.png"
     },
     {
       "id": "g005-let-s",

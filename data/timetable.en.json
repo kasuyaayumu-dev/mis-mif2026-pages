@@ -46,7 +46,7 @@
           "title": "Career Presentation (Junior High & High School)",
           "category": "cyan",
           "groupName": "Junior High Year 1 Student Representatives",
-          "icon": "JuniorHighY1Presentation.png",
+          "icon": "CareerPresentation.png",
           "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves."
         },
         {
@@ -118,7 +118,7 @@
           "title": "Career Presentation (Junior High & High School)",
           "category": "cyan",
           "groupName": "High School Year 1 Student Representatives",
-          "icon": "HighSchoolY1Presentation.png",
+          "icon": "CareerPresentation.png",
           "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future."
         },
         {
@@ -326,7 +326,7 @@
           "title": "Career Presentation (Junior High & High School)",
           "category": "cyan",
           "groupName": "Junior High Year 1 Student Representatives",
-          "icon": "JuniorHighY1Presentation.png",
+          "icon": "CareerPresentation.png",
           "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves."
         },
         {
