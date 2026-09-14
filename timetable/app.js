@@ -180,6 +180,12 @@ const I18N = window.TT_I18N || {};
             titleEl.textContent = cell.event.title;
             td.appendChild(titleEl);
             if (cell.event.category !== 'closed') {
+              if (cell.event.groupName) {
+                const groupEl = document.createElement('div');
+                groupEl.className = 'group-tag';
+                groupEl.textContent = cell.event.groupName;
+                td.appendChild(groupEl);
+              }
               if (cell.event.room) {
                 const roomEl = document.createElement('div');
                 roomEl.className = 'room-tag';
