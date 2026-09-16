@@ -188,7 +188,11 @@ html, body {
 }
 
 @media (max-width: 520px) {
-  .chat-card { height: 100vh; max-width: 100%; border-radius: 0; }
+  /* 高さは100vhにしない: STUDIO埋め込み時、iframeの高さはこのページ自身のscrollHeightを
+     元にpostMessageで親側が決めているため、100vh(=その時点のiframeの高さ)を基準にすると
+     自己参照になってしまい、実際のコンテンツ量に関わらず高さが更新されなくなる。
+     幅が狭い時も固定pxの高さのままにしておく。 */
+  .chat-card { max-width: 100%; border-radius: 0; }
 }
 
 /* スクリーンリーダー専用(視覚的には非表示だが読み上げ・フォーム関連付けには必要) */
