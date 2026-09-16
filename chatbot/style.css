@@ -8,6 +8,7 @@
 * { box-sizing: border-box; }
 html, body {
   margin: 0;
+  height: 100%; /* .chat-cardのheight:100%が効くために、親をたどって高さの基準が必要 */
   background: transparent;
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
 }
@@ -22,7 +23,12 @@ html, body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 560px;
+  /* 固定pxをやめ、埋め込み先(STUDIO側のボックス)の高さに100%フィットさせる。
+     STUDIO側でブレークポイントごとに高さを変えれば、機種によって画面が低くても
+     自動で追従する。中のメッセージ一覧は元々chat-log側で内部スクロールする設計
+     なので、このカード自体の高さがどんな値でもレイアウトは崩れない。 */
+  height: 100%;
+  min-height: 320px;
 }
 
 .chat-header {
@@ -188,10 +194,6 @@ html, body {
 }
 
 @media (max-width: 520px) {
-  /* 高さは100vhにしない: STUDIO埋め込み時、iframeの高さはこのページ自身のscrollHeightを
-     元にpostMessageで親側が決めているため、100vh(=その時点のiframeの高さ)を基準にすると
-     自己参照になってしまい、実際のコンテンツ量に関わらず高さが更新されなくなる。
-     幅が狭い時も固定pxの高さのままにしておく。 */
   .chat-card { max-width: 100%; border-radius: 0; }
 }
 
