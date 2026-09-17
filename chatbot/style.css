@@ -182,11 +182,22 @@ html, body {
   border: none;
   background: var(--accent);
   color: #fff;
-  font-weight: 700;
-  font-size: 13px;
-  padding: 0 18px;
-  border-radius: 999px;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.chat-send svg {
+  width: 17px;
+  height: 17px;
+  /* 紙飛行機の進行方向とボタンの位置を合わせるため、若干右上に寄せる(SF Symbolsの
+     paperplane.fillと同じ見た目の調整) */
+  transform: translate(1px, -1px);
 }
 .chat-send:disabled {
   opacity: .5;
