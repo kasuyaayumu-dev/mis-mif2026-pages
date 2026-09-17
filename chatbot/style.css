@@ -14,8 +14,14 @@ html, body {
 }
 
 .chat-card {
-  max-width: 480px;
-  margin: 0 auto;
+  /* 埋め込み先(STUDIO側のポップアップウィンドウ)の幅・高さにどちらも100%フィットさせる。
+     ポップアップを縦横どちらに伸ばしても、中のUIがそのまま追従して広がる。
+     中のメッセージ一覧は元々chat-log側で内部スクロールする設計なので、
+     高さがどんな値でもレイアウトは崩れない。 */
+  width: 100%;
+  height: 100%;
+  min-width: 260px;
+  min-height: 320px;
   background: var(--bg);
   border-radius: 18px;
   box-shadow: 0 8px 28px rgba(0,0,0,.14);
@@ -23,12 +29,6 @@ html, body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  /* 固定pxをやめ、埋め込み先(STUDIO側のボックス)の高さに100%フィットさせる。
-     STUDIO側でブレークポイントごとに高さを変えれば、機種によって画面が低くても
-     自動で追従する。中のメッセージ一覧は元々chat-log側で内部スクロールする設計
-     なので、このカード自体の高さがどんな値でもレイアウトは崩れない。 */
-  height: 100%;
-  min-height: 320px;
 }
 
 .chat-header {
@@ -191,10 +191,6 @@ html, body {
 .chat-send:disabled {
   opacity: .5;
   cursor: default;
-}
-
-@media (max-width: 520px) {
-  .chat-card { max-width: 100%; border-radius: 0; }
 }
 
 /* スクリーンリーダー専用(視覚的には非表示だが読み上げ・フォーム関連付けには必要) */
