@@ -184,6 +184,25 @@
     "popupDirection": "bottom",
     "badges": [
       {
+        "n": 5,
+        "color": "#0B8A74"
+      }
+    ]
+  },
+    {
+    "latlng": [
+      392,
+      1292
+    ],
+    "floor": "3階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/FIESTA.png",
+    "groupName": "FIESTA",
+    "eventName": "FIESTA 世界の屋台",
+    "description": "こんにちはFIESTA です！世界各国の屋台グルメや文化を楽しみながら、友達や家族と気軽に過ごせる国際色豊かなナイトマーケットを開催します。カフェテリアでは、FIESTAの企画を楽しむだけでなく、持ち込んだ飲食物を食べたり、休憩したり、おしゃべりしたりする場としてもご利用いただけます。",
+    "pageUrl": null,
+    "popupDirection": "bottom",
+    "badges": [
+      {
         "n": 6,
         "color": "#0B8A74"
       }
