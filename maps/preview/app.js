@@ -344,20 +344,20 @@ function floorsNearestFirst() {
 
 function startBackgroundPreload() {
   const conn = navigator.connection;
-  if (conn && conn.saveData) return;
+  if (conn?.saveData) return;
   const floors = floorsNearestFirst();
   const floorImages = floors.map(function (f) { return floorConfig[f].image; });
   const icons = [];
   floors.forEach(function (f) { (iconUrlsByFloor[f] || []).forEach(function (u) { icons.push(u); }); });
   // 大きいフロア画像を先に1枚ずつ、そのあとでアイコンを3並列で読む
-  preloadAll(floorImages, 1).then(function () { return preloadAll(icons, 3); });
+  void preloadAll(floorImages, 1).then(function () { return preloadAll(icons, 3); });
 }
 
 function whenIdle(fn) {
   return window.requestIdleCallback ? window.requestIdleCallback(fn) : setTimeout(fn, 500);
 }
 function schedulePreload() {
-  Promise.all(pinLoads).then(function () { whenIdle(startBackgroundPreload); });
+  void Promise.all(pinLoads).then(function () { whenIdle(startBackgroundPreload); });
 }
 if (document.readyState === 'complete') {
   schedulePreload();
