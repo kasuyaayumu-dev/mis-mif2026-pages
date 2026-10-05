@@ -251,10 +251,6 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 30,
-        "color": "#0B8A74"
-      },
-      {
         "n": 31,
         "color": "#0B8A74"
       }
