@@ -13,8 +13,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 26,
-        "color": "#6C5CE7"
+        "n": 5,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -32,8 +32,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 27,
-        "color": "#6C5CE7"
+        "n": 6,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -51,8 +51,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 28,
-        "color": "#6C5CE7"
+        "n": 3,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -70,8 +70,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 29,
-        "color": "#6C5CE7"
+        "n": 10,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -89,14 +89,14 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 30,
-        "color": "#6C5CE7"
+        "n": 9,
+        "color": "#2F6FED"
       }
     ]
   },
   {
     "latlng": [
-      1504.0,
+      1504,
       1278.4
     ],
     "floor": "2階",
@@ -108,8 +108,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 31,
-        "color": "#6C5CE7"
+        "n": 4,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -127,8 +127,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 32,
-        "color": "#6C5CE7"
+        "n": 7,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -161,12 +161,12 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 33,
-        "color": "#6C5CE7"
+        "n": 11,
+        "color": "#2F6FED"
       },
       {
-        "n": 34,
-        "color": "#6C5CE7"
+        "n": 12,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -184,14 +184,14 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 35,
-        "color": "#6C5CE7"
+        "n": 8,
+        "color": "#2F6FED"
       }
     ]
   },
   {
     "latlng": [
-      1233.0,
+      1233,
       492.3
     ],
     "floor": "2階",
@@ -203,14 +203,14 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 36,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#2F6FED"
       }
     ]
   },
   {
     "latlng": [
-      1364.0,
+      1364,
       693.9
     ],
     "floor": "2階",
@@ -222,8 +222,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 37,
-        "color": "#6C5CE7"
+        "n": 2,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -241,8 +241,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 38,
-        "color": "#6C5CE7"
+        "n": 15,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -260,8 +260,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 39,
-        "color": "#6C5CE7"
+        "n": 14,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -279,8 +279,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 40,
-        "color": "#6C5CE7"
+        "n": 16,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -290,16 +290,16 @@
       2146
     ],
     "floor": "2階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/SoftballAG.png",
-    "groupName": "軟式野球部",
-    "eventName": "Prismatic Baseball",
-    "description": "物理・経営・心理学など多角的な視点から「野球」をみる体験型アトラクションです。あなたの知らない「野球」の世界をみに来ませんか？",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2E.png",
+    "groupName": "S2E",
+    "eventName": "S2Eより賢Eーの",
+    "description": "有名クイズ番組のパロディをはじめ、多彩なクイズに挑戦！",
     "pageUrl": null,
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 41,
-        "color": "#6C5CE7"
+        "n": 13,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -317,8 +317,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 42,
-        "color": "#6C5CE7"
+        "n": 18,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -336,8 +336,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 43,
-        "color": "#6C5CE7"
+        "n": 17,
+        "color": "#2F6FED"
       }
     ]
   },
@@ -355,15 +355,15 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 44,
-        "color": "#6C5CE7"
+        "n": 19,
+        "color": "#2F6FED"
       }
     ]
   },
   {
     "latlng": [
       1751.2,
-      3232.0
+      3232
     ],
     "floor": "2階",
     "iconUrl": [
@@ -389,12 +389,12 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 6,
-        "color": "#6C5CE7"
+        "n": 30,
+        "color": "#2F6FED"
       },
       {
-        "n": 22,
-        "color": "#6C5CE7"
+        "n": 31,
+        "color": "#0B8A74"
       }
     ]
   }

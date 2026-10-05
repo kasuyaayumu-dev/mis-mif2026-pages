@@ -13,8 +13,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -32,8 +32,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -51,8 +51,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -70,15 +70,15 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#0B8A74"
       }
     ]
   },
   {
     "latlng": [
       748.2,
-      817.0
+      817
     ],
     "floor": "3階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/JuniorHighY1Presentation.png",
@@ -89,8 +89,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -108,8 +108,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 7,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -127,8 +127,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 45,
-        "color": "#6C5CE7"
+        "n": 2,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -146,8 +146,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 46,
-        "color": "#6C5CE7"
+        "n": 3,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -165,8 +165,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 47,
-        "color": "#6C5CE7"
+        "n": 4,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -184,8 +184,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 48,
-        "color": "#6C5CE7"
+        "n": 6,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -203,8 +203,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 49,
-        "color": "#6C5CE7"
+        "n": 7,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -237,12 +237,12 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 6,
-        "color": "#6C5CE7"
+        "n": 30,
+        "color": "#0B8A74"
       },
       {
-        "n": 22,
-        "color": "#6C5CE7"
+        "n": 31,
+        "color": "#0B8A74"
       }
     ]
   }

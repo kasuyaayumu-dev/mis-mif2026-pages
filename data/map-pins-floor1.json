@@ -13,26 +13,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 2,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      1117.9,
-      3144.0
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2E.png",
-    "groupName": "S2E",
-    "eventName": "S2E~も",
-    "description": "さつまいもとじゃがいもをテーマに、甘いものからしょっぱいものまで幅広い料理を提供し、いもの新たな魅力を楽しんでもらう企画です。",
-    "pageUrl": null,
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 3,
+        "n": 30,
         "color": "#FF530F"
       }
     ]
@@ -51,7 +32,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 4,
+        "n": 31,
         "color": "#FF530F"
       }
     ]
@@ -70,7 +51,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 5,
+        "n": 29,
         "color": "#FF530F"
       }
     ]
@@ -135,7 +116,7 @@
   {
     "latlng": [
       1365.4,
-      3669.0
+      3669
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MitaKouenkai.png",
@@ -146,7 +127,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 8,
+        "n": 33,
         "color": "#FF530F"
       }
     ]
@@ -165,7 +146,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 9,
+        "n": 34,
         "color": "#FF530F"
       }
     ]
@@ -184,14 +165,14 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 10,
+        "n": 35,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      2209.0,
+      2209,
       2770.7
     ],
     "floor": "1階",
@@ -247,16 +228,16 @@
         "color": "#6C5CE7"
       },
       {
-        "n": 2,
-        "color": "#6C5CE7"
+        "n": 16,
+        "color": "#FF530F"
       },
       {
-        "n": 3,
-        "color": "#6C5CE7"
+        "n": 18,
+        "color": "#FF530F"
       },
       {
-        "n": 4,
-        "color": "#6C5CE7"
+        "n": 15,
+        "color": "#FF530F"
       },
       {
         "n": 5,
@@ -267,14 +248,14 @@
         "color": "#6C5CE7"
       },
       {
-        "n": 7,
-        "color": "#6C5CE7"
+        "n": 12,
+        "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      1952.0,
+      1952,
       1982.2
     ],
     "floor": "1階",
@@ -286,8 +267,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 9,
-        "color": "#6C5CE7"
+        "n": 10,
+        "color": "#FF530F"
       }
     ]
   },
@@ -350,7 +331,7 @@
   },
   {
     "latlng": [
-      1811.0,
+      1811,
       2958.4
     ],
     "floor": "1階",
@@ -381,8 +362,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 12,
-        "color": "#6C5CE7"
+        "n": 26,
+        "color": "#FF530F"
       }
     ]
   },
@@ -419,8 +400,8 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 14,
-        "color": "#6C5CE7"
+        "n": 21,
+        "color": "#FF530F"
       }
     ]
   },
@@ -453,18 +434,18 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 15,
-        "color": "#6C5CE7"
+        "n": 8,
+        "color": "#FF530F"
       },
       {
-        "n": 16,
-        "color": "#6C5CE7"
+        "n": 9,
+        "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      1194.0,
+      1194,
       1295.5
     ],
     "floor": "1階",
@@ -510,20 +491,20 @@
         "color": "#6C5CE7"
       },
       {
-        "n": 18,
-        "color": "#6C5CE7"
+        "n": 7,
+        "color": "#FF530F"
       },
       {
-        "n": 19,
-        "color": "#6C5CE7"
+        "n": 5,
+        "color": "#FF530F"
       },
       {
-        "n": 20,
-        "color": "#6C5CE7"
+        "n": 6,
+        "color": "#FF530F"
       },
       {
-        "n": 21,
-        "color": "#6C5CE7"
+        "n": 4,
+        "color": "#FF530F"
       }
     ]
   },
@@ -556,12 +537,12 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 6,
-        "color": "#6C5CE7"
+        "n": 30,
+        "color": "#FF530F"
       },
       {
-        "n": 22,
-        "color": "#6C5CE7"
+        "n": 31,
+        "color": "#0B8A74"
       }
     ]
   },
@@ -579,15 +560,15 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 23,
-        "color": "#6C5CE7"
+        "n": 2,
+        "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      1771.0,
-      545.0
+      1771,
+      545
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/JuniorHighTennisClub.png",
@@ -598,14 +579,14 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 24,
-        "color": "#6C5CE7"
+        "n": 1,
+        "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      1693.0,
+      1693,
       3565.2
     ],
     "floor": "1階",
