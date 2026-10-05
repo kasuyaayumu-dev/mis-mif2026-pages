@@ -515,27 +515,26 @@
     ],
     "floor": "1階",
     "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png"
     ],
     "groupName": [
-      "MSTC",
-      "MIF実行委員会企画管轄部基礎ゼミ基礎研究班"
+      "MSTC"
     ],
     "eventName": [
-      "MSTC研究発表",
+      "MSTC研究発表"
     ],
     "description": [
-      "MSTC生徒が日頃から行っている研究についてポスター発表と口頭発表をします。",
+      "MSTC生徒が日頃から行っている研究についてポスター発表と口頭発表をします。"
     ],
     "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/12-30",
+      "https://mif-2026.studio.site/jp/detail/12-30"
     ],
     "popupDirection": "bottom",
     "badges": [
       {
         "n": 30,
         "color": "#FF530F"
-      },
+      }
     ]
   },
   {
