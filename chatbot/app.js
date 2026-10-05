@@ -138,7 +138,7 @@ function initChat() {
     const text = input.value.trim();
     if (!text) return;
     input.value = '';
-    sendMessage(text);
+    void sendMessage(text);
   });
 }
 
