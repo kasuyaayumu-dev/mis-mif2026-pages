@@ -215,19 +215,15 @@
     ],
     "floor": "3階",
     "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png",
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BasicSeminarResearch.png"
     ],
     "groupName": [
-      "MST",
       "MIF実行委員会企画管轄部基礎ゼミ基礎研究班"
     ],
     "eventName": [
-      "MST研究発表",
       "基礎ゼミ・基礎研究発表"
     ],
     "description": [
-      "MST生徒が日頃から行っている研究についてポスター発表と口頭発表をします。",
       "学校生活の中で生徒が主体となって行っている基礎研究、基礎ゼミについての成果発表です。短時間だけでもぜひお立ち寄りください！"
     ],
     "pageUrl": [
