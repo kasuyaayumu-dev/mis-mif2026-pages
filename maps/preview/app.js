@@ -284,18 +284,22 @@ function addMarkerFromJson(data, floor) {
   });
 }
 
+const iconUrlsByFloor = {};
+
 function loadMarkerData(floor, data) {
   if (!Array.isArray(data)) {
     throw new Error('JSONのトップレベルが配列ではありません');
   }
+  iconUrlsByFloor[floor] = [];
   for (let i = 0; i < data.length; i++) {
     // データ内の "floor" 値は当てにせず、読み込んだファイルに対応する階を使う
     addMarkerFromJson(data[i], floor);
+    toArray(data[i].iconUrl).forEach(function (u) { if (u) iconUrlsByFloor[floor].push(u); });
   }
 }
 
-floorOrder.forEach(function (floor) {
-  fetch(floorConfig[floor].json)
+const pinLoads = floorOrder.map(function (floor) {
+  return fetch(floorConfig[floor].json)
     .then(function (res) { return res.json(); })
     .then(function (data) { loadMarkerData(floor, data); })
     .catch(function () {
@@ -303,6 +307,63 @@ floorOrder.forEach(function (floor) {
       console.error('企画ピンデータの読み込みに失敗しました:', floor);
     });
 });
+
+// 本番は回線が混み合って遅くなりやすいため、初期表示が済んだあとに、まだ見ていない
+// フロアの画像とポップアップのアイコンをバックグラウンドで先に読み込んでおく。
+// 表示中のフロアの読み込みを邪魔しないよう優先度を下げ、同時取得数も絞っている。
+// 通信量を抑えたい設定(データセーバー)の端末では行わない。
+const preloadedUrls = new Set();
+
+function preloadImage(url) {
+  if (!url || preloadedUrls.has(url)) return Promise.resolve();
+  preloadedUrls.add(url);
+  return new Promise(function (resolve) {
+    const img = new Image();
+    img.decoding = 'async';
+    if ('fetchPriority' in img) img.fetchPriority = 'low';
+    img.onload = img.onerror = resolve;
+    img.src = url;
+  });
+}
+
+function preloadAll(urls, concurrency) {
+  const queue = urls.slice();
+  const worker = function () {
+    if (!queue.length) return Promise.resolve();
+    return preloadImage(queue.shift()).then(worker);
+  };
+  return Promise.all(Array.from({ length: concurrency }, worker));
+}
+
+function floorsNearestFirst() {
+  const idx = floorOrder.indexOf(currentFloor);
+  return floorOrder.slice().sort(function (a, b) {
+    return Math.abs(floorOrder.indexOf(a) - idx) - Math.abs(floorOrder.indexOf(b) - idx);
+  });
+}
+
+function startBackgroundPreload() {
+  const conn = navigator.connection;
+  if (conn && conn.saveData) return;
+  const floors = floorsNearestFirst();
+  const floorImages = floors.map(function (f) { return floorConfig[f].image; });
+  const icons = [];
+  floors.forEach(function (f) { (iconUrlsByFloor[f] || []).forEach(function (u) { icons.push(u); }); });
+  // 大きいフロア画像を先に1枚ずつ、そのあとでアイコンを3並列で読む
+  preloadAll(floorImages, 1).then(function () { return preloadAll(icons, 3); });
+}
+
+function whenIdle(fn) {
+  return window.requestIdleCallback ? window.requestIdleCallback(fn) : setTimeout(fn, 500);
+}
+function schedulePreload() {
+  Promise.all(pinLoads).then(function () { whenIdle(startBackgroundPreload); });
+}
+if (document.readyState === 'complete') {
+  schedulePreload();
+} else {
+  window.addEventListener('load', schedulePreload);
+}
 
 // Googleマップ風のフロア切り替えスライダー(右上に配置)
 // ※STUDIO埋め込み時、ボックスの高さが実際のマップより低いと右下は
