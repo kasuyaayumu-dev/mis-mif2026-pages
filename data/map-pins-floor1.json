@@ -9,7 +9,7 @@
     "groupName": "S2D",
     "eventName": "万福中華",
     "description": "食べると福がやってくる中華料理屋！チャーハン・小籠包・胡麻団子と求籤風おみくじを楽しみながら食文化の学びと幸運を届けます。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-30",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -28,7 +28,7 @@
     "groupName": "S2F",
     "eventName": "Base camp S2F",
     "description": "キャンプの定番メニューである、スモア、ホットチョコ、ホットサンドを販売しています！キャンプならではの温かみや非日常感を楽しめます！",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-31",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -47,7 +47,7 @@
     "groupName": "S2B",
     "eventName": "2年B組 たこ焼き本舗",
     "description": "秋の夏祭り！たこ焼きやベビーカステラ、レモネードやホットレモンを準備しました。S2B一同心よりお待ちしています！",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-29",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -123,7 +123,7 @@
     "groupName": "三田国際科学学園 後援会",
     "eventName": "後援会やきそば・みたらしぃ団子",
     "description": "後援会は今年も「後援会焼きそば」と「みたらしぃ団子」を販売。こだわりのソース焼きそばとみたらしぃ（三田らしい）団子を提供します。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-33",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -142,7 +142,7 @@
     "groupName": "Team PaPa",
     "eventName": "Team PaPa MITA DOG",
     "description": "パパたちの作る、MIF名物「MITA DOG」！ 今年も米粉ドックに加え世界各国のトッピングを乞うご期待！",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-34",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -161,7 +161,7 @@
     "groupName": "経営ゼミ",
     "eventName": "WAGAMAMA",
     "description": "ワッフル・チュロス・ドリンクを販売！組み合わせは無限大∞好きなものを詰め込んで、あなただけのNew 美味しいを作ろう😋🎶",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-35",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -214,9 +214,9 @@
     ],
     "pageUrl": [
       null,
-      null,
-      null,
-      null,
+      "https://mif-2026.studio.site/jp/detail/1-16",
+      "https://mif-2026.studio.site/jp/detail/1-18",
+      "https://mif-2026.studio.site/jp/detail/1-15",
       null,
       null,
       null
@@ -263,7 +263,7 @@
     "groupName": "千草会",
     "eventName": "千草会の部屋",
     "description": "卒業生同士が交流を深める部屋です。卒業アルバムも展示しています。お気軽にお立ち寄りください。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-10",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -358,7 +358,7 @@
     "groupName": "J3",
     "eventName": "2026 SLA そうだ、北陸行こう。",
     "description": "中学3年生が9月に行った福井、富山でのプロジェクトの成果発表です。ワークショップや販売も行うので、気軽にお立ち寄りください！",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-26",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -396,7 +396,7 @@
     "groupName": "美術部",
     "eventName": "Art Club",
     "description": "今年度のMIFテーマであるeclipseをイメージした階段アート、オブジェ、部員の作品の展示やMIF限定グッズ販売を行っています。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-21",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -428,8 +428,8 @@
       "バレー部員と一緒に柔らかいボールでバレーボールできる体験です！バレー経験がなくても大丈夫！みんなでボールを繋ぐ楽しさを体験しよう！"
     ],
     "pageUrl": [
-      null,
-      null
+      "https://mif-2026.studio.site/jp/detail/1-8",
+      "https://mif-2026.studio.site/jp/detail/1-9"
     ],
     "popupDirection": "bottom",
     "badges": [
@@ -479,10 +479,10 @@
     ],
     "pageUrl": [
       null,
-      null,
-      null,
-      null,
-      null
+      "https://mif-2026.studio.site/jp/detail/1-7",
+      "https://mif-2026.studio.site/jp/detail/1-5",
+      "https://mif-2026.studio.site/jp/detail/1-6",
+      "https://mif-2026.studio.site/jp/detail/1-4"
     ],
     "popupDirection": "bottom",
     "badges": [
@@ -531,8 +531,8 @@
       "学校生活の中で生徒が主体となって行っている基礎研究、基礎ゼミについての成果発表です。短時間だけでもぜひお立ち寄りください！"
     ],
     "pageUrl": [
-      null,
-      null
+      "https://mif-2026.studio.site/jp/detail/12-30",
+      "https://mif-2026.studio.site/jp/detail/3-31"
     ],
     "popupDirection": "bottom",
     "badges": [
@@ -556,7 +556,7 @@
     "groupName": "陸上競技部",
     "eventName": "LET’S 陸上！",
     "description": "実際に陸上競技の5種目（50m走・走幅跳・走高跳・ジャベリックボール・ハードル）を計測して、楽しく体験しよう！",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-2",
     "popupDirection": "bottom",
     "badges": [
       {
@@ -575,7 +575,7 @@
     "groupName": "中学テニス部",
     "eventName": "三田国際テニス部体験",
     "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！また、普段どのように練習し、仲間と協力して励まし合って活動しているかがわかります。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-1",
     "popupDirection": "bottom",
     "badges": [
       {

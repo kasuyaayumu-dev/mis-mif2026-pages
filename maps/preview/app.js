@@ -174,7 +174,8 @@ function buildPopupHTML(data) {
     const grp  = groups[i]   || '';
     const evt  = events[i]   || '';
     const dsc  = descs[i]    || '';
-    const url  = pages[i]    || '';
+    // ピンのpageUrlは日本語ページ(/jp/detail/…)で持ち、英語マップでは英語ページ(/en/detail/…)に読み替える
+    const url  = (pages[i] || '').replace('/jp/detail/', `/${I18N.detailLang || 'jp'}/detail/`);
 
     let itemHtml = '<div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #ddd;">';
 
