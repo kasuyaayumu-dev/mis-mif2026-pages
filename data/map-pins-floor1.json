@@ -1,8 +1,8 @@
 [
   {
     "latlng": [
-      1062.6,
-      3016.3
+      531.3,
+      1508.2
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2D.png",
@@ -20,8 +20,8 @@
   },
   {
     "latlng": [
-      1180.7,
-      3277.8
+      590.4,
+      1638.9
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2F.png",
@@ -39,8 +39,8 @@
   },
   {
     "latlng": [
-      1241,
-      3399
+      620.5,
+      1699.5
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
@@ -58,8 +58,8 @@
   },
   {
     "latlng": [
-      1308.3,
-      3539.3
+      654.2,
+      1769.7
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
@@ -77,8 +77,8 @@
   },
   {
     "latlng": [
-      1475.9,
-      1994.2
+      738,
+      997.1
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
@@ -96,8 +96,8 @@
   },
   {
     "latlng": [
-      1430,
-      2080
+      715,
+      1040
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
@@ -115,8 +115,8 @@
   },
   {
     "latlng": [
-      1365.4,
-      3669
+      682.7,
+      1834.5
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MitaKouenkai.png",
@@ -134,8 +134,8 @@
   },
   {
     "latlng": [
-      1424.5,
-      3784.8
+      712.3,
+      1892.4
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TeamPaPa.png",
@@ -153,8 +153,8 @@
   },
   {
     "latlng": [
-      1529.2,
-      3395.6
+      764.6,
+      1697.8
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BusinessSeminar.png",
@@ -172,8 +172,8 @@
   },
   {
     "latlng": [
-      2209,
-      2770.7
+      1104.5,
+      1385.4
     ],
     "floor": "1階",
     "iconUrl": [
@@ -255,8 +255,8 @@
   },
   {
     "latlng": [
-      1952,
-      1982.2
+      976,
+      991.1
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Chigusakai.png",
@@ -274,8 +274,8 @@
   },
   {
     "latlng": [
-      1802,
-      2590
+      901,
+      1295
     ],
     "floor": "1階",
     "iconUrl": [
@@ -312,29 +312,29 @@
   },
   {
     "latlng": [
-      1802,
-      2590
+      879,
+      1056
     ],
     "floor": "1階",
     "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2A.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2D.png"
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2C.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2G.png"
     ],
     "groupName": [
-      "J2A",
-      "J2D"
+      "J2C",
+      "J2G"
     ],
     "eventName": [
-      "怪盗M(Moon)から太陽を取り戻せ！",
-      "あなたの本当の注意力とは！？〜間違い探し〜"
+      "〜あなたはどんな人生を選ぶ？〜",
+      "Midnight at whisker manor"
     ],
     "description": [
-      "とある日、怪盗M(Moon)が太陽を盗んでしまった。光が失われて、地球では大変な事が色々起きている。怪盗Mから太陽を取り戻せ！",
-      "想像とは一味違う間違い探し。無意識な場面での注意力を試せます。自信のある方も逆転を狙う方も、ぜひ奮って腕試しにお越しください！"
+      "",
+      ""
     ],
     "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/1-24-1",
-      "https://mif-2026.studio.site/jp/detail/1-24-4"
+      "https://mif-2026.studio.site/jp/detail/1-24-3",
+      "https://mif-2026.studio.site/jp/detail/1-24-7"
     ],
     "popupDirection": "bottom",
     "badges": [
@@ -350,8 +350,8 @@
   },
   {
     "latlng": [
-      1802,
-      2613
+      899,
+      1476
     ],
     "floor": "1階",
     "iconUrl": [
@@ -388,10 +388,9 @@
   },
   {
     "latlng": [
-      1761.5,
-      2307.6
+      880.8,
+      1153.8
     ],
-    "floor": "1階",
     "floor": "1階",
     "iconUrl": [
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2E.png",
@@ -427,8 +426,8 @@
   },
   {
     "latlng": [
-      1790.1,
-      3231.9
+      895.1,
+      1616
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/SLA.png",
@@ -446,8 +445,8 @@
   },
   {
     "latlng": [
-      1866.3,
-      3768.8
+      933.2,
+      1884.4
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CampusTour.png",
@@ -465,8 +464,8 @@
   },
   {
     "latlng": [
-      2049.1,
-      3333.7
+      1024.6,
+      1666.9
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ArtClub.png",
@@ -484,8 +483,8 @@
   },
   {
     "latlng": [
-      839.8,
-      1888.4
+      419.9,
+      944.2
     ],
     "floor": "1階",
     "iconUrl": [
@@ -522,8 +521,8 @@
   },
   {
     "latlng": [
-      1194,
-      1295.5
+      597,
+      647.8
     ],
     "floor": "1階",
     "iconUrl": [
@@ -587,8 +586,8 @@
   },
   {
     "latlng": [
-      1775.8,
-      4959.6
+      887.9,
+      2479.8
     ],
     "floor": "1階",
     "iconUrl": [
@@ -616,8 +615,8 @@
   },
   {
     "latlng": [
-      2262.4,
-      1413.3
+      1131.2,
+      706.7
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TrackAndFieldClub.png",
@@ -635,8 +634,8 @@
   },
   {
     "latlng": [
-      1771,
-      545
+      885.5,
+      272.5
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/JuniorHighTennisClub.png",
@@ -654,8 +653,8 @@
   },
   {
     "latlng": [
-      1693,
-      3565.2
+      846.5,
+      1782.6
     ],
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/School.png",

@@ -1,8 +1,8 @@
 [
   {
     "latlng": [
-      1496,
-      1636
+      748,
+      818
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1A.png",
@@ -20,8 +20,8 @@
   },
   {
     "latlng": [
-      1456,
-      1920
+      728,
+      960
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1B.png",
@@ -39,8 +39,8 @@
   },
   {
     "latlng": [
-      1462,
-      1008
+      731,
+      504
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1C.png",
@@ -58,8 +58,8 @@
   },
   {
     "latlng": [
-      1781,
-      886
+      890.5,
+      443
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1D.png",
@@ -77,8 +77,8 @@
   },
   {
     "latlng": [
-      1671,
-      687
+      835.5,
+      343.5
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Striders.png",
@@ -96,8 +96,8 @@
   },
   {
     "latlng": [
-      1504,
-      1278.4
+      752,
+      639.2
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1E.png",
@@ -115,8 +115,8 @@
   },
   {
     "latlng": [
-      1344,
-      2236
+      672,
+      1118
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S1F.png",
@@ -134,8 +134,8 @@
   },
   {
     "latlng": [
-      1871.8,
-      1062.8
+      935.9,
+      531.4
     ],
     "floor": "2階",
     "iconUrl": [
@@ -172,10 +172,10 @@
   },
   {
     "latlng": [
-      1244,
-      2428
+      622,
+      1214
     ],
-    "floor": "1階",
+    "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/StudentCouncil.png",
     "groupName": "生徒会",
     "eventName": "制服体験",
@@ -191,8 +191,8 @@
   },
   {
     "latlng": [
-      1233,
-      492.3
+      616.5,
+      246.2
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BATON.png",
@@ -210,8 +210,8 @@
   },
   {
     "latlng": [
-      1364,
-      693.9
+      682,
+      347
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/SmiCaca.png",
@@ -229,8 +229,8 @@
   },
   {
     "latlng": [
-      1052.8,
-      2894.5
+      526.4,
+      1447.3
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ScienceClub.png",
@@ -248,8 +248,8 @@
   },
   {
     "latlng": [
-      1633.6,
-      2328.7
+      816.8,
+      1164.4
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ComputerClub.png",
@@ -267,8 +267,8 @@
   },
   {
     "latlng": [
-      838.4,
-      2514.7
+      419.2,
+      1257.4
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/RailwayResearchClub.png",
@@ -286,8 +286,8 @@
   },
   {
     "latlng": [
-      1734,
-      2146
+      867,
+      1073
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2E.png",
@@ -305,8 +305,8 @@
   },
   {
     "latlng": [
-      725.2,
-      2309.9
+      362.6,
+      1155
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2A.png",
@@ -324,8 +324,8 @@
   },
   {
     "latlng": [
-      595.7,
-      2114.6
+      297.9,
+      1057.3
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2C.png",
@@ -343,8 +343,8 @@
   },
   {
     "latlng": [
-      467.6,
-      1923.9
+      233.8,
+      962
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Ikimonogakari.png",
@@ -362,8 +362,8 @@
   },
   {
     "latlng": [
-      1751.2,
-      3232
+      875.6,
+      1616
     ],
     "floor": "2階",
     "iconUrl": [

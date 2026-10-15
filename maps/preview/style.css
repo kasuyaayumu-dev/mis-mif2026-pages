@@ -6,25 +6,6 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
-.provisional-banner {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #FFF3CD;
-  color: #6b4c00;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.5;
-  padding: 8px 14px;
-}
-.provisional-banner .dot {
-  flex-shrink: 0;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #E8A400;
-}
-
 /* 固定pxではなく比率で高さを決める。フロア画像の縦横比(だいたい3:2)に合わせておくことで、
    STUDIO埋め込みの狭い幅でも画像が変な位置に小さく表示されず、幅いっぱいに収まる。 */
 #map { aspect-ratio: 3 / 2; width: 100%; min-height: 320px; background: transparent; }

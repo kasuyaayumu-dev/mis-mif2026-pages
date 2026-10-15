@@ -25,14 +25,13 @@ const map = L.map('map', {
 });
 
 // 表示順は「上の階が上」= Googleマップの屋内フロア切り替えと同じ並び。
-// 画像サイズは去年の会場写真(image/map/floorX_2.png)の実寸に合わせている。
-// ※現時点では校舎レイアウトの参考として去年の写真を仮で流用しているだけで、
-//   今年の企画配置(ピン)はまだ確定していないため map-pins-*.json は空。
+// width/height は画像(image/map/floorX_3.png)の実寸。ピンの座標(latlng)は
+// この画像の左下を原点とするピクセル値で持っている。
 const floorOrder = ['3階', '2階', '1階'];
 const floorConfig = {
-  '3階': { image: `${imageBase}floor3_2.png`, json: `${dataBase}map-pins-floor3.json`, width: 2127, height: 1385 },
-  '2階': { image: `${imageBase}floor2_2.png`, json: `${dataBase}map-pins-floor2.json`, width: 4126, height: 2740 },
-  '1階': { image: `${imageBase}floor1_2.png`, json: `${dataBase}map-pins-floor1.json`, width: 5270, height: 3504 }
+  '3階': { image: `${imageBase}floor3_3.png`, json: `${dataBase}map-pins-floor3.json`, width: 2127, height: 1384 },
+  '2階': { image: `${imageBase}floor2_3.png`, json: `${dataBase}map-pins-floor2.json`, width: 1981, height: 1077 },
+  '1階': { image: `${imageBase}floor1_3.png`, json: `${dataBase}map-pins-floor1.json`, width: 2635, height: 1752 }
 };
 
 const overlayLayers = {};
@@ -159,6 +158,14 @@ const toArray = function (v) {
   return Array.isArray(v) ? v : [v];
 };
 
+// アイコンはjsDelivr経由(CDN)で配信しているが、キャッシュ更新の遅れなどで一部の画像だけ
+// 取得に失敗することがあるため、失敗時は同じファイルをGitHub Pages側から取得し直す。
+const ICON_CDN = 'https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/';
+const ICON_PAGES = 'https://kasuyaayumu-dev.github.io/mis-mif2026-pages/';
+function iconFallback(url) {
+  return url.startsWith(ICON_CDN) ? ICON_PAGES + url.slice(ICON_CDN.length) : '';
+}
+
 function buildPopupHTML(data) {
   const iconUrls = toArray(data.iconUrl);
   const groups   = toArray(data.groupName);
@@ -180,7 +187,9 @@ function buildPopupHTML(data) {
     let itemHtml = '<div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #ddd;">';
 
     if (icon) {
-      itemHtml += `<img src="${icon}" alt="${grp}" style="width:50px; height:50px; border-radius:50%;">`;
+      itemHtml += `<img src="${icon}" alt="${grp}" data-fb="${iconFallback(icon)}" ` +
+        'onerror="if(this.dataset.fb&&this.src!==this.dataset.fb){this.src=this.dataset.fb}else{this.onerror=null}" ' +
+        'style="width:50px; height:50px; border-radius:50%;">';
     } else {
       itemHtml += '<div style="width:50px; height:50px; border-radius:50%; background:#eee;"></div>';
     }
