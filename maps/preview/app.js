@@ -404,6 +404,7 @@ const FloorSwitcherControl = L.Control.extend({
       L.DomEvent.on(btn, 'click', function () {
         setFloor(floor);
         fitToWholeMap();
+        setMenuOpen(true);
       });
     });
 
@@ -464,8 +465,9 @@ function setMenuOpen(open) {
   menuPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
   if (menuToggleBtn) menuToggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   if (open) {
-    const sec = menuBody.querySelector('[data-floor="' + currentFloor + '"]');
-    if (sec) menuBody.scrollTop = sec.offsetTop - menuBody.offsetTop;
+    // 開くたびに、いま表示している階を先頭にして一覧を作り直す(階の切り替えに合わせるため)
+    buildMenu();
+    menuBody.scrollTop = 0;
   }
 }
 
@@ -479,7 +481,11 @@ function openEntry(entry) {
 
 function buildMenu() {
   menuBody.textContent = '';
-  ['1階', '2階', '3階'].forEach(function (floor) {
+  const floorsInMenu = ['1階', '2階', '3階'];
+  floorsInMenu.sort(function (a, b) {
+    return (a === currentFloor ? -1 : 0) - (b === currentFloor ? -1 : 0);
+  });
+  floorsInMenu.forEach(function (floor) {
     // 複数の教室に同じ企画のピンがある場合(例: 6教室ぶんの同一プレゼン)は1件にまとめ、最初のピンを開く。
     const seen = new Set();
     const entries = menuEntries
@@ -541,7 +547,10 @@ L.DomEvent.on(menuCloseBtn, 'click', function () { setMenuOpen(false); });
 document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && isMenuOpen()) setMenuOpen(false);
 });
-void Promise.all(pinLoads).then(buildMenu);
+// 起動時(ピン読み込み後)にメニューを表示する。階の切り替え時にも、切替ボタン側で開く。
+void Promise.all(pinLoads).then(function () {
+  setMenuOpen(true);
+});
 
 function updateSwitcherUI() {
   if (!switcherControl._container) return;
