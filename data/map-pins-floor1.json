@@ -312,34 +312,72 @@
   },
   {
     "latlng": [
-      1677.7,
-      2002.2
+      1802,
+      2590
     ],
     "floor": "1階",
     "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2C.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2G.png"
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2A.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2D.png"
     ],
     "groupName": [
-      "J2C",
-      "J2G"
+      "J2A",
+      "J2D"
     ],
     "eventName": [
-      "人生ラボ　〜あなたはどんな人生を選ぶ？〜",
-      "Midnight at the Whisker Manor"
+      "怪盗M(Moon)から太陽を取り戻せ！",
+      "あなたの本当の注意力とは！？〜間違い探し〜"
     ],
     "description": [
-      "様々な選択がある人生を体験型ゲームにした企画です。進路、就職、結婚、人生の選択などを通して、自分だけの人生を体験してみてください！",
-      "二組のチームがWhisker Manorに潜入し、宝を探す。宝を手にした瞬間、館の呪いが二組を襲う。脱出できるのはどちらか。"
+      "とある日、怪盗M(Moon)が太陽を盗んでしまった。光が失われて、地球では大変な事が色々起きている。怪盗Mから太陽を取り戻せ！",
+      "想像とは一味違う間違い探し。無意識な場面での注意力を試せます。自信のある方も逆転を狙う方も、ぜひ奮って腕試しにお越しください！"
     ],
     "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/1-24-3",
-      "https://mif-2026.studio.site/jp/detail/1-24-7"
+      "https://mif-2026.studio.site/jp/detail/1-24-1",
+      "https://mif-2026.studio.site/jp/detail/1-24-4"
     ],
     "popupDirection": "bottom",
     "badges": [
       {
         "n": 24,
+        "color": "#FF530F"
+      },
+      {
+        "n": 24,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      1802,
+      2613
+    ],
+    "floor": "1階",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Himmeli.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2B.png"
+    ],
+    "groupName": [
+      "J1",
+      "J2B"
+    ],
+    "eventName": [
+      "ヒンメリ",
+      "スペースミタゴラトーク"
+    ],
+    "description": [
+      "ヒンメリは、フィンランドの伝統的な装飾品です。細いストローを糸でつないで幾何学的な多面体を形作るモビールの一種です。",
+      "地球の滅亡を止めるために未完成なピタゴラスイッチを完成させて、エイリアンたちと一緒に地球を救い、ヒーローになろう！"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-25",
+      "https://mif-2026.studio.site/jp/detail/1-24-2"
+    ],
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 25,
         "color": "#FF530F"
       },
       {
