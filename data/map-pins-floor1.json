@@ -1,254 +1,141 @@
 [
   {
     "latlng": [
-      564.3,
-      1580.4
+      885.5,
+      272.5
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2D.png",
-    "groupName": "S2D",
-    "eventName": "万福中華",
-    "description": "食べると福がやってくる中華料理屋！チャーハン・小籠包・胡麻団子と求籤風おみくじを楽しみながら食文化の学びと幸運を届けます。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-30",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/JuniorHighTennisClub.png",
+    "groupName": "中学テニス部",
+    "eventName": "三田国際テニス部体験",
+    "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！また、普段どのように練習し、仲間と協力して励まし合って活動しているかがわかります。",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-1",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 30,
+        "n": 1,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      590.4,
-      1638.9
+      1131.2,
+      706.7
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2F.png",
-    "groupName": "S2F",
-    "eventName": "Base camp S2F",
-    "description": "キャンプの定番メニューである、スモア、ホットチョコ、ホットサンドを販売しています！キャンプならではの温かみや非日常感を楽しめます！",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-31",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TrackAndFieldClub.png",
+    "groupName": "陸上競技部",
+    "eventName": "LET’S 陸上！",
+    "description": "実際に陸上競技の5種目（50m走・走幅跳・走高跳・ジャベリックボール・ハードル）を計測して、楽しく体験しよう！",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-2",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 31,
+        "n": 2,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      620.5,
-      1699.5
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
-    "groupName": "S2B",
-    "eventName": "2年B組 たこ焼き本舗",
-    "description": "秋の夏祭り！たこ焼きやベビーカステラ、レモネードやホットレモンを準備しました。S2B一同心よりお待ちしています！",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-29",
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 29,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      654.2,
-      1769.7
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
-    "groupName": "PTA",
-    "eventName": "PTA（食品、菓子、飲料）",
-    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-32",
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 32,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      738,
-      997.1
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
-    "groupName": "PTA",
-    "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
-    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-28",
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 28,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      715,
-      1040
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
-    "groupName": "PTA",
-    "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
-    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-28",
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 28,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      682.7,
-      1834.5
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MitaKouenkai.png",
-    "groupName": "三田国際科学学園 後援会",
-    "eventName": "後援会やきそば・みたらしぃ団子",
-    "description": "後援会は今年も「後援会焼きそば」と「みたらしぃ団子」を販売。こだわりのソース焼きそばとみたらしぃ（三田らしい）団子を提供します。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-33",
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 33,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      712.3,
-      1892.4
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TeamPaPa.png",
-    "groupName": "Team PaPa",
-    "eventName": "Team PaPa MITA DOG",
-    "description": "パパたちの作る、MIF名物「MITA DOG」！ 今年も米粉ドックに加え世界各国のトッピングを乞うご期待！",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-34",
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 34,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      764.6,
-      1697.8
-    ],
-    "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BusinessSeminar.png",
-    "groupName": "経営ゼミ",
-    "eventName": "WAGAMAMA",
-    "description": "ワッフル・チュロス・ドリンクを販売！組み合わせは無限大∞好きなものを詰め込んで、あなただけのNew 美味しいを作ろう😋🎶",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-35",
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 35,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      1104.5,
-      1385.4
+      597,
+      647.8
     ],
     "floor": "1階",
     "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MiniJuniorHighInfo.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ChorusClub.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EnglishClub.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MediaCreationSeminar.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EnglishRecitationSpeech.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CareerPresentation.png"
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J3.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/WindOrchestraClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PopDanceClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/DramaClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/RhythmicGymnasticsClub.png"
     ],
     "groupName": [
-      "学校広報部",
-      "コーラス部",
-      "英語部",
-      "メディア・クリエイション・ゼミ",
-      "英語レシテーション・スピーチ",
-      "MST",
-      "中学・高校1年代表プレゼンテーション"
+      "中3学年企画",
+      "吹奏楽部",
+      "ポップダンス部",
+      "演劇部",
+      "新体操部"
     ],
     "eventName": [
-      "ミニ中学説明会",
-      "コーラス部MIF公演2026",
-      "英語ディベート・模擬国連ショーケース",
-      "メディアゼミ作品上映会",
-      "英語レシテーション・スピーチ",
-      "MST代表者プレゼンテーション",
-      "キャリアプレゼンテーション（中学・高校）"
+      "身体表現〜世界をタイムトラベルしてきた件〜",
+      "Harmony in the Sky ~2026 Wind Orchestra Concert~",
+      "ポップダンス部 2026公演 -Epilogue-",
+      "「また、隣で」",
+      "新体操部 演技発表会"
     ],
     "description": [
-      "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。1日2回開催です。",
-      "美しいコーラスをお届けします！合唱曲からJ-POPまで、幅広いジャンルの演奏を皆さんに発表します。 ぜひ視聴覚室に足をお運びください！",
-      "英語部による英語ディベートと模擬国連の公演・参加型企画を実施！スピーチの熱さや国家間の交渉の魅力を体験できます！",
-      "中学生が手掛けた渾身の映像世界へようこそ！表現力あふれるMVと2本のドラマがあなたを魅了します。ぜひ視聴覚室へお越しください！",
-      "学内で行われた英語レシテーション・スピーチコンテストで優秀な成績を修めた中1～高2の生徒たちの発表と、長期留学帰国生によるプレゼンです！",
-      "MSTの代表者（S1,S2それぞれ1組ずつ）が研究成果を発表します",
-      "「自己理解」「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びや自らのキャリアや未来への思いをプレゼンテーションします。"
+      "テーマは時代。演劇やダンスを用い、各クラス毎で様々な国の時代を表現し、学年全体で世界の時代の移り変わりをパフォーマンスします。",
+      "総勢120名以上が奏でる、迫力満点の音楽をお楽しみください！音楽と共に広がる空の彼方へ、皆さんも一緒に旅立ちましょう！",
+      "約140名で創り上げる5ヶ月間の集大成。Epilogueをテーマに、今の部活動の一つの物語を締めくくる特別なダンス公演を届けます。",
+      "ゲーム制作チームの仲間たちが完成間近の作品をめぐって衝突しながらそれぞれの想いと向き合い絆を取り戻す青春劇です！",
+      "ジブリの名作「もののけ姫」をテーマとした演技発表会を行います。新体操部ならではの技や手具で、もののけ姫の世界を精一杯、彩ります。"
     ],
     "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/1-11",
-      "https://mif-2026.studio.site/jp/detail/1-16",
-      "https://mif-2026.studio.site/jp/detail/1-18",
-      "https://mif-2026.studio.site/jp/detail/1-15",
-      "https://mif-2026.studio.site/jp/detail/1-14",
-      "https://mif-2026.studio.site/jp/detail/1-13",
-      "https://mif-2026.studio.site/jp/detail/1-12"
+      "https://mif-2026.studio.site/jp/detail/1-3",
+      "https://mif-2026.studio.site/jp/detail/1-4",
+      "https://mif-2026.studio.site/jp/detail/1-5",
+      "https://mif-2026.studio.site/jp/detail/1-6",
+      "https://mif-2026.studio.site/jp/detail/1-7"
     ],
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 11,
+        "n": 3,
         "color": "#FF530F"
       },
       {
-        "n": 16,
+        "n": 4,
         "color": "#FF530F"
       },
       {
-        "n": 18,
+        "n": 5,
         "color": "#FF530F"
       },
       {
-        "n": 15,
+        "n": 6,
         "color": "#FF530F"
       },
       {
-        "n": 14,
+        "n": 7,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      419.9,
+      944.2
+    ],
+    "floor": "1階",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TableTennisClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/VolleyballClub.png"
+    ],
+    "groupName": [
+      "卓球部",
+      "バレーボール部"
+    ],
+    "eventName": [
+      "卓りぷす",
+      "バレー部体験"
+    ],
+    "description": [
+      "卓球の基本を教わった後、おぼんなどのおもしろグッズをラケット代わりにして、卓球部員との試合に挑戦する体験型企画です！",
+      "バレー部員と一緒に柔らかいボールでバレーボールできる体験です！バレー経験がなくても大丈夫！みんなでボールを繋ぐ楽しさを体験しよう！"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-8",
+      "https://mif-2026.studio.site/jp/detail/1-9"
+    ],
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 8,
         "color": "#FF530F"
       },
       {
-        "n": 13,
-        "color": "#FF530F"
-      },
-      {
-        "n": 12,
+        "n": 9,
         "color": "#FF530F"
       }
     ]
@@ -268,6 +155,127 @@
     "badges": [
       {
         "n": 10,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      1104.5,
+      1385.4
+    ],
+    "floor": "1階",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MiniJuniorHighInfo.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CareerPresentation.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EnglishRecitationSpeech.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MediaCreationSeminar.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ChorusClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EnglishClub.png"
+    ],
+    "groupName": [
+      "学校広報部",
+      "中学・高校1年代表プレゼンテーション",
+      "MST",
+      "英語レシテーション・スピーチ",
+      "メディア・クリエイション・ゼミ",
+      "コーラス部",
+      "英語部"
+    ],
+    "eventName": [
+      "ミニ中学説明会",
+      "キャリアプレゼンテーション（中学・高校）",
+      "MST代表者プレゼンテーション",
+      "英語レシテーション・スピーチ",
+      "メディアゼミ作品上映会",
+      "コーラス部MIF公演2026",
+      "英語ディベート・模擬国連ショーケース"
+    ],
+    "description": [
+      "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。1日2回開催です。",
+      "「自己理解」「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びや自らのキャリアや未来への思いをプレゼンテーションします。",
+      "MSTの代表者（S1,S2それぞれ1組ずつ）が研究成果を発表します",
+      "学内で行われた英語レシテーション・スピーチコンテストで優秀な成績を修めた中1～高2の生徒たちの発表と、長期留学帰国生によるプレゼンです！",
+      "中学生が手掛けた渾身の映像世界へようこそ！表現力あふれるMVと2本のドラマがあなたを魅了します。ぜひ視聴覚室へお越しください！",
+      "美しいコーラスをお届けします！合唱曲からJ-POPまで、幅広いジャンルの演奏を皆さんに発表します。 ぜひ視聴覚室に足をお運びください！",
+      "英語部による英語ディベートと模擬国連の公演・参加型企画を実施！スピーチの熱さや国家間の交渉の魅力を体験できます！"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-11",
+      "https://mif-2026.studio.site/jp/detail/1-12",
+      "https://mif-2026.studio.site/jp/detail/1-13",
+      "https://mif-2026.studio.site/jp/detail/1-14",
+      "https://mif-2026.studio.site/jp/detail/1-15",
+      "https://mif-2026.studio.site/jp/detail/1-16",
+      "https://mif-2026.studio.site/jp/detail/1-18"
+    ],
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 11,
+        "color": "#FF530F"
+      },
+      {
+        "n": 12,
+        "color": "#FF530F"
+      },
+      {
+        "n": 13,
+        "color": "#FF530F"
+      },
+      {
+        "n": 14,
+        "color": "#FF530F"
+      },
+      {
+        "n": 15,
+        "color": "#FF530F"
+      },
+      {
+        "n": 16,
+        "color": "#FF530F"
+      },
+      {
+        "n": 18,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      1024.6,
+      1666.9
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ArtClub.png",
+    "groupName": "美術部",
+    "eventName": "Art Club",
+    "description": "今年度のMIFテーマであるeclipseをイメージした階段アート、オブジェ、部員の作品の展示やMIF限定グッズ販売を行っています。",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-21",
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 21,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      933.2,
+      1884.4
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CampusTour.png",
+    "groupName": "キャンパスツアー運営",
+    "eventName": "キャンパスツアー",
+    "description": "三田国際生が、生徒ならではの視点で校舎をご案内するキャンパスツアーです。ここでしか聞けない『三田国際のリアル』を覗いてみませんか？",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-23",
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 23,
         "color": "#FF530F"
       }
     ]
@@ -355,33 +363,33 @@
     ],
     "floor": "1階",
     "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Himmeli.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2B.png"
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2B.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Himmeli.png"
     ],
     "groupName": [
-      "J1",
-      "J2B"
+      "J2B",
+      "J1"
     ],
     "eventName": [
-      "ヒンメリ",
-      "スペースミタゴラトーク"
+      "スペースミタゴラトーク",
+      "ヒンメリ"
     ],
     "description": [
-      "ヒンメリは、フィンランドの伝統的な装飾品です。細いストローを糸でつないで幾何学的な多面体を形作るモビールの一種です。",
-      "地球の滅亡を止めるために未完成なピタゴラスイッチを完成させて、エイリアンたちと一緒に地球を救い、ヒーローになろう！"
+      "地球の滅亡を止めるために未完成なピタゴラスイッチを完成させて、エイリアンたちと一緒に地球を救い、ヒーローになろう！",
+      "ヒンメリは、フィンランドの伝統的な装飾品です。細いストローを糸でつないで幾何学的な多面体を形作るモビールの一種です。"
     ],
     "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/1-25",
-      "https://mif-2026.studio.site/jp/detail/1-24-2"
+      "https://mif-2026.studio.site/jp/detail/1-24-2",
+      "https://mif-2026.studio.site/jp/detail/1-25"
     ],
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 25,
+        "n": 24,
         "color": "#FF530F"
       },
       {
-        "n": 24,
+        "n": 25,
         "color": "#FF530F"
       }
     ]
@@ -445,141 +453,95 @@
   },
   {
     "latlng": [
-      933.2,
-      1884.4
+      846.5,
+      1782.6
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CampusTour.png",
-    "groupName": "キャンパスツアー運営",
-    "eventName": "キャンパスツアー",
-    "description": "三田国際生が、生徒ならではの視点で校舎をご案内するキャンパスツアーです。ここでしか聞けない『三田国際のリアル』を覗いてみませんか？",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-23",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/School.png",
+    "groupName": "学校",
+    "eventName": "入試相談ルーム",
+    "description": "入試やクラス・コースこと何でもご相談いただけます。お気軽にどうぞ！ 土曜日 10:30～15:00、日曜日 10:30～14:00",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-27",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 23,
+        "n": 27,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      1024.6,
-      1666.9
+      738,
+      997.1
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ArtClub.png",
-    "groupName": "美術部",
-    "eventName": "Art Club",
-    "description": "今年度のMIFテーマであるeclipseをイメージした階段アート、オブジェ、部員の作品の展示やMIF限定グッズ販売を行っています。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-21",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
+    "groupName": "PTA",
+    "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
+    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-28",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 21,
+        "n": 28,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      419.9,
-      944.2
+      715,
+      1040
     ],
     "floor": "1階",
-    "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TableTennisClub.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/VolleyballClub.png"
-    ],
-    "groupName": [
-      "卓球部",
-      "バレーボール部"
-    ],
-    "eventName": [
-      "卓りぷす",
-      "バレー部体験"
-    ],
-    "description": [
-      "卓球の基本を教わった後、おぼんなどのおもしろグッズをラケット代わりにして、卓球部員との試合に挑戦する体験型企画です！",
-      "バレー部員と一緒に柔らかいボールでバレーボールできる体験です！バレー経験がなくても大丈夫！みんなでボールを繋ぐ楽しさを体験しよう！"
-    ],
-    "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/1-8",
-      "https://mif-2026.studio.site/jp/detail/1-9"
-    ],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
+    "groupName": "PTA",
+    "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
+    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-28",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 8,
-        "color": "#FF530F"
-      },
-      {
-        "n": 9,
+        "n": 28,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      597,
-      647.8
+      620.5,
+      1699.5
     ],
     "floor": "1階",
-    "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J3.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/RhythmicGymnasticsClub.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PopDanceClub.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/DramaClub.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/WindOrchestraClub.png"
-    ],
-    "groupName": [
-      "中3学年企画",
-      "新体操部",
-      "ポップダンス部",
-      "演劇部",
-      "吹奏楽部"
-    ],
-    "eventName": [
-      "身体表現〜世界をタイムトラベルしてきた件〜",
-      "新体操部 演技発表会",
-      "ポップダンス部 2026公演 -Epilogue-",
-      "「また、隣で」",
-      "Harmony in the Sky ~2026 Wind Orchestra Concert~"
-    ],
-    "description": [
-      "テーマは時代。演劇やダンスを用い、各クラス毎で様々な国の時代を表現し、学年全体で世界の時代の移り変わりをパフォーマンスします。",
-      "ジブリの名作「もののけ姫」をテーマとした演技発表会を行います。新体操部ならではの技や手具で、もののけ姫の世界を精一杯、彩ります。",
-      "約140名で創り上げる5ヶ月間の集大成。Epilogueをテーマに、今の部活動の一つの物語を締めくくる特別なダンス公演を届けます。",
-      "ゲーム制作チームの仲間たちが完成間近の作品をめぐって衝突しながらそれぞれの想いと向き合い絆を取り戻す青春劇です！",
-      "総勢120名以上が奏でる、迫力満点の音楽をお楽しみください！音楽と共に広がる空の彼方へ、皆さんも一緒に旅立ちましょう！"
-    ],
-    "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/1-3",
-      "https://mif-2026.studio.site/jp/detail/1-7",
-      "https://mif-2026.studio.site/jp/detail/1-5",
-      "https://mif-2026.studio.site/jp/detail/1-6",
-      "https://mif-2026.studio.site/jp/detail/1-4"
-    ],
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2B.png",
+    "groupName": "S2B",
+    "eventName": "2年B組 たこ焼き本舗",
+    "description": "秋の夏祭り！たこ焼きやベビーカステラ、レモネードやホットレモンを準備しました。S2B一同心よりお待ちしています！",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-29",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 3,
+        "n": 29,
         "color": "#FF530F"
-      },
+      }
+    ]
+  },
+  {
+    "latlng": [
+      564.3,
+      1580.4
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2D.png",
+    "groupName": "S2D",
+    "eventName": "万福中華",
+    "description": "食べると福がやってくる中華料理屋！チャーハン・小籠包・胡麻団子と求籤風おみくじを楽しみながら食文化の学びと幸運を届けます。",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-30",
+    "popupDirection": "bottom",
+    "badges": [
       {
-        "n": 7,
-        "color": "#FF530F"
-      },
-      {
-        "n": 5,
-        "color": "#FF530F"
-      },
-      {
-        "n": 6,
-        "color": "#FF530F"
-      },
-      {
-        "n": 4,
+        "n": 30,
         "color": "#FF530F"
       }
     ]
@@ -615,57 +577,95 @@
   },
   {
     "latlng": [
-      1131.2,
-      706.7
+      590.4,
+      1638.9
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TrackAndFieldClub.png",
-    "groupName": "陸上競技部",
-    "eventName": "LET’S 陸上！",
-    "description": "実際に陸上競技の5種目（50m走・走幅跳・走高跳・ジャベリックボール・ハードル）を計測して、楽しく体験しよう！",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-2",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2F.png",
+    "groupName": "S2F",
+    "eventName": "Base camp S2F",
+    "description": "キャンプの定番メニューである、スモア、ホットチョコ、ホットサンドを販売しています！キャンプならではの温かみや非日常感を楽しめます！",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-31",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 2,
+        "n": 31,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      885.5,
-      272.5
+      654.2,
+      1769.7
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/JuniorHighTennisClub.png",
-    "groupName": "中学テニス部",
-    "eventName": "三田国際テニス部体験",
-    "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！また、普段どのように練習し、仲間と協力して励まし合って活動しているかがわかります。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-1",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
+    "groupName": "PTA",
+    "eventName": "PTA（食品、菓子、飲料）",
+    "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-32",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 1,
+        "n": 32,
         "color": "#FF530F"
       }
     ]
   },
   {
     "latlng": [
-      846.5,
-      1782.6
+      682.7,
+      1834.5
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/School.png",
-    "groupName": "学校",
-    "eventName": "入試相談ルーム",
-    "description": "入試やクラス・コースこと何でもご相談いただけます。お気軽にどうぞ！ 土曜日 10:30～15:00、日曜日 10:30～14:00",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-27",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MitaKouenkai.png",
+    "groupName": "三田国際科学学園 後援会",
+    "eventName": "後援会やきそば・みたらしぃ団子",
+    "description": "後援会は今年も「後援会焼きそば」と「みたらしぃ団子」を販売。こだわりのソース焼きそばとみたらしぃ（三田らしい）団子を提供します。",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-33",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 27,
+        "n": 33,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      712.3,
+      1892.4
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TeamPaPa.png",
+    "groupName": "Team PaPa",
+    "eventName": "Team PaPa MITA DOG",
+    "description": "パパたちの作る、MIF名物「MITA DOG」！ 今年も米粉ドックに加え世界各国のトッピングを乞うご期待！",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-34",
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 34,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      764.6,
+      1697.8
+    ],
+    "floor": "1階",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/BusinessSeminar.png",
+    "groupName": "経営ゼミ",
+    "eventName": "WAGAMAMA",
+    "description": "ワッフル・チュロス・ドリンクを販売！組み合わせは無限大∞好きなものを詰め込んで、あなただけのNew 美味しいを作ろう😋🎶",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-35",
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 35,
         "color": "#FF530F"
       }
     ]
