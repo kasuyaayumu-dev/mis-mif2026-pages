@@ -279,8 +279,8 @@
     ],
     "floor": "1階",
     "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TableTennisClub.png",
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/VolleyballClub.png"
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2A.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2D.png"
     ],
     "groupName": [
       "J2A",
@@ -316,16 +316,35 @@
       2002.2
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2.png",
-    "groupName": "中学２年",
-    "eventName": "Edutainment",
-    "description": "知る、考える、体験する。その楽しさから、学びはもっと身近に、もっと面白くなる。学びと楽しさを融合した、中学2年生発のEdutainment企画です。",
-    "pageUrl": null,
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2C.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2G.png"
+    ],
+    "groupName": [
+      "J2C",
+      "J2G"
+    ],
+    "eventName": [
+      "人生ラボ　〜あなたはどんな人生を選ぶ？〜",
+      "Midnight at the Whisker Manor"
+    ],
+    "description": [
+      "様々な選択がある人生を体験型ゲームにした企画です。進路、就職、結婚、人生の選択などを通して、自分だけの人生を体験してみてください！",
+      "二組のチームがWhisker Manorに潜入し、宝を探す。宝を手にした瞬間、館の呪いが二組を襲う。脱出できるのはどちらか。"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-24-3",
+      "https://mif-2026.studio.site/jp/detail/1-24-7"
+    ],
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 10,
-        "color": "#6C5CE7"
+        "n": 24,
+        "color": "#FF530F"
+      },
+      {
+        "n": 24,
+        "color": "#FF530F"
       }
     ]
   },
@@ -335,34 +354,35 @@
       2307.6
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2.png",
-    "groupName": "中学２年",
-    "eventName": "Edutainment",
-    "description": "知る、考える、体験する。その楽しさから、学びはもっと身近に、もっと面白くなる。学びと楽しさを融合した、中学2年生発のEdutainment企画です。",
-    "pageUrl": null,
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 10,
-        "color": "#6C5CE7"
-      }
-    ]
-  },
-  {
-    "latlng": [
-      1811,
-      2958.4
-    ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J1J2ICFusion.png",
-    "groupName": "中１・中２ICフュージョン",
-    "eventName": "中１・中２ICフュージョンのプロジェクト",
-    "description": "三田生徒たちが学校とコミュニティをより良くしようと取り組んでいる様子をご覧ください。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-20",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2E.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2F.png"
+    ],
+    "groupName": [
+      "J2E",
+      "J2F"
+    ],
+    "eventName": [
+      "怨念の教室",
+      "WORLD MARKET CHALLENGE 〜世界旅行体験〜"
+    ],
+    "description": [
+      "企画は謎を手掛かりを使って解いていくというもので、魅力はチームワークのスキルと推理力が試されるところです。",
+      "5カ国を巡って特産品を買いながら、世界の通貨や文化を楽しく学べる、旅行気分を味わえる体験型マーケットゲーム！"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-24-5",
+      "https://mif-2026.studio.site/jp/detail/1-24-6"
+    ],
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 20,
+        "n": 24,
+        "color": "#FF530F"
+      },
+      {
+        "n": 24,
         "color": "#FF530F"
       }
     ]
