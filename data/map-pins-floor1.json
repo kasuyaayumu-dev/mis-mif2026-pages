@@ -253,6 +253,44 @@
   },
   {
     "latlng": [
+      979,
+      1383.2
+    ],
+    "floor": "1階",
+    "iconUrl": [
+      "",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J1J2ICFusion.png"
+    ],
+    "groupName": [
+      "生徒成果物",
+      "中１・中２ICフュージョン"
+    ],
+    "eventName": [
+      "生徒成果物発表",
+      "中１・中２ICフュージョンのプロジェクト"
+    ],
+    "description": [
+      "",
+      "三田生徒たちが学校とコミュニティをより良くしようと取り組んでいる様子をご覧ください。"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-19",
+      "https://mif-2026.studio.site/jp/detail/1-20"
+    ],
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 19,
+        "color": "#FF530F"
+      },
+      {
+        "n": 20,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
       1024.6,
       1666.9
     ],
