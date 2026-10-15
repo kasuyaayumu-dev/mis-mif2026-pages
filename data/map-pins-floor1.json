@@ -276,13 +276,32 @@
       1884.4
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CampusTour.png",
-    "groupName": "キャンパスツアー運営",
-    "eventName": "キャンパスツアー",
-    "description": "三田国際生が、生徒ならではの視点で校舎をご案内するキャンパスツアーです。ここでしか聞けない『三田国際のリアル』を覗いてみませんか？",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-23",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/StudentCouncil.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/CampusTour.png"
+    ],
+    "groupName": [
+      "生徒会",
+      "キャンパスツアー運営"
+    ],
+    "eventName": [
+      "ベビーカー預かり/インフォメーション",
+      "キャンパスツアー"
+    ],
+    "description": [
+      "来校中のベビーカーを昇降口にてお預かりします。また、同じ場所でインフォメーションも行います。",
+      "三田国際生が、生徒ならではの視点で校舎をご案内するキャンパスツアーです。ここでしか聞けない『三田国際のリアル』を覗いてみませんか？"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-22",
+      "https://mif-2026.studio.site/jp/detail/1-23"
+    ],
     "popupDirection": "bottom",
     "badges": [
+      {
+        "n": 22,
+        "color": "#FF530F"
+      },
       {
         "n": 23,
         "color": "#FF530F"
