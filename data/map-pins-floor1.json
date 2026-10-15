@@ -614,35 +614,6 @@
   },
   {
     "latlng": [
-      887.9,
-      2479.8
-    ],
-    "floor": "1階",
-    "iconUrl": [
-      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png"
-    ],
-    "groupName": [
-      "MSTC"
-    ],
-    "eventName": [
-      "MSTC研究発表"
-    ],
-    "description": [
-      "MSTC生徒が日頃から行っている研究についてポスター発表と口頭発表をします。"
-    ],
-    "pageUrl": [
-      "https://mif-2026.studio.site/jp/detail/12-30"
-    ],
-    "popupDirection": "bottom",
-    "badges": [
-      {
-        "n": 30,
-        "color": "#FF530F"
-      }
-    ]
-  },
-  {
-    "latlng": [
       620.5,
       1699.5
     ],
@@ -732,6 +703,35 @@
     "badges": [
       {
         "n": 35,
+        "color": "#FF530F"
+      }
+    ]
+  },
+  {
+    "latlng": [
+      887.9,
+      2479.8
+    ],
+    "floor": "1階",
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MST.png"
+    ],
+    "groupName": [
+      "MSTC"
+    ],
+    "eventName": [
+      "MSTC研究発表"
+    ],
+    "description": [
+      "MSTC生徒が日頃から行っている研究についてポスター発表と口頭発表をします。"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/12-30"
+    ],
+    "popupDirection": "bottom",
+    "badges": [
+      {
+        "n": 40,
         "color": "#FF530F"
       }
     ]
