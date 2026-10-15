@@ -172,6 +172,7 @@
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EnglishRecitationSpeech.png",
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/MediaCreationSeminar.png",
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/ChorusClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/KotoMusicClub.png",
       "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/EnglishClub.png"
     ],
     "groupName": [
@@ -181,6 +182,7 @@
       "英語レシテーション・スピーチ",
       "メディア・クリエイション・ゼミ",
       "コーラス部",
+      "箏曲部",
       "英語部"
     ],
     "eventName": [
@@ -190,6 +192,7 @@
       "英語レシテーション・スピーチ",
       "メディアゼミ作品上映会",
       "コーラス部MIF公演2026",
+      "コトノハナ",
       "英語ディベート・模擬国連ショーケース"
     ],
     "description": [
@@ -199,6 +202,7 @@
       "学内で行われた英語レシテーション・スピーチコンテストで優秀な成績を修めた中1～高2の生徒たちの発表と、長期留学帰国生によるプレゼンです！",
       "中学生が手掛けた渾身の映像世界へようこそ！表現力あふれるMVと2本のドラマがあなたを魅了します。ぜひ視聴覚室へお越しください！",
       "美しいコーラスをお届けします！合唱曲からJ-POPまで、幅広いジャンルの演奏を皆さんに発表します。 ぜひ視聴覚室に足をお運びください！",
+      "箏曲部による日本の和楽器「箏」の美しい音色をお楽しみください。部員一人ひとりが心を込めて一生懸命演奏いたします。",
       "英語部による英語ディベートと模擬国連の公演・参加型企画を実施！スピーチの熱さや国家間の交渉の魅力を体験できます！"
     ],
     "pageUrl": [
@@ -208,6 +212,7 @@
       "https://mif-2026.studio.site/jp/detail/1-14",
       "https://mif-2026.studio.site/jp/detail/1-15",
       "https://mif-2026.studio.site/jp/detail/1-16",
+      "https://mif-2026.studio.site/jp/detail/1-17",
       "https://mif-2026.studio.site/jp/detail/1-18"
     ],
     "popupDirection": "bottom",
@@ -234,6 +239,10 @@
       },
       {
         "n": 16,
+        "color": "#FF530F"
+      },
+      {
+        "n": 17,
         "color": "#FF530F"
       },
       {
