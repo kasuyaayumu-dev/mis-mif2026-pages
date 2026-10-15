@@ -176,11 +176,11 @@
       1392
     ],
     "floor": "3階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/FIESTA.png",
-    "groupName": "FIESTA",
-    "eventName": "FIESTA 世界の屋台",
-    "description": "こんにちはFIESTA です！世界各国の屋台グルメや文化を楽しみながら、友達や家族と気軽に過ごせる国際色豊かなナイトマーケットを開催します。カフェテリアでは、FIESTAの企画を楽しむだけでなく、持ち込んだ飲食物を食べたり、休憩したり、おしゃべりしたりする場としてもご利用いただけます。",
-    "pageUrl": "https://mif-2026.studio.site/jp/detail/3-6",
+    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/Repast.png",
+    "groupName": "株式会社レパスト　カフェテリア",
+    "eventName": "カフェテリア　食品販売",
+    "description": "丼やカレーなどのご飯もの、唐揚げなどのスナック販売、生徒と企画した共同販売など",
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/3-5",
     "popupDirection": "bottom",
     "badges": [
       {
