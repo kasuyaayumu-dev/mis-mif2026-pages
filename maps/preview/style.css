@@ -83,3 +83,98 @@ html, body {
   background: #fff;
 }
 .reset-view-control a:hover { background: #f2f2f2; }
+
+.menu-toggle-control a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  color: #333;
+  text-decoration: none;
+  background: #fff;
+}
+.menu-toggle-control a:hover { background: #f2f2f2; }
+
+/* 企画一覧のサイドメニュー。地図の左から出し入れする。 */
+.map-menu {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1100;
+  width: min(300px, 86%);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  box-shadow: 4px 0 18px rgba(0,0,0,.2);
+  transform: translateX(-105%);
+  visibility: hidden;
+  transition: transform .22s ease, visibility 0s linear .22s;
+  font-family: inherit;
+}
+.map-menu.open {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform .22s ease;
+}
+.map-menu-header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px 10px 14px;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 700;
+  font-size: 15px;
+}
+.map-menu-close {
+  appearance: none;
+  border: none;
+  background: transparent;
+  width: 34px;
+  height: 34px;
+  font-size: 24px;
+  line-height: 1;
+  color: #555;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.map-menu-close:hover { background: #f0f0f0; }
+.map-menu-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+.map-menu-section h2 {
+  position: sticky;
+  top: 0;
+  margin: 0;
+  padding: 6px 14px;
+  background: #f3f5f8;
+  color: #444;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+}
+.map-menu-item {
+  appearance: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding: 9px 14px;
+  border: none;
+  border-bottom: 1px solid #eee;
+  background: #fff;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+}
+.map-menu-item:hover, .map-menu-item:focus-visible { background: #f2f7ff; outline: none; }
+.map-menu-item .badge { flex-shrink: 0; margin-top: 1px; }
+.map-menu-text { display: flex; flex-direction: column; min-width: 0; }
+.map-menu-name { font-size: 13px; font-weight: 600; line-height: 1.4; color: #222; overflow-wrap: anywhere; }
+.map-menu-group { font-size: 11px; color: #666; line-height: 1.4; overflow-wrap: anywhere; }

@@ -292,9 +292,12 @@ function addMarkerFromJson(data, floor) {
     const el = this._icon;
     if (el) el.style.filter = '';
   });
+  return marker;
 }
 
 const iconUrlsByFloor = {};
+// サイドメニュー(企画番号と企画名の一覧)用。1ピンに複数企画があれば企画ごとに1件ずつ持つ。
+const menuEntries = [];
 
 function loadMarkerData(floor, data) {
   if (!Array.isArray(data)) {
@@ -303,7 +306,15 @@ function loadMarkerData(floor, data) {
   iconUrlsByFloor[floor] = [];
   for (let i = 0; i < data.length; i++) {
     // データ内の "floor" 値は当てにせず、読み込んだファイルに対応する階を使う
-    addMarkerFromJson(data[i], floor);
+    const marker = addMarkerFromJson(data[i], floor);
+    if (marker) {
+      const badges = badgesFromData(data[i]);
+      const groups = toArray(data[i].groupName);
+      toArray(data[i].eventName).forEach(function (name, j) {
+        const badge = badges[j] || badges[0];
+        menuEntries.push({ floor: floor, n: badge.n, color: badge.color, name: name, group: groups[j] || '', marker: marker });
+      });
+    }
     toArray(data[i].iconUrl).forEach(function (u) { if (u) iconUrlsByFloor[floor].push(u); });
   }
 }
@@ -429,6 +440,108 @@ const ResetViewControl = L.Control.extend({
   }
 });
 map.addControl(new ResetViewControl());
+
+// 企画番号と企画名の一覧を出し入れできるサイドメニュー。
+// 項目を押すとメニューを閉じて、該当フロアに切り替えたうえでその企画のポップアップを開く。
+const menuPanel = L.DomUtil.create('aside', 'map-menu', map.getContainer());
+menuPanel.setAttribute('aria-label', I18N.menuTitle || 'Project list');
+menuPanel.setAttribute('aria-hidden', 'true');
+L.DomEvent.disableClickPropagation(menuPanel);
+L.DomEvent.disableScrollPropagation(menuPanel);
+
+const menuHeader = L.DomUtil.create('div', 'map-menu-header', menuPanel);
+const menuTitleEl = L.DomUtil.create('span', 'map-menu-title', menuHeader);
+menuTitleEl.textContent = I18N.menuTitle || 'Project list';
+const menuCloseBtn = L.DomUtil.create('button', 'map-menu-close', menuHeader);
+menuCloseBtn.type = 'button';
+menuCloseBtn.setAttribute('aria-label', I18N.menuClose || 'Close');
+menuCloseBtn.textContent = '×';
+const menuBody = L.DomUtil.create('div', 'map-menu-body', menuPanel);
+
+function isMenuOpen() { return menuPanel.classList.contains('open'); }
+function setMenuOpen(open) {
+  menuPanel.classList.toggle('open', open);
+  menuPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+  if (menuToggleBtn) menuToggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  if (open) {
+    const sec = menuBody.querySelector('[data-floor="' + currentFloor + '"]');
+    if (sec) menuBody.scrollTop = sec.offsetTop - menuBody.offsetTop;
+  }
+}
+
+function openEntry(entry) {
+  setMenuOpen(false);
+  if (entry.floor !== currentFloor) setFloor(entry.floor);
+  fitToWholeMap();
+  map.setView(entry.marker.getLatLng(), initialZoom, { animate: false });
+  entry.marker.openPopup();
+}
+
+function buildMenu() {
+  menuBody.textContent = '';
+  ['1階', '2階', '3階'].forEach(function (floor) {
+    // 複数の教室に同じ企画のピンがある場合(例: 6教室ぶんの同一プレゼン)は1件にまとめ、最初のピンを開く。
+    const seen = new Set();
+    const entries = menuEntries
+      .filter(function (e) {
+        if (e.floor !== floor) return false;
+        const key = [e.n, e.name, e.group].join('|');
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      })
+      .sort(function (a, b) { return (Number(a.n) || 0) - (Number(b.n) || 0); });
+    if (!entries.length) return;
+    const section = L.DomUtil.create('section', 'map-menu-section', menuBody);
+    section.dataset.floor = floor;
+    const h = L.DomUtil.create('h2', '', section);
+    h.textContent = I18N.floorLabels ? I18N.floorLabels[floor] : floor;
+    entries.forEach(function (e) {
+      const btn = L.DomUtil.create('button', 'map-menu-item', section);
+      btn.type = 'button';
+      const num = L.DomUtil.create('span', 'badge sm', btn);
+      num.style.background = e.color;
+      num.textContent = e.n;
+      const text = L.DomUtil.create('span', 'map-menu-text', btn);
+      const nameEl = L.DomUtil.create('span', 'map-menu-name', text);
+      nameEl.textContent = e.name;
+      if (e.group) {
+        const groupEl = L.DomUtil.create('span', 'map-menu-group', text);
+        groupEl.textContent = e.group;
+      }
+      L.DomEvent.on(btn, 'click', function () { openEntry(e); });
+    });
+  });
+}
+
+let menuToggleBtn = null;
+const MenuToggleControl = L.Control.extend({
+  options: { position: 'topleft' },
+  onAdd: function () {
+    const container = L.DomUtil.create('div', 'leaflet-bar menu-toggle-control');
+    L.DomEvent.disableClickPropagation(container);
+    const btn = L.DomUtil.create('a', '', container);
+    btn.href = '#';
+    btn.title = I18N.menuTitle || 'Project list';
+    btn.setAttribute('role', 'button');
+    btn.setAttribute('aria-label', I18N.menuTitle || 'Project list');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    L.DomEvent.on(btn, 'click', function (e) {
+      L.DomEvent.preventDefault(e);
+      setMenuOpen(!isMenuOpen());
+    });
+    menuToggleBtn = btn;
+    return container;
+  }
+});
+map.addControl(new MenuToggleControl());
+L.DomEvent.on(menuCloseBtn, 'click', function () { setMenuOpen(false); });
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape' && isMenuOpen()) setMenuOpen(false);
+});
+void Promise.all(pinLoads).then(buildMenu);
 
 function updateSwitcherUI() {
   if (!switcherControl._container) return;
