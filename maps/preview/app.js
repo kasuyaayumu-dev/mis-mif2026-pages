@@ -30,7 +30,7 @@ const map = L.map('map', {
 const floorOrder = ['3階', '2階', '1階'];
 const floorConfig = {
   '3階': { image: `${imageBase}floor3_3.png`, json: `${dataBase}map-pins-floor3.json`, width: 2127, height: 1384 },
-  '2階': { image: `${imageBase}floor2_3.png`, json: `${dataBase}map-pins-floor2.json`, width: 1981, height: 1077 },
+  '2階': { image: `${imageBase}floor2_4.png`, json: `${dataBase}map-pins-floor2.json`, width: 1981, height: 1077 },
   '1階': { image: `${imageBase}floor1_3.png`, json: `${dataBase}map-pins-floor1.json`, width: 2635, height: 1752 }
 };
 
