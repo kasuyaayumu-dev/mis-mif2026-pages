@@ -278,16 +278,35 @@
       2590
     ],
     "floor": "1階",
-    "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/J2.png",
-    "groupName": "中学２年",
-    "eventName": "Edutainment",
-    "description": "知る、考える、体験する。その楽しさから、学びはもっと身近に、もっと面白くなる。学びと楽しさを融合した、中学2年生発のEdutainment企画です。",
-    "pageUrl": null,
+    "iconUrl": [
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/TableTennisClub.png",
+      "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/VolleyballClub.png"
+    ],
+    "groupName": [
+      "J2A",
+      "J2D"
+    ],
+    "eventName": [
+      "怪盗M(Moon)から太陽を取り戻せ！",
+      "あなたの本当の注意力とは！？〜間違い探し〜"
+    ],
+    "description": [
+      "とある日、怪盗M(Moon)が太陽を盗んでしまった。光が失われて、地球では大変な事が色々起きている。怪盗Mから太陽を取り戻せ！",
+      "想像とは一味違う間違い探し。無意識な場面での注意力を試せます。自信のある方も逆転を狙う方も、ぜひ奮って腕試しにお越しください！"
+    ],
+    "pageUrl": [
+      "https://mif-2026.studio.site/jp/detail/1-24-1",
+      "https://mif-2026.studio.site/jp/detail/1-24-4"
+    ],
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 10,
-        "color": "#6C5CE7"
+        "n": 24,
+        "color": "#FF530F"
+      },
+      {
+        "n": 24,
+        "color": "#FF530F"
       }
     ]
   },
