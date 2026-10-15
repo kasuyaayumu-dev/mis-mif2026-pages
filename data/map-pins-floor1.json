@@ -64,13 +64,13 @@
     "floor": "1階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/PTA.png",
     "groupName": "PTA",
-    "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
+    "eventName": "PTA（食品、菓子、飲料）",
     "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-32",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 6,
+        "n": 32,
         "color": "#FF530F"
       }
     ]
@@ -85,11 +85,11 @@
     "groupName": "PTA",
     "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
     "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-28",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 12,
+        "n": 28,
         "color": "#FF530F"
       }
     ]
@@ -104,11 +104,11 @@
     "groupName": "PTA",
     "eventName": "PTA（食品、菓子、飲料、グッズ販売）",
     "description": "お腹も心も満たされる一日。食品・菓子・飲料・グッズが勢ぞろいのPTAブースへ。",
-    "pageUrl": null,
+    "pageUrl": "https://mif-2026.studio.site/jp/detail/1-28",
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 11,
+        "n": 28,
         "color": "#FF530F"
       }
     ]
