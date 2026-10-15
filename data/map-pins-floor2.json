@@ -305,8 +305,8 @@
   },
   {
     "latlng": [
-      297.9,
-      1057.3
+      362.6,
+      1155
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2C.png",
@@ -324,8 +324,8 @@
   },
   {
     "latlng": [
-      362.6,
-      1155
+      297.9,
+      1057.3
     ],
     "floor": "2階",
     "iconUrl": "https://cdn.jsdelivr.net/gh/kasuyaayumu-dev/mis-mif2026-pages@main/image/icon/S2A.png",
