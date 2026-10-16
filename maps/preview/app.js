@@ -212,7 +212,10 @@ function buildPopupHTML(data) {
       itemHtml += `<p style="font-size:13px; margin:0 0 8px 0;">${dsc}</p>`;
     }
     if (url) {
-      itemHtml += `<a href="#" class="popup-link" data-url="${url}" ` +
+      // 埋め込み(iframe)の外側のページを遷移させるため target="_top" のふつうのリンクにする。
+      // JSで遷移させると、失敗時に埋め込みの中で詳細ページが開いてしまい、STUDIO側の
+      // 「戻る」(ブラウザの戻る)が埋め込み内の履歴を戻ってしまうため。
+      itemHtml += `<a href="${url}" target="_top" rel="noopener" class="popup-link" ` +
           'style="display:inline-block; padding:8px 10px; background:#007bff; color:#fff; ' +
           `text-decoration:none; border-radius:6px; font-size:13px; cursor:pointer;">${I18N.popupLinkLabel || 'View details'}</a>`;
     }
@@ -642,23 +645,6 @@ function updateSwitcherUI() {
 }
 
 setFloor(getInitialFloor());
-
-document.addEventListener('click', function (e) {
-  const a = e.target.closest('a.popup-link');
-  if (!a) return;
-  e.preventDefault();
-  const url = a.getAttribute('data-url');
-  try {
-    if (window.top && window.top !== window) {
-      window.top.location.href = url;
-    } else {
-      window.location.href = url;
-    }
-  } catch {
-    window.location.href = url;
-  }
-}, { passive: false });
-
 // STUDIO埋め込み用: iframeの外側に実際のコンテンツ高さを伝えて、
 // 埋め込み側でiframeの高さを合わせてもらう
 function postHeightToParent() {
