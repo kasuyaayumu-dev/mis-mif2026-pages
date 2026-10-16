@@ -540,14 +540,30 @@ const menuBody = L.DomUtil.create('div', 'map-menu-body', menuPanel);
 
 function isMenuOpen() { return menuPanel.classList.contains('open'); }
 function setMenuOpen(open) {
+  const wasOpen = isMenuOpen();
   menuPanel.classList.toggle('open', open);
   menuPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
   if (menuToggleBtn) menuToggleBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
   if (open) {
-    // 開くたびに、いま表示している階を先頭にして一覧を作り直す(階の切り替えに合わせるため)
-    buildMenu();
-    menuBody.scrollTop = 0;
+    // 一覧の階の並び(1F→2F→3F)は固定のまま、いま表示している階の位置まで一覧をスクロールする。
+    // すでに開いている最中の切り替えはなめらかに、閉じていたものを開くときは一気に合わせる。
+    updateMenuCurrentFloor();
+    scrollMenuToCurrentFloor(wasOpen);
   }
+}
+
+function updateMenuCurrentFloor() {
+  menuBody.querySelectorAll('.map-menu-section').forEach(function (sec) {
+    const btn = sec.querySelector('.map-menu-floor');
+    if (btn) btn.classList.toggle('current', sec.dataset.floor === currentFloor);
+  });
+}
+
+function scrollMenuToCurrentFloor(smooth) {
+  const sec = menuBody.querySelector('[data-floor="' + currentFloor + '"]');
+  if (!sec) return;
+  const top = menuBody.scrollTop + sec.getBoundingClientRect().top - menuBody.getBoundingClientRect().top;
+  menuBody.scrollTo({ top: Math.max(0, top), behavior: smooth ? 'smooth' : 'auto' });
 }
 
 // 地図を指定の階に切り替え、その階を先頭にした一覧を開く(右上の階ボタン・一覧の階見出し共通)
@@ -581,11 +597,7 @@ function scrollPopupToEntry(entry) {
 
 function buildMenu() {
   menuBody.textContent = '';
-  const floorsInMenu = ['1階', '2階', '3階'];
-  floorsInMenu.sort(function (a, b) {
-    return (a === currentFloor ? -1 : 0) - (b === currentFloor ? -1 : 0);
-  });
-  floorsInMenu.forEach(function (floor) {
+  ['1階', '2階', '3階'].forEach(function (floor) {
     // 複数の教室に同じ企画のピンがある場合(例: 6教室ぶんの同一プレゼン)は1件にまとめ、最初のピンを開く。
     const seen = new Set();
     const entries = menuEntries
@@ -653,6 +665,7 @@ document.addEventListener('keydown', function (e) {
 });
 // 起動時(ピン読み込み後)にメニューを表示する。階の切り替え時にも、切替ボタン側で開く。
 void Promise.all(pinLoads).then(function () {
+  buildMenu();
   setMenuOpen(true);
 });
 
