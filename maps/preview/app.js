@@ -556,11 +556,7 @@ const MenuToggleControl = L.Control.extend({
     btn.setAttribute('role', 'button');
     btn.setAttribute('aria-label', I18N.menuTitle || 'Project list');
     btn.setAttribute('aria-expanded', 'false');
-    // 「一覧」を表す、行頭の点つきリストのアイコン(三本線のハンバーガーと区別するため)
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<circle cx="4.5" cy="6" r="1.9" fill="currentColor"/><circle cx="4.5" cy="12" r="1.9" fill="currentColor"/>' +
-      '<circle cx="4.5" cy="18" r="1.9" fill="currentColor"/>' +
-      '<path d="M10 6h11M10 12h11M10 18h11" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>';
+    btn.textContent = I18N.menuButton || 'List';
     L.DomEvent.on(btn, 'click', function (e) {
       L.DomEvent.preventDefault(e);
       setMenuOpen(!isMenuOpen());
