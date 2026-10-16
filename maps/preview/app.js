@@ -28,9 +28,11 @@ const map = L.map('map', {
 // width/height は画像(image/map/floorX_3.png)の実寸。ピンの座標(latlng)は
 // この画像の左下を原点とするピクセル値で持っている。
 const floorOrder = ['3階', '2階', '1階'];
+// viewOrigin: 開始時に地図の左上隅へ置く画像上の点 [左端のx, 上端のy] (画像の左上が原点、下向きがyの正)。
+//   指定した階は、画像全体の中心ではなく、この点を左上に揃えた位置から表示を始める。
 const floorConfig = {
-  '3階': { image: `${imageBase}floor3_5.png`, json: `${dataBase}map-pins-floor3.json`, width: 2127, height: 1384 },
-  '2階': { image: `${imageBase}floor2_5.png`, json: `${dataBase}map-pins-floor2.json`, width: 1981, height: 1077 },
+  '3階': { image: `${imageBase}floor3_5.png`, json: `${dataBase}map-pins-floor3.json`, width: 2127, height: 1384, viewOrigin: [-168, 457] },
+  '2階': { image: `${imageBase}floor2_5.png`, json: `${dataBase}map-pins-floor2.json`, width: 1981, height: 1077, viewOrigin: [-168, 149] },
   '1階': { image: `${imageBase}floor1_5.png`, json: `${dataBase}map-pins-floor1.json`, width: 2635, height: 1752 }
 };
 
@@ -86,6 +88,14 @@ function fitToWholeMap() {
 
   initialZoom = fitZoom + 1;
   initialCenter = bounds.getCenter();
+  if (cfg.viewOrigin) {
+    // 画像上の viewOrigin を地図の左上隅に置く中心を求める(CRS.Simpleの縮尺は 2^zoom)
+    const size = map.getSize();
+    const scale = Math.pow(2, initialZoom);
+    const x = cfg.viewOrigin[0] + (size.x / 2) / scale;
+    const yTop = cfg.viewOrigin[1] + (size.y / 2) / scale;
+    initialCenter = L.latLng(cfg.height - yTop, x);
+  }
   map.setView(initialCenter, initialZoom, { animate: false });
 
   applyTightBounds();
