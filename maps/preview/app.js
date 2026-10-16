@@ -329,10 +329,69 @@ function loadMarkerData(floor, data) {
   }
 }
 
+// 英語マップでは、ピン(日本語のみ)の企画名・団体名・説明文を、英語の企画データ(groups.en.json)で
+// 置き換える。企画名が一致した企画は3つとも、団体名だけが一致した企画(企画名が変わったもの)は
+// 団体名だけを英語にし、どちらも一致しなければ日本語のまま表示する。
+function normKey(v) {
+  return String(v || '').normalize('NFKC').replace(/\s+/g, '').replace(/['’]/g, '');
+}
+
+function buildTranslator(jaItems, enItems) {
+  const enById = {};
+  enItems.forEach(function (it) { enById[it.id] = it; });
+  const byName = new Map();
+  const byGroup = new Map();
+  jaItems.forEach(function (it) {
+    const en = enById[it.id];
+    if (!en) return;
+    byName.set(normKey(it.name), en);
+    if (!byGroup.has(normKey(it.group))) byGroup.set(normKey(it.group), en);
+  });
+  return function (pin) {
+    const groups = toArray(pin.groupName).slice();
+    const events = toArray(pin.eventName).slice();
+    const descs = toArray(pin.description).slice();
+    events.forEach(function (name, j) {
+      const full = byName.get(normKey(name));
+      if (full) {
+        events[j] = full.name || name;
+        groups[j] = full.group || groups[j];
+        if (full.description) descs[j] = full.description;
+        return;
+      }
+      const g = byGroup.get(normKey(groups[j]));
+      if (g && g.group) groups[j] = g.group;
+    });
+    pin.groupName = Array.isArray(pin.groupName) ? groups : groups[0];
+    pin.eventName = Array.isArray(pin.eventName) ? events : events[0];
+    pin.description = Array.isArray(pin.description) ? descs : descs[0];
+  };
+}
+
+function loadTranslator() {
+  if (I18N.detailLang !== 'en') return Promise.resolve(null);
+  return Promise.all([
+    fetch(`${dataBase}groups.json`).then(function (r) { return r.json(); }),
+    fetch(`${dataBase}groups.en.json`).then(function (r) { return r.json(); })
+  ]).then(function (res) {
+    return buildTranslator(res[0].items || [], res[1].items || []);
+  }).catch(function () {
+    // 英語データが取れなくても、日本語のまま地図は表示する
+    return null;
+  });
+}
+
+const translatorReady = loadTranslator();
 const pinLoads = floorOrder.map(function (floor) {
-  return fetch(floorConfig[floor].json)
-    .then(function (res) { return res.json(); })
-    .then(function (data) { loadMarkerData(floor, data); })
+  return translatorReady
+    .then(function (translate) {
+      return fetch(floorConfig[floor].json)
+        .then(function (res) { return res.json(); })
+        .then(function (data) {
+          if (translate && Array.isArray(data)) data.forEach(translate);
+          loadMarkerData(floor, data);
+        });
+    })
     .catch(function () {
       // ピンデータは今年まだ確定していないため、取得・読込に失敗しても地図自体は表示を続ける
       console.error('企画ピンデータの読み込みに失敗しました:', floor);
