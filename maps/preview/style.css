@@ -9,6 +9,8 @@ html, body {
 /* 固定pxではなく比率で高さを決める。フロア画像の縦横比(だいたい3:2)に合わせておくことで、
    STUDIO埋め込みの狭い幅でも画像が変な位置に小さく表示されず、幅いっぱいに収まる。 */
 #map { aspect-ratio: 3 / 2; width: 100%; min-height: 320px; background: transparent; }
+/* 単体で開いたとき(app.jsが.standaloneを付ける)は、画面の高さいっぱいに収める */
+.standalone #map { aspect-ratio: auto; height: 100vh; height: 100dvh; min-height: 0; }
 .leaflet-container { background: transparent !important; }
 
 .leaflet-popup-bottom { transform: translateY(100%); }
@@ -158,13 +160,30 @@ html, body {
   position: sticky;
   top: 0;
   margin: 0;
-  padding: 6px 14px;
   background: #f3f5f8;
-  color: #444;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: .04em;
 }
+.map-menu-floor {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 14px;
+  border: none;
+  background: transparent;
+  color: #444;
+  font: inherit;
+  letter-spacing: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.map-menu-floor::after { content: '›'; font-size: 18px; line-height: 1; color: #888; }
+.map-menu-floor:hover, .map-menu-floor:focus-visible { background: #e6edf8; outline: none; }
+.map-menu-floor.current { color: #1a73e8; }
+.map-menu-floor.current::after { color: #1a73e8; }
 .map-menu-item {
   appearance: none;
   display: flex;

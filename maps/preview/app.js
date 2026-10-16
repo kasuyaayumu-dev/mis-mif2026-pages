@@ -2,6 +2,10 @@
 // 建物のフロア画像・レイアウトはJP/ENで共通のため、パス以外はここに1つだけ持つ。
 const CONFIG = window.MAPS_CONFIG || {};
 const I18N = window.MAPS_I18N || {};
+// 単体で開いたとき(iframeに埋め込まれていないとき)だけ、地図を画面の高さに収める。
+// 縦長の地図枠だと普通のパソコンの画面では企画一覧などが見切れるため。埋め込み(本番)は従来のサイズのまま。
+if (window.parent === window) document.documentElement.classList.add('standalone');
+
 const imageBase = CONFIG.imageBase || '';
 const dataBase = CONFIG.dataBase || '';
 
@@ -77,6 +81,13 @@ let initialCenter = null;
 // ホーム位置(初期表示・リセット時)はfitZoomより1段階ズームインした位置にする
 function fitToWholeMap() {
   map.invalidateSize();
+  // 画面の大きさがまだ確定していない(0)間に計算すると、倍率が際限なく上がってしまうので何もしない
+  const mapSize = map.getSize();
+  if (!mapSize.x || !mapSize.y) return;
+  // getBoundsZoom()は現在のズーム上限・下限の範囲に丸めて返すため、前の階の上限・下限が
+  // 残っていると別の階の「全体が収まる倍率」を誤る。計算の前に広い範囲へ戻しておく。
+  map.setMinZoom(-10);
+  map.setMaxZoom(10);
   const cfg = floorConfig[currentFloor];
   const bounds = L.latLngBounds([[0, 0], [cfg.height, cfg.width]]);
   // fitBounds()の直後にsetZoom()すると、fitBounds自体のズームアニメーションと
@@ -473,11 +484,7 @@ const FloorSwitcherControl = L.Control.extend({
       btn.type = 'button';
       btn.textContent = floor.replace('階', 'F');
       btn.dataset.floor = floor;
-      L.DomEvent.on(btn, 'click', function () {
-        setFloor(floor);
-        fitToWholeMap();
-        setMenuOpen(true);
-      });
+      L.DomEvent.on(btn, 'click', function () { switchFloor(floor); });
     });
 
     this._container = container;
@@ -543,6 +550,13 @@ function setMenuOpen(open) {
   }
 }
 
+// 地図を指定の階に切り替え、その階を先頭にした一覧を開く(右上の階ボタン・一覧の階見出し共通)
+function switchFloor(floor) {
+  setFloor(floor);
+  fitToWholeMap();
+  setMenuOpen(true);
+}
+
 function openEntry(entry) {
   setMenuOpen(false);
   if (entry.floor !== currentFloor) setFloor(entry.floor);
@@ -587,7 +601,12 @@ function buildMenu() {
     const section = L.DomUtil.create('section', 'map-menu-section', menuBody);
     section.dataset.floor = floor;
     const h = L.DomUtil.create('h2', '', section);
-    h.textContent = I18N.floorLabels ? I18N.floorLabels[floor] : floor;
+    // 階の見出しを押すと、その階の地図に切り替わる(階の切替ボタンと同じ動き)
+    const headBtn = L.DomUtil.create('button', 'map-menu-floor', h);
+    headBtn.type = 'button';
+    headBtn.textContent = I18N.floorLabels ? I18N.floorLabels[floor] : floor;
+    if (floor === currentFloor) headBtn.classList.add('current');
+    L.DomEvent.on(headBtn, 'click', function () { switchFloor(floor); });
     entries.forEach(function (e) {
       const btn = L.DomUtil.create('button', 'map-menu-item', section);
       btn.type = 'button';
