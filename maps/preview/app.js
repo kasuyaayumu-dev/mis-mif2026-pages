@@ -252,11 +252,12 @@ function badgesFromData(d) {
   return out.length ? out : [{ n: '', color: DEF }];
 }
 
-// バッジHTMLを作成(2列で横並び。1件は大きめ)
+// バッジHTMLを作成(横に最大3列。1件は大きめ)
 function makeBadgeHTML(badges) {
   const many = badges.length > 1;
   const sizeClass = many ? 'sm' : 'lg';
-  const cols = many ? 2 : 1;
+  // 複数企画をまとめたピンは、横に最大3つまで並べる(4つ以上は折り返す)
+  const cols = many ? Math.min(3, badges.length) : 1;
   const gap = many ? 4 : 0;
   const rows = Math.ceil(badges.length / cols);
   const unit = many ? 22 : 28;
