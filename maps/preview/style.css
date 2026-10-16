@@ -178,3 +178,10 @@ html, body {
 .map-menu-text { display: flex; flex-direction: column; min-width: 0; }
 .map-menu-name { font-size: 13px; font-weight: 600; line-height: 1.4; color: #222; overflow-wrap: anywhere; }
 .map-menu-group { font-size: 11px; color: #666; line-height: 1.4; overflow-wrap: anywhere; }
+
+/* サイドメニューから開いた複数企画ポップアップで、選んだ企画をわかりやすくする */
+.popup-item-selected {
+  background: #f2f7ff;
+  border-radius: 8px;
+  box-shadow: 0 0 0 4px #f2f7ff;
+}

@@ -194,7 +194,7 @@ function buildPopupHTML(data) {
     // ピンのpageUrlは日本語ページ(/jp/detail/…)で持ち、英語マップでは英語ページ(/en/detail/…)に読み替える
     const url  = (pages[i] || '').replace('/jp/detail/', `/${I18N.detailLang || 'jp'}/detail/`);
 
-    let itemHtml = '<div style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #ddd;">';
+    let itemHtml = `<div class="popup-item" data-idx="${i}" style="display:flex; gap:10px; align-items:flex-start; margin-bottom:14px; padding-bottom:14px; border-bottom:1px solid #ddd;">`;
 
     if (icon) {
       itemHtml += `<img src="${icon}" alt="${grp}" data-fb="${iconFallback(icon)}" ` +
@@ -322,7 +322,7 @@ function loadMarkerData(floor, data) {
       const groups = toArray(data[i].groupName);
       toArray(data[i].eventName).forEach(function (name, j) {
         const badge = badges[j] || badges[0];
-        menuEntries.push({ floor: floor, n: badge.n, color: badge.color, name: name, group: groups[j] || '', marker: marker });
+        menuEntries.push({ floor: floor, n: badge.n, color: badge.color, name: name, group: groups[j] || '', index: j, marker: marker });
       });
     }
     toArray(data[i].iconUrl).forEach(function (u) { if (u) iconUrlsByFloor[floor].push(u); });
@@ -487,6 +487,20 @@ function openEntry(entry) {
   fitToWholeMap();
   map.setView(entry.marker.getLatLng(), initialZoom, { animate: false });
   entry.marker.openPopup();
+  scrollPopupToEntry(entry);
+}
+
+// 複数企画をまとめたポップアップは中身がスクロールになるため、選んだ企画が先頭に見えるよう合わせる。
+function scrollPopupToEntry(entry) {
+  const popup = entry.marker.getPopup();
+  const root = popup && popup.getElement();
+  if (!root) return;
+  const content = root.querySelector('.leaflet-popup-content');
+  const item = content && content.querySelector('[data-idx="' + entry.index + '"]');
+  if (!item) return;
+  content.querySelectorAll('.popup-item-selected').forEach(function (el) { el.classList.remove('popup-item-selected'); });
+  if (content.querySelectorAll('.popup-item').length > 1) item.classList.add('popup-item-selected');
+  content.scrollTop += item.getBoundingClientRect().top - content.getBoundingClientRect().top;
 }
 
 function buildMenu() {
