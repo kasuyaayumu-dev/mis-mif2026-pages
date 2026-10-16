@@ -366,7 +366,17 @@ function buildTranslator(jaItems, enItems) {
     const groups = toArray(pin.groupName).slice();
     const events = toArray(pin.eventName).slice();
     const descs = toArray(pin.description).slice();
+    // ピン自体に英語の企画名・団体名・説明文(eventNameEn/groupNameEn/descriptionEn)があれば最優先で使う
+    const enNames = toArray(pin.eventNameEn);
+    const enGroups = toArray(pin.groupNameEn);
+    const enDescs = toArray(pin.descriptionEn);
     events.forEach(function (name, j) {
+      if (enNames[j]) {
+        events[j] = enNames[j];
+        if (enGroups[j]) groups[j] = enGroups[j];
+        if (enDescs[j]) descs[j] = enDescs[j];
+        return;
+      }
       const full = byName.get(normKey(name));
       if (full) {
         events[j] = full.name || name;
@@ -391,8 +401,8 @@ function loadTranslator() {
   ]).then(function (res) {
     return buildTranslator(res[0].items || [], res[1].items || []);
   }).catch(function () {
-    // 英語データが取れなくても、日本語のまま地図は表示する
-    return null;
+    // 英語の企画データが取れなくても、ピン自身の英語情報だけは使い、残りは日本語のまま表示する
+    return buildTranslator([], []);
   });
 }
 

@@ -287,6 +287,18 @@
         "n": 20,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "Student Work Display",
+      ""
+    ],
+    "groupNameEn": [
+      "School",
+      ""
+    ],
+    "descriptionEn": [
+      "This exhibition showcases the creativity and diverse learning experiences of our students. You will see how MITA encourages the development of free thinkers.",
+      ""
     ]
   },
   {
@@ -382,6 +394,18 @@
         "n": 24,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "~A Challenge from the Phantom Thief M~ Reclaim the Stolen Sun!",
+      "What is your true level of concentration?! ~Spot the Difference~"
+    ],
+    "groupNameEn": [
+      "J2A",
+      "J2D"
+    ],
+    "descriptionEn": [
+      "One day, the Phantom Thief M (Moon) stole the sun. With the light gone, all sorts of terrible things are happening on Earth. Reclaim the sun from the Phantom Thief M!",
+      "A spot-the-difference game with a twist. It’s a chance to test your attention to detail in everyday situations. Whether you’re confident in your skills or hoping for an upset, do come along and put your skills to the test!"
     ]
   },
   {
@@ -420,6 +444,18 @@
         "n": 24,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "Life Lab 〜What Kind of Life Will You Choose?〜",
+      "Midnight at the Whisker Manor"
+    ],
+    "groupNameEn": [
+      "J2C",
+      "J2G"
+    ],
+    "descriptionEn": [
+      "Life Lab is an interactive game where you experience a life full of different choices. Choose your education, career, marriage, and more to experience your own unique and exciting life!",
+      "Two teams infiltrate Whisker Manor and search for treasure. The moment  you reach the treasure, the curse of the house attacked the two groups. Which one can you escape?"
     ]
   },
   {
@@ -458,6 +494,18 @@
         "n": 25,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "Space Mitagora Talk",
+      ""
+    ],
+    "groupNameEn": [
+      "J2B",
+      ""
+    ],
+    "descriptionEn": [
+      "Complete Pitagora to save the destruction of earth with aliens and be a hero!",
+      ""
     ]
   },
   {
@@ -496,6 +544,18 @@
         "n": 24,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "Haunted Classroom",
+      "WORLD MARKET CHALLENGE 〜A Shopping Journey Around the World〜"
+    ],
+    "groupNameEn": [
+      "J2E",
+      "J2F"
+    ],
+    "descriptionEn": [
+      "This is a murder mystery style workshop where visitors can test their cognitive abilities and problem solving skills. In some areas teamwork is required as well.",
+      "Travel through five countries, shop for local specialties, and enjoy learning about world currencies and cultures through a fun, immersive market game!"
     ]
   },
   {
@@ -553,6 +613,15 @@
         "n": 28,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "PTA (Food, Sweets, Drinks, and Merchandise)"
+    ],
+    "groupNameEn": [
+      "PTA"
+    ],
+    "descriptionEn": [
+      "A day that fills both your stomach and your heart. Food, sweets, drinks, and merchandise — all at the PTA booth."
     ]
   },
   {
@@ -572,6 +641,15 @@
         "n": 28,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "PTA (Food, Sweets, Drinks, and Merchandise)"
+    ],
+    "groupNameEn": [
+      "PTA"
+    ],
+    "descriptionEn": [
+      "A day that fills both your stomach and your heart. Food, sweets, drinks, and merchandise — all at the PTA booth."
     ]
   },
   {
@@ -648,6 +726,15 @@
         "n": 32,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "PTA (Food, Sweets, Drinks)"
+    ],
+    "groupNameEn": [
+      "PTA"
+    ],
+    "descriptionEn": [
+      "A day that fills both your stomach and your heart. Food, sweets, drinks, and merchandise — all at the PTA booth."
     ]
   },
   {
@@ -734,6 +821,15 @@
         "n": 40,
         "color": "#FF530F"
       }
+    ],
+    "eventNameEn": [
+      "MSTC Student Research Presentations"
+    ],
+    "groupNameEn": [
+      "MSTC"
+    ],
+    "descriptionEn": [
+      "MSTC students will present their ongoing research through poster and oral presentations."
     ]
   }
 ]
