@@ -73,7 +73,7 @@
           "category": "pink",
           "groupName": "Media Creation Seminar",
           "icon": "MediaCreationSeminar.png",
-          "description": "Welcome to a world of video created by junior high students! Expressive music videos and two dramas will captivate you. Please visit the AV Room.",
+          "description": "Welcome to a powerful world of film created by junior high students! Be captivated by an expressive music video and two short dramas. Please come and join us in the Audio-Visual Room!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-15"
         },
         {
@@ -86,7 +86,7 @@
           "category": "pink",
           "groupName": "Chorus Club",
           "icon": "ChorusClub.png",
-          "description": "Enjoy beautiful choral singing! We'll perform a wide range of genres, from choral pieces to J-POP. Please come to the AV Room!",
+          "description": "We are excited to share the beauty of choral music with you! From traditional choral pieces to J-POP, we will perform a wide variety of songs. Please come and enjoy our performance in the Audio-Visual Room!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-16"
         },
         {
@@ -138,7 +138,7 @@
           "category": "pink",
           "groupName": "Koto Club",
           "icon": "KotoMusicClub.png",
-          "description": "Enjoy the beautiful sounds of the koto, a traditional Japanese instrument, performed by the Koto Club. Each member will put their heart into the performance.",
+          "description": "Enjoy the beautiful sounds of the koto, a traditional Japanese instrument, performed by the Koto Club. Each member will put their heart into the performance and do their very best!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-17"
         },
         {
@@ -147,11 +147,11 @@
           ],
           "start": "09:10",
           "end": "10:00",
-          "title": "Pop Dance Club 2026 -Epilogue-",
+          "title": "Pop Dance Club 2026 MIF Performance -Epilogue-",
           "category": "pink",
           "groupName": "Pop Dance Club",
           "icon": "PopDanceClub.png",
-          "description": "The culmination of 5 months of work by around 140 members. With the theme “Epilogue,” a special dance performance closing one chapter of the club's story.",
+          "description": "A five-month culmination created by 140 dancers. With “Epilogue” as our theme, we present a special performance that marks the closing of one chapter of our club.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-5"
         },
         {
@@ -160,11 +160,11 @@
           ],
           "start": "10:40",
           "end": "11:30",
-          "title": "「Mata, Tonari de」",
+          "title": "Still, By Your Side",
           "category": "pink",
           "groupName": "Drama Club",
           "icon": "DramaClub.png",
-          "description": "A heartwarming story about young game creators who clash over their project, confront the feelings they have kept inside, and find their way back to the bonds they once shared.",
+          "description": "This is a heartwarming story about young game creators who clash over on their project, confront the feelings they have kept inside, and find their way back to the bonds they once shared.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-6"
         },
         {
@@ -177,7 +177,7 @@
           "category": "pink",
           "groupName": "Rhythmic Gymnastics Club",
           "icon": "RhythmicGymnasticsClub.png",
-          "description": "A performance themed on Studio Ghibli's masterpiece “Princess Mononoke.” The Rhythmic Gymnastics Club brings the world of Mononoke to life with their signature skills and apparatus.",
+          "description": "We will present a rhythmic gymnastics performance inspired by Studio Ghibli’s masterpiece Princess Mononoke. Using skills and apparatus unique only to rhythmic gymnastics, we will bring the world of Princess Mononoke to life.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-7"
         },
         {
@@ -186,11 +186,11 @@
           ],
           "start": "13:50",
           "end": "14:40",
-          "title": "Physical Expression: A Trip Through World History",
+          "title": "Physical expression",
           "category": "pink",
           "groupName": "Grade 9 Class Project",
           "icon": "J3.png",
-          "description": "Through plays, dances, and other forms of performance, each class will express the interesting aspects and changes of different periods in different countries.",
+          "description": "Through plays, dances, and other forms of performance, each class will express the interesting aspects and changes of different periods in different countries, with each class connecting them to its own theme, while the entire grade works together as one.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-3"
         },
         {
@@ -199,11 +199,11 @@
           ],
           "start": "15:20",
           "end": "16:00",
-          "title": "Harmony in the Sky",
+          "title": "Harmony in the Sky ~2026 Wind Orchestra Concert~",
           "category": "pink",
           "groupName": "Wind Orchestra Club",
           "icon": "WindOrchestraClub.png",
-          "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—join us on an unforgettable journey!",
+          "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—come join us on an unforgettable journey!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-4"
         },
         {
@@ -212,11 +212,11 @@
           ],
           "start": "12:00",
           "end": "13:00",
-          "title": "Volleyball Club Experience",
+          "title": "Volleyball",
           "category": "purple",
           "groupName": "Volleyball Club",
           "icon": "VolleyballClub.png",
-          "description": "Try playing volleyball with our volleyball club members using soft volleyballs! No prior experience necessary!",
+          "description": "You can experience playing volleyball with our volleyball club members using soft volleyballs! No prior experience is necessary! Come join us and have fun passing the ball and keeping it in the air!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-9"
         },
         {
@@ -225,11 +225,11 @@
           ],
           "start": "15:00",
           "end": "16:00",
-          "title": "Takuripusu",
+          "title": "Takuripusu (Table Tennis Challenge)",
           "category": "purple",
           "groupName": "Table Tennis Club",
           "icon": "TableTennisClub.png",
-          "description": "Join our interactive event! After learning table tennis basics, test your skills against club members using fun items like serving trays as rackets.",
+          "description": "Join our interactive event! After learning table tennis basics, test your skills against the club members using fun items like serving trays as rackets!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-8"
         },
         {
@@ -243,7 +243,7 @@
           "groupName": "Track and Field Club",
           "room": "Ground",
           "icon": "TrackAndFieldClub.png",
-          "description": "Try five track and field events—the 50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!",
+          "description": "Experience five track and field events—50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-2"
         },
         {
@@ -252,12 +252,12 @@
           ],
           "start": "11:30",
           "end": "12:30",
-          "title": "Tennis Club Experience",
+          "title": "MITA Tennis Club Experience",
           "category": "purple",
           "groupName": "Junior High Tennis Club",
           "room": "Tennis Court",
           "icon": "JuniorHighTennisClub.png",
-          "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis.",
+          "description": "You can see how the members of MITA Tennis Club practices, encourages, and cooperates with each other. You can also try playing tennis.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-1"
         }
       ]
@@ -308,7 +308,7 @@
           "category": "pink",
           "groupName": "Chorus Club",
           "icon": "ChorusClub.png",
-          "description": "Enjoy beautiful choral singing! We'll perform a wide range of genres, from choral pieces to J-POP. Please come to the AV Room!",
+          "description": "We are excited to share the beauty of choral music with you! From traditional choral pieces to J-POP, we will perform a wide variety of songs. Please come and enjoy our performance in the Audio-Visual Room!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-16"
         },
         {
@@ -330,11 +330,11 @@
           ],
           "start": "10:40",
           "end": "11:20",
-          "title": "MST Student Research Presentations",
+          "title": "MST Representative Presentations",
           "category": "cyan",
           "groupName": "MST",
           "icon": "MST.png",
-          "description": "MST representatives (one team each from S1 and S2) present their research results.",
+          "description": "Selected MST students present their research findings.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-13"
         },
         {
@@ -356,11 +356,11 @@
           ],
           "start": "12:20",
           "end": "13:20",
-          "title": "English Recitation and Speech",
+          "title": "Recitation and Speech in English",
           "category": "cyan",
           "groupName": "English Recitation and Speech",
           "icon": "EnglishRecitationSpeech.png",
-          "description": "This event features presentations by students in J1 through S2 who achieved outstanding results in the English Speech and Recitation Contest, as well as presentations by students returning from long-term study abroad!",
+          "description": "This event features presentations by students in J1 through S2 who achieved outstanding results in the English Speech and Recitation Contest at school, as well as presentations by students returning from long-term study abroad!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-14"
         },
         {
@@ -395,11 +395,11 @@
           ],
           "start": "09:10",
           "end": "09:50",
-          "title": "Harmony in the Sky",
+          "title": "Harmony in the Sky ~2026 Wind Orchestra Concert~",
           "category": "pink",
           "groupName": "Wind Orchestra Club",
           "icon": "WindOrchestraClub.png",
-          "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—join us on an unforgettable journey!",
+          "description": "Experience the breathtaking sound of a wind orchestra made up of over 120 students! Let the music take you beyond the skies—come join us on an unforgettable journey!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-4"
         },
         {
@@ -408,11 +408,11 @@
           ],
           "start": "10:40",
           "end": "11:30",
-          "title": "Physical Expression: A Trip Through World History",
+          "title": "Physical expression",
           "category": "pink",
           "groupName": "Grade 9 Class Project",
           "icon": "J3.png",
-          "description": "Through plays, dances, and other forms of performance, each class will express the interesting aspects and changes of different periods in different countries.",
+          "description": "Through plays, dances, and other forms of performance, each class will express the interesting aspects and changes of different periods in different countries, with each class connecting them to its own theme, while the entire grade works together as one.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-3"
         },
         {
@@ -425,7 +425,7 @@
           "category": "pink",
           "groupName": "Rhythmic Gymnastics Club",
           "icon": "RhythmicGymnasticsClub.png",
-          "description": "A performance themed on Studio Ghibli's masterpiece “Princess Mononoke.” The Rhythmic Gymnastics Club brings the world of Mononoke to life with their signature skills and apparatus.",
+          "description": "We will present a rhythmic gymnastics performance inspired by Studio Ghibli’s masterpiece Princess Mononoke. Using skills and apparatus unique only to rhythmic gymnastics, we will bring the world of Princess Mononoke to life.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-7"
         },
         {
@@ -434,11 +434,11 @@
           ],
           "start": "14:00",
           "end": "15:00",
-          "title": "Pop Dance Club 2026 -Epilogue-",
+          "title": "Pop Dance Club 2026 MIF Performance -Epilogue-",
           "category": "pink",
           "groupName": "Pop Dance Club",
           "icon": "PopDanceClub.png",
-          "description": "The culmination of 5 months of work by around 140 members. With the theme “Epilogue,” a special dance performance closing one chapter of the club's story.",
+          "description": "A five-month culmination created by 140 dancers. With “Epilogue” as our theme, we present a special performance that marks the closing of one chapter of our club.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-5"
         },
         {
@@ -447,11 +447,11 @@
           ],
           "start": "09:10",
           "end": "10:10",
-          "title": "Volleyball Club Experience",
+          "title": "Volleyball",
           "category": "purple",
           "groupName": "Volleyball Club",
           "icon": "VolleyballClub.png",
-          "description": "Try playing volleyball with our volleyball club members using soft volleyballs! No prior experience necessary!",
+          "description": "You can experience playing volleyball with our volleyball club members using soft volleyballs! No prior experience is necessary! Come join us and have fun passing the ball and keeping it in the air!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-9"
         },
         {
@@ -460,11 +460,11 @@
           ],
           "start": "12:10",
           "end": "13:10",
-          "title": "Takuripusu",
+          "title": "Takuripusu (Table Tennis Challenge)",
           "category": "purple",
           "groupName": "Table Tennis Club",
           "icon": "TableTennisClub.png",
-          "description": "Join our interactive event! After learning table tennis basics, test your skills against club members using fun items like serving trays as rackets.",
+          "description": "Join our interactive event! After learning table tennis basics, test your skills against the club members using fun items like serving trays as rackets!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-8"
         },
         {
@@ -478,7 +478,7 @@
           "groupName": "Track and Field Club",
           "room": "Ground",
           "icon": "TrackAndFieldClub.png",
-          "description": "Try five track and field events—the 50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!",
+          "description": "Experience five track and field events—50m sprint, long jump, high jump, javelic ball, and hurdles—with your performance measured, and have fun!",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-2"
         },
         {
@@ -487,12 +487,12 @@
           ],
           "start": "13:00",
           "end": "14:00",
-          "title": "Tennis Club Experience",
+          "title": "MITA Tennis Club Experience",
           "category": "purple",
           "groupName": "Junior High Tennis Club",
           "room": "Tennis Court",
           "icon": "JuniorHighTennisClub.png",
-          "description": "You can see how the members of MITA Tennis Club practice, encourage, and cooperate with each other. You can also try playing tennis.",
+          "description": "You can see how the members of MITA Tennis Club practices, encourages, and cooperates with each other. You can also try playing tennis.",
           "pageUrl": "https://mif-2026.studio.site/en/detail/1-1"
         },
         {

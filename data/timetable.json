@@ -60,7 +60,7 @@
           "category": "cyan",
           "groupName": "学校広報部",
           "icon": "MiniJuniorHighInfo.png",
-          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。",
+          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。1日2回開催です。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-11"
         },
         {
@@ -73,7 +73,7 @@
           "category": "pink",
           "groupName": "メディア・クリエイション・ゼミ",
           "icon": "MediaCreationSeminar.png",
-          "description": "中学生が手掛けた渾身の映像世界へようこそ！表現力あふれるMVと2本のドラマがあなたを魅了します。",
+          "description": "中学生が手掛けた渾身の映像世界へようこそ！表現力あふれるMVと2本のドラマがあなたを魅了します。ぜひ視聴覚室へお越しください！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-15"
         },
         {
@@ -86,7 +86,7 @@
           "category": "pink",
           "groupName": "コーラス部",
           "icon": "ChorusClub.png",
-          "description": "美しいコーラスをお届けします！合唱曲からJ-POPまで、幅広いジャンルの演奏を皆さんに発表します。",
+          "description": "美しいコーラスをお届けします！合唱曲からJ-POPまで、幅広いジャンルの演奏を皆さんに発表します。 ぜひ視聴覚室に足をお運びください！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-16"
         },
         {
@@ -112,7 +112,7 @@
           "category": "cyan",
           "groupName": "学校広報部",
           "icon": "MiniJuniorHighInfo.png",
-          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。",
+          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。1日2回開催です。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-11"
         },
         {
@@ -138,7 +138,7 @@
           "category": "pink",
           "groupName": "箏曲部",
           "icon": "KotoMusicClub.png",
-          "description": "箏曲部による日本の和楽器「箏」の美しい音色をお楽しみください。部員一人ひとりが心を込めて演奏いたします。",
+          "description": "箏曲部による日本の和楽器「箏」の美しい音色をお楽しみください。部員一人ひとりが心を込めて一生懸命演奏いたします。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-17"
         },
         {
@@ -147,11 +147,11 @@
           ],
           "start": "09:10",
           "end": "10:00",
-          "title": "ポップダンス部 2026 -Epilogue-",
+          "title": "ポップダンス部 2026公演 -Epilogue-",
           "category": "pink",
           "groupName": "ポップダンス部",
           "icon": "PopDanceClub.png",
-          "description": "約140名で創り上げる5ヶ月間の集大成。Epilogueをテーマに、部活動の一つの物語を締めくくる特別なダンス公演。",
+          "description": "約140名で創り上げる5ヶ月間の集大成。Epilogueをテーマに、今の部活動の一つの物語を締めくくる特別なダンス公演を届けます。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-5"
         },
         {
@@ -164,7 +164,7 @@
           "category": "pink",
           "groupName": "演劇部",
           "icon": "DramaClub.png",
-          "description": "ゲーム制作チームの仲間たちが完成間近の作品をめぐって衝突しながら、それぞれの想いと向き合い絆を取り戻す青春劇。",
+          "description": "ゲーム制作チームの仲間たちが完成間近の作品をめぐって衝突しながらそれぞれの想いと向き合い絆を取り戻す青春劇です！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-6"
         },
         {
@@ -177,7 +177,7 @@
           "category": "pink",
           "groupName": "新体操部",
           "icon": "RhythmicGymnasticsClub.png",
-          "description": "ジブリの名作「もののけ姫」をテーマとした演技発表会。新体操部ならではの技や手具で、もののけ姫の世界を彩ります。",
+          "description": "ジブリの名作「もののけ姫」をテーマとした演技発表会を行います。新体操部ならではの技や手具で、もののけ姫の世界を精一杯、彩ります。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-7"
         },
         {
@@ -190,7 +190,7 @@
           "category": "pink",
           "groupName": "中3学年企画",
           "icon": "J3.png",
-          "description": "テーマは時代。演劇やダンスを用い、各クラス毎で様々な国の時代を表現し、学年全体で世界の時代の移り変わりをパフォーマンス。",
+          "description": "テーマは時代。演劇やダンスを用い、各クラス毎で様々な国の時代を表現し、学年全体で世界の時代の移り変わりをパフォーマンスします。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-3"
         },
         {
@@ -199,11 +199,11 @@
           ],
           "start": "15:20",
           "end": "16:00",
-          "title": "Harmony in the Sky",
+          "title": "Harmony in the Sky ~2026 Wind Orchestra Concert~",
           "category": "pink",
           "groupName": "吹奏楽部",
           "icon": "WindOrchestraClub.png",
-          "description": "総勢120名以上が奏でる、迫力満点の音楽をお楽しみください！音楽と共に広がる空の彼方へ、皆さんも一緒に旅立ちましょう。",
+          "description": "総勢120名以上が奏でる、迫力満点の音楽をお楽しみください！音楽と共に広がる空の彼方へ、皆さんも一緒に旅立ちましょう！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-4"
         },
         {
@@ -216,7 +216,7 @@
           "category": "purple",
           "groupName": "バレーボール部",
           "icon": "VolleyballClub.png",
-          "description": "バレー部員と一緒に柔らかいボールでバレーボールできる体験です！バレー経験がなくても大丈夫！",
+          "description": "バレー部員と一緒に柔らかいボールでバレーボールできる体験です！バレー経験がなくても大丈夫！みんなでボールを繋ぐ楽しさを体験しよう！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-9"
         },
         {
@@ -229,7 +229,7 @@
           "category": "purple",
           "groupName": "卓球部",
           "icon": "TableTennisClub.png",
-          "description": "卓球の基本を教わった後、おぼんなどのおもしろグッズをラケット代わりにして、卓球部員との試合に挑戦する体験型企画。",
+          "description": "卓球の基本を教わった後、おぼんなどのおもしろグッズをラケット代わりにして、卓球部員との試合に挑戦する体験型企画です！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-8"
         },
         {
@@ -252,12 +252,12 @@
           ],
           "start": "11:30",
           "end": "12:30",
-          "title": "テニス部体験",
+          "title": "三田国際テニス部体験",
           "category": "purple",
           "groupName": "中学テニス部",
           "room": "テニスコート",
           "icon": "JuniorHighTennisClub.png",
-          "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！普段どのように練習しているかもわかります。",
+          "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！また、普段どのように練習し、仲間と協力して励まし合って活動しているかがわかります。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-1"
         }
       ]
@@ -308,7 +308,7 @@
           "category": "pink",
           "groupName": "コーラス部",
           "icon": "ChorusClub.png",
-          "description": "美しいコーラスをお届けします！合唱曲からJ-POPまで、幅広いジャンルの演奏を皆さんに発表します。",
+          "description": "美しいコーラスをお届けします！合唱曲からJ-POPまで、幅広いジャンルの演奏を皆さんに発表します。 ぜひ視聴覚室に足をお運びください！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-16"
         },
         {
@@ -321,7 +321,7 @@
           "category": "cyan",
           "groupName": "学校広報部",
           "icon": "MiniJuniorHighInfo.png",
-          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。",
+          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。1日2回開催です。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-11"
         },
         {
@@ -334,7 +334,7 @@
           "category": "cyan",
           "groupName": "MST",
           "icon": "MST.png",
-          "description": "MSTの代表者（S1, S2それぞれ1組ずつ）が研究成果を発表します。",
+          "description": "MSTの代表者（S1,S2それぞれ1組ずつ）が研究成果を発表します",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-13"
         },
         {
@@ -360,7 +360,7 @@
           "category": "cyan",
           "groupName": "英語レシテーション・スピーチ",
           "icon": "EnglishRecitationSpeech.png",
-          "description": "学内の英語レシテーション・スピーチコンテストで優秀な成績を修めた中1〜高2の発表と、長期留学帰国生によるプレゼン。",
+          "description": "学内で行われた英語レシテーション・スピーチコンテストで優秀な成績を修めた中1～高2の生徒たちの発表と、長期留学帰国生によるプレゼンです！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-14"
         },
         {
@@ -373,7 +373,7 @@
           "category": "cyan",
           "groupName": "学校広報部",
           "icon": "MiniJuniorHighInfo.png",
-          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。",
+          "description": "「発想の自由人」の育成を目指す三田国際科学学園の教育の特色や学校生活を、約30分でご紹介します。1日2回開催です。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-11"
         },
         {
@@ -395,11 +395,11 @@
           ],
           "start": "09:10",
           "end": "09:50",
-          "title": "Harmony in the Sky",
+          "title": "Harmony in the Sky ~2026 Wind Orchestra Concert~",
           "category": "pink",
           "groupName": "吹奏楽部",
           "icon": "WindOrchestraClub.png",
-          "description": "総勢120名以上が奏でる、迫力満点の音楽をお楽しみください！音楽と共に広がる空の彼方へ、皆さんも一緒に旅立ちましょう。",
+          "description": "総勢120名以上が奏でる、迫力満点の音楽をお楽しみください！音楽と共に広がる空の彼方へ、皆さんも一緒に旅立ちましょう！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-4"
         },
         {
@@ -412,7 +412,7 @@
           "category": "pink",
           "groupName": "中3学年企画",
           "icon": "J3.png",
-          "description": "テーマは時代。演劇やダンスを用い、各クラス毎で様々な国の時代を表現し、学年全体で世界の時代の移り変わりをパフォーマンス。",
+          "description": "テーマは時代。演劇やダンスを用い、各クラス毎で様々な国の時代を表現し、学年全体で世界の時代の移り変わりをパフォーマンスします。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-3"
         },
         {
@@ -425,7 +425,7 @@
           "category": "pink",
           "groupName": "新体操部",
           "icon": "RhythmicGymnasticsClub.png",
-          "description": "ジブリの名作「もののけ姫」をテーマとした演技発表会。新体操部ならではの技や手具で、もののけ姫の世界を彩ります。",
+          "description": "ジブリの名作「もののけ姫」をテーマとした演技発表会を行います。新体操部ならではの技や手具で、もののけ姫の世界を精一杯、彩ります。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-7"
         },
         {
@@ -434,11 +434,11 @@
           ],
           "start": "14:00",
           "end": "15:00",
-          "title": "ポップダンス部 2026 -Epilogue-",
+          "title": "ポップダンス部 2026公演 -Epilogue-",
           "category": "pink",
           "groupName": "ポップダンス部",
           "icon": "PopDanceClub.png",
-          "description": "約140名で創り上げる5ヶ月間の集大成。Epilogueをテーマに、部活動の一つの物語を締めくくる特別なダンス公演。",
+          "description": "約140名で創り上げる5ヶ月間の集大成。Epilogueをテーマに、今の部活動の一つの物語を締めくくる特別なダンス公演を届けます。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-5"
         },
         {
@@ -451,7 +451,7 @@
           "category": "purple",
           "groupName": "バレーボール部",
           "icon": "VolleyballClub.png",
-          "description": "バレー部員と一緒に柔らかいボールでバレーボールできる体験です！バレー経験がなくても大丈夫！",
+          "description": "バレー部員と一緒に柔らかいボールでバレーボールできる体験です！バレー経験がなくても大丈夫！みんなでボールを繋ぐ楽しさを体験しよう！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-9"
         },
         {
@@ -464,7 +464,7 @@
           "category": "purple",
           "groupName": "卓球部",
           "icon": "TableTennisClub.png",
-          "description": "卓球の基本を教わった後、おぼんなどのおもしろグッズをラケット代わりにして、卓球部員との試合に挑戦する体験型企画。",
+          "description": "卓球の基本を教わった後、おぼんなどのおもしろグッズをラケット代わりにして、卓球部員との試合に挑戦する体験型企画です！",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-8"
         },
         {
@@ -487,12 +487,12 @@
           ],
           "start": "13:00",
           "end": "14:00",
-          "title": "テニス部体験",
+          "title": "三田国際テニス部体験",
           "category": "purple",
           "groupName": "中学テニス部",
           "room": "テニスコート",
           "icon": "JuniorHighTennisClub.png",
-          "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！普段どのように練習しているかもわかります。",
+          "description": "三田のテニス部員の指導の下、実際にテニスを体験することができます！また、普段どのように練習し、仲間と協力して励まし合って活動しているかがわかります。",
           "pageUrl": "https://mif-2026.studio.site/jp/detail/1-1"
         },
         {
