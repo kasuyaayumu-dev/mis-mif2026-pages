@@ -299,20 +299,11 @@ const I18N = window.TT_I18N || {};
         const link = document.createElement('a');
         link.className = 'popup-link';
         link.href = event.pageUrl;
+        // 埋め込み(iframe)の外側のページを直接遷移させる。JSで遷移させて失敗すると、埋め込みの中で
+        // 詳細ページが開いてしまい、STUDIO側の「戻る」が埋め込み内の履歴を戻ってしまうため。
+        link.target = '_top';
+        link.rel = 'noopener';
         link.textContent = I18N.learnMoreLabel;
-        link.addEventListener('click', e => {
-          e.preventDefault();
-          const url = event.pageUrl;
-          try {
-            if (window.top && window.top !== window) {
-              window.top.location.href = url;
-            } else {
-              window.location.href = url;
-            }
-          } catch {
-            window.location.href = url;
-          }
-        });
         card.appendChild(link);
       }
 
