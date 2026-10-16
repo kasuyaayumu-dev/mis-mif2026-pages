@@ -388,7 +388,7 @@ const pinLoads = floorOrder.map(function (floor) {
       return fetch(floorConfig[floor].json)
         .then(function (res) { return res.json(); })
         .then(function (data) {
-          if (translate && Array.isArray(data)) data.forEach(translate);
+          if (translate && Array.isArray(data)) data.forEach(function (pin) { translate(pin); });
           loadMarkerData(floor, data);
         });
     })
