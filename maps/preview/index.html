@@ -1,34 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>文化祭マップ(開発中プレビュー)</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://unpkg.com" crossorigin>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H"
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<title>文化祭マップ</title>
+<meta http-equiv="refresh" content="0; url=../">
+<script>
+  // 確認用リンク(maps/preview/)は公開版(maps/)に統合したため、そちらへ移動する(?floor= などは引き継ぐ)
+  location.replace('../' + location.search + location.hash);
+</script>
 </head>
 <body>
-  <div id="map"></div>
-
-  <script>
-    window.MAPS_CONFIG = { imageBase: '../../image/map/', dataBase: '../../data/' };
-    window.MAPS_I18N = {
-      menuButton: '一覧',
-      menuModeFloor: '階層順',
-      menuModeGuide: 'パンフレット順',
-      menuTitle: '企画一覧',
-      menuClose: '閉じる',
-      resetTitle: '初期表示に戻す',
-      popupLinkLabel: '詳しく見る'
-    };
-  </script>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"
-    crossorigin="anonymous"></script>
-  <script src="app.js"></script>
+  <p><a href="../">文化祭マップへ</a></p>
 </body>
 </html>
