@@ -2,20 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MIF Venue Map</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H"
+    crossorigin="anonymous" />
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-  <div class="wrap">
-    <div class="card">
-      <span class="badge"><span class="dot"></span>MAP PREPARING</span>
-      <h1 class="title"><span>COMING</span><span>SOON</span></h1>
-      <div class="divider"></div>
-      <p class="desc">The venue map is currently being prepared.<br>Please check back soon.</p>
-      <p class="footnote">MIS MIF 2026</p>
-    </div>
-  </div>
+  <div id="map"></div>
 
+  <script>
+    window.MAPS_CONFIG = { imageBase: '../../image/map/', dataBase: '../../data/' };
+    window.MAPS_I18N = {
+      menuButton: 'List',
+      menuModeFloor: 'By floor',
+      menuModeGuide: 'Pamphlet',
+      guideLabels: { ground: 'Ground', hall: 'Hall Building', f1: '1F', f3: '3F', f2: '2F', court: 'Courtyard', zto: 'ZERO to ONE' },
+      menuTitle: 'Project list',
+      menuClose: 'Close',
+      floorLabels: { '1階': '1F', '2階': '2F', '3階': '3F' },
+      resetTitle: 'Reset view',
+      popupLinkLabel: 'View details',
+      detailLang: 'en'
+    };
+  </script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"
+    crossorigin="anonymous"></script>
   <script src="../app.js"></script>
 </body>
 </html>
