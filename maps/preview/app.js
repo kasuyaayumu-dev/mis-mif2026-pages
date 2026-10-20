@@ -244,7 +244,7 @@ function buildPopupHTML(data) {
 function badgesFromData(d) {
   // badgesは配列が基本だが、単独のオブジェクトで書かれていても読めるようにする
   if (d.badges && !Array.isArray(d.badges) && typeof d.badges === 'object') d = { ...d, badges: [d.badges] };
-  if (Array.isArray(d.badges)) return d.badges.map(b => ({ n: String(b.n ?? b.num ?? ''), color: b.color || '#6C5CE7' }));
+  if (Array.isArray(d.badges)) return d.badges.map(b => ({ n: String(b.n ?? b.num ?? ''), color: b.color || '#6C5CE7', textColor: b.textColor, borderColor: b.borderColor }));
   const nums   = (Array.isArray(d.badgeNumbers) ? d.badgeNumbers : (Array.isArray(d.number) ? d.number : (d.number != null ? [d.number] : []))).map(String);
   const colors = (Array.isArray(d.badgeColors)  ? d.badgeColors  : (Array.isArray(d.color)  ? d.color  : (d.color  != null ? [d.color]  : [])));
   const len = Math.max(nums.length, colors.length);
@@ -252,6 +252,14 @@ function badgesFromData(d) {
   const out = [];
   for (let i = 0; i < len; i++) out.push({ n: String(nums[i] ?? ''), color: colors[i] || DEF });
   return out.length ? out : [{ n: '', color: DEF }];
+}
+
+// バッジの色指定(背景・文字・縁)。textColor/borderColorは省略可(省略時は白文字・白い縁)
+function badgeStyle(b) {
+  let st = 'background:' + b.color;
+  if (b.textColor) st += ';color:' + b.textColor;
+  if (b.borderColor) st += ';border-color:' + b.borderColor;
+  return st;
 }
 
 // バッジHTMLを作成(横に最大3列。1件は大きめ)
@@ -267,7 +275,7 @@ function makeBadgeHTML(badges) {
   const height = rows * unit + (rows - 1) * gap;
 
   const items = badges.map(b =>
-    `<span class="badge ${sizeClass}" style="background:${b.color}">${b.n}</span>`
+    `<span class="badge ${sizeClass}" style="${badgeStyle(b)}">${b.n}</span>`
   ).join('');
 
   const gridStyle =
@@ -339,7 +347,7 @@ function loadMarkerData(floor, data) {
       const groups = toArray(data[i].groupName);
       toArray(data[i].eventName).forEach(function (name, j) {
         const badge = badges[j] || badges[0];
-        menuEntries.push({ floor: floor, n: badge.n, color: badge.color, name: name, group: groups[j] || '', index: j, marker: marker });
+        menuEntries.push({ floor: floor, n: badge.n, color: badge.color, textColor: badge.textColor, borderColor: badge.borderColor, name: name, group: groups[j] || '', index: j, marker: marker });
       });
     }
     toArray(data[i].iconUrl).forEach(function (u) { if (u) iconUrlsByFloor[floor].push(u); });
@@ -636,7 +644,7 @@ function buildMenu() {
       const btn = L.DomUtil.create('button', 'map-menu-item', section);
       btn.type = 'button';
       const num = L.DomUtil.create('span', 'badge sm', btn);
-      num.style.background = e.color;
+      num.style.cssText = badgeStyle(e);
       num.textContent = e.n;
       const text = L.DomUtil.create('span', 'map-menu-text', btn);
       const nameEl = L.DomUtil.create('span', 'map-menu-name', text);

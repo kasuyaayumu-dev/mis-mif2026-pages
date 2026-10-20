@@ -14,7 +14,9 @@
     "badges": [
       {
         "n": 1,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -42,7 +44,9 @@
     "badges": [
       {
         "n": 2,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -100,23 +104,33 @@
     "badges": [
       {
         "n": 3,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       },
       {
         "n": 4,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       },
       {
         "n": 5,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       },
       {
         "n": 6,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       },
       {
         "n": 7,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -171,11 +185,15 @@
     "badges": [
       {
         "n": 8,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       },
       {
         "n": 9,
-        "color": "#FF530F"
+        "color": "#FFFFFF",
+        "textColor": "#222222",
+        "borderColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -206,7 +224,8 @@
     "badges": [
       {
         "n": 10,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -284,39 +303,48 @@
     "badges": [
       {
         "n": 11,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 12,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 12,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 13,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 14,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 15,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 16,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 17,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 18,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -383,11 +411,13 @@
     "badges": [
       {
         "n": 19,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 20,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -418,7 +448,8 @@
     "badges": [
       {
         "n": 21,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -461,11 +492,13 @@
     "badges": [
       {
         "n": 22,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 23,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -511,11 +544,13 @@
     "badges": [
       {
         "n": 24,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 24,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -561,11 +596,13 @@
     "badges": [
       {
         "n": 24,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 24,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -611,11 +648,13 @@
     "badges": [
       {
         "n": 24,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 25,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -661,11 +700,13 @@
     "badges": [
       {
         "n": 24,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       },
       {
         "n": 24,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -696,7 +737,8 @@
     "badges": [
       {
         "n": 26,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -724,7 +766,8 @@
     "badges": [
       {
         "n": 27,
-        "color": "#FF530F"
+        "color": "#FFE900",
+        "textColor": "#222222"
       }
     ],
     "eventNameEn": [
@@ -752,7 +795,7 @@
     "badges": [
       {
         "n": 28,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -780,7 +823,7 @@
     "badges": [
       {
         "n": 28,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -808,7 +851,7 @@
     "badges": [
       {
         "n": 29,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -836,7 +879,7 @@
     "badges": [
       {
         "n": 30,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -864,7 +907,7 @@
     "badges": [
       {
         "n": 31,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -892,7 +935,7 @@
     "badges": [
       {
         "n": 32,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -920,7 +963,7 @@
     "badges": [
       {
         "n": 33,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -948,7 +991,7 @@
     "badges": [
       {
         "n": 34,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -976,7 +1019,7 @@
     "badges": [
       {
         "n": 35,
-        "color": "#FF530F"
+        "color": "#082858"
       }
     ],
     "eventNameEn": [
@@ -1014,7 +1057,7 @@
     "badges": [
       {
         "n": 40,
-        "color": "#FF530F"
+        "color": "#9A5F60"
       }
     ],
     "eventNameEn": [
