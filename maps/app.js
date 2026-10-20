@@ -35,18 +35,22 @@ const floorOrder = ['3階', '2階', '1階'];
 // viewOrigin: 開始時に地図の左上隅へ置く画像上の点 [左端のx, 上端のy] (画像の左上が原点、下向きがyの正)。
 //   指定した階は、画像全体の中心ではなく、この点を左上に揃えた位置から表示を始める。
 const floorConfig = {
-  '3階': { image: `${imageBase}floor3_5.png`, json: `${dataBase}map-pins-floor3.json`, width: 2127, height: 1384, viewOrigin: [-168, 457] },
-  '2階': { image: `${imageBase}floor2_5.png`, json: `${dataBase}map-pins-floor2.json`, width: 1981, height: 1077, viewOrigin: [-168, 149] },
-  '1階': { image: `${imageBase}floor1_6.png`, json: `${dataBase}map-pins-floor1.json`, width: 2635, height: 1752 }
+  '3階': { image: `${imageBase}floor3_5.png`, back: `${imageBase}floor3_back.png`, json: `${dataBase}map-pins-floor3.json`, width: 2127, height: 1384, viewOrigin: [-168, 457] },
+  '2階': { image: `${imageBase}floor2_5.png`, back: `${imageBase}floor2_back.png`, json: `${dataBase}map-pins-floor2.json`, width: 1981, height: 1077, viewOrigin: [-168, 149] },
+  '1階': { image: `${imageBase}floor1_6.png`, back: `${imageBase}floor1_back.png`, json: `${dataBase}map-pins-floor1.json`, width: 2635, height: 1752 }
 };
 
 const overlayLayers = {};
+const backLayers = {};
 const markerLayers = {};
 let currentFloor = '1階';
 
 floorOrder.forEach(function (floor) {
   const cfg = floorConfig[floor];
-  overlayLayers[floor] = L.imageOverlay(cfg.image, [[0, 0], [cfg.height, cfg.width]]);
+  // 背景が透明なフロア画像の下に、白くぼかした下地(tools/make_map_backing.pyで作成)を敷き、
+  // 濃い色のページ背景の上でも線やアイコンが見やすいようにする。
+  backLayers[floor] = L.imageOverlay(cfg.back, [[0, 0], [cfg.height, cfg.width]], { zIndex: 0, interactive: false });
+  overlayLayers[floor] = L.imageOverlay(cfg.image, [[0, 0], [cfg.height, cfg.width]], { zIndex: 1 });
   markerLayers[floor] = L.layerGroup();
 });
 
@@ -65,8 +69,10 @@ function setFloor(floor) {
   if (!floorConfig[floor]) return;
   floorOrder.forEach(function (f) {
     map.removeLayer(overlayLayers[f]);
+    map.removeLayer(backLayers[f]);
     map.removeLayer(markerLayers[f]);
   });
+  backLayers[floor].addTo(map);
   overlayLayers[floor].addTo(map);
   markerLayers[floor].addTo(map);
   currentFloor = floor;
@@ -471,7 +477,8 @@ function startBackgroundPreload() {
   const conn = navigator.connection;
   if (conn?.saveData) return;
   const floors = floorsNearestFirst();
-  const floorImages = floors.map(function (f) { return floorConfig[f].image; });
+  const floorImages = [];
+  floors.forEach(function (f) { floorImages.push(floorConfig[f].image, floorConfig[f].back); });
   const icons = [];
   floors.forEach(function (f) { (iconUrlsByFloor[f] || []).forEach(function (u) { icons.push(u); }); });
   // 大きいフロア画像を先に1枚ずつ、そのあとでアイコンを3並列で読む
