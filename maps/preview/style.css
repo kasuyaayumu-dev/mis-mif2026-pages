@@ -210,3 +210,27 @@ html, body {
   border-radius: 8px;
   box-shadow: 0 0 0 4px #f2f7ff;
 }
+
+/* 一覧の区分け(階層順/パンフレット順)の切り替え */
+.map-menu-modes {
+  flex-shrink: 0;
+  display: flex;
+  gap: 6px;
+  padding: 8px 14px;
+  border-bottom: 1px solid #e0e0e0;
+}
+.map-menu-mode {
+  appearance: none;
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #cfd6e0;
+  border-radius: 999px;
+  background: #fff;
+  color: #444;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.map-menu-mode:hover { background: #f2f7ff; }
+.map-menu-mode[aria-pressed="true"] { background: #1a73e8; border-color: #1a73e8; color: #fff; }

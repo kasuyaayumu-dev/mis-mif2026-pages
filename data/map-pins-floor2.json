@@ -549,7 +549,7 @@
     "popupDirection": "bottom",
     "badges": [
       {
-        "n": 40,
+        "n": "Z1",
         "color": "#9A5F60"
       }
     ],

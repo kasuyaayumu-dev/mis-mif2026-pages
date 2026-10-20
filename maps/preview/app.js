@@ -557,6 +557,30 @@ const menuCloseBtn = L.DomUtil.create('button', 'map-menu-close', menuHeader);
 menuCloseBtn.type = 'button';
 menuCloseBtn.setAttribute('aria-label', I18N.menuClose || 'Close');
 menuCloseBtn.textContent = '×';
+// 一覧の区分けを切り替える: 'floor' = 階層順(1F→2F→3F) / 'guide' = パンフレットと同じ区分と並び
+let menuMode = 'floor';
+try { if (localStorage.getItem('mifMapMenuMode') === 'guide') menuMode = 'guide'; } catch (e) { /* 保存できなくても動作に影響なし */ }
+const menuModes = L.DomUtil.create('div', 'map-menu-modes', menuPanel);
+const modeButtons = {};
+[['floor', I18N.menuModeFloor || 'By floor'], ['guide', I18N.menuModeGuide || 'Pamphlet']].forEach(function (m) {
+  const btn = L.DomUtil.create('button', 'map-menu-mode', menuModes);
+  btn.type = 'button';
+  btn.textContent = m[1];
+  modeButtons[m[0]] = btn;
+  L.DomEvent.on(btn, 'click', function () { setMenuMode(m[0]); });
+});
+function updateModeButtons() {
+  Object.keys(modeButtons).forEach(function (k) { modeButtons[k].setAttribute('aria-pressed', k === menuMode ? 'true' : 'false'); });
+}
+function setMenuMode(mode) {
+  menuMode = mode;
+  try { localStorage.setItem('mifMapMenuMode', mode); } catch (e) { /* 保存できなくても動作に影響なし */ }
+  updateModeButtons();
+  buildMenu();
+  updateMenuCurrentFloor();
+  scrollMenuToCurrentFloor(false);
+}
+updateModeButtons();
 const menuBody = L.DomUtil.create('div', 'map-menu-body', menuPanel);
 
 function isMenuOpen() { return menuPanel.classList.contains('open'); }
@@ -616,30 +640,74 @@ function scrollPopupToEntry(entry) {
   content.scrollTop += item.getBoundingClientRect().top - content.getBoundingClientRect().top;
 }
 
+// パンフレットの区分。番号の範囲で決まり、並びもパンフレットの配置(左列→右列)に合わせる。
+const GUIDE_GROUPS = [
+  { key: 'ground', label: 'グラウンド', floor: '1階' },
+  { key: 'hall', label: 'ホール棟', floor: '1階' },
+  { key: 'f1', label: '1F', floor: '1階' },
+  { key: 'f3', label: '3F', floor: '3階' },
+  { key: 'f2', label: '2F', floor: '2階' },
+  { key: 'court', label: '中庭', floor: '1階' },
+  { key: 'zto', label: 'ZERO to ONE', floor: '1階' }
+];
+
+function guideKeyOf(e) {
+  const n = Number(e.n);
+  if (Number.isNaN(n)) return 'zto'; // Z1, Z2
+  if (e.floor === '2階') return 'f2';
+  if (e.floor === '3階') return 'f3';
+  if (n <= 2) return 'ground';
+  if (n <= 9) return 'hall';
+  if (n <= 27) return 'f1';
+  return 'court';
+}
+
+// 数字の番号を先に、Z1・Z2のような番号は後ろに並べる
+function numSortKey(n) {
+  const v = Number(n);
+  return Number.isNaN(v) ? 1000 + (Number(String(n).replace(/\D/g, '')) || 0) : v;
+}
+
+function menuSections() {
+  if (menuMode === 'guide') {
+    return GUIDE_GROUPS.map(function (g) {
+      return {
+        label: (I18N.guideLabels && I18N.guideLabels[g.key]) || g.label,
+        floor: g.floor,
+        test: function (e) { return guideKeyOf(e) === g.key; }
+      };
+    });
+  }
+  return ['1階', '2階', '3階'].map(function (floor) {
+    return { label: I18N.floorLabels ? I18N.floorLabels[floor] : floor, floor: floor, test: function (e) { return e.floor === floor; } };
+  });
+}
+
 function buildMenu() {
   menuBody.textContent = '';
-  ['1階', '2階', '3階'].forEach(function (floor) {
-    // 複数の教室に同じ企画のピンがある場合(例: 6教室ぶんの同一プレゼン)は1件にまとめ、最初のピンを開く。
+  menuSections().forEach(function (sec) {
+    // 複数の教室に同じ企画のピンがある場合(例: 6教室ぶんの同一プレゼン)や、複数の階にまたがる企画
+    // (例: 1階と2階のZ1)は1件にまとめ、最初のピンを開く。
     const seen = new Set();
     const entries = menuEntries
       .filter(function (e) {
-        if (e.floor !== floor) return false;
+        if (!sec.test(e)) return false;
         const key = [e.n, e.name, e.group].join('|');
         if (seen.has(key)) return false;
         seen.add(key);
         return true;
       })
-      .sort(function (a, b) { return (Number(a.n) || 0) - (Number(b.n) || 0); });
+      .sort(function (a, b) { return numSortKey(a.n) - numSortKey(b.n); });
     if (!entries.length) return;
     const section = L.DomUtil.create('section', 'map-menu-section', menuBody);
-    section.dataset.floor = floor;
+    section.dataset.floor = sec.floor;
     const h = L.DomUtil.create('h2', '', section);
-    // 階の見出しを押すと、その階の地図に切り替わる(階の切替ボタンと同じ動き)
+    // 見出しを押すと、その区分の階の地図に切り替わる(階の切替ボタンと同じ動き)
     const headBtn = L.DomUtil.create('button', 'map-menu-floor', h);
     headBtn.type = 'button';
-    headBtn.textContent = I18N.floorLabels ? I18N.floorLabels[floor] : floor;
-    if (floor === currentFloor) headBtn.classList.add('current');
-    L.DomEvent.on(headBtn, 'click', function () { switchFloor(floor); });
+    headBtn.textContent = sec.label;
+    if (sec.floor === currentFloor) headBtn.classList.add('current');
+    L.DomEvent.on(headBtn, 'click', function () { switchFloor(sec.floor); });
     entries.forEach(function (e) {
       const btn = L.DomUtil.create('button', 'map-menu-item', section);
       btn.type = 'button';
