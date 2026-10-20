@@ -11,10 +11,12 @@
     "description": "ある日、突然地震が起きた――。あなたは避難所で何を思い、どう行動する？ 3日間の避難生活を体験しよう！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-1",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 1,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 1,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "3 Days in a Shelter: Escape! Learning Disaster Preparedness Through Food"
     ],
@@ -37,10 +39,12 @@
     "description": "カカオの実を収穫し、ガーナの楽器を作ろう！遊びや工作を楽しみながら、チョコレートの秘密や世界のことを学べる体験型企画です。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-2",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 2,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 2,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Choco Craft"
     ],
@@ -63,10 +67,12 @@
     "description": "あなたは日本一の漁師。魚を求め海へ出たその時、突然の嵐で船が沈没！海底に散らばるアイテムを集め、仲間と協力して生還を目指せ！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-3",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 3,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 3,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "SEA BEAST 〜 Escape from the Depths〜"
     ],
@@ -89,10 +95,12 @@
     "description": "参加者はブラック企業に閉じ込められた社員となり、数々のミッションや試練を乗り越えながら退職を目指す。教室全体を使った謎解きやミニゲームを通して、仲間と協力しながら脱出に挑戦する体験型企画である。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-4",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 4,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 4,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Escape the workplace"
     ],
@@ -115,10 +123,12 @@
     "description": "海底の旅へようこそ！潜水艦に乗り込み、海底の的を狙ったり、謎を解いたりしながら大冒険！あなたの腕とひらめきで、最高得点を目指そう！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-5",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 5,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 5,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Underwater Adventure"
     ],
@@ -141,10 +151,12 @@
     "description": "結婚式を挙げられず、呪われた洋館を彷徨う花嫁の亡霊。館に散らばった品々を全てを見つけ出せるのか。恐怖の先に待つ、結婚式とは――。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-6",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 6,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 6,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Ghost Bride"
     ],
@@ -167,10 +179,12 @@
     "description": "月食の夜に起きた殺人事件。その犯人は32人の中に潜んでいる。あなたは鑑識官になりきり、真相を暴くことができるのか？",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-7",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 7,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 7,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Eclipse File"
     ],
@@ -193,10 +207,12 @@
     "description": "本校の制服を試着して記念撮影ができる特別企画！生徒会メンバーとの交流の場もあり、一足先に三田国際生を体験できます。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-8",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 8,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 8,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "School Uniform Fitting Experience"
     ],
@@ -219,10 +235,12 @@
     "description": "停電した学校を床発電で復旧せよ！発電した電力でLEDを灯し、クイズに挑戦しながら再生可能エネルギーを楽しく学ぶ体験型ミッション。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-9",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 9,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 9,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "MISSION: POWER RESTORE"
     ],
@@ -245,10 +263,12 @@
     "description": "ライバル企業に奪われた新型宇宙船の設計図を取り戻すためいくつかのミッションを達成する、臨場感あふれる体験型アトラクションです！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-10",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 10,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 10,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "S1D Special Mission: Space Station Infiltration & Recovery Operation"
     ],
@@ -321,10 +341,12 @@
     "description": "有名クイズ番組のパロディをはじめ、多彩なクイズに挑戦！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-13",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 13,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 13,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Are you smarter than S2E?"
     ],
@@ -347,10 +369,12 @@
     "description": "「昆布観測島」では、部員たちがMIFのために制作した作品を展示・体験することができます。電子のゆりかごの世界をお楽しみください！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-14",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 14,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 14,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Kombu Observation Island — The Cradle of Electrons —"
     ],
@@ -373,10 +397,12 @@
     "description": "今年の実験テーマは暗闇で光る宇宙スライム！サイエンス部がお届けする三田国際科学学園らしい自由な実験を体験してみませんか？",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-15",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 15,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 15,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Science Club 2026 —The Glowing Galaxy Slime—"
     ],
@@ -399,10 +425,12 @@
     "description": "今年のMIFテーマに関連して、天体の名前が付けられている寝台列車をテーマにポスター展示、部品展示、Nゲージ運転体験を行います。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-16",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 16,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 16,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Polaris"
     ],
@@ -425,10 +453,12 @@
     "description": "医療ミスが隠蔽された廃病院。真相を追い、封鎖病棟に足を踏み入れたあなたを、過去の恐怖と被害者の霊が待ち受ける____。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-17",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 17,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 17,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Karute wo karute"
     ],
@@ -451,10 +481,12 @@
     "description": "案内人と事故物件の調査に挑む体験型お化け屋敷。手元にある間取り図の違和感に気づいた時、逃げ場のない恐怖が襲いかかる。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-18",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 18,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 18,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "Next Victims Wanted"
     ],
@@ -477,10 +509,12 @@
     "description": "この企画では身近な植物や生き物をより知ってもらうため、校内で見られる自然の調査結果や生き物に関わる標本の展示、クイズなどを行います",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/2-19",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 19,
-      "color": "#2F6FED"
-    },
+    "badges": [
+      {
+        "n": 19,
+        "color": "#2F6FED"
+      }
+    ],
     "eventNameEn": [
       "MITA Natural History Museum"
     ],

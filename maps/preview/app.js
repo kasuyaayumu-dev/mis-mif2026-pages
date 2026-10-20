@@ -242,6 +242,8 @@ function buildPopupHTML(data) {
 
 // JSONから「表示用バッジ配列」を作る(どの記法でもOKにする)
 function badgesFromData(d) {
+  // badgesは配列が基本だが、単独のオブジェクトで書かれていても読めるようにする
+  if (d.badges && !Array.isArray(d.badges) && typeof d.badges === 'object') d = { ...d, badges: [d.badges] };
   if (Array.isArray(d.badges)) return d.badges.map(b => ({ n: String(b.n ?? b.num ?? ''), color: b.color || '#6C5CE7' }));
   const nums   = (Array.isArray(d.badgeNumbers) ? d.badgeNumbers : (Array.isArray(d.number) ? d.number : (d.number != null ? [d.number] : []))).map(String);
   const colors = (Array.isArray(d.badgeColors)  ? d.badgeColors  : (Array.isArray(d.color)  ? d.color  : (d.color  != null ? [d.color]  : [])));

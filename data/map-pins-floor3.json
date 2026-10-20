@@ -11,10 +11,12 @@
     "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-1",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 1,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 1,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Personal Presentation"
     ],
@@ -37,10 +39,12 @@
     "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-1",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 1,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 1,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Personal Presentation"
     ],
@@ -63,10 +67,12 @@
     "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-1",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 1,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 1,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Personal Presentation"
     ],
@@ -89,10 +95,12 @@
     "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-1",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 1,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 1,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Personal Presentation"
     ],
@@ -115,10 +123,12 @@
     "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-1",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 1,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 1,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Personal Presentation"
     ],
@@ -141,10 +151,12 @@
     "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-1",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 1,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 1,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Personal Presentation"
     ],
@@ -167,10 +179,12 @@
     "description": "本と環境をテーマに、古着やペットボトル、松ぼっくりをアップサイクル。読書の楽しさと、ものを大切にすることを体験できる企画です。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-2",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 2,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 2,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Book&Loop ~Connect with books, connect to the future~"
     ],
@@ -193,10 +207,12 @@
     "description": "ご来場者がお好みの花を選んで生け花を体験できるほか、華道部員が心を込めて制作した作品の鑑賞もお楽しみいただける企画です。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-3",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 3,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 3,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Let’s try Ikebana!"
     ],
@@ -219,10 +235,12 @@
     "description": "英語が苦手でも大丈夫！レベルに合わせて挑戦できる、ワクワクのツアーガイド体験！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-4",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 4,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 4,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Mission : Tsunagari Palace"
     ],
@@ -245,10 +263,12 @@
     "description": "丼やカレーなどのご飯もの、唐揚げなどのスナック販売、生徒と企画した共同販売など",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-5",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 5,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 5,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Cafeteria Food Service"
     ],
@@ -271,10 +291,12 @@
     "description": "こんにちはFIESTA です！世界各国の屋台グルメや文化を楽しみながら、友達や家族と気軽に過ごせる国際色豊かなナイトマーケットを開催します。カフェテリアでは、FIESTAの企画を楽しむだけでなく、持ち込んだ飲食物を食べたり、休憩したり、おしゃべりしたりする場としてもご利用いただけます。",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-6",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 6,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 6,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "Fiesta Night Market"
     ],
@@ -297,10 +319,12 @@
     "description": "三田の「国際」性格を楽しみましょう！",
     "pageUrl": "https://mif-2026.studio.site/jp/detail/3-7",
     "popupDirection": "bottom",
-    "badges": {
-      "n": 7,
-      "color": "#0B8A74"
-    },
+    "badges": [
+      {
+        "n": 7,
+        "color": "#0B8A74"
+      }
+    ],
     "eventNameEn": [
       "MIF International Room"
     ],
