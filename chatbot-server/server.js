@@ -625,7 +625,7 @@ function logUsage(usage) {
   const prompt = toInt(usage.prompt_tokens);
   const cached = toInt(usage.prompt_tokens_details?.cached_tokens);
   const completion = toInt(usage.completion_tokens);
-  console.log(`usage prompt=${prompt} cached=${cached} completion=${completion}`);
+  console.log(`usage prompt=${prompt} cached=${cached} completion=${completion}`); // NOSONAR 整数に丸め済みでログ注入の恐れはない
 }
 
 app.get('/health', (req, res) => {
