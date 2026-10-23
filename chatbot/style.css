@@ -73,6 +73,11 @@ html, body {
   color: #222;
   border-bottom-left-radius: 4px;
 }
+.msg.bot a {
+  color: #e8500e;
+  text-decoration: underline;
+  word-break: break-all;
+}
 .msg.user {
   align-self: flex-end;
   background: var(--user-bg);

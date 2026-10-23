@@ -4,11 +4,34 @@ const I18N = window.CHAT_I18N || {};
 const history = [];
 let sending = false;
 
+// ボットの返信内のURL([表示名](URL)形式と生のURL)をリンクにする。httpsのみ許可し、
+// 親ページごと遷移できるようtarget=_topにする(埋め込みiframe内でも開けるように)。
+const LINK_PATTERN = /\[([^\]]+)\]\((https:\/\/[^\s)]+)\)|(https:\/\/[^\s<>()（）、。]+)/g;
+
+function appendTextWithLinks(el, text) {
+  let last = 0;
+  for (const m of text.matchAll(LINK_PATTERN)) {
+    el.append(text.slice(last, m.index));
+    const a = document.createElement('a');
+    a.href = m[2] || m[3];
+    a.textContent = m[1] || m[3];
+    a.target = '_top';
+    a.rel = 'noopener';
+    el.appendChild(a);
+    last = m.index + m[0].length;
+  }
+  el.append(text.slice(last));
+}
+
 function appendMessage(role, text) {
   const log = document.getElementById('chatLog');
   const el = document.createElement('div');
   el.className = 'msg ' + role;
-  el.textContent = text;
+  if (role === 'bot') {
+    appendTextWithLinks(el, text);
+  } else {
+    el.textContent = text;
+  }
   log.appendChild(el);
   log.scrollTop = log.scrollHeight;
   return el;
