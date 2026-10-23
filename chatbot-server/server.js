@@ -617,14 +617,15 @@ async function callOpenAI(messages) {
 }
 
 // 費用の見積もり用に、リクエストごとのトークン数(数値のみ。質問や回答の中身は出さない)を記録する。
-// `pm2 logs mif-chatbot | grep "usage"` で集計できる。
+// `grep "^usage" ~/.pm2/logs/mif-chatbot-out.log` で集計できる。
 function logUsage(usage) {
   if (!usage) return;
-  console.log('usage', JSON.stringify({
-    prompt: usage.prompt_tokens,
-    cached: usage.prompt_tokens_details?.cached_tokens ?? 0,
-    completion: usage.completion_tokens
-  }));
+  // 外部レスポンス由来の値なので、数値以外が混ざってもログへ流れないよう整数に丸める
+  const toInt = v => (Number.isFinite(v) ? Math.trunc(v) : 0);
+  const prompt = toInt(usage.prompt_tokens);
+  const cached = toInt(usage.prompt_tokens_details?.cached_tokens);
+  const completion = toInt(usage.completion_tokens);
+  console.log(`usage prompt=${prompt} cached=${cached} completion=${completion}`);
 }
 
 app.get('/health', (req, res) => {
