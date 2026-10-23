@@ -611,7 +611,20 @@ async function callOpenAI(messages) {
     throw err;
   }
 
-  return openaiRes.json();
+  const data = await openaiRes.json();
+  logUsage(data.usage);
+  return data;
+}
+
+// 費用の見積もり用に、リクエストごとのトークン数(数値のみ。質問や回答の中身は出さない)を記録する。
+// `pm2 logs mif-chatbot | grep "usage"` で集計できる。
+function logUsage(usage) {
+  if (!usage) return;
+  console.log('usage', JSON.stringify({
+    prompt: usage.prompt_tokens,
+    cached: usage.prompt_tokens_details?.cached_tokens ?? 0,
+    completion: usage.completion_tokens
+  }));
 }
 
 app.get('/health', (req, res) => {
