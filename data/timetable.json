@@ -45,10 +45,24 @@
           "end": "10:00",
           "title": "キャリアプレゼンテーション（中学・高校）",
           "category": "cyan",
-          "groupName": "中学1年代表プレゼンテーション",
+          "groupName": "中学・高校1年代表プレゼンテーション",
           "icon": "CareerPresentation.png",
-          "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
-          "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-1"
+          "items": [
+            {
+              "title": "キャリアプレゼンテーション（中学1年）",
+              "groupName": "中学1年代表プレゼンテーション",
+              "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-1"
+            },
+            {
+              "title": "キャリアプレゼンテーション（高校1年）",
+              "groupName": "高校1年代表プレゼンテーション",
+              "description": "「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自らのキャリアや未来への思いをプレゼンテーションします。",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-2"
+            }
+          ]
         },
         {
           "columns": [
@@ -123,10 +137,24 @@
           "end": "15:00",
           "title": "キャリアプレゼンテーション（中学・高校）",
           "category": "cyan",
-          "groupName": "高校1年代表プレゼンテーション",
+          "groupName": "中学・高校1年代表プレゼンテーション",
           "icon": "CareerPresentation.png",
-          "description": "「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自らのキャリアや未来への思いをプレゼンテーションします。",
-          "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-2"
+          "items": [
+            {
+              "title": "キャリアプレゼンテーション（中学1年）",
+              "groupName": "中学1年代表プレゼンテーション",
+              "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-1"
+            },
+            {
+              "title": "キャリアプレゼンテーション（高校1年）",
+              "groupName": "高校1年代表プレゼンテーション",
+              "description": "「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自らのキャリアや未来への思いをプレゼンテーションします。",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-2"
+            }
+          ]
         },
         {
           "columns": [
@@ -345,10 +373,24 @@
           "end": "12:10",
           "title": "キャリアプレゼンテーション（中学・高校）",
           "category": "cyan",
-          "groupName": "中学1年代表プレゼンテーション",
+          "groupName": "中学・高校1年代表プレゼンテーション",
           "icon": "CareerPresentation.png",
-          "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
-          "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-1"
+          "items": [
+            {
+              "title": "キャリアプレゼンテーション（中学1年）",
+              "groupName": "中学1年代表プレゼンテーション",
+              "description": "「自己理解」をテーマに、各クラス・コースの代表生徒が、自分自身と向き合った学びをプレゼンテーションします。",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-1"
+            },
+            {
+              "title": "キャリアプレゼンテーション（高校1年）",
+              "groupName": "高校1年代表プレゼンテーション",
+              "description": "「将来ビジョン」をテーマに、各クラス・コースの代表生徒が、自らのキャリアや未来への思いをプレゼンテーションします。",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/jp/detail/1-12-2"
+            }
+          ]
         },
         {
           "columns": [

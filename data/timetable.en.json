@@ -45,10 +45,24 @@
           "end": "10:00",
           "title": "Career Presentation (Junior High & High School)",
           "category": "cyan",
-          "groupName": "Junior High Year 1 Student Representatives",
+          "groupName": "Junior High & High School Year 1 Student Representatives",
           "icon": "CareerPresentation.png",
-          "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves.",
-          "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-1"
+          "items": [
+            {
+              "title": "Career Presentation (Junior High School Year 1)",
+              "groupName": "Junior High first grade Representative Presentation",
+              "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves.",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-1"
+            },
+            {
+              "title": "Career Presentation (High School Year 1)",
+              "groupName": "High School First Grade Representative Presentation",
+              "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future.",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-2"
+            }
+          ]
         },
         {
           "columns": [
@@ -123,10 +137,24 @@
           "end": "15:00",
           "title": "Career Presentation (Junior High & High School)",
           "category": "cyan",
-          "groupName": "High School Year 1 Student Representatives",
+          "groupName": "Junior High & High School Year 1 Student Representatives",
           "icon": "CareerPresentation.png",
-          "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future.",
-          "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-2"
+          "items": [
+            {
+              "title": "Career Presentation (Junior High School Year 1)",
+              "groupName": "Junior High first grade Representative Presentation",
+              "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves.",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-1"
+            },
+            {
+              "title": "Career Presentation (High School Year 1)",
+              "groupName": "High School First Grade Representative Presentation",
+              "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future.",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-2"
+            }
+          ]
         },
         {
           "columns": [
@@ -345,10 +373,24 @@
           "end": "12:10",
           "title": "Career Presentation (Junior High & High School)",
           "category": "cyan",
-          "groupName": "Junior High Year 1 Student Representatives",
+          "groupName": "Junior High & High School Year 1 Student Representatives",
           "icon": "CareerPresentation.png",
-          "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves.",
-          "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-1"
+          "items": [
+            {
+              "title": "Career Presentation (Junior High School Year 1)",
+              "groupName": "Junior High first grade Representative Presentation",
+              "description": "With the theme of “Self-Understanding,” student representatives from each class and course will share presentations reflecting on what they have learned about themselves.",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-1"
+            },
+            {
+              "title": "Career Presentation (High School Year 1)",
+              "groupName": "High School First Grade Representative Presentation",
+              "description": "With the theme of “Future Vision,” student representatives selected from each class and course will present their career aspirations and visions for the future.",
+              "icon": "CareerPresentation.png",
+              "pageUrl": "https://mif-2026.studio.site/en/detail/1-12-2"
+            }
+          ]
         },
         {
           "columns": [

@@ -240,6 +240,58 @@ const I18N = window.TT_I18N || {};
 
     let iconBase = '';
 
+    function appendDescAndLink(parent, description, pageUrl) {
+      if (description) {
+        const desc = document.createElement('p');
+        desc.className = 'popup-desc';
+        desc.textContent = description;
+        parent.appendChild(desc);
+      }
+
+      if (pageUrl) {
+        const link = document.createElement('a');
+        link.className = 'popup-link';
+        link.href = pageUrl;
+        // 埋め込み(iframe)の外側のページを直接遷移させる。JSで遷移させて失敗すると、埋め込みの中で
+        // 詳細ページが開いてしまい、STUDIO側の「戻る」が埋め込み内の履歴を戻ってしまうため。
+        link.target = '_top';
+        link.rel = 'noopener';
+        link.textContent = I18N.learnMoreLabel;
+        parent.appendChild(link);
+      }
+    }
+
+    function buildPopupItem(item) {
+      const box = document.createElement('div');
+      box.className = 'popup-item';
+
+      const head = document.createElement('div');
+      head.className = 'popup-item-head';
+      if (item.icon) {
+        const img = document.createElement('img');
+        img.src = iconBase + item.icon;
+        img.alt = item.groupName || '';
+        head.appendChild(img);
+      }
+      const text = document.createElement('div');
+      text.style.minWidth = '0';
+      const title = document.createElement('div');
+      title.className = 'popup-item-title';
+      title.textContent = item.title;
+      text.appendChild(title);
+      if (item.groupName) {
+        const group = document.createElement('div');
+        group.className = 'popup-group';
+        group.textContent = item.groupName;
+        text.appendChild(group);
+      }
+      head.appendChild(text);
+      box.appendChild(head);
+
+      appendDescAndLink(box, item.description, item.pageUrl);
+      return box;
+    }
+
     function openPopup(event, venueLabel, anchorEl) {
       const card = document.getElementById('popupCard');
       card.innerHTML = '';
@@ -288,23 +340,13 @@ const I18N = window.TT_I18N || {};
       head.appendChild(body);
       card.appendChild(head);
 
-      if (event.description) {
-        const desc = document.createElement('p');
-        desc.className = 'popup-desc';
-        desc.textContent = event.description;
-        card.appendChild(desc);
-      }
-
-      if (event.pageUrl) {
-        const link = document.createElement('a');
-        link.className = 'popup-link';
-        link.href = event.pageUrl;
-        // 埋め込み(iframe)の外側のページを直接遷移させる。JSで遷移させて失敗すると、埋め込みの中で
-        // 詳細ページが開いてしまい、STUDIO側の「戻る」が埋め込み内の履歴を戻ってしまうため。
-        link.target = '_top';
-        link.rel = 'noopener';
-        link.textContent = I18N.learnMoreLabel;
-        card.appendChild(link);
+      // 1つの時間枠に複数の企画がある場合(例: 中学・高校のキャリアプレゼン)は、items に企画ごとの
+      // 名前・団体名・説明・リンクを持たせ、地図の複数企画ピンのように並べて表示する。
+      const items = Array.isArray(event.items) && event.items.length ? event.items : null;
+      if (items) {
+        items.forEach(item => card.appendChild(buildPopupItem(item)));
+      } else {
+        appendDescAndLink(card, event.description, event.pageUrl);
       }
 
       card.classList.remove('hidden');
