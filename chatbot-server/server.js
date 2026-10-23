@@ -288,8 +288,15 @@ const ROOM_SHIFT_SCHEDULE = {
 
 const FLOOR_UNKNOWN_LABEL = { ja: '情報なし', en: 'not available yet' };
 
+const PROMPT_LABELS = {
+  ja: { shift: '時間帯の注意', ticketNeeded: '整理券: 必要', ticket: '整理券・入場情報', detail: '詳細' },
+  en: { shift: 'Schedule note', ticketNeeded: 'Ticket: required', ticket: 'Ticket / entry info', detail: 'Details' }
+};
+const oneLine = text => String(text).replace(/\s*\n+\s*/g, ' / ');
+
 function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lang) {
   const items = groupsData.items || [];
+  const labels = PROMPT_LABELS[lang] || PROMPT_LABELS.ja;
   const notOnTimetableLabel = NOT_ON_TIMETABLE_LABEL[lang] || NOT_ON_TIMETABLE_LABEL.ja;
   const floorUnknownLabel = FLOOR_UNKNOWN_LABEL[lang] || FLOOR_UNKNOWN_LABEL.ja;
   const lines = items.map(it => {
@@ -302,14 +309,23 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     let schedule;
     if (it.icon && scheduleIndex.has(it.icon)) {
       schedule = scheduleIndex.get(it.icon).join(', ');
+    } else if (it.scheduleNote) {
+      schedule = it.scheduleNote;
     } else if (roomShift) {
       schedule = roomShift[lang] || roomShift.ja;
     } else {
       schedule = notOnTimetableLabel;
     }
-    const rawFloor = it.icon && floorIndex.get(it.icon);
+    const rawFloor = it.floor || (it.icon && floorIndex.get(it.icon));
     const floor = rawFloor ? (lang === 'en' ? rawFloor.replace('階', 'F') : rawFloor) : floorUnknownLabel;
-    return `- ${name} | ${group} | ${category} | ${format} | ${desc} | ${schedule} | ${floor}`;
+    const place = it.location || '';
+    const head = `- ${name} | ${group} | ${category} | ${format} | ${desc} | ${schedule} | ${floor}${place ? ' | ' + place : ''}`;
+    const extra = [];
+    if (it.scheduleNote) extra.push(`${labels.shift}: ${it.scheduleNote}`);
+    if (it.ticketRequired) extra.push(labels.ticketNeeded);
+    if (it.ticketInfo) extra.push(`${labels.ticket}: ${oneLine(it.ticketInfo)}`);
+    if (it.longDescription) extra.push(`${labels.detail}: ${oneLine(it.longDescription)}`);
+    return extra.length ? `${head}\n${extra.map(e => '    ' + e).join('\n')}` : head;
   });
 
   if (lang === 'en') {
@@ -343,11 +359,13 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       'visit anytime), or, for the room-rotation projects (Himmeli / Edutainment), give the exact',
       'room-by-room time-slot breakdown. Just relay that text naturally, do not add your own guesses about',
       'timing. The Floor field says which floor (1F/2F/3F) the project is on when known; if it reads "not',
-      'available yet", say the floor is not confirmed yet rather than guessing. The exact room number,',
-      'waiting area, and ticket/numbered-ticket info are NOT included in this list yet — if asked about',
-      'those specifically, say that info is not yet available in the current listing and suggest checking',
-      'with festival staff or the information desk on the day (once such fields are added to the list in',
-      'the future, use them instead of this fallback).',
+      'available yet", say the floor is not confirmed yet rather than guessing. A line may be followed by',
+      'indented sub-lines: "Schedule note", "Ticket: required", "Ticket / entry info" and "Details" (the',
+      'full description). Use them: for any ticket/numbered-ticket question, answer from the ticket info',
+      'sub-line (where and when tickets are handed out, same-day availability); a project with no ticket',
+      'sub-line needs no ticket (free entry) unless the line says otherwise. The exact room number and',
+      'waiting area are NOT in the list — if asked, say that is not available and suggest checking with',
+      'festival staff or the information desk. The trailing field after Floor is the building/area.',
       '',
       '## Handling a project-search question',
       'When a visitor is looking for projects by interest, genre, food, exhibit content, etc., search the',
@@ -408,10 +426,13 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     'ような教室を時間帯で入れ替える交代制の企画には教室ごとの詳しい交代表が、すでに文言として',
     '入っています。これをそのまま自然に伝えればよく、自分で開催時間を推測して付け加えないでください。',
     '「階」欄には、判明している範囲で企画が何階にあるか(1階/2階/3階)が入っています。「情報なし」の',
-    '場合は階もまだ確定していないと正直に伝え、階を推測しないでください。教室番号・待機場所・',
-    'チケット/整理券情報は、現時点のリストにはまだ含まれていません。これらを聞かれた場合は「現在の',
-    '企画リストにはその情報がまだ登録されていません。当日は企画スタッフまたは案内所でご確認ください」',
-    'のように正直に伝えてください(将来リストに追加された場合は、そちらの情報を優先して使ってください)。',
+    '場合は階もまだ確定していないと正直に伝え、階を推測しないでください。最後の欄は棟・エリアです。',
+    '行の下にインデントされた補足行(「時間帯の注意」「整理券: 必要」「整理券・入場情報」「詳細」)が',
+    '付く企画があります。整理券・チケットの質問には「整理券・入場情報」の内容(配布場所、配布開始時間、',
+    '当日配布の有無)をそのまま使って答えてください。整理券の補足行がない企画は整理券不要(入場自由)です。',
+    '詳細欄は企画の長い説明なので、内容の質問にはそこから答えてください。教室番号や待機場所は',
+    'リストにないため、聞かれた場合は情報がない旨を伝え、当日は企画スタッフまたは案内所でご確認',
+    'いただくよう案内してください。',
     '',
     '## 企画を探す質問への対応',
     '来場者が興味・ジャンル・食べ物・展示内容などの条件から企画を探している場合は、企画リストから',
