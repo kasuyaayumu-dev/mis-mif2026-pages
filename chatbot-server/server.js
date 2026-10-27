@@ -303,8 +303,8 @@ const ROOM_SHIFT_SCHEDULE = {
 const FLOOR_UNKNOWN_LABEL = { ja: '情報なし', en: 'not available yet' };
 
 const PROMPT_LABELS = {
-  ja: { shift: '時間帯の注意', ticketNeeded: '整理券: 必要', ticketNone: '整理券: 不要(入場自由)', mapNo: 'マップ番号', page: '詳細ページ', ticket: '整理券・入場情報', detail: '詳細' },
-  en: { shift: 'Schedule note', ticketNeeded: 'Ticket: required', ticketNone: 'Ticket: not required (free entry)', mapNo: 'Map no.', page: 'Detail page', ticket: 'Ticket / entry info', detail: 'Details' }
+  ja: { shift: '時間帯の注意', ticketNeeded: '整理券: 必要', ticketNone: '事前の整理券: 不要(学年企画・有志企画は混雑時に整理券を配ることがある。来場案内データのルール参照)', mapNo: 'マップ番号', page: '詳細ページ', ticket: '整理券・入場情報', detail: '詳細' },
+  en: { shift: 'Schedule note', ticketNeeded: 'Ticket: required', ticketNone: 'Advance ticket: not required (grade/volunteer projects may hand out crowd-control tickets when busy; see venue data rules)', mapNo: 'Map no.', page: 'Detail page', ticket: 'Ticket / entry info', detail: 'Details' }
 };
 const oneLine = text => String(text).replace(/\s*\n+\s*/g, ' / ');
 
@@ -485,7 +485,7 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '4. トイレなど設備の場所は、来場案内データの文言を書き換えず、書かれている範囲だけを答えてください。',
     '   書かれていない階や性別のトイレは「情報がありません」と伝え、推測で補わないでください。',
     '5. 企画ごとの整理券は、その企画自身の行(直下の補足行)だけを根拠にしてください。別の企画の',
-    '   補足行を混ぜて答えないでください。「整理券: 不要」は、事前に必要な公演チケットがないという意味です(混雑時の整理券は6を参照)。',
+    '   補足行を混ぜて答えないでください。「事前の整理券: 不要」は、事前に必要な公演チケットがないという意味です(混雑時の整理券は6を参照)。',
     '6. 整理券には2種類あります。(a) 公演系企画の必須チケットは、企画ごとの「整理券」行に書かれています。',
     '   (b) 体験型企画の混雑用の整理券は、来場案内データの「整理券のルール」に書かれています。',
     '   「どの団体が整理券を使うか」「並び方」「再来場時間」といった質問は(b)の文面で答え、(a)の企画カードや',
