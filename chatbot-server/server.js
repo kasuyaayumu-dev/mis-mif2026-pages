@@ -747,7 +747,7 @@ function repairDetailLinks(text, groupsData) {
   const slugs = new Set((groupsData.items || []).map(it => it.slug).filter(Boolean));
   return text.replace(/(https:\/\/mif-2026\.studio\.site\/(?:jp|en)\/detail\/)([0-9A-Za-z-]+)/g, (m, base, slug) => {
     if (slugs.has(slug)) return m;
-    const alt = [...slugs].filter(x => x.startsWith(slug + '-')).sort()[0];
+    const alt = [...slugs].filter(x => x.startsWith(slug + '-')).sort((a, b) => a.localeCompare(b))[0];
     return alt ? base + alt : '';
   });
 }
