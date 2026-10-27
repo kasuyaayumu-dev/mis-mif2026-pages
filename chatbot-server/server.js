@@ -416,6 +416,8 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       '   information. Do not invent area names or labels that are not in the data.',
       '10. When explaining tickets, always include who is eligible (e.g. outside visitors only), the pickup',
       '   location and the start time.',
+      '11. The Career Presentation has two separate detail pages (Junior High Y1 and High School Y1).',
+      '   Always give both detail-page URLs when mentioning it.',
       '9. Explain terms only as far as the "Glossary" in the venue data does; do not guess meanings or locations.',
       '',
       '## Attribute-based questions',
@@ -518,6 +520,8 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '   全ての企画には詳細ページがあります。「詳細ページがない」とは言わず、リストのURLを案内してください。',
     '10. 整理券・チケットの案内では、対象者の条件(例: 外部からの来場者のみ)、配布場所、配布開始時間を省略せず',
     '   すべて伝えてください。',
+    '11. キャリアプレゼンテーションは中学1年と高校1年が別ページ(詳細ページが2つ)です。案内する時は',
+    '   両方の詳細ページのURLを必ず出してください。',
     '9. 企画カードのことは「下に表示される一覧」と呼んでください(英語のcardsや、似た語のカルテは使わない)。用語の意味は来場案内データの「用語」に',
     '   書かれた範囲で答え、書かれていない用語の意味や場所を推測で補わないでください。',
     '',
@@ -747,8 +751,8 @@ function repairDetailLinks(text, groupsData) {
   const slugs = new Set((groupsData.items || []).map(it => it.slug).filter(Boolean));
   return text.replace(/(https:\/\/mif-2026\.studio\.site\/(?:jp|en)\/detail\/)([0-9A-Za-z-]+)/g, (m, base, slug) => {
     if (slugs.has(slug)) return m;
-    const alt = [...slugs].filter(x => x.startsWith(slug + '-')).sort((a, b) => a.localeCompare(b))[0];
-    return alt ? base + alt : '';
+    const alts = [...slugs].filter(x => x.startsWith(slug + '-')).sort((a, b) => a.localeCompare(b));
+    return alts.map(a => base + a).join(base.includes('/en/') ? ' / ' : ' ／ ');
   });
 }
 
@@ -772,7 +776,11 @@ function searchTimetable(timetableData, groupsData, args) {
   const until = toMinutes(a.start_until);
   const at = toMinutes(a.running_at);
   const kw = typeof a.keyword === 'string' ? a.keyword.trim().toLowerCase() : '';
-  const byIcon = new Map((groupsData.items || []).filter(it => it.icon).map(it => [it.icon, it]));
+  const byIcon = new Map();
+  for (const it of groupsData.items || []) {
+    if (!it.icon) continue;
+    byIcon.set(it.icon, [...(byIcon.get(it.icon) || []), it]);
+  }
   const events = [];
   const cards = [];
   const seen = new Set();
@@ -787,8 +795,8 @@ function searchTimetable(timetableData, groupsData, args) {
       if (at !== null && !(st <= at && at < en)) continue;
       if (kw && !`${ev.title} ${ev.groupName}`.toLowerCase().includes(kw)) continue;
       events.push({ day: day.title || day.id, date: day.date, start: ev.start, end: ev.end, title: ev.title, group: ev.groupName || '' });
-      const item = ev.icon && byIcon.get(ev.icon);
-      if (item && !seen.has(item.id)) {
+      for (const item of (ev.icon && byIcon.get(ev.icon)) || []) {
+        if (seen.has(item.id)) continue;
         seen.add(item.id);
         cards.push(toCard(item));
       }
@@ -807,6 +815,19 @@ function searchTimetable(timetableData, groupsData, args) {
     }
   }
   return { count: events.length, events, overlaps, items: cards.slice(0, MAX_CARDS) };
+}
+
+// 返信文に企画名が出てくるのにカードが出ていない場合の保険。名前の末尾の括弧書きを除いた名前でも
+// 照合するので、枝番のある企画(キャリアプレゼンテーションの中1と高1など)は全部まとめて出る。
+function cardsFromMentions(groupsData, reply) {
+  const baseName = n => n.replace(/[(（][^)）]*[)）]\s*$/, '').trim();
+  const text = reply.toLowerCase();
+  const cards = [];
+  for (const it of groupsData.items || []) {
+    const names = [it.name, baseName(it.name || '')].filter(n => n && n.length >= 4);
+    if (names.some(n => text.includes(n.toLowerCase()))) cards.push(toCard(it));
+  }
+  return cards.slice(0, MAX_CARDS);
 }
 
 function suggestProjects(groupsData, names) {
@@ -977,6 +998,10 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     }
 
     const responseBody = { reply };
+    if (!suggestions) {
+      const mentioned = cardsFromMentions(groupsData, reply);
+      if (mentioned.length > 0) suggestions = mentioned;
+    }
     if (suggestions) responseBody.suggestions = suggestions;
     res.json(responseBody);
   } catch (err) {
