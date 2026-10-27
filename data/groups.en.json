@@ -14,6 +14,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "Himmeli.png",
+      "tagKeys": [
+        "中1",
+        "展示",
+        "英語対応可",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-25",
       "name": "Himmeli",
       "group": "J1",
@@ -38,6 +44,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "J2A.png",
+      "tagKeys": [
+        "中2",
+        "体験",
+        "教室棟",
+        "1階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-24-1",
       "name": "~A Challenge from the Phantom Thief M~ Reclaim the Stolen Sun!",
       "group": "J2A",
@@ -65,6 +79,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "J2B.png",
+      "tagKeys": [
+        "中2",
+        "体験",
+        "教室棟",
+        "1階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-24-2",
       "name": "Space Mitagora Talk",
       "group": "J2B",
@@ -91,6 +112,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "J2C.png",
+      "tagKeys": [
+        "中2",
+        "体験",
+        "教室棟",
+        "1階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-24-3",
       "name": "Life Lab 〜What Kind of Life Will You Choose?〜",
       "group": "J2C",
@@ -117,6 +145,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "J2D.png",
+      "tagKeys": [
+        "中2",
+        "体験",
+        "教室棟",
+        "1階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-24-4",
       "name": "What is your true level of concentration?! ~Spot the Difference~",
       "group": "J2D",
@@ -143,6 +178,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "J2E.png",
+      "tagKeys": [
+        "中2",
+        "体験",
+        "教室棟",
+        "1階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-24-5",
       "name": "Haunted Classroom",
       "group": "J2E",
@@ -170,6 +213,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "J2F.png",
+      "tagKeys": [
+        "中2",
+        "体験",
+        "教室棟",
+        "1階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-24-6",
       "name": "WORLD MARKET CHALLENGE 〜A Shopping Journey Around the World〜",
       "group": "J2F",
@@ -197,6 +248,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "J2G.png",
+      "tagKeys": [
+        "中2",
+        "体験",
+        "教室棟",
+        "1階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-24-7",
       "name": "Midnight at the Whisker Manor",
       "group": "J2G",
@@ -224,6 +283,15 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "J1J2ICFusion.png",
+      "tagKeys": [
+        "中1",
+        "中2",
+        "展示",
+        "教室棟",
+        "1階",
+        "英語対応可",
+        "学校企画"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-20",
       "name": "J1 & J2 IC Fusion Projects",
       "group": "J1 & J2 IC Fusion Projects",
@@ -251,6 +319,14 @@
       "hasPrVideo": true,
       "ticketRequired": true,
       "icon": "J3.png",
+      "tagKeys": [
+        "中3",
+        "公演",
+        "ホール棟",
+        "1階",
+        "PR動画あり",
+        "整理券必要"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-3",
       "name": "Physical expression",
       "group": "J3",
@@ -278,6 +354,14 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "SLA.png",
+      "tagKeys": [
+        "中3",
+        "販売",
+        "展示",
+        "体験",
+        "教室棟",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-26",
       "name": "2026 SLA Yes, Let’s Go to Hokuriku.",
       "group": "J3",
@@ -304,6 +388,15 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "BusinessSeminar.png",
+      "tagKeys": [
+        "中2",
+        "中3",
+        "販売",
+        "中庭",
+        "1階",
+        "PR動画あり",
+        "学校企画"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-35",
       "name": "WAGAMAMA",
       "group": "Business Seminar",
@@ -332,6 +425,15 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "MediaCreationSeminar.png",
+      "tagKeys": [
+        "中2",
+        "中3",
+        "公演",
+        "教室棟",
+        "1階",
+        "学校企画",
+        "視聴覚室"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-15",
       "name": "Media Creation Seminar Film Screening",
       "group": "Media Creation Seminar",
@@ -359,6 +461,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S1A.png",
+      "tagKeys": [
+        "高1",
+        "体験",
+        "教室棟",
+        "2階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-5",
       "name": "Underwater Adventure",
       "group": "S1A",
@@ -384,6 +493,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S1B.png",
+      "tagKeys": [
+        "高1",
+        "体験",
+        "教室棟",
+        "2階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-6",
       "name": "Ghost Bride",
       "group": "S1B",
@@ -410,6 +527,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S1C.png",
+      "tagKeys": [
+        "高1",
+        "体験",
+        "教室棟",
+        "2階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-3",
       "name": "SEA BEAST 〜 Escape from the Depths〜",
       "group": "S1C",
@@ -435,6 +559,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S1D.png",
+      "tagKeys": [
+        "高1",
+        "体験",
+        "教室棟",
+        "2階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-10",
       "name": "S1D Special Mission: Space Station Infiltration & Recovery Operation",
       "group": "S1D",
@@ -460,6 +591,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "S1E.png",
+      "tagKeys": [
+        "高1",
+        "体験",
+        "教室棟",
+        "2階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-4",
       "name": "Escape the workplace",
       "group": "S1E",
@@ -485,6 +623,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "S1F.png",
+      "tagKeys": [
+        "高1",
+        "体験",
+        "教室棟",
+        "2階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-7",
       "name": "Eclipse File",
       "group": "S1F",
@@ -510,6 +655,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S2A.png",
+      "tagKeys": [
+        "高2",
+        "体験",
+        "本館棟",
+        "2階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-18",
       "name": "Next Victims Wanted",
       "group": "S2A",
@@ -536,6 +689,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "S2B.png",
+      "tagKeys": [
+        "高2",
+        "販売",
+        "中庭",
+        "1階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-29",
       "name": "Class 2-B Takoyaki Shop",
       "group": "S2B",
@@ -561,6 +721,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S2C.png",
+      "tagKeys": [
+        "高2",
+        "体験",
+        "本館棟",
+        "2階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-17",
       "name": "Karute wo karute",
       "group": "S2C",
@@ -587,6 +755,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "S2D.png",
+      "tagKeys": [
+        "高2",
+        "販売",
+        "中庭",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-30",
       "name": "Blessings Upon China",
       "group": "S2D",
@@ -611,6 +785,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S2E.png",
+      "tagKeys": [
+        "高2",
+        "体験",
+        "教室棟",
+        "2階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-13",
       "name": "Are you smarter than S2E?",
       "group": "S2E",
@@ -637,6 +819,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "S2F.png",
+      "tagKeys": [
+        "高2",
+        "販売",
+        "中庭",
+        "1階",
+        "英語対応可",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-31",
       "name": "Base camp S2F",
       "group": "S2F",
@@ -663,6 +853,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "Ikimonogakari.png",
+      "tagKeys": [
+        "有志団体",
+        "展示",
+        "体験",
+        "本館棟",
+        "2階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-19",
       "name": "MITA Natural History Museum",
       "group": "Ikimono-gakari",
@@ -688,6 +885,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "BATON.png",
+      "tagKeys": [
+        "有志団体",
+        "展示",
+        "体験",
+        "教室棟",
+        "2階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-1",
       "name": "3 Days in a Shelter: Escape! Learning Disaster Preparedness Through Food",
       "group": "BATON",
@@ -713,6 +917,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "FIESTA.png",
+      "tagKeys": [
+        "有志団体",
+        "販売",
+        "中庭",
+        "英語対応可",
+        "3階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-6",
       "name": "Fiesta Night Market",
       "group": "FIESTA",
@@ -738,6 +949,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "Tsunagari.png",
+      "tagKeys": [
+        "有志団体",
+        "体験",
+        "本館棟",
+        "3階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-4",
       "name": "Mission : Tsunagari Palace",
       "group": "Tsunagari",
@@ -763,6 +981,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "SmiCaca.png",
+      "tagKeys": [
+        "有志団体",
+        "体験",
+        "教室棟",
+        "2階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-2",
       "name": "Choco Craft",
       "group": "SmiCaca",
@@ -787,6 +1011,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "Striders.png",
+      "tagKeys": [
+        "有志団体",
+        "体験",
+        "教室棟",
+        "2階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-9",
       "name": "MISSION: POWER RESTORE",
       "group": "Striders",
@@ -812,6 +1043,15 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "MIFInternationalRoom.png",
+      "tagKeys": [
+        "公演",
+        "展示",
+        "体験",
+        "本館棟",
+        "3階",
+        "英語対応可",
+        "学校企画"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-7",
       "name": "MIF International Room",
       "group": "MIF International Room",
@@ -838,6 +1078,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "StudentCouncil.png",
+      "tagKeys": [
+        "委員会",
+        "1階",
+        "英語対応可",
+        "その他",
+        "教室棟"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-22",
       "name": "Stroller safekeeping",
       "group": "Student Council",
@@ -863,6 +1110,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "StudentCouncil.png",
+      "tagKeys": [
+        "委員会",
+        "教室棟",
+        "英語対応可",
+        "体験",
+        "2階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-8",
       "name": "School Uniform Fitting Experience",
       "group": "Student Council",
@@ -888,6 +1142,14 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "LibraryCommittee.png",
+      "tagKeys": [
+        "委員会",
+        "販売",
+        "展示",
+        "体験",
+        "教室棟",
+        "3階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-2",
       "name": "Book&Loop ~Connect with books, connect to the future~",
       "group": "Library Committee",
@@ -914,6 +1176,13 @@
       "hasPrVideo": false,
       "ticketRequired": true,
       "icon": "PopDanceClub.png",
+      "tagKeys": [
+        "部活動",
+        "公演",
+        "ホール棟",
+        "1階",
+        "整理券必要"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-5",
       "name": "Pop Dance Club 2026 MIF Performance -Epilogue-",
       "group": "Pop Dance Club",
@@ -940,6 +1209,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "DramaClub.png",
+      "tagKeys": [
+        "部活動",
+        "公演",
+        "ホール棟",
+        "1階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-6",
       "name": "“Next to you again”",
       "group": "Drama Club",
@@ -967,6 +1243,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "ChorusClub.png",
+      "tagKeys": [
+        "部活動",
+        "公演",
+        "教室棟",
+        "1階",
+        "視聴覚室"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-16",
       "name": "Chorus Club MIF Performance 2026",
       "group": "Chorus Club",
@@ -992,6 +1275,13 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "RhythmicGymnasticsClub.png",
+      "tagKeys": [
+        "部活動",
+        "公演",
+        "ホール棟",
+        "1階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-7",
       "name": "Rhythmic Gymnastics Club Performance",
       "group": "Rhythmic Gymnastics Club",
@@ -1019,6 +1309,15 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "EnglishClub.png",
+      "tagKeys": [
+        "部活動",
+        "公演",
+        "教室棟",
+        "1階",
+        "英語対応可",
+        "PR動画あり",
+        "視聴覚室"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-18",
       "name": "English Debate and Model UN Showcase",
       "group": "English Club",
@@ -1047,6 +1346,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "KotoMusicClub.png",
+      "tagKeys": [
+        "部活動",
+        "公演",
+        "教室棟",
+        "1階",
+        "視聴覚室"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-17",
       "name": "Flower of Koto",
       "group": "Koto Music Club",
@@ -1072,6 +1378,15 @@
       "hasPrVideo": true,
       "ticketRequired": true,
       "icon": "WindOrchestraClub.png",
+      "tagKeys": [
+        "部活動",
+        "公演",
+        "ホール棟",
+        "1階",
+        "英語対応可",
+        "PR動画あり",
+        "整理券必要"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-4",
       "name": "Harmony in the Sky ~2026 Wind Orchestra Concert~",
       "group": "Wind Orchestra Club",
@@ -1100,6 +1415,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "ShogiChessClub.png",
+      "tagKeys": [
+        "部活動",
+        "体験",
+        "教室棟",
+        "2階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-12",
       "name": "Experiencing Shogi and Chess",
       "group": "Shogi and Chess Club",
@@ -1125,6 +1447,14 @@
       "hasPrVideo": true,
       "ticketRequired": false,
       "icon": "ComputerClub.png",
+      "tagKeys": [
+        "部活動",
+        "展示",
+        "体験",
+        "教室棟",
+        "2階",
+        "PR動画あり"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-14",
       "name": "Kombu Observation Island — The Cradle of Electrons —",
       "group": "Computer Club",
@@ -1151,6 +1481,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "ScienceClub.png",
+      "tagKeys": [
+        "部活動",
+        "展示",
+        "体験",
+        "本館棟",
+        "2階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-15",
       "name": "Science Club 2026 —The Glowing Galaxy Slime—",
       "group": "Science Club",
@@ -1176,6 +1513,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "TeaCeremonyClub.png",
+      "tagKeys": [
+        "部活動",
+        "販売",
+        "教室棟",
+        "2階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-11",
       "name": "Japanese Tea Ceremony",
       "group": "Japanese Tea Ceremony Club",
@@ -1200,6 +1543,14 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "RailwayResearchClub.png",
+      "tagKeys": [
+        "部活動",
+        "展示",
+        "体験",
+        "本館棟",
+        "2階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/2-16",
       "name": "Polaris",
       "group": "Railway Research Club",
@@ -1226,6 +1577,14 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "FlowerArrangementClub.png",
+      "tagKeys": [
+        "部活動",
+        "販売",
+        "展示",
+        "教室棟",
+        "3階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-3",
       "name": "Let’s try Ikebana!",
       "group": "Flower Arrangement Club",
@@ -1252,6 +1611,14 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "ArtClub.png",
+      "tagKeys": [
+        "部活動",
+        "販売",
+        "展示",
+        "体験",
+        "教室棟",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-21",
       "name": "Art Club",
       "group": "Art Club",
@@ -1278,6 +1645,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "TableTennisClub.png",
+      "tagKeys": [
+        "部活動",
+        "体験",
+        "ホール棟",
+        "1階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-8",
       "name": "Takurips",
       "group": "Table tennis club",
@@ -1302,6 +1676,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "JuniorHighTennisClub.png",
+      "tagKeys": [
+        "部活動",
+        "グラウンド",
+        "1階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-1",
       "name": "MITA Tennis Club Experience",
       "group": "Junior High Tennis Club",
@@ -1326,6 +1706,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "VolleyballClub.png",
+      "tagKeys": [
+        "部活動",
+        "体験",
+        "ホール棟",
+        "1階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-9",
       "name": "Volleyball",
       "group": "Volleyball Club",
@@ -1351,6 +1738,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "TrackAndFieldClub.png",
+      "tagKeys": [
+        "部活動",
+        "体験",
+        "グラウンド",
+        "1階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-2",
       "name": "LET’S Track and Field!!",
       "group": "Track and Field Club",
@@ -1376,6 +1770,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "PTA.png",
+      "tagKeys": [
+        "卒業生・保護者",
+        "販売",
+        "中庭",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-28",
       "name": "PTA (Food, Sweets, Drinks, and Merchandise)",
       "group": "PTA",
@@ -1400,6 +1800,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "PTA.png",
+      "tagKeys": [
+        "卒業生・保護者",
+        "販売",
+        "中庭",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-32",
       "name": "PTA (Food, Sweets, Drinks)",
       "group": "PTA",
@@ -1424,6 +1830,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "TeamPaPa.png",
+      "tagKeys": [
+        "卒業生・保護者",
+        "販売",
+        "中庭",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-34",
       "name": "Team PaPa MITA DOG",
       "group": "Team PaPa",
@@ -1448,6 +1860,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "MitaKouenkai.png",
+      "tagKeys": [
+        "卒業生・保護者",
+        "販売",
+        "中庭",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-33",
       "name": "MITA International School of Science Kouenkai",
       "group": "MITA International School of Science Kouenkai",
@@ -1471,6 +1889,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "Chigusakai.png",
+      "tagKeys": [
+        "卒業生・保護者",
+        "その他",
+        "教室棟",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-10",
       "name": "Chigusakai Room",
       "group": "Chigusakai",
@@ -1495,6 +1919,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "StudentWork.png",
+      "tagKeys": [
+        "学校企画",
+        "展示",
+        "教室棟",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-19",
       "name": "Student Work Display",
       "group": "School",
@@ -1518,6 +1948,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "BasicSeminarResearch.png",
+      "tagKeys": [
+        "学校企画",
+        "展示",
+        "Zero to One",
+        "3階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-31",
       "name": "Introductory Seminar and Basic Research Presentations",
       "group": "MIF Executive Committee, Planning and Administration Division, Basic Seminar, Basic Research Group",
@@ -1542,6 +1979,14 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "MST.png",
+      "tagKeys": [
+        "学校企画",
+        "展示",
+        "プレゼン",
+        "Zero to One",
+        "1階",
+        "2階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/12-30",
       "name": "MSTC Student Research Presentations",
       "group": "MSTC",
@@ -1568,6 +2013,15 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "JuniorHighY1Presentation.png",
+      "tagKeys": [
+        "中1",
+        "公演",
+        "3階",
+        "教室棟",
+        "英語対応可",
+        "プレゼン",
+        "学校企画"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-1",
       "name": "Personal Presentation",
       "group": "J1",
@@ -1596,6 +2050,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "CareerPresentation.png",
+      "tagKeys": [
+        "学校企画",
+        "プレゼン",
+        "教室棟",
+        "視聴覚室",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-12-1",
       "name": "Career Presentation (Junior High School Year 1)",
       "group": "Junior High first grade Representative Presentation",
@@ -1622,6 +2083,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "CareerPresentation.png",
+      "tagKeys": [
+        "学校企画",
+        "プレゼン",
+        "教室棟",
+        "視聴覚室",
+        "1階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-12-2",
       "name": "Career Presentation (High School Year 1)",
       "group": "High School First Grade Representative Presentation",
@@ -1648,6 +2116,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "MiniJuniorHighInfo.png",
+      "tagKeys": [
+        "学校企画",
+        "公演",
+        "教室棟",
+        "1階",
+        "視聴覚室"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-11",
       "name": "Mini Junior High School Information Session",
       "group": "School Public Relations",
@@ -1674,6 +2149,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "MST.png",
+      "tagKeys": [
+        "学校企画",
+        "プレゼン",
+        "教室棟",
+        "1階",
+        "視聴覚室"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-13",
       "name": "MSTC Representative Presentations",
       "group": "MSTC",
@@ -1700,6 +2182,14 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "EnglishRecitationSpeech.png",
+      "tagKeys": [
+        "学校企画",
+        "プレゼン",
+        "教室棟",
+        "1階",
+        "英語対応可",
+        "視聴覚室"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-14",
       "name": "Recitation and Speech in English",
       "group": "English Recitation and Speech",
@@ -1726,6 +2216,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "CampusTour.png",
+      "tagKeys": [
+        "学校企画",
+        "体験",
+        "教室棟",
+        "1階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-23",
       "name": "Campus Tour",
       "group": "Campus Tour Administration",
@@ -1751,6 +2248,13 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "School.png",
+      "tagKeys": [
+        "学校企画",
+        "体験",
+        "教室棟",
+        "1階",
+        "英語対応可"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/1-27",
       "name": "Admissions Consultation Room",
       "group": "School",
@@ -1776,6 +2280,12 @@
       "hasPrVideo": false,
       "ticketRequired": false,
       "icon": "Repast.png",
+      "tagKeys": [
+        "その他",
+        "販売",
+        "本館棟",
+        "3階"
+      ],
       "url": "https://mif-2026.studio.site/en/detail/3-5",
       "name": "Cafeteria Food Service",
       "group": "Repast Co., Ltd. Cafeteria",

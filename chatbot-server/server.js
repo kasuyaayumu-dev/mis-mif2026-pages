@@ -185,7 +185,10 @@ const VENUE_SECTION_LABELS = {
     accessNote: '注意',
     entryExit: '入退場方法',
     lostAndFoundHeading: '### 落とし物',
-    officialSiteHeading: '### 公式特設サイト',
+    officialSiteHeading: '### 公式特設サイト(トップページ。分からない時の最後の案内先。できるだけ下のリンクや企画ページを優先する)',
+    linksHeading: '### 個別ページのリンク',
+    mapLabel: '会場マップ(教室配置・企画の場所)',
+    timetableLabel: 'タイムテーブル',
     noticesHeading: '### 注意事項(質問に関係するものだけ答える。毎回全部は不要)'
   },
   en: {
@@ -207,7 +210,10 @@ const VENUE_SECTION_LABELS = {
     accessNote: 'Note',
     entryExit: 'Entry/exit procedure',
     lostAndFoundHeading: '### Lost and found',
-    officialSiteHeading: '### Official site',
+    officialSiteHeading: '### Official site (top page; last resort — prefer the specific links below and project pages)',
+    linksHeading: '### Page links',
+    mapLabel: 'Venue map (room layout / project locations)',
+    timetableLabel: 'Timetable',
     noticesHeading: '### Notices (answer only what is relevant to the question, not the full list every time)'
   }
 };
@@ -241,6 +247,9 @@ function renderVenueSection(venue, lang) {
     );
   }
   if (venue.lostAndFound) lines.push(L.lostAndFoundHeading, `- ${venue.lostAndFound}`);
+  if (venue.links) {
+    lines.push(L.linksHeading, `- ${L.mapLabel}: ${venue.links.map}`, `- ${L.timetableLabel}: ${venue.links.timetable}`);
+  }
   if (venue.officialSiteUrl) lines.push(L.officialSiteHeading, `- ${venue.officialSiteUrl}`);
   if (Array.isArray(venue.notices) && venue.notices.length > 0) {
     lines.push(L.noticesHeading, ...venue.notices.map(n => `- ${n}`));
@@ -289,8 +298,8 @@ const ROOM_SHIFT_SCHEDULE = {
 const FLOOR_UNKNOWN_LABEL = { ja: '情報なし', en: 'not available yet' };
 
 const PROMPT_LABELS = {
-  ja: { shift: '時間帯の注意', ticketNeeded: '整理券: 必要', ticket: '整理券・入場情報', detail: '詳細' },
-  en: { shift: 'Schedule note', ticketNeeded: 'Ticket: required', ticket: 'Ticket / entry info', detail: 'Details' }
+  ja: { shift: '時間帯の注意', ticketNeeded: '整理券: 必要', ticketNone: '整理券: 不要(入場自由)', mapNo: 'マップ番号', page: '詳細ページ', ticket: '整理券・入場情報', detail: '詳細' },
+  en: { shift: 'Schedule note', ticketNeeded: 'Ticket: required', ticketNone: 'Ticket: not required (free entry)', mapNo: 'Map no.', page: 'Detail page', ticket: 'Ticket / entry info', detail: 'Details' }
 };
 const oneLine = text => String(text).replace(/\s*\n+\s*/g, ' / ');
 
@@ -318,11 +327,13 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     }
     const rawFloor = it.floor || (it.icon && floorIndex.get(it.icon));
     const floor = rawFloor ? (lang === 'en' ? rawFloor.replace('階', 'F') : rawFloor) : floorUnknownLabel;
-    const place = it.location || '';
+    const place = (it.tags || []).join('/');
     const head = `- ${name} | ${group} | ${category} | ${format} | ${desc} | ${schedule} | ${floor}${place ? ' | ' + place : ''}`;
+    const where = [it.mapNumber && `${labels.mapNo} ${it.mapNumber}`, it.url && `${labels.page}: ${it.url}`].filter(Boolean).join(' / ');
     const extra = [];
     if (it.scheduleNote) extra.push(`${labels.shift}: ${it.scheduleNote}`);
-    if (it.ticketRequired) extra.push(labels.ticketNeeded);
+    if (where) extra.push(where);
+    extra.push(it.ticketRequired ? labels.ticketNeeded : labels.ticketNone);
     if (it.ticketInfo) extra.push(`${labels.ticket}: ${oneLine(it.ticketInfo)}`);
     if (it.longDescription) extra.push(`${labels.detail}: ${oneLine(it.longDescription)}`);
     return extra.length ? `${head}\n${extra.map(e => '    ' + e).join('\n')}` : head;
@@ -366,6 +377,25 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       'sub-line needs no ticket (free entry) unless the line says otherwise. The exact room number and',
       'waiting area are NOT in the list — if asked, say that is not available and suggest checking with',
       'festival staff or the information desk. The trailing field after Floor is the building/area.',
+      '',
+      '## Location, links, and when you do not know (important)',
+      '1. When asked where a project is, answer in ONE reply: floor, building/area and map number, and always',
+      '   attach the venue-map link and the project\'s detail-page link. Do not ask follow-up questions first.',
+      '2. When answering about a specific project, end with that project\'s detail-page URL. Copy URLs exactly',
+      '   as written in the data; never invent or alter a URL.',
+      '3. For anything not written in the list or venue data (room numbers, crowding, sold-out status, unlisted',
+      '   facilities), say you do not know instead of guessing, and point to the most relevant specific link',
+      '   (the project detail page, the venue map or the timetable). Use the site top page only as a last resort.',
+      '4. For restrooms and other facilities, answer strictly from the venue data without rephrasing beyond it;',
+      '   if a floor or gender is not listed, say there is no information.',
+      '5. Ticket info for a project must come only from that project\'s own sub-lines. Never mix in another',
+      '   project\'s sub-lines. "Ticket: not required" means no ticket is needed.',
+      '',
+      '## Attribute-based questions',
+      'For questions filtering by floor, grade, format (exhibit/experience/sales/performance/presentation),',
+      'category, building, English support or ticket requirement, ALWAYS call the search_projects tool',
+      '(do not count from the list yourself — you will miss items). Cards are shown automatically, so just',
+      'state the number of matches in one short sentence. The last field of each list line is the tags.',
       '',
       '## Handling a project-search question',
       'When a visitor is looking for projects by interest, genre, food, exhibit content, etc., search the',
@@ -434,6 +464,25 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     'リストにないため、聞かれた場合は情報がない旨を伝え、当日は企画スタッフまたは案内所でご確認',
     'いただくよう案内してください。',
     '',
+    '## 場所・リンク・分からない時の対応(重要)',
+    '1. 場所を聞かれたら、1回の返答で「階」「棟・エリア」「マップ番号」を答え、会場マップのリンクと',
+    '   その企画の詳細ページのリンクを必ず付けてください。聞き返さず、リストにある情報で最後まで答えます。',
+    '2. 特定の企画について答える時は、返答の最後にその企画の「詳細ページ」のURLを付けてください。',
+    '   リンクは企画リスト・来場案内データに書かれたURLをそのままコピーし、URLを作ったり変えたりしないでください。',
+    '3. リストにも来場案内データにも書かれていないこと(教室番号・混雑状況・売り切れ・未掲載の施設など)は、',
+    '   推測で答えず「分からない」と正直に伝え、最も関係が深い個別リンク(その企画の詳細ページ、',
+    '   会場マップ、タイムテーブル)を案内してください。公式サイトのトップページは、どれにも当てはまらない時だけにします。',
+    '4. トイレなど設備の場所は、来場案内データの文言を書き換えず、書かれている範囲だけを答えてください。',
+    '   書かれていない階や性別のトイレは「情報がありません」と伝え、推測で補わないでください。',
+    '5. 企画ごとの整理券は、その企画自身の行(直下の補足行)だけを根拠にしてください。別の企画の',
+    '   補足行を混ぜて答えないでください。「整理券: 不要」と書かれた企画は整理券は不要です。',
+    '',
+    '## 属性で絞り込む質問への対応',
+    '階・学年・形式(展示/体験/販売/公演/プレゼン)・種別・棟・英語対応・整理券の有無といった',
+    '属性で企画を探す質問には、必ず search_projects ツールを使ってください(リストを自分で数えると',
+    '漏れるため)。結果はカードで自動表示されるので、文章では「該当は○件です」のように件数と一言だけ',
+    '伝えてください。企画リストの各行の最後の欄はタグ(学年・形式・棟・階・英語対応可など)です。',
+    '',
     '## 企画を探す質問への対応',
     '来場者が興味・ジャンル・食べ物・展示内容などの条件から企画を探している場合は、企画リストから',
     '意味的に当てはまる企画を探してください。1件でも当てはまる企画があれば、必ず suggest_projects',
@@ -495,6 +544,30 @@ const chatTools = [
   {
     type: 'function',
     function: {
+      name: 'search_projects',
+      description:
+        '階・学年・形式・種別・棟・英語対応・整理券といった属性で企画を絞り込み、該当企画を' +
+        'カード表示する。「3階の企画」「中2の企画」「英語対応の体験」「整理券が必要な企画」のような' +
+        '属性の質問には、リストを自分で数えずにこのツールを使う。条件は全てAND。' +
+        '内容やテーマ(ダンス・食べ物・怖いなど)での探索は keyword か suggest_projects を使う。',
+      parameters: {
+        type: 'object',
+        properties: {
+          floor: { type: 'string', enum: ['1階', '2階', '3階'] },
+          grade: { type: 'string', enum: ['中1', '中2', '中3', '高1', '高2'] },
+          format: { type: 'string', enum: ['展示', '体験', '販売', '公演', 'プレゼン'] },
+          category: { type: 'string', enum: ['部活動', '学校企画', '学年企画', '有志団体', '委員会', '卒業生・保護者', 'Zero to One', 'その他'] },
+          building: { type: 'string', enum: ['教室棟', 'ホール棟', '本館棟', '中庭', 'グラウンド', '視聴覚室'] },
+          english: { type: 'boolean', description: '英語対応ありのみ' },
+          ticket: { type: 'boolean', description: '整理券が必要な企画のみ' },
+          keyword: { type: 'string', description: '企画名・団体名・説明に含まれる語(日本語表記で)' }
+        }
+      }
+    }
+  },
+  {
+    type: 'function',
+    function: {
       name: 'suggest_projects',
       description:
         'あなたが企画リストを読んで「来場者の質問に当てはまる」と判断した企画を、カード形式で' +
@@ -509,7 +582,7 @@ const chatTools = [
             items: { type: 'string' },
             description:
               '当てはまると判断した企画の名前を、企画リストに書かれている表記のまま一字一句' +
-              'コピーして配列で渡す(該当するもの全部。最大8件まで)'
+              'コピーして配列で渡す(該当するもの全部。最大16件まで)'
           }
         },
         required: ['names']
@@ -565,13 +638,36 @@ function toCard(it) {
   };
 }
 
+const MAX_CARDS = 16;
+
+// 属性(階・学年・形式・英語対応・整理券など)による絞り込み。モデルが長い企画リストから
+// 数え漏らさないよう、サーバー側で機械的に絞る。条件はすべてAND。
+function searchProjects(groupsData, args) {
+  const items = groupsData.items || [];
+  const a = args || {};
+  const wanted = [a.floor, a.grade, a.format, a.category, a.building].filter(Boolean);
+  const kw = typeof a.keyword === 'string' ? a.keyword.trim().toLowerCase() : '';
+  const matched = items.filter(it => {
+    const keys = it.tagKeys || [];
+    if (!wanted.every(w => keys.includes(w))) return false;
+    if (a.english === true && !it.englishSupport) return false;
+    if (a.ticket === true && !it.ticketRequired) return false;
+    if (kw) {
+      const text = [it.name, it.group, it.description, it.longDescription, ...(it.tags || [])].join(' ').toLowerCase();
+      if (!text.includes(kw)) return false;
+    }
+    return true;
+  });
+  return { count: matched.length, items: matched.slice(0, MAX_CARDS).map(toCard), names: matched.map(it => it.name) };
+}
+
 function suggestProjects(groupsData, names) {
   const items = groupsData.items || [];
   const list = Array.isArray(names) ? names : [];
 
   const matched = [];
   const seenIds = new Set();
-  for (const n of list.slice(0, 8)) {
+  for (const n of list.slice(0, MAX_CARDS)) {
     const item = findItemByName(items, n);
     if (item && !seenIds.has(item.id)) {
       seenIds.add(item.id);
@@ -696,6 +792,9 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
           let toolResult;
           if (toolCall.function?.name === 'find_project_link') {
             toolResult = findProjectLink(groupsData, args.name);
+          } else if (toolCall.function?.name === 'search_projects') {
+            toolResult = searchProjects(groupsData, args);
+            if (toolResult.items.length > 0) suggestions = toolResult.items;
           } else if (toolCall.function?.name === 'suggest_projects') {
             toolResult = suggestProjects(groupsData, args.names);
             if (toolResult.items.length > 0) suggestions = toolResult.items;

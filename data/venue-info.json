@@ -1,6 +1,6 @@
 {
   "note": "チャットボットの案内アシスタントが参照する、文化祭全体(企画個別ではない)の来場案内データ。未確定の項目は「情報なし」としておき、確定次第ここを更新すること。コード修正やデプロイは不要。",
-  "officialSiteUrl": "https://preview.studio.site/live/4yqBzNEbqj/",
+  "officialSiteUrl": "https://mif-2026.studio.site/",
   "days": [
     {
       "label": "Day 1",
@@ -43,5 +43,9 @@
     "上記に当てはまる場合でも、特定のフォトスポットを除き、撮影はご遠慮ください。",
     "学校周辺での自動車の乗り降りはご遠慮ください。",
     "近隣店舗への駐輪・駐車はご遠慮ください。"
-  ]
+  ],
+  "links": {
+    "map": "https://mif-2026.studio.site/jp/maps",
+    "timetable": "https://mif-2026.studio.site/jp/timetable"
+  }
 }

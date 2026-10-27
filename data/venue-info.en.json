@@ -1,6 +1,6 @@
 {
   "note": "Festival-wide (not per-project) visitor guide data referenced by the chatbot assistant. Unconfirmed items are left as \"Not available yet\" — update this file once confirmed, no code change or redeploy needed.",
-  "officialSiteUrl": "https://preview.studio.site/live/4yqBzNEbqj/",
+  "officialSiteUrl": "https://mif-2026.studio.site/en",
   "days": [
     {
       "label": "Day 1",
@@ -43,5 +43,9 @@
     "Even those listed above should refrain from photography except at designated photo spots.",
     "Please do not drop off or pick up by car near the school.",
     "Please do not park or leave bicycles at nearby shops."
-  ]
+  ],
+  "links": {
+    "map": "https://mif-2026.studio.site/en/maps",
+    "timetable": "https://mif-2026.studio.site/en/timetable"
+  }
 }
