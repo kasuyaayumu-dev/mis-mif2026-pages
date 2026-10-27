@@ -409,7 +409,8 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       '7. For questions about time of day (morning/afternoon, what is on at a given time, overlaps, the last',
       '   performance), do NOT compare times from the list yourself. Always call search_timetable and answer only',
       '   from the returned schedule. If asked whether two items overlap, compare the numeric start/end times and',
-      '   state exactly which day and times overlap.',
+      '   rely only on the tool result\'s "overlaps" list (empty = no overlap); do not recompare times yourself.',
+      '   Also write the project names and times as a bullet list in your text.',
       '8. Do not pick or assert projects by qualities not written in the data (spicy, sweet, popularity, crowding,',
       '   recommendations). Judge by words written in descriptions; if nothing is written, say there is no such',
       '   information. Do not invent area names or labels that are not in the data.',
@@ -509,13 +510,15 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '',
     '7. 時間帯・時刻の質問(午前・午後・何時に見られる・重なっている・最後の公演など)は、企画リストの',
     '   時刻を自分で比べず、必ず search_timetable ツールを使い、返ってきた一覧だけを根拠に答えてください。',
-    '   時間が重なるかを聞かれた場合は、一覧の開始・終了時刻を数字で比べて、重なる日と時間を正確に伝えます。',
+    '   時間帯の質問には、企画名と時刻を箇条書きで文章にも書いてください。重なりの質問は、ツール結果の',
+    '   overlaps だけを根拠にし(空なら重なりなし)、自分で時刻を比べ直さないでください。',
     '8. 味(辛い・甘い)、人気、混雑、おすすめ度など、リストに明記されていない性質で企画を選んだり',
     '   断定したりしないでください。説明文に書かれた語(例: ベビーカステラ、レモネード)で判断し、',
-    '   書かれていなければ「該当する記載はありません」と伝えます。',
+    '   書かれていなければ「該当する記載はありません」と伝えます。その場合、関係の薄い企画のカードは出さないでください。',
+    '   全ての企画には詳細ページがあります。「詳細ページがない」とは言わず、リストのURLを案内してください。',
     '10. 整理券・チケットの案内では、対象者の条件(例: 外部からの来場者のみ)、配布場所、配布開始時間を省略せず',
     '   すべて伝えてください。',
-    '9. 企画カードのことは日本語で「カード」と呼んでください。用語の意味は来場案内データの「用語」に',
+    '9. 企画カードのことは「下に表示される一覧」と呼んでください(英語のcardsや、似た語のカルテは使わない)。用語の意味は来場案内データの「用語」に',
     '   書かれた範囲で答え、書かれていない用語の意味や場所を推測で補わないでください。',
     '',
     '## 属性で絞り込む質問への対応',
@@ -736,6 +739,19 @@ function buildNowMessage(lang) {
 }
 
 // モデルが稀に出す、ツール引数のJSON断片の混入や、日本語・英語以外の文字の混入を取り除く。
+const FOREIGN_SCRIPT_RE = /[\u0900-\u0DFF\u0E00-\u0EFF\u0600-\u06FF\u0400-\u04FF]/;
+
+// 返信内の詳細ページURLのうち、実在しないスラッグを直す。例: 1-12 は 1-12-1 のように
+// 枝番付きだけが存在する場合は最初の枝番へ、該当が無ければURLごと取り除く。
+function repairDetailLinks(text, groupsData) {
+  const slugs = new Set((groupsData.items || []).map(it => it.slug).filter(Boolean));
+  return text.replace(/(https:\/\/mif-2026\.studio\.site\/(?:jp|en)\/detail\/)([0-9A-Za-z-]+)/g, (m, base, slug) => {
+    if (slugs.has(slug)) return m;
+    const alt = [...slugs].filter(x => x.startsWith(slug + '-')).sort()[0];
+    return alt ? base + alt : '';
+  });
+}
+
 function sanitizeReply(text) {
   return String(text)
     .replace(/^\s*\{[^{}]*\}\s*/, '')
@@ -779,7 +795,18 @@ function searchTimetable(timetableData, groupsData, args) {
     }
   });
   events.sort((x, y) => (x.date + x.start).localeCompare(y.date + y.start));
-  return { count: events.length, events, items: cards.slice(0, MAX_CARDS) };
+  // 同じ日で時間が重なる組をサーバー側で数える(モデルに時刻の比較をさせない)
+  const overlaps = [];
+  for (let i = 0; i < events.length; i++) {
+    for (let j = i + 1; j < events.length; j++) {
+      const x = events[i];
+      const y = events[j];
+      if (x.date === y.date && x.start < y.end && y.start < x.end) {
+        overlaps.push(`${x.day} ${x.title}(${x.start}-${x.end}) と ${y.title}(${y.start}-${y.end})`);
+      }
+    }
+  }
+  return { count: events.length, events, overlaps, items: cards.slice(0, MAX_CARDS) };
 }
 
 function suggestProjects(groupsData, names) {
@@ -896,6 +923,7 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
     let reply = null;
     let suggestions = null; // suggest_projects が呼ばれた場合、カード表示用データをここに保持する
     const MAX_TOOL_ROUNDS = 3;
+    let glitchRetries = 0;
 
     for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
       const openaiJson = await callOpenAI(messages);
@@ -935,7 +963,12 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
         continue;
       }
 
-      reply = sanitizeReply(assistantMsg.content ?? '');
+      if (FOREIGN_SCRIPT_RE.test(assistantMsg.content ?? '') && glitchRetries < 2) {
+        glitchRetries++;
+        round--;
+        continue;
+      }
+      reply = repairDetailLinks(sanitizeReply(assistantMsg.content ?? ''), groupsData);
       break;
     }
 
