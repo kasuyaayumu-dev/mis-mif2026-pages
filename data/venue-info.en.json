@@ -62,5 +62,10 @@
     "Each visitor must collect their own ticket. Collecting for several people, swapping for another time slot, and returning a ticket are not allowed.",
     "A visitor without a ticket generally cannot enter together with a friend who has one. If the project is empty and needs no waiting, the group may allow it.",
     "Stepping out of the line briefly is fine as long as at least one person stays. If your turn comes while you are away, the person behind goes first."
+  ],
+  "glossary": [
+    "MSTC is a group of students who do research activities year-round. They present at the MSTC Research Presentation and the MSTC Representatives' Presentation.",
+    "ZERO to ONE is the name for the research-presentation projects with map numbers Z1 and Z2. Z1 is the MSTC Research Presentation and Z2 is the Basic Seminar and Basic Research Presentation.",
+    "J1 to J3 are junior high years 1 to 3, and S1 to S3 are high school years 1 to 3. A trailing letter is the class."
   ]
 }

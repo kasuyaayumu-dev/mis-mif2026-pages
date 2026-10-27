@@ -187,6 +187,7 @@ const VENUE_SECTION_LABELS = {
     lostAndFoundHeading: '### 落とし物',
     officialSiteHeading: '### 公式特設サイト(トップページ。分からない時の最後の案内先。できるだけ下のリンクや企画ページを優先する)',
     ticketRulesHeading: '### 整理券のルール(体験型企画の混雑対応。質問に関係する部分だけ答える)',
+    glossaryHeading: '### 用語',
     linksHeading: '### 個別ページのリンク',
     mapLabel: '会場マップ(教室配置・企画の場所)',
     timetableLabel: 'タイムテーブル',
@@ -213,6 +214,7 @@ const VENUE_SECTION_LABELS = {
     lostAndFoundHeading: '### Lost and found',
     officialSiteHeading: '### Official site (top page; last resort — prefer the specific links below and project pages)',
     ticketRulesHeading: '### Ticket rules (crowd control for experience projects; answer only the relevant part)',
+    glossaryHeading: '### Glossary',
     linksHeading: '### Page links',
     mapLabel: 'Venue map (room layout / project locations)',
     timetableLabel: 'Timetable',
@@ -251,6 +253,9 @@ function renderVenueSection(venue, lang) {
   if (venue.lostAndFound) lines.push(L.lostAndFoundHeading, `- ${venue.lostAndFound}`);
   if (Array.isArray(venue.ticketRules) && venue.ticketRules.length > 0) {
     lines.push(L.ticketRulesHeading, ...venue.ticketRules.map(r => `- ${r}`));
+  }
+  if (Array.isArray(venue.glossary) && venue.glossary.length > 0) {
+    lines.push(L.glossaryHeading, ...venue.glossary.map(g => `- ${g}`));
   }
   if (venue.links) {
     lines.push(L.linksHeading, `- ${L.mapLabel}: ${venue.links.map}`, `- ${L.timetableLabel}: ${venue.links.timetable}`);
@@ -401,6 +406,15 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       '   Questions like which groups use tickets, how queuing works or return times must be answered from (b),',
       '   not only from (a) cards or the search_projects ticket filter. Briefly note the difference if useful.',
       '',
+      '7. For questions about time of day (morning/afternoon, what is on at a given time, overlaps, the last',
+      '   performance), do NOT compare times from the list yourself. Always call search_timetable and answer only',
+      '   from the returned schedule. If asked whether two items overlap, compare the numeric start/end times and',
+      '   state exactly which day and times overlap.',
+      '8. Do not pick or assert projects by qualities not written in the data (spicy, sweet, popularity, crowding,',
+      '   recommendations). Judge by words written in descriptions; if nothing is written, say there is no such',
+      '   information. Do not invent area names or labels that are not in the data.',
+      '9. Explain terms only as far as the "Glossary" in the venue data does; do not guess meanings or locations.',
+      '',
       '## Attribute-based questions',
       'For questions filtering by floor, grade, format (exhibit/experience/sales/performance/presentation),',
       'category, building, English support or ticket requirement, ALWAYS call the search_projects tool',
@@ -491,6 +505,15 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '   「どの団体が整理券を使うか」「並び方」「再来場時間」といった質問は(b)の文面で答え、(a)の企画カードや',
     '   search_projects の整理券絞り込みだけで答えないでください。必要なら両方の違いを一言添えてください。',
     '',
+    '7. 時間帯・時刻の質問(午前・午後・何時に見られる・重なっている・最後の公演など)は、企画リストの',
+    '   時刻を自分で比べず、必ず search_timetable ツールを使い、返ってきた一覧だけを根拠に答えてください。',
+    '   時間が重なるかを聞かれた場合は、一覧の開始・終了時刻を数字で比べて、重なる日と時間を正確に伝えます。',
+    '8. 味(辛い・甘い)、人気、混雑、おすすめ度など、リストに明記されていない性質で企画を選んだり',
+    '   断定したりしないでください。説明文に書かれた語(例: ベビーカステラ、レモネード)で判断し、',
+    '   書かれていなければ「該当する記載はありません」と伝えます。',
+    '9. 企画カードのことは日本語で「カード」と呼んでください。用語の意味は来場案内データの「用語」に',
+    '   書かれた範囲で答え、書かれていない用語の意味や場所を推測で補わないでください。',
+    '',
     '## 属性で絞り込む質問への対応',
     '階・学年・形式(展示/体験/販売/公演/プレゼン)・種別・棟・英語対応・整理券の有無といった',
     '属性で企画を探す質問には、必ず search_projects ツールを使ってください(リストを自分で数えると',
@@ -575,6 +598,26 @@ const chatTools = [
           english: { type: 'boolean', description: '英語対応ありのみ' },
           ticket: { type: 'boolean', description: '公演などで事前の整理券・チケットが必須と登録されている企画のみ(体験型企画の混雑用の整理券は含まない)' },
           keyword: { type: 'string', description: '企画名・団体名・説明に含まれる語(日本語表記で)' }
+        }
+      }
+    }
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'search_timetable',
+      description:
+        '公演・発表のタイムテーブルを日付と時刻で検索する。「午後の公演」「11時に見られるもの」「Day2の' +
+        '最後の公演」のような時間帯の質問には、リストの時刻を自分で比べず必ずこのツールを使う。' +
+        '返ってくる一覧はスケジュール順で、時間が重なる公演も全て含まれる。',
+      parameters: {
+        type: 'object',
+        properties: {
+          day: { type: 'integer', enum: [1, 2], description: '1=Day1(10/31)、2=Day2(11/1)。省略すると両日' },
+          start_from: { type: 'string', description: 'この時刻(HH:MM)以降に始まるもの' },
+          start_until: { type: 'string', description: 'この時刻(HH:MM)以前に始まるもの' },
+          running_at: { type: 'string', description: 'この時刻(HH:MM)に開催中のもの' },
+          keyword: { type: 'string', description: '企画名・団体名に含まれる語' }
         }
       }
     }
@@ -673,6 +716,66 @@ function searchProjects(groupsData, args) {
     return true;
   });
   return { count: matched.length, items: matched.slice(0, MAX_CARDS).map(toCard), names: matched.map(it => it.name) };
+}
+
+// タイムテーブルを日付・時刻で機械的に絞り込む。時刻の大小比較をモデルに任せると取りこぼすため。
+// 「今から行ける」のような質問に答えられるよう、現在の日本時間を別のsystemメッセージで渡す。
+// メインのプロンプト(キャッシュ対象)の後ろに置くため、キャッシュは崩れない。
+function buildNowMessage(lang) {
+  const fmt = new Intl.DateTimeFormat(lang === 'en' ? 'en-US' : 'ja-JP', {
+    timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit', weekday: 'short', hour: '2-digit', minute: '2-digit', hour12: false
+  });
+  const now = fmt.format(new Date());
+  return lang === 'en'
+    ? `Current date/time in Japan: ${now}. The festival runs Day1 = 2026-10-31 and Day2 = 2026-11-01. If today is not a festival day, say whether the festival is upcoming or over when asked about "now" or "today". On a festival day, use this time with search_timetable (running_at / start_from).`
+    : `現在の日本時間: ${now}。文化祭はDay1=2026年10月31日、Day2=2026年11月1日です。今日が開催日でない場合、「今」「今日」の質問には、開催前か終了後かを伝えてください。開催日なら、この時刻を使って search_timetable(running_at / start_from)で答えてください。`;
+}
+
+// モデルが稀に出す、ツール引数のJSON断片の混入や、日本語・英語以外の文字の混入を取り除く。
+function sanitizeReply(text) {
+  return String(text)
+    .replace(/^\s*\{[^{}]*\}\s*/, '')
+    .replace(/[\u0900-\u0DFF\u0E00-\u0EFF\u0600-\u06FF\u0400-\u04FF]+/g, '')
+    .trim();
+}
+
+const TIME_RE = /^\d{1,2}:\d{2}$/;
+const toMinutes = t => {
+  if (typeof t !== 'string' || !TIME_RE.test(t.trim())) return null;
+  const [h, m] = t.trim().split(':').map(Number);
+  return h * 60 + m;
+};
+
+function searchTimetable(timetableData, groupsData, args) {
+  const a = args || {};
+  const from = toMinutes(a.start_from);
+  const until = toMinutes(a.start_until);
+  const at = toMinutes(a.running_at);
+  const kw = typeof a.keyword === 'string' ? a.keyword.trim().toLowerCase() : '';
+  const byIcon = new Map((groupsData.items || []).filter(it => it.icon).map(it => [it.icon, it]));
+  const events = [];
+  const cards = [];
+  const seen = new Set();
+  const days = timetableData?.days || [];
+  days.forEach((day, idx) => {
+    if ((a.day === 1 || a.day === 2) && idx !== a.day - 1) return;
+    for (const ev of day.events || []) {
+      const st = toMinutes(ev.start);
+      const en = toMinutes(ev.end);
+      if (from !== null && st < from) continue;
+      if (until !== null && st > until) continue;
+      if (at !== null && !(st <= at && at < en)) continue;
+      if (kw && !`${ev.title} ${ev.groupName}`.toLowerCase().includes(kw)) continue;
+      events.push({ day: day.title || day.id, date: day.date, start: ev.start, end: ev.end, title: ev.title, group: ev.groupName || '' });
+      const item = ev.icon && byIcon.get(ev.icon);
+      if (item && !seen.has(item.id)) {
+        seen.add(item.id);
+        cards.push(toCard(item));
+      }
+    }
+  });
+  events.sort((x, y) => (x.date + x.start).localeCompare(y.date + y.start));
+  return { count: events.length, events, items: cards.slice(0, MAX_CARDS) };
 }
 
 function suggestProjects(groupsData, names) {
@@ -779,6 +882,7 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
 
     const messages = [
       { role: 'system', content: systemPrompt },
+      { role: 'system', content: buildNowMessage(safeLang) },
       ...safeHistory
         .filter(m => m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string')
         .map(m => ({ role: m.role, content: m.content.slice(0, 1000) })),
@@ -809,6 +913,9 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
           } else if (toolCall.function?.name === 'search_projects') {
             toolResult = searchProjects(groupsData, args);
             if (toolResult.items.length > 0) suggestions = toolResult.items;
+          } else if (toolCall.function?.name === 'search_timetable') {
+            toolResult = searchTimetable(timetableData, groupsData, args);
+            if (toolResult.items.length > 0) suggestions = toolResult.items;
           } else if (toolCall.function?.name === 'suggest_projects') {
             toolResult = suggestProjects(groupsData, args.names);
             if (toolResult.items.length > 0) suggestions = toolResult.items;
@@ -824,7 +931,7 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
         continue;
       }
 
-      reply = assistantMsg.content?.trim();
+      reply = sanitizeReply(assistantMsg.content ?? '');
       break;
     }
 
