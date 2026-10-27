@@ -186,6 +186,7 @@ const VENUE_SECTION_LABELS = {
     entryExit: '入退場方法',
     lostAndFoundHeading: '### 落とし物',
     officialSiteHeading: '### 公式特設サイト(トップページ。分からない時の最後の案内先。できるだけ下のリンクや企画ページを優先する)',
+    ticketRulesHeading: '### 整理券のルール(体験型企画の混雑対応。質問に関係する部分だけ答える)',
     linksHeading: '### 個別ページのリンク',
     mapLabel: '会場マップ(教室配置・企画の場所)',
     timetableLabel: 'タイムテーブル',
@@ -211,6 +212,7 @@ const VENUE_SECTION_LABELS = {
     entryExit: 'Entry/exit procedure',
     lostAndFoundHeading: '### Lost and found',
     officialSiteHeading: '### Official site (top page; last resort — prefer the specific links below and project pages)',
+    ticketRulesHeading: '### Ticket rules (crowd control for experience projects; answer only the relevant part)',
     linksHeading: '### Page links',
     mapLabel: 'Venue map (room layout / project locations)',
     timetableLabel: 'Timetable',
@@ -247,6 +249,9 @@ function renderVenueSection(venue, lang) {
     );
   }
   if (venue.lostAndFound) lines.push(L.lostAndFoundHeading, `- ${venue.lostAndFound}`);
+  if (Array.isArray(venue.ticketRules) && venue.ticketRules.length > 0) {
+    lines.push(L.ticketRulesHeading, ...venue.ticketRules.map(r => `- ${r}`));
+  }
   if (venue.links) {
     lines.push(L.linksHeading, `- ${L.mapLabel}: ${venue.links.map}`, `- ${L.timetableLabel}: ${venue.links.timetable}`);
   }

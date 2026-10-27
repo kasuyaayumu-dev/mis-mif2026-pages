@@ -47,5 +47,20 @@
   "links": {
     "map": "https://mif-2026.studio.site/en/maps",
     "timetable": "https://mif-2026.studio.site/en/timetable"
-  }
+  },
+  "ticketRules": [
+    "This is separate from the performance tickets. For performance projects, give the ticket info on each project's own page.",
+    "Groups that use these tickets are all projects except food, sales, performances and club activities. Concretely: grade projects other than the J1 presentation and the physical expression performance, all volunteer-group projects, and the basic seminar projects.",
+    "If a project is not crowded, tickets are not used and visitors can enter directly.",
+    "Among the seminars, those led by Mr. Nagasaki and Mr. Ichikawa hand out tickets from the morning. J2 grade projects start handing out tickets once the crowd overflows, and stop when the tickets run out.",
+    "Until about 10 people are waiting, visitors simply line up without tickets. Once about 10 people are waiting, the project switches to handing out tickets.",
+    "Each ticket shows a return time slot. Slots are :00-:15 or :30-:45 of an hour. Visitors leave and come back in that slot. The 9 o'clock hour only has :30-:45, and the last hour has only :00-:15.",
+    "People arriving after ticket distribution has started receive a ticket instead of joining the line.",
+    "A latecomer can still enter while it is the same hour as the ticket's slot. For example a 10:30-10:45 ticket works until 10:59 and becomes invalid from 11:00.",
+    "When nobody with a ticket is waiting, visitors may be told they can go in right away.",
+    "Whether one ticket covers a group or one person differs by project. Tell visitors to check at each project's reception.",
+    "Each visitor must collect their own ticket. Collecting for several people, swapping for another time slot, and returning a ticket are not allowed.",
+    "A visitor without a ticket generally cannot enter together with a friend who has one. If the project is empty and needs no waiting, the group may allow it.",
+    "Stepping out of the line briefly is fine as long as at least one person stays. If your turn comes while you are away, the person behind goes first."
+  ]
 }
