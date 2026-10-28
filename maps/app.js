@@ -25,8 +25,6 @@ const map = L.map('map', {
   // (実際に使う範囲はfitToWholeMap()内でfitZoom基準に絞り直す)。
   minZoom: -10,
   maxZoom: 10,
-  // 狭い画面でのピン選択時のズームを半段階刻みにできるよう0.5刻みにする
-  zoomSnap: 0.5,
   maxBoundsViscosity: 0.8
 });
 
@@ -105,8 +103,7 @@ function fitToWholeMap() {
   map.setMinZoom(fitZoom);
   map.setMaxZoom(fitZoom + 2);
 
-  // 狭い画面では、地図の全体が一目で見えるよう、ズームインせず全体表示から始める
-  initialZoom = fitZoom + (isNarrowScreen() ? 0 : 1);
+  initialZoom = fitZoom + 1;
   initialCenter = bounds.getCenter();
   if (cfg.viewOrigin) {
     // 画像上の viewOrigin を地図の左上隅に置く中心を求める(CRS.Simpleの縮尺は 2^zoom)
@@ -145,25 +142,8 @@ function applyLooseBounds() {
 // LeafletのbindPopup側のautoPanは、狭いmaxBoundsの内側で計算されてしまい
 // (かつ二重に呼ぶと今度は行き過ぎる)、はみ出したポップアップをうまく画面内に
 // 収めきれないことがあるため、autoPanは切って自前でパン量を計算する。
-// 縦長のスマホでは地図の枠が小さく、ピンの横に出すポップアップが枠からはみ出す。そこで
-// ポップアップを地図のすぐ下(一覧の上)に重ねるカードとして表示し、ピンは地図の中央に見せる。
-function showPopupAsCard(popup) {
-  const el = popup._container;
-  if (!el) return;
-  (document.getElementById('app') || map.getContainer()).appendChild(el);
-  el.classList.add('narrow-card');
-  const src = popup._source;
-  const latlng = src && src.getLatLng ? src.getLatLng() : popup.getLatLng();
-  // パン範囲を広げた(applyLooseBounds)後で、ピンを地図の中央に置き直す
-  map.setView(latlng, map.getZoom(), { animate: false });
-}
-
 map.on('popupopen', function (e) {
   applyLooseBounds();
-  if (isNarrowScreen()) {
-    showPopupAsCard(e.popup);
-    return;
-  }
   requestAnimationFrame(function () {
     const popupEl = e.popup._container;
     if (!popupEl) return;
@@ -339,7 +319,7 @@ function addMarkerFromJson(data, floor) {
       // 高くなるとどれだけパンしても収まりきらないため、maxHeightで上限を決め打ちし、
       // はみ出す分はポップアップ内スクロールにする(STUDIO埋め込み時の小さい高さでも
       // 収まるよう、あえて控えめな値にしている)。
-      maxWidth: isNarrowScreen() ? 260 : 320, maxHeight: isNarrowScreen() ? 150 : 200,
+      maxWidth: 320, maxHeight: 200,
       autoPan: false,
       offset: data.popupDirection === 'top' ? [0, -20] : [0, 10],
       className: 'custom-popup'
@@ -571,8 +551,7 @@ map.addControl(new ResetViewControl());
 
 // 企画番号と企画名の一覧を出し入れできるサイドメニュー。
 // 項目を押すとメニューを閉じて、該当フロアに切り替えたうえでその企画のポップアップを開く。
-// 一覧は地図の外側(#app直下)に置く。縦長のスマホでは、地図の下に常に表示する並びにするため。
-const menuPanel = L.DomUtil.create('aside', 'map-menu', document.getElementById('app') || map.getContainer());
+const menuPanel = L.DomUtil.create('aside', 'map-menu', map.getContainer());
 menuPanel.setAttribute('aria-label', I18N.menuTitle || 'Project list');
 menuPanel.setAttribute('aria-hidden', 'true');
 L.DomEvent.disableClickPropagation(menuPanel);
@@ -611,9 +590,6 @@ function setMenuMode(mode) {
 updateModeButtons();
 const menuBody = L.DomUtil.create('div', 'map-menu-body', menuPanel);
 
-// 縦長のスマホなど狭い画面では、一覧を地図の下に常時表示する並びにする(一覧が地図を覆わない)
-function isNarrowScreen() { return window.matchMedia('(max-width: 600px)').matches; }
-
 function isMenuOpen() { return menuPanel.classList.contains('open'); }
 function setMenuOpen(open) {
   const wasOpen = isMenuOpen();
@@ -650,11 +626,10 @@ function switchFloor(floor) {
 }
 
 function openEntry(entry) {
-  // 横長の画面では一覧を閉じて地図を見せる。狭い画面では一覧が地図の外にあるので開いたままにする
-  if (!isNarrowScreen()) setMenuOpen(false);
+  setMenuOpen(false);
   if (entry.floor !== currentFloor) setFloor(entry.floor);
   fitToWholeMap();
-  map.setView(entry.marker.getLatLng(), isNarrowScreen() ? map.getMinZoom() + 1.5 : initialZoom, { animate: false });
+  map.setView(entry.marker.getLatLng(), initialZoom, { animate: false });
   entry.marker.openPopup();
   scrollPopupToEntry(entry);
 }
