@@ -6,29 +6,6 @@ const I18N = window.MAPS_I18N || {};
 // 縦長の地図枠だと普通のパソコンの画面では企画一覧などが見切れるため。埋め込み(本番)は従来のサイズのまま。
 if (window.parent === window) document.documentElement.classList.add('standalone');
 
-// 幅の狭い画面(スマホの埋め込みなど)では、パソコン向けの画面を仮想の横幅(LAYOUT_WIDTH)で組み、
-// 全体を縮小して画面幅に合わせる。見た目や縦横比は変えず、小さく表示するだけにする。
-const LAYOUT_WIDTH = 800;
-function applyScaledLayout() {
-  const root = document.documentElement;
-  const style = document.body.style;
-  const vw = window.innerWidth;
-  if (vw >= LAYOUT_WIDTH) {
-    root.classList.remove('scaled');
-    style.width = style.height = style.transform = style.transformOrigin = '';
-    return;
-  }
-  const scale = vw / LAYOUT_WIDTH;
-  root.classList.add('scaled');
-  style.width = LAYOUT_WIDTH + 'px';
-  style.height = (window.innerHeight / scale) + 'px';
-  style.transform = 'scale(' + scale + ')';
-  style.transformOrigin = '0 0';
-}
-applyScaledLayout();
-// 地図(Leaflet)の再計算より先に縮小率を直すため、他のresizeハンドラより前に登録しておく
-window.addEventListener('resize', applyScaledLayout);
-
 const imageBase = CONFIG.imageBase || '';
 const dataBase = CONFIG.dataBase || '';
 
@@ -613,9 +590,6 @@ function setMenuMode(mode) {
 updateModeButtons();
 const menuBody = L.DomUtil.create('div', 'map-menu-body', menuPanel);
 
-// 縮小表示(スマホ)では、一覧が地図の大部分を覆ってしまうため、自動では開かず「一覧」ボタンで開く
-function isScaledLayout() { return document.documentElement.classList.contains('scaled'); }
-
 function isMenuOpen() { return menuPanel.classList.contains('open'); }
 function setMenuOpen(open) {
   const wasOpen = isMenuOpen();
@@ -648,7 +622,7 @@ function scrollMenuToCurrentFloor(smooth) {
 function switchFloor(floor) {
   setFloor(floor);
   fitToWholeMap();
-  if (!isScaledLayout() || isMenuOpen()) setMenuOpen(true);
+  setMenuOpen(true);
 }
 
 function openEntry(entry) {
@@ -788,7 +762,7 @@ document.addEventListener('keydown', function (e) {
 // 起動時(ピン読み込み後)にメニューを表示する。階の切り替え時にも、切替ボタン側で開く。
 void Promise.all(pinLoads).then(function () {
   buildMenu();
-  if (!isScaledLayout()) setMenuOpen(true);
+  setMenuOpen(true);
 });
 
 function updateSwitcherUI() {
