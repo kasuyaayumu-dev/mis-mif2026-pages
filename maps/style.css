@@ -8,6 +8,8 @@ html, body {
 
 /* 固定pxではなく比率で高さを決める。フロア画像の縦横比(だいたい3:2)に合わせておくことで、
    STUDIO埋め込みの狭い幅でも画像が変な位置に小さく表示されず、幅いっぱいに収まる。 */
+/* 企画一覧(.map-menu)は#app基準で置く。横長の画面では地図に重ねて左から出し、縦長では地図の下に並べる */
+#app { position: relative; }
 #map { aspect-ratio: 3 / 2; width: 100%; min-height: 320px; background: transparent; }
 /* 単体で開いたとき(app.jsが.standaloneを付ける)は、画面の高さいっぱいに収める */
 .standalone #map { aspect-ratio: auto; height: 100vh; height: 100dvh; min-height: 0; }
@@ -235,28 +237,42 @@ html, body {
 .map-menu-mode:hover { background: #f2f7ff; }
 .map-menu-mode[aria-pressed="true"] { background: #1a73e8; border-color: #1a73e8; color: #fff; }
 
-/* スマホなど幅の狭い画面では、一覧を左からではなく下から出し、地図を広く見せる */
+/* 縦長のスマホなど幅の狭い画面: 地図を上、企画一覧を下に並べる。
+   一覧が地図に重ならないので、地図の全体が常に見え、一覧のスクロールは独立して使える。 */
 @media (max-width: 600px) {
+  #app { position: relative; display: flex; flex-direction: column; height: 100%; min-height: 100vh; min-height: 100dvh; }
+  /* 地図は、フロア画像(横長)の全体が収まる比率にする。残りの縦幅は一覧に使う */
+  #map, .standalone #map { flex: 0 0 auto; aspect-ratio: 3 / 2; height: auto; min-height: 0; }
   .map-menu {
-    top: auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    position: static;
+    flex: 1 1 0;
     width: 100%;
-    height: 44%;
-    min-height: 160px;
-    max-height: 70%;
-    border-radius: 14px 14px 0 0;
-    box-shadow: 0 -4px 18px rgba(0,0,0,.25);
-    transform: translateY(105%);
+    min-height: 0;
+    transform: none;
+    visibility: visible;
+    transition: none;
+    box-shadow: none;
+    border-top: 1px solid #d5dbe5;
   }
-  .map-menu.open { transform: translateY(0); }
-  .map-menu-header { padding: 2px 4px 2px 14px; font-size: 14px; }
-  .map-menu-close { width: 30px; height: 30px; }
-  .map-menu-modes { padding: 5px 14px; }
+  .map-menu-header, .map-menu-close, .menu-toggle-control { display: none; }
+  /* ポップアップは地図のすぐ下(一覧の上)に重なるカードにする(app.jsのshowPopupAsCard)。
+     地図の高さは幅の2/3(#mapのaspect-ratio 3/2)なので、その分だけ下げる */
+  .leaflet-popup.narrow-card {
+    position: absolute !important;
+    left: 8px !important;
+    right: 8px !important;
+    top: calc(66.667vw + 6px) !important;
+    bottom: auto !important;
+    margin: 0 !important;
+    transform: none !important;
+    width: auto;
+    z-index: 1200;
+  }
+  .narrow-card .leaflet-popup-tip-container { display: none; }
+  .narrow-card .leaflet-popup-content-wrapper { width: auto; }
+  .narrow-card .leaflet-popup-content { width: auto !important; max-height: 150px; }
+  .map-menu-modes { padding: 6px 12px; }
   .map-menu-mode { padding: 4px 8px; }
-  .map-menu-floor { padding: 6px 14px; }
-  .map-menu-item { padding: 6px 14px; }
-  /* 地図の高さは、固定の縦横比ではなく、埋め込み枠(画面)の高さに合わせて、下から出る一覧の分も確保する */
-  #map { aspect-ratio: auto; height: 100vh; height: 100dvh; min-height: 320px; }
+  .map-menu-floor { padding: 7px 12px; }
+  .map-menu-item { padding: 8px 12px; }
 }
