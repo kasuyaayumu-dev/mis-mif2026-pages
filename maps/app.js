@@ -102,11 +102,16 @@ function fitToWholeMap() {
   // 競合して表示が乱れることがあるため、getBoundsZoom()で目標ズームだけ算出し、
   // 中心・ズームをsetView()で一度に確定させる(アニメーションなし)。
   const fitZoom = map.getBoundsZoom(bounds, false, [10, 10]);
+  // setMinZoom/setMaxZoomは、いまのズームが範囲外だとアニメーション付きでズームを直す。その途中で
+  // 下のsetView()を呼ぶと、アニメーション終了時に古いズーム・中心へ戻されてしまう(全体表示にならない)。
+  // そのため、先にアニメーションなしでfitZoomへ揃えてから範囲を絞る。
+  map.stop();
+  map.setView(map.getCenter(), fitZoom, { animate: false });
   map.setMinZoom(fitZoom);
   map.setMaxZoom(fitZoom + 2);
 
-  // 狭い画面では、地図の全体が一目で見えるよう、ズームインせず全体表示から始める
-  initialZoom = fitZoom + (isNarrowScreen() ? 0 : 1);
+  // 狭い画面では、全体表示から半段階だけズームインして始める(全体のままだとピンが重なり読めないため)
+  initialZoom = fitZoom + (isNarrowScreen() ? 0.5 : 1);
   initialCenter = bounds.getCenter();
   if (cfg.viewOrigin) {
     // 画像上の viewOrigin を地図の左上隅に置く中心を求める(CRS.Simpleの縮尺は 2^zoom)
@@ -197,6 +202,16 @@ if (document.readyState === 'complete') {
   runInitialFit();
 } else {
   window.addEventListener('load', runInitialFit);
+}
+
+// 埋め込み直後はiframeや地図枠の大きさが後から確定することがあり、その前に計算した表示位置が
+// ずれたままになることがある。利用者が操作するまでは、枠の大きさが変わるたびに全体表示へ合わせ直す。
+let userInteracted = false;
+['pointerdown', 'wheel', 'keydown', 'touchstart'].forEach(function (type) {
+  map.getContainer().addEventListener(type, function () { userInteracted = true; }, { passive: true, once: true });
+});
+if (typeof ResizeObserver === 'function') {
+  new ResizeObserver(function () { if (!userInteracted) fitToWholeMap(); }).observe(map.getContainer());
 }
 window.addEventListener('resize', function () { map.invalidateSize(); });
 

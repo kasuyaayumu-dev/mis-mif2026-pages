@@ -6,13 +6,9 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
 }
 
-/* 固定pxではなく比率で高さを決める。フロア画像の縦横比(だいたい3:2)に合わせておくことで、
-   STUDIO埋め込みの狭い幅でも画像が変な位置に小さく表示されず、幅いっぱいに収まる。 */
-/* 企画一覧(.map-menu)は#app基準で置く。横長の画面では地図に重ねて左から出し、縦長では地図の下に並べる */
-#app { position: relative; }
-#map { aspect-ratio: 3 / 2; width: 100%; min-height: 320px; background: transparent; }
-/* 単体で開いたとき(app.jsが.standaloneを付ける)は、画面の高さいっぱいに収める */
-.standalone #map { aspect-ratio: auto; height: 100vh; height: 100dvh; min-height: 0; }
+/* 地図は埋め込み枠(iframe)の高さいっぱいに表示する。枠の高さが固定でも、地図の下が切れない。
+   縦長のスマホでは、下の@mediaで地図の比率を固定し、残りを一覧にする */
+#map { width: 100%; height: 100vh; height: 100dvh; min-height: 320px; background: transparent; }
 .leaflet-container { background: transparent !important; }
 
 .leaflet-popup-bottom { transform: translateY(100%); }
