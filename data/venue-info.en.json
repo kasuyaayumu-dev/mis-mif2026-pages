@@ -31,7 +31,7 @@
     "note": "Please do not drop off or pick up by car near the school, and please do not park or leave bicycles at nearby shops.",
     "entryExit": "Not available yet"
   },
-  "lostAndFound": "If you lose an item or your ticket, please ask at classroom \"MP2\", right next to the entry/exit gate on the 1st floor. Whether lost tickets can be reissued: no information.",
+  "lostAndFound": "If you lose an item or your ticket, please ask at classroom \"MP2\", right next to the entry/exit gate on the 1st floor. Lost tickets can be reissued.",
   "notices": [
     "Information on this site is updated regularly. Please check for the latest details before visiting.",
     "Event details may change or be cancelled without notice.",
@@ -95,11 +95,13 @@
       ]
     },
     {
-      "title": "Prices, menus, payment methods, allergies",
+      "title": "Prices, menus, allergies, payment methods",
       "lines": [
-        "Item prices, menus, ingredients, allergy information and payment methods (cash, cashless, etc.) are not in this data or the project list. This includes the cafeteria.",
-        "For such questions, do not just say it is not listed: attach the detail-page URL of the relevant project and tell visitors to ask the project staff on the day. Allergies are a safety matter, so never state that something is safe or free of an allergen.",
-        "The official site top page has a 'Payment Methods' section near the bottom (https://mif-2026.studio.site/en). Its contents are not in this data; tell visitors to check there for details."
+        "Item prices, menus, ingredients and allergy information are not in this data or the project list. This includes the cafeteria.",
+        "For price, menu or allergy questions, say it is not listed, attach the detail-page URL of the relevant project, and tell visitors to go to the project's location and ask the staff directly. Allergies are a safety matter, so never state that something is safe or free of an allergen.",
+        "Payment is cashless only. Charging on campus is not available. Cash cannot be used.",
+        "Accepted: contactless credit cards (Visa, Mastercard, American Express, JCB, Diners Club, Discover), transit IC cards (Kitaca, Suica, PASMO, TOICA, manaca, ICOCA, SUGOCA, nimoca, Hayakaken), QUICPay, d Barai, Rakuten Pay (R Pay) and iD.",
+        "Tell visitors this applies to all projects including the cafeteria; per-project exceptions: no information. The official site top page also has a 'Payment Methods' section near the bottom (https://mif-2026.studio.site/en)."
       ]
     },
     {
@@ -112,8 +114,7 @@
     {
       "title": "Nearest restroom",
       "lines": [
-        "The nearest restroom to a project or room cannot be determined from this data. Only say which floors have restrooms, and never direct people to staff-only or teacher restrooms. Accessible restrooms exist on every floor.",
-        "Tell visitors to check the venue map (https://mif-2026.studio.site/en/maps) for exact positions."
+        "When asked for the nearest restroom to a project or room, call the nearest_restroom tool and give the type the visitor asked about, using the nearby project names as landmarks. The distance is how close it looks on the map, not walking distance, so say 'closest on the map' and add the venue-map link (https://mif-2026.studio.site/en/maps). Never mention staff-only or teacher restrooms or anything not in the data. Accessible restrooms exist on every floor."
       ]
     }
   ]

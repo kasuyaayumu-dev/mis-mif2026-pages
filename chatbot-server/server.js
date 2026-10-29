@@ -434,8 +434,8 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       '   English; do not mix in Japanese words (write "project", not 企画).',
       '13. Questions about messages from the principals or the chairperson: summarize the relevant message in 2-3',
       '   sentences from "Messages" in the venue data and give the concept-page URL.',
-      '14. Taste ("what is delicious?"), recommendations, prices, menus, allergies and payment methods are not in the',
-      '   data. Say so in one sentence (never say or imply something is recommended or delicious), then call',
+      '14. Taste ("what is delicious?"), recommendations, prices, menus and allergies are not in the',
+      '   data (payment methods are in the venue data). Say so in one sentence (never say or imply something is recommended or delicious), then call',
       '   suggest_projects with the food projects and tell visitors to see each detail page and ask staff. Follow the',
       '   venue-data sections on prices/payment/allergies and on entry tickets, and answer entry/lost-item/info-desk',
       '   questions from the venue data. Questions like "where do I get a numbered ticket" with no project named:',
@@ -547,7 +547,7 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '   混ぜず、すべて英語で答えます。',
     '13. 校長先生や実行委員長のメッセージを聞かれたら、来場案内データの「メッセージ」から該当する内容を',
     '   2〜3文で要約し、コンセプトページのURLを添えてください。',
-    '14. 味(美味しい)、おすすめ、価格、メニュー、アレルギー、決済方法は掲載がありません。「美味しい」「おすすめ」と',
+    '14. 味(美味しい)、おすすめ、価格、メニュー、アレルギーは掲載がありません(決済方法は来場案内データにあります)。「美味しい」「おすすめ」と',
     '   言ったり匂わせたりせず、その旨を一文で伝えたうえで、飲食企画を suggest_projects で一覧にし、詳細ページや',
     '   当日のスタッフに確認するよう案内してください。入場方法・落とし物・案内所の質問は来場案内データの内容で答え、',
     '   価格・決済・アレルギー・公演場所・最寄りトイレは、来場案内データの該当項目の指示に従ってください。',
@@ -592,6 +592,68 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '## 企画リスト',
     ...lines
   ].filter(Boolean).join('\n');
+}
+
+// 地図画像(image/map/floor*.png)に描かれたトイレのアイコン位置(画像上のピクセル座標。左上が原点)。
+// 画像の色(赤=女子・青=男子・緑=多目的)から取り出した。ピンの latlng は x=lng, y=高さ-lat で同じ座標系になる。
+const TOILET_SPOTS = {
+  '1階': { height: 1752, spots: [
+    { type: 'male', x: 824, y: 788 }, { type: 'female', x: 1803, y: 724 },
+    { type: 'male', x: 674, y: 976 }, { type: 'female', x: 791, y: 1020 }, { type: 'accessible', x: 732, y: 1018 }
+  ] },
+  '2階': { height: 1077, spots: [
+    { type: 'female', x: 226, y: 258 }, { type: 'male', x: 1267, y: 277 },
+    { type: 'accessible', x: 155, y: 289 }, { type: 'female', x: 915, y: 901 }
+  ] },
+  '3階': { height: 1384, spots: [
+    { type: 'female', x: 227, y: 598 }, { type: 'male', x: 1269, y: 600 }, { type: 'accessible', x: 150, y: 617 }
+  ] }
+};
+const TOILET_TYPE_LABELS = {
+  ja: { male: '男子トイレ', female: '女子トイレ', accessible: '多目的トイレ' },
+  en: { male: "men's restroom", female: "women's restroom", accessible: 'accessible restroom' }
+};
+
+function pinPoint(pin, height) {
+  return { x: pin.latlng[1], y: height - pin.latlng[0] };
+}
+
+function pinLabel(pin) {
+  const names = Array.isArray(pin.groupName) ? pin.groupName : [pin.groupName];
+  return names.filter(Boolean).join(' / ');
+}
+
+// 企画のピンと同じ階にあるトイレのうち、種類ごとに地図上で最も近いものと、その近くにある企画名を返す。
+// 距離は地図画像上の見た目の近さで、実際の歩く距離ではない。
+function nearestRestroom(groupsData, mapPins, name, lang) {
+  const match = findItemByName(groupsData.items || [], name);
+  if (!match) return { error: 'project_not_found' };
+  const pin = (mapPins || []).find(pn => {
+    const icons = Array.isArray(pn.iconUrl) ? pn.iconUrl : [pn.iconUrl];
+    return icons.some(u => u && u.split('/').pop() === match.icon);
+  });
+  const floorData = pin && TOILET_SPOTS[pin.floor];
+  if (!floorData) return { error: 'no_map_position', project: match.name };
+
+  const origin = pinPoint(pin, floorData.height);
+  const sameFloorPins = mapPins.filter(pn => pn.floor === pin.floor && pn !== pin);
+  const labels = TOILET_TYPE_LABELS[lang] || TOILET_TYPE_LABELS.ja;
+  const result = { project: match.name, floor: pin.floor, restrooms: [] };
+  for (const type of ['male', 'female', 'accessible']) {
+    const candidates = floorData.spots.filter(sp => sp.type === type)
+      .map(sp => ({ sp, d: Math.hypot(sp.x - origin.x, sp.y - origin.y) }))
+      .sort((a, b) => a.d - b.d);
+    if (candidates.length === 0) continue;
+    const best = candidates[0];
+    const nearby = sameFloorPins
+      .map(pn => {
+        const pt = pinPoint(pn, floorData.height);
+        return { label: pinLabel(pn), d: Math.hypot(pt.x - best.sp.x, pt.y - best.sp.y) };
+      })
+      .sort((a, b) => a.d - b.d).slice(0, 2).map(n => n.label);
+    result.restrooms.push({ type: labels[type], distanceOnMap: Math.round(best.d), nearbyProjects: nearby });
+  }
+  return result;
 }
 
 // ---- ツール(Function Calling)定義 ----
@@ -640,6 +702,23 @@ const chatTools = [
           ticket: { type: 'boolean', description: '公演などで事前の整理券・チケットが必須と登録されている企画のみ(体験型企画の混雑用の整理券は含まない)' },
           keyword: { type: 'string', description: '企画名・団体名・説明に含まれる語(日本語表記で)' }
         }
+      }
+    }
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'nearest_restroom',
+      description:
+        '「〇〇にいるんだけど一番近いトイレは?」のように、特定の企画・教室の近くのトイレを聞かれた時に使う。' +
+        '企画のマップ上の位置から、同じ階の男子・女子・多目的トイレのうち地図上で最も近いものと、' +
+        'その近くにある企画名を返す。企画名が分からない時は使わず、階ごとのトイレ案内だけを答える。',
+      parameters: {
+        type: 'object',
+        properties: {
+          name: { type: 'string', description: '企画リストに書かれている表記そのままの企画名(一字一句コピー)' }
+        },
+        required: ['name']
       }
     }
   },
@@ -1005,6 +1084,8 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
           } else if (toolCall.function?.name === 'search_projects') {
             toolResult = searchProjects(groupsData, args);
             if (toolResult.items.length > 0) suggestions = toolResult.items;
+          } else if (toolCall.function?.name === 'nearest_restroom') {
+            toolResult = nearestRestroom(groupsData, mapPins, args.name, safeLang);
           } else if (toolCall.function?.name === 'search_timetable') {
             toolResult = searchTimetable(timetableData, groupsData, args);
             if (toolResult.items.length > 0) suggestions = toolResult.items;
