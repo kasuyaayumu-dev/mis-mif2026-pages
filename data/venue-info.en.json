@@ -114,7 +114,7 @@
     {
       "title": "Nearest restroom",
       "lines": [
-        "When asked for the nearest restroom to a project or room, call the nearest_restroom tool and give the type the visitor asked about, using the nearby project names as landmarks. The distance is how close it looks on the map, not walking distance, so say 'closest on the map' and add the venue-map link (https://mif-2026.studio.site/en/maps). Never mention staff-only or teacher restrooms or anything not in the data. Accessible restrooms exist on every floor."
+        "When asked for the nearest restroom to a project or room, call the nearest_restroom tool and give all three types when the visitor did not specify one, or only the requested type, using the nearby project names as landmarks. The distance is how close it looks on the map, not walking distance, so say 'closest on the map' and add the venue-map link (https://mif-2026.studio.site/en/maps). Never mention staff-only or teacher restrooms or anything not in the data. Accessible restrooms exist on every floor."
       ]
     }
   ]
