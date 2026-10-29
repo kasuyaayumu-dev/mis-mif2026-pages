@@ -23,7 +23,7 @@
     "nonEatableRestAreas": "Not available yet"
   },
   "restrooms": "1st floor: one men's and one women's restroom in the Hall, and one men's and one women's restroom in the Classroom Building. 2nd floor: men's and women's restrooms in the Classroom Building, plus one additional women's restroom in the Main Building. 3rd floor: men's and women's restrooms in the Classroom Building. Accessible (multipurpose) restrooms are available on every floor.",
-  "infoDesk": "Not available yet",
+  "infoDesk": "The student council's information desk is at the 1F entrance (map no. 22, same place as stroller safekeeping). Detail page: https://mif-2026.studio.site/en/detail/1-22",
   "nurseOffice": "Please direct anyone who is injured or feeling unwell to the nurse's office on the 1st floor. If it seems urgent, also alert a nearby teacher or staff member.",
   "access": {
     "nearestStation": "Youga Station",
@@ -31,7 +31,7 @@
     "note": "Please do not drop off or pick up by car near the school, and please do not park or leave bicycles at nearby shops.",
     "entryExit": "Not available yet"
   },
-  "lostAndFound": "Not available yet",
+  "lostAndFound": "If you lose an item or your ticket, please ask at classroom \"MP2\", right next to the entry/exit gate on the 1st floor. Whether lost tickets can be reissued: no information.",
   "notices": [
     "Information on this site is updated regularly. Please check for the latest details before visiting.",
     "Event details may change or be cancelled without notice.",
@@ -46,7 +46,8 @@
   ],
   "links": {
     "map": "https://mif-2026.studio.site/en/maps",
-    "timetable": "https://mif-2026.studio.site/en/timetable"
+    "timetable": "https://mif-2026.studio.site/en/timetable",
+    "concept": "https://mif-2026.studio.site/en/concept"
   },
   "ticketRules": [
     "This is separate from the performance tickets. For performance projects, give the ticket info on each project's own page.",
@@ -67,5 +68,53 @@
     "MSTC is a group of students who do research activities year-round. They present at the MSTC Research Presentation and the MSTC Representatives' Presentation.",
     "ZERO to ONE is the name for the research-presentation projects with map numbers Z1 and Z2. Z1 is the MSTC Research Presentation and Z2 is the Basic Seminar and Basic Research Presentation.",
     "J1 to J3 are junior high years 1 to 3, and S1 to S3 are high school years 1 to 3. A trailing letter is the class."
+  ],
+  "messages": [
+    {
+      "title": "Junior High School Principal's Message",
+      "text": "\"Every single student is wonderful!\" These are words that many visitors come up to me and share during every MIF. While I am delighted by how many people say this, what surprises me even more each time is the remarkably wide range of ages represented among them. Creating a school festival that can bring smiles to everyone, from young children to senior citizens, may sound simple, but it is actually quite difficult. Perhaps it is something that can only be achieved by MITA students, who embrace diversity and welcome people from all walks of life. \"Eclipse\" is, in a sense, a show of light and shadow. The many successes and failures our students have experienced on their journey toward this event will surely give rise to, and communicate, something that touches the hearts and stirs the imagination of our many visitors. We sincerely hope that you will join us and enjoy the \"show of light and shadow\" unfolding throughout every corner of our school. As we prepare for the 2026 MIF, we have received tremendous support from the PTA, the Chigusa Association, and the Supporters' Association from the planning stages onward. We would like to express our heartfelt gratitude to everyone involved."
+    },
+    {
+      "title": "Senior High School Principal's Message",
+      "text": "The theme \"Eclipse\" brings to mind Jun'ichiro Tanizaki, who found charm and beauty precisely within the shadows. By turning our thoughts to the unseen and the hidden, our imagination expands vastly, giving rise to new forms of beauty and value that have never existed before. I look forward to seeing each of you use your creative freedom to generate new and beautiful scenery found nowhere else; at the same time, I hope that MIF, including the entire process leading up to this moment, serves as \"a wonderful place filled with smiles\", and a space where we can truly experience and reflect upon our \"daily lives\" and \"reality.\" To the members of the Chigusa-kai, the Supporters' Association, and the PTA: thank you for your continued support. We hope that all our visitors will enjoy seeing the energetic students of MITA International School of Science and sharing a delightful time of intergenerational interaction."
+    },
+    {
+      "title": "MIF Executive Committee Chairperson's Message",
+      "text": "This year's MIF theme is \"Eclipse\". Just as a solar or lunar eclipse occurs when celestial bodies align for a single extraordinary moment, MIF can only come to life when many people come together toward one shared goal. The MIF Committee, participating students, teachers, parents, and many others have spent months preparing for these two special days. We hope that everyone who visits will experience the energy of this moment and feel the passion that each student has put into making MIF possible. Please enjoy our one and only \"Eclipse.\""
+    }
+  ],
+  "sections": [
+    {
+      "title": "Admission & entry tickets (admission tickets; separate from project crowd-control tickets)",
+      "lines": [
+        "MIF is a fully reservation-based event. People without a reservation or ticket cannot enter.",
+        "Elementary school students considering junior high entrance exams and their guardians must reserve in advance. Guardians alone cannot enter. Reservation details: https://www.mita-is.ed.jp/news/2623/",
+        "General visitors need an invitation ticket.",
+        "The Pop Dance Club performance requires a separate viewing ticket. Prospective students should apply for the set that includes the viewing ticket when reserving entry.",
+        "The exact location of the entry/exit gates and the on-the-day reception procedure: no information."
+      ]
+    },
+    {
+      "title": "Prices, menus, payment methods, allergies",
+      "lines": [
+        "Item prices, menus, ingredients, allergy information and payment methods (cash, cashless, etc.) are not in this data or the project list. This includes the cafeteria.",
+        "For such questions, do not just say it is not listed: attach the detail-page URL of the relevant project and tell visitors to ask the project staff on the day. Allergies are a safety matter, so never state that something is safe or free of an allergen.",
+        "The official site top page has a 'Payment Methods' section near the bottom (https://mif-2026.studio.site/en). Its contents are not in this data; tell visitors to check there for details."
+      ]
+    },
+    {
+      "title": "Performance / stage locations",
+      "lines": [
+        "A performance project's location follows the floor, building and map number on its list line. Performances in the Hall building on 1F take place in the main hall mentioned in their descriptions.",
+        "When asked where a stage or performance is, always attach the project's detail-page URL and the venue-map link, not just the place name."
+      ]
+    },
+    {
+      "title": "Nearest restroom",
+      "lines": [
+        "The nearest restroom to a project or room cannot be determined from this data. Only say which floors have restrooms, and never direct people to staff-only or teacher restrooms. Accessible restrooms exist on every floor.",
+        "Tell visitors to check the venue map (https://mif-2026.studio.site/en/maps) for exact positions."
+      ]
+    }
   ]
 }

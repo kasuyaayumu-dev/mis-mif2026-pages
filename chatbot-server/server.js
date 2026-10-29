@@ -190,6 +190,8 @@ const VENUE_SECTION_LABELS = {
     glossaryHeading: '### 用語',
     linksHeading: '### 個別ページのリンク',
     mapLabel: '会場マップ(教室配置・企画の場所)',
+    conceptLabel: 'コンセプト・校長/実行委員長のメッセージのページ',
+    messagesHeading: '### 校長・実行委員長のメッセージ(聞かれたら要点を短くまとめ、全文は下のコンセプトページのURLを案内する)',
     timetableLabel: 'タイムテーブル',
     noticesHeading: '### 注意事項(質問に関係するものだけ答える。毎回全部は不要)'
   },
@@ -217,6 +219,8 @@ const VENUE_SECTION_LABELS = {
     glossaryHeading: '### Glossary',
     linksHeading: '### Page links',
     mapLabel: 'Venue map (room layout / project locations)',
+    conceptLabel: 'Concept page (principals\' and chairperson\'s messages)',
+    messagesHeading: '### Messages from the principals and chairperson (summarize briefly when asked and give the concept page URL below for the full text)',
     timetableLabel: 'Timetable',
     noticesHeading: '### Notices (answer only what is relevant to the question, not the full list every time)'
   }
@@ -259,6 +263,13 @@ function renderVenueSection(venue, lang) {
   }
   if (venue.links) {
     lines.push(L.linksHeading, `- ${L.mapLabel}: ${venue.links.map}`, `- ${L.timetableLabel}: ${venue.links.timetable}`);
+    if (venue.links.concept) lines.push(`- ${L.conceptLabel}: ${venue.links.concept}`);
+  }
+  if (Array.isArray(venue.messages) && venue.messages.length > 0) {
+    lines.push(L.messagesHeading, ...venue.messages.map(m => `- ${m.title}: ${m.text}`));
+  }
+  if (Array.isArray(venue.sections)) {
+    for (const sec of venue.sections) lines.push(`### ${sec.title}`, ...sec.lines.map(l => `- ${l}`));
   }
   if (venue.officialSiteUrl) lines.push(L.officialSiteHeading, `- ${venue.officialSiteUrl}`);
   if (Array.isArray(venue.notices) && venue.notices.length > 0) {
@@ -419,6 +430,16 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       '11. The Career Presentation has two separate detail pages (Junior High Y1 and High School Y1).',
       '   Always give both detail-page URLs when mentioning it.',
       '9. Explain terms only as far as the "Glossary" in the venue data does; do not guess meanings or locations.',
+      '12. Always reply in the language of the visitor\'s latest message. Reply fully in English when they write in',
+      '   English; do not mix in Japanese words (write "project", not 企画).',
+      '13. Questions about messages from the principals or the chairperson: summarize the relevant message in 2-3',
+      '   sentences from "Messages" in the venue data and give the concept-page URL.',
+      '14. Taste ("what is delicious?"), recommendations, prices, menus, allergies and payment methods are not in the',
+      '   data. Say so in one sentence (never say or imply something is recommended or delicious), then call',
+      '   suggest_projects with the food projects and tell visitors to see each detail page and ask staff. Follow the',
+      '   venue-data sections on prices/payment/allergies and on entry tickets, and answer entry/lost-item/info-desk',
+      '   questions from the venue data. Questions like "where do I get a numbered ticket" with no project named:',
+      '   explain the two kinds (rule 6) and where each is handed out, and ask which project only if needed.',
       '',
       '## Attribute-based questions',
       'For questions filtering by floor, grade, format (exhibit/experience/sales/performance/presentation),',
@@ -522,6 +543,15 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '   すべて伝えてください。',
     '11. キャリアプレゼンテーションは中学1年と高校1年が別ページ(詳細ページが2つ)です。案内する時は',
     '   両方の詳細ページのURLを必ず出してください。',
+    '12. 返答は、来場者の最新の発言と同じ言語で書いてください。英語で聞かれたら、日本語の語(企画など)を',
+    '   混ぜず、すべて英語で答えます。',
+    '13. 校長先生や実行委員長のメッセージを聞かれたら、来場案内データの「メッセージ」から該当する内容を',
+    '   2〜3文で要約し、コンセプトページのURLを添えてください。',
+    '14. 味(美味しい)、おすすめ、価格、メニュー、アレルギー、決済方法は掲載がありません。「美味しい」「おすすめ」と',
+    '   言ったり匂わせたりせず、その旨を一文で伝えたうえで、飲食企画を suggest_projects で一覧にし、詳細ページや',
+    '   当日のスタッフに確認するよう案内してください。入場方法・落とし物・案内所の質問は来場案内データの内容で答え、',
+    '   価格・決済・アレルギー・公演場所・最寄りトイレは、来場案内データの該当項目の指示に従ってください。',
+    '   企画を指定しない「整理券はどこでもらえる?」には、6の2種類を説明し、それぞれの配布場所を答え、必要な時だけ企画名を尋ねます。',
     '9. 企画カードのことは「下に表示される一覧」と呼んでください(英語のcardsや、似た語のカルテは使わない)。用語の意味は来場案内データの「用語」に',
     '   書かれた範囲で答え、書かれていない用語の意味や場所を推測で補わないでください。',
     '',
@@ -897,6 +927,15 @@ app.get('/health', (req, res) => {
   res.json({ ok: true });
 });
 
+// 画面の言語設定よりも、実際に入力された文章の言語を優先する(英語で聞いたのに日本語で返る問題への対策)。
+// 日本語の文字を含めば日本語、英字が3文字以上あり日本語の文字がなければ英語、判断できなければ画面の言語設定に従う。
+const JAPANESE_CHAR_RE = /[\u3040-\u30ff\u3400-\u9fff]/;
+function detectReplyLang(message, uiLang) {
+  if (JAPANESE_CHAR_RE.test(message)) return 'ja';
+  if ((message.match(/[A-Za-z]/g) || []).length >= 3) return 'en';
+  return uiLang === 'en' ? 'en' : 'ja';
+}
+
 app.post('/api/chat', chatLimiter, async (req, res) => {
   try {
     const { message, lang, history } = req.body || {};
@@ -908,7 +947,7 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
       return res.status(400).json({ error: 'メッセージが長すぎます(1000文字以内)。' });
     }
 
-    const safeLang = lang === 'en' ? 'en' : 'ja';
+    const safeLang = detectReplyLang(message, lang);
     const safeHistory = Array.isArray(history) ? history.slice(-10) : [];
 
     const [groupsData, venueData, timetableData, mapPins] = await Promise.all([
