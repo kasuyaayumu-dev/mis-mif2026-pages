@@ -429,6 +429,10 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
       '   location and the start time.',
       '11. The Career Presentation has two separate detail pages (Junior High Y1 and High School Y1).',
       '   Always give both detail-page URLs when mentioning it.',
+      '15. For budget questions ("walk around eating with 3000 yen", "what can I buy for 500 yen?") call plan_food_budget and',
+      '   present the returned plans and totals as bullet lists (item, price, project, place, total). Never add up',
+      '   prices or pick items yourself. For groups, pass the per-person budget. If the budget is too small, give the',
+      '   cheapest price.',
       '9. Explain terms only as far as the "Glossary" in the venue data does; do not guess meanings or locations.',
       '12. Always reply in the language of the visitor\'s latest message. Reply fully in English when they write in',
       '   English; do not mix in Japanese words (write "project", not 企画).',
@@ -552,6 +556,9 @@ function buildSystemPrompt(groupsData, venueData, scheduleIndex, floorIndex, lan
     '   当日のスタッフに確認するよう案内してください。入場方法・落とし物・案内所の質問は来場案内データの内容で答え、',
     '   価格・決済・アレルギー・公演場所・最寄りトイレは、来場案内データの該当項目の指示に従ってください。',
     '   企画を指定しない「整理券はどこでもらえる?」には、6の2種類を説明し、それぞれの配布場所を答え、必要な時だけ企画名を尋ねます。',
+    '15. 予算を示した食べ歩きや「〇〇円で何が買える?」の質問は、plan_food_budget ツールを使い、返ってきた案と合計金額を',
+    '   そのまま箇条書きで示してください(品名・価格・販売企画・場所と合計)。自分で足し算や品選びをしないこと。',
+    '   複数人なら1人あたりの予算で呼び出します。予算が足りない時は最安の価格を伝えます。',
     '9. 企画カードのことは「下に表示される一覧」と呼んでください(英語のcardsや、似た語のカルテは使わない)。用語の意味は来場案内データの「用語」に',
     '   書かれた範囲で答え、書かれていない用語の意味や場所を推測で補わないでください。',
     '',
@@ -656,6 +663,85 @@ function nearestRestroom(groupsData, mapPins, name, lang) {
   return result;
 }
 
+// 食べ歩きの予算計算用の価格表(data/food-prices.json)
+const foodPricesCache = { data: null, fetchedAt: 0 };
+async function fetchFoodPrices() {
+  const now = Date.now();
+  if (foodPricesCache.data && now - foodPricesCache.fetchedAt < CACHE_TTL_MS) {
+    return foodPricesCache.data;
+  }
+  const json = await fetchJson(`${DATA_BASE_URL}/food-prices.json`, '食品価格データ');
+  foodPricesCache.data = json;
+  foodPricesCache.fetchedAt = now;
+  return json;
+}
+
+// 同じ入力なら同じ結果になる擬似乱数(プランを毎回ぶらさずに複数案へ散らすため)
+function seededRandom(seed) {
+  let t = seed >>> 0;
+  return () => {
+    t = (t + 0x6d2b79f5) >>> 0;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r = (r + Math.imul(r ^ (r >>> 7), 61 | r)) ^ r;
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+const FOOD_KIND_ORDER = ['main', 'snack', 'sweet', 'drink'];
+const FOOD_KIND_LABELS = {
+  ja: { main: '食事', snack: '軽食', sweet: '甘いもの', drink: '飲み物' },
+  en: { main: 'meal', snack: 'snack', sweet: 'sweet', drink: 'drink' }
+};
+
+// 予算内に収まる食べ歩きプランを最大3案つくる。合計はここで計算するので、AIは足し算をしない。
+// 1案ごとに、食事・軽食・甘いもの・飲み物を1品ずつ目安に選び、残りの予算で買い足す。
+function planFoodBudget(foodData, args, lang) {
+  const budget = Math.floor(Number(args.budget) || 0);
+  const items = foodData?.items || [];
+  const prefix = lang === 'en' ? '/en/' : '/jp/';
+  const labels = FOOD_KIND_LABELS[lang] || FOOD_KIND_LABELS.ja;
+  const cheapest = Math.min(...items.map(it => it.price));
+  if (budget < cheapest) return { budget, plans: [], note: 'budget_too_small', cheapestPrice: cheapest };
+
+  const wanted = Array.isArray(args.kinds) && args.kinds.length > 0 ? new Set(args.kinds) : null;
+  const pool = items.filter(it => !wanted || wanted.has(it.kind));
+  const plans = [];
+  const seen = new Set();
+  for (let seed = 1; seed <= 12 && plans.length < 3; seed++) {
+    const rand = seededRandom(seed * 7919);
+    const chosen = [];
+    let total = 0;
+    const countByProject = new Map();
+    const canTake = it =>
+      !chosen.includes(it) && total + it.price <= budget && (countByProject.get(it.project) || 0) < 2;
+    const take = it => {
+      chosen.push(it);
+      total += it.price;
+      countByProject.set(it.project, (countByProject.get(it.project) || 0) + 1);
+    };
+    for (const kind of FOOD_KIND_ORDER) {
+      const options = pool.filter(it => it.kind === kind && canTake(it));
+      if (options.length > 0) take(options[Math.floor(rand() * options.length)]);
+    }
+    for (let guard = 0; guard < 20; guard++) {
+      const options = pool.filter(canTake);
+      if (options.length === 0) break;
+      take(options[Math.floor(rand() * options.length)]);
+    }
+    const key = chosen.map(it => `${it.project}:${it.name}`).sort().join('|');
+    if (chosen.length === 0 || seen.has(key)) continue;
+    seen.add(key);
+    plans.push({
+      total,
+      items: chosen.map(it => ({
+        name: it.name, price: it.price, type: labels[it.kind], project: it.project, place: it.place,
+        detailPage: `https://mif-2026.studio.site${prefix}detail/${it.slug}`
+      }))
+    });
+  }
+  return { budget, plans };
+}
+
 // ---- ツール(Function Calling)定義 ----
 // 「この企画についてもっと知りたい/ページに行きたい」と言われた時に、
 // 該当企画の詳細ページリンクを検索してモデルに返すためのツール。
@@ -702,6 +788,28 @@ const chatTools = [
           ticket: { type: 'boolean', description: '公演などで事前の整理券・チケットが必須と登録されている企画のみ(体験型企画の混雑用の整理券は含まない)' },
           keyword: { type: 'string', description: '企画名・団体名・説明に含まれる語(日本語表記で)' }
         }
+      }
+    }
+  },
+  {
+    type: 'function',
+    function: {
+      name: 'plan_food_budget',
+      description:
+        '「3000円以内で食べ歩きしたい」「500円で何が買える?」のように、予算に合わせて食べ物・飲み物を' +
+        '組み合わせる質問に使う。合計金額はこのツールが計算した値をそのまま使い、自分で足し算しない。' +
+        '複数人の場合は1人あたりの予算を渡す。',
+      parameters: {
+        type: 'object',
+        properties: {
+          budget: { type: 'integer', description: '1人あたりの予算(円)' },
+          kinds: {
+            type: 'array',
+            items: { type: 'string', enum: ['main', 'snack', 'sweet', 'drink'] },
+            description: '希望の種類。main=食事、snack=軽食、sweet=甘いもの、drink=飲み物。指定がなければ省略'
+          }
+        },
+        required: ['budget']
       }
     }
   },
@@ -1084,6 +1192,11 @@ app.post('/api/chat', chatLimiter, async (req, res) => {
           } else if (toolCall.function?.name === 'search_projects') {
             toolResult = searchProjects(groupsData, args);
             if (toolResult.items.length > 0) suggestions = toolResult.items;
+          } else if (toolCall.function?.name === 'plan_food_budget') {
+            toolResult = planFoodBudget(await fetchFoodPrices().catch(() => null), args, safeLang);
+            const names = [...new Set(toolResult.plans.flatMap(pl => pl.items.map(it => it.project)))];
+            const found = suggestProjects(groupsData, names);
+            if (found.items.length > 0) suggestions = found.items;
           } else if (toolCall.function?.name === 'nearest_restroom') {
             toolResult = nearestRestroom(groupsData, mapPins, args.name, safeLang);
           } else if (toolCall.function?.name === 'search_timetable') {
