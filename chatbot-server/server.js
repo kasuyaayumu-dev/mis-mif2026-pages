@@ -728,7 +728,7 @@ function planFoodBudget(foodData, args, lang) {
       if (options.length === 0) break;
       take(options[Math.floor(rand() * options.length)]);
     }
-    const key = chosen.map(it => `${it.project}:${it.name}`).sort().join('|');
+    const key = chosen.map(it => `${it.project}:${it.name}`).sort((x, y) => x.localeCompare(y)).join('|');
     if (chosen.length === 0 || seen.has(key)) continue;
     seen.add(key);
     plans.push({
