@@ -412,11 +412,16 @@ const I18N = window.TT_I18N || {};
 
     function computeNowInfo(day) {
       const real = new Date();
-      let isToday = todayString(real) === day.date;
+      const today = todayString(real);
+      let isToday = today === day.date;
       let nowMin;
       if (debug && (!debug.day || debug.day === day.id)) {
         isToday = true;
         nowMin = toMinutes(debug.now);
+      } else if (today > day.date) {
+        // 開催日を過ぎている日は、1日の終わりまで進んだものとして全体をグレーにする
+        isToday = true;
+        nowMin = 24 * 60;
       } else {
         nowMin = real.getHours() * 60 + real.getMinutes();
       }
